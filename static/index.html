@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>خواندن برگه امتحان — Exam OCR</title>
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: Tahoma, "B Nazanin", "Segoe UI", Arial, sans-serif;
+      background: linear-gradient(160deg, #eef2ff 0%, #f8fafc 45%, #f0fdf4 100%);
+      color: #0f172a;
+      padding: 24px 16px 48px;
+    }
+
+    .wrap {
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 28px;
+    }
+
+    h1 {
+      margin: 0 0 8px;
+      font-size: 1.75rem;
+    }
+
+    .subtitle {
+      margin: 0;
+      color: #475569;
+      line-height: 1.7;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 18px;
+      box-shadow: 0 12px 40px rgba(15, 23, 42, 0.08);
+      padding: 28px;
+      margin-bottom: 20px;
+    }
+
+    .tips {
+      margin: 0 0 20px;
+      padding: 14px 16px;
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      color: #475569;
+      font-size: 0.92rem;
+      line-height: 1.8;
+    }
+
+    .dropzone {
+      border: 2px dashed #94a3b8;
+      border-radius: 14px;
+      padding: 28px 16px;
+      text-align: center;
+      background: #f8fafc;
+      transition: border-color 0.2s, background 0.2s;
+      cursor: pointer;
+    }
+
+    .dropzone.dragover {
+      border-color: #2563eb;
+      background: #eff6ff;
+    }
+
+    .dropzone p {
+      margin: 0 0 12px;
+      color: #334155;
+    }
+
+    .file-name {
+      margin-top: 10px;
+      font-size: 0.9rem;
+      color: #2563eb;
+      word-break: break-all;
+    }
+
+    .actions {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    button, .btn-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 16px;
+      border-radius: 12px;
+      font-size: 1rem;
+      font-weight: 700;
+      text-decoration: none;
+      cursor: pointer;
+      border: none;
+      transition: background 0.2s, opacity 0.2s;
+    }
+
+    #upload-btn {
+      grid-column: 1 / -1;
+      background: #2563eb;
+      color: #fff;
+    }
+
+    #upload-btn:hover:not(:disabled) { background: #1d4ed8; }
+
+    #camera-btn {
+      background: #fff;
+      color: #1e40af;
+      border: 1px solid #bfdbfe;
+    }
+
+    #file-btn {
+      background: #fff;
+      color: #334155;
+      border: 1px solid #cbd5e1;
+    }
+
+    button:disabled {
+      opacity: 0.65;
+      cursor: not-allowed;
+    }
+
+    input[type="file"] { display: none; }
+
+    .loading {
+      display: none;
+      text-align: center;
+      padding: 18px;
+      color: #475569;
+    }
+
+    .loading.visible { display: block; }
+
+    .spinner {
+      width: 36px;
+      height: 36px;
+      border: 3px solid #dbeafe;
+      border-top-color: #2563eb;
+      border-radius: 50%;
+      margin: 0 auto 12px;
+      animation: spin 0.8s linear infinite;
+    }
+
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    .result {
+      display: none;
+      padding: 18px;
+      border-radius: 14px;
+      line-height: 1.8;
+    }
+
+    .result.visible { display: block; }
+    .result.error { background: #fef2f2; border: 1px solid #fecaca; color: #991b1b; }
+    .result.success { background: #eff6ff; border: 1px solid #bfdbfe; color: #1e3a8a; }
+
+    .stats {
+      margin: 12px 0;
+      font-size: 0.95rem;
+    }
+
+    .download-link {
+      display: inline-block;
+      margin-top: 8px;
+      color: #1d4ed8;
+      font-weight: 700;
+    }
+
+    .text-preview {
+      margin-top: 16px;
+      padding: 16px;
+      background: #fff;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      max-height: 360px;
+      overflow: auto;
+      white-space: pre-wrap;
+      text-align: right;
+      direction: rtl;
+      color: #0f172a;
+      font-size: 1rem;
+      line-height: 2;
+    }
+
+    .text-preview.empty {
+      color: #94a3b8;
+      font-style: italic;
+    }
+
+    .copy-btn {
+      margin-top: 10px;
+      background: #0f766e;
+      color: #fff;
+      width: 100%;
+    }
+
+    @media (max-width: 520px) {
+      .actions { grid-template-columns: 1fr; }
+      #upload-btn { grid-column: auto; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <h1>خواندن برگه امتحان</h1>
+      <p class="subtitle">
+        عکس یا اسکن برگه آزمون فارسی را بارگذاری کنید؛
+        متن دست‌نویس و چاپی با دقت بالا استخراج و در فایل Word ذخیره می‌شود.
+      </p>
+    </header>
+
+    <main class="card">
+      <div class="tips">
+        برای بهترین نتیجه: نور کافی، بدون سایه، برگه صاف و تمام صفحه در کادر باشد.
+        فرمت‌های مجاز: JPG، PNG، TIFF، PDF
+      </div>
+
+      <form id="upload-form">
+        <div id="dropzone" class="dropzone" tabindex="0" role="button" aria-label="انتخاب فایل">
+          <p>فایل را اینجا رها کنید یا دکمه زیر را بزنید</p>
+          <div id="file-name" class="file-name"></div>
+        </div>
+
+        <input id="file-input" type="file" accept="image/*,.pdf,application/pdf" capture="environment" />
+
+        <div class="actions">
+          <button type="button" id="file-btn">انتخاب از گالری</button>
+          <button type="button" id="camera-btn">عکس با دوربین</button>
+          <button id="upload-btn" type="submit">شروع خواندن متن</button>
+        </div>
+      </form>
+
+      <div id="loading" class="loading">
+        <div class="spinner"></div>
+        <div>در حال خواندن برگه… ممکن است چند دقیقه طول بکشد.</div>
+      </div>
+
+      <div id="result" class="result"></div>
+    </main>
+  </div>
+
+  <script>
+    const form = document.getElementById("upload-form");
+    const fileInput = document.getElementById("file-input");
+    const uploadBtn = document.getElementById("upload-btn");
+    const fileBtn = document.getElementById("file-btn");
+    const cameraBtn = document.getElementById("camera-btn");
+    const dropzone = document.getElementById("dropzone");
+    const fileNameEl = document.getElementById("file-name");
+    const loading = document.getElementById("loading");
+    const result = document.getElementById("result");
+
+    let selectedFile = null;
+
+    function setFile(file) {
+      selectedFile = file || null;
+      fileNameEl.textContent = file ? file.name : "";
+    }
+
+    function showResult(html, type) {
+      result.className = "result visible " + type;
+      result.innerHTML = html;
+    }
+
+    fileBtn.addEventListener("click", () => {
+      fileInput.removeAttribute("capture");
+      fileInput.click();
+    });
+
+    cameraBtn.addEventListener("click", () => {
+      fileInput.setAttribute("capture", "environment");
+      fileInput.click();
+    });
+
+    dropzone.addEventListener("click", () => fileBtn.click());
+
+    dropzone.addEventListener("dragover", (e) => {
+      e.preventDefault();
+      dropzone.classList.add("dragover");
+    });
+
+    dropzone.addEventListener("dragleave", () => dropzone.classList.remove("dragover"));
+
+    dropzone.addEventListener("drop", (e) => {
+      e.preventDefault();
+      dropzone.classList.remove("dragover");
+      const file = e.dataTransfer.files[0];
+      if (file) setFile(file);
+    });
+
+    fileInput.addEventListener("change", () => {
+      if (fileInput.files[0]) setFile(fileInput.files[0]);
+    });
+
+    async function copyText(text) {
+      try {
+        await navigator.clipboard.writeText(text);
+        alert("متن در حافظه کپی شد.");
+      } catch {
+        alert("کپی خودکار ممکن نشد؛ متن را دستی انتخاب کنید.");
+      }
+    }
+
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault();
+
+      if (!selectedFile) {
+        showResult("لطفاً یک عکس یا PDF از برگه امتحان انتخاب کنید.", "error");
+        return;
+      }
+
+      const formData = new FormData();
+      formData.append("file", selectedFile);
+
+      uploadBtn.disabled = true;
+      loading.classList.add("visible");
+      result.className = "result";
+
+      try {
+        const response = await fetch("/upload", { method: "POST", body: formData });
+        const data = await response.json().catch(() => ({}));
+
+        if (!response.ok) {
+          let message = "خطا در پردازش فایل.";
+          if (typeof data.detail === "string") message = data.detail;
+          else if (Array.isArray(data.detail)) {
+            message = data.detail.map((item) => item.msg || JSON.stringify(item)).join(" ؛ ");
+          } else if (data.detail) message = String(data.detail);
+          showResult(message, "error");
+          return;
+        }
+
+        const downloadUrl = "/download/" + data.job_id;
+        const fullText = (data.full_text || "").trim();
+        const previewClass = fullText ? "text-preview" : "text-preview empty";
+        const previewBody = fullText || "متنی استخراج نشد؛ بخش‌های ناخوانا به‌صورت تصویر در Word قرار گرفته‌اند.";
+
+        showResult(
+          "<strong>خواندن برگه با موفقیت انجام شد.</strong>" +
+            '<div class="stats">' +
+            "بلوک‌های متنی: " + data.text_blocks + " از " + data.block_count + "<br />" +
+            "بخش‌های تصویری (جدول/ناخوانا): " + data.cropped_blocks +
+            "</div>" +
+            '<a class="download-link" href="' + downloadUrl + '">دانلود فایل Word</a>' +
+            '<div class="' + previewClass + '" id="extracted-text">' + escapeHtml(previewBody) + "</div>" +
+            (fullText
+              ? '<button type="button" class="copy-btn" id="copy-btn">کپی متن</button>'
+              : ""),
+          "success"
+        );
+
+        const copyBtn = document.getElementById("copy-btn");
+        if (copyBtn) copyBtn.addEventListener("click", () => copyText(fullText));
+      } catch {
+        showResult("ارتباط با سرور برقرار نشد. مطمئن شوید سرور در حال اجراست.", "error");
+      } finally {
+        uploadBtn.disabled = false;
+        loading.classList.remove("visible");
+      }
+    });
+
+    function escapeHtml(text) {
+      return text
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;");
+    }
+  </script>
+</body>
+</html>

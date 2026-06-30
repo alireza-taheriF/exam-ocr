@@ -1,0 +1,845 @@
+{"pdf": "CamScanner ۲۰۲۵-۰۶-۰۳ ۲۲.۳۲.pdf", "page": 1, "image_path": "dataset/raw_images/CamScanner_۲۰۲۵-۰۶-۰۳_۲۲_۳۲_p001.png", "width": 4543928, "status": "created"}
+{"pdf": "CamScanner ۲۰۲۵-۰۶-۰۳ ۲۲.۳۲.pdf", "page": 2, "image_path": "dataset/raw_images/CamScanner_۲۰۲۵-۰۶-۰۳_۲۲_۳۲_p002.png", "width": 4218651, "status": "created"}
+{"pdf": "CamScanner ۲۰۲۵-۰۶-۰۳ ۲۲.۳۲.pdf", "page": 3, "image_path": "dataset/raw_images/CamScanner_۲۰۲۵-۰۶-۰۳_۲۲_۳۲_p003.png", "width": 3175503, "status": "created"}
+{"pdf": "CamScanner ۲۰۲۵-۰۶-۰۳ ۲۲.۳۲.pdf", "page": 4, "image_path": "dataset/raw_images/CamScanner_۲۰۲۵-۰۶-۰۳_۲۲_۳۲_p004.png", "width": 3664934, "status": "created"}
+{"pdf": "CamScanner ۲۰۲۵-۰۶-۰۳ ۲۲.۳۲.pdf", "page": 5, "image_path": "dataset/raw_images/CamScanner_۲۰۲۵-۰۶-۰۳_۲۲_۳۲_p005.png", "width": 3691146, "status": "created"}
+{"pdf": "CamScanner ۲۰۲۵-۰۶-۰۳ ۲۲.۳۲.pdf", "page": 6, "image_path": "dataset/raw_images/CamScanner_۲۰۲۵-۰۶-۰۳_۲۲_۳۲_p006.png", "width": 4223440, "status": "created"}
+{"pdf": "CamScanner ۲۰۲۵-۰۶-۰۳ ۲۲.۳۲.pdf", "page": 7, "image_path": "dataset/raw_images/CamScanner_۲۰۲۵-۰۶-۰۳_۲۲_۳۲_p007.png", "width": 3088696, "status": "created"}
+{"pdf": "CamScanner ۲۰۲۵-۰۶-۰۳ ۲۲.۳۲.pdf", "page": 8, "image_path": "dataset/raw_images/CamScanner_۲۰۲۵-۰۶-۰۳_۲۲_۳۲_p008.png", "width": 4041738, "status": "created"}
+{"pdf": "CamScanner ۲۰۲۵-۰۶-۰۳ ۲۲.۳۲.pdf", "page": 9, "image_path": "dataset/raw_images/CamScanner_۲۰۲۵-۰۶-۰۳_۲۲_۳۲_p009.png", "width": 3342438, "status": "created"}
+{"pdf": "CamScanner ۲۰۲۵-۰۶-۰۳ ۲۲.۳۲.pdf", "page": 10, "image_path": "dataset/raw_images/CamScanner_۲۰۲۵-۰۶-۰۳_۲۲_۳۲_p010.png", "width": 3983105, "status": "created"}
+{"pdf": "CamScanner ۲۰۲۵-۰۶-۰۳ ۲۲.۳۲.pdf", "page": 11, "image_path": "dataset/raw_images/CamScanner_۲۰۲۵-۰۶-۰۳_۲۲_۳۲_p011.png", "width": 2842407, "status": "created"}
+{"pdf": "Summary of Yule.pdf", "page": 1, "image_path": "dataset/raw_images/Summary_of_Yule_p001.png", "width": 4083008, "status": "created"}
+{"pdf": "Summary of Yule.pdf", "page": 2, "image_path": "dataset/raw_images/Summary_of_Yule_p002.png", "width": 4783837, "status": "created"}
+{"pdf": "Summary of Yule.pdf", "page": 3, "image_path": "dataset/raw_images/Summary_of_Yule_p003.png", "width": 3426501, "status": "created"}
+{"pdf": "Summary of Yule.pdf", "page": 4, "image_path": "dataset/raw_images/Summary_of_Yule_p004.png", "width": 4971589, "status": "created"}
+{"pdf": "Summary of Yule.pdf", "page": 5, "image_path": "dataset/raw_images/Summary_of_Yule_p005.png", "width": 4433632, "status": "created"}
+{"pdf": "Summary of Yule.pdf", "page": 6, "image_path": "dataset/raw_images/Summary_of_Yule_p006.png", "width": 5107455, "status": "created"}
+{"pdf": "Summary of Yule.pdf", "page": 7, "image_path": "dataset/raw_images/Summary_of_Yule_p007.png", "width": 4033160, "status": "created"}
+{"pdf": "Summary of Yule.pdf", "page": 8, "image_path": "dataset/raw_images/Summary_of_Yule_p008.png", "width": 4990182, "status": "created"}
+{"pdf": "Summary of Yule.pdf", "page": 9, "image_path": "dataset/raw_images/Summary_of_Yule_p009.png", "width": 3598617, "status": "created"}
+{"pdf": "Summary of Yule.pdf", "page": 10, "image_path": "dataset/raw_images/Summary_of_Yule_p010.png", "width": 4505245, "status": "created"}
+{"pdf": "Summary of Yule.pdf", "page": 11, "image_path": "dataset/raw_images/Summary_of_Yule_p011.png", "width": 4475766, "status": "created"}
+{"pdf": "Summary of Yule.pdf", "page": 12, "image_path": "dataset/raw_images/Summary_of_Yule_p012.png", "width": 5335242, "status": "created"}
+{"pdf": "Summary of Yule.pdf", "page": 13, "image_path": "dataset/raw_images/Summary_of_Yule_p013.png", "width": 5316910, "status": "created"}
+{"pdf": "Summary of Yule.pdf", "page": 14, "image_path": "dataset/raw_images/Summary_of_Yule_p014.png", "width": 4883482, "status": "created"}
+{"pdf": "Summary of Yule.pdf", "page": 15, "image_path": "dataset/raw_images/Summary_of_Yule_p015.png", "width": 4736763, "status": "created"}
+{"pdf": "Summary of Yule.pdf", "page": 16, "image_path": "dataset/raw_images/Summary_of_Yule_p016.png", "width": 3695578, "status": "created"}
+{"pdf": "Summary of Yule.pdf", "page": 17, "image_path": "dataset/raw_images/Summary_of_Yule_p017.png", "width": 4839689, "status": "created"}
+{"pdf": "Summary of Yule.pdf", "page": 18, "image_path": "dataset/raw_images/Summary_of_Yule_p018.png", "width": 5502570, "status": "created"}
+{"pdf": "Summary of Yule.pdf", "page": 19, "image_path": "dataset/raw_images/Summary_of_Yule_p019.png", "width": 4684834, "status": "created"}
+{"pdf": "Summary of Yule.pdf", "page": 20, "image_path": "dataset/raw_images/Summary_of_Yule_p020.png", "width": 4862079, "status": "created"}
+{"pdf": "Summary of Yule.pdf", "page": 21, "image_path": "dataset/raw_images/Summary_of_Yule_p021.png", "width": 4976433, "status": "created"}
+{"pdf": "Summary of Yule.pdf", "page": 22, "image_path": "dataset/raw_images/Summary_of_Yule_p022.png", "width": 4581652, "status": "created"}
+{"pdf": "Summary of Yule.pdf", "page": 23, "image_path": "dataset/raw_images/Summary_of_Yule_p023.png", "width": 4338357, "status": "created"}
+{"pdf": "Summary of Yule.pdf", "page": 24, "image_path": "dataset/raw_images/Summary_of_Yule_p024.png", "width": 4689909, "status": "created"}
+{"pdf": "Summary of Yule.pdf", "page": 25, "image_path": "dataset/raw_images/Summary_of_Yule_p025.png", "width": 4844846, "status": "created"}
+{"pdf": "Summary of Yule.pdf", "page": 26, "image_path": "dataset/raw_images/Summary_of_Yule_p026.png", "width": 3614606, "status": "created"}
+{"pdf": "Summary of Yule.pdf", "page": 27, "image_path": "dataset/raw_images/Summary_of_Yule_p027.png", "width": 4390369, "status": "created"}
+{"pdf": "Summary of Yule.pdf", "page": 28, "image_path": "dataset/raw_images/Summary_of_Yule_p028.png", "width": 4828311, "status": "created"}
+{"pdf": "Summary of Yule.pdf", "page": 29, "image_path": "dataset/raw_images/Summary_of_Yule_p029.png", "width": 5073251, "status": "created"}
+{"pdf": "Summary of Yule.pdf", "page": 30, "image_path": "dataset/raw_images/Summary_of_Yule_p030.png", "width": 4033064, "status": "created"}
+{"pdf": "Summary of Yule.pdf", "page": 31, "image_path": "dataset/raw_images/Summary_of_Yule_p031.png", "width": 5608894, "status": "created"}
+{"pdf": "Summary of Yule.pdf", "page": 32, "image_path": "dataset/raw_images/Summary_of_Yule_p032.png", "width": 4265385, "status": "created"}
+{"pdf": "Summary of Yule.pdf", "page": 33, "image_path": "dataset/raw_images/Summary_of_Yule_p033.png", "width": 4508556, "status": "created"}
+{"pdf": "Summary of Yule.pdf", "page": 34, "image_path": "dataset/raw_images/Summary_of_Yule_p034.png", "width": 4593842, "status": "created"}
+{"pdf": "Summary of Yule.pdf", "page": 35, "image_path": "dataset/raw_images/Summary_of_Yule_p035.png", "width": 4760137, "status": "created"}
+{"pdf": "Summary of Yule.pdf", "page": 36, "image_path": "dataset/raw_images/Summary_of_Yule_p036.png", "width": 4580213, "status": "created"}
+{"pdf": "اصول تنظیم و کنترل بودجه دولت.pdf", "page": 1, "image_path": "dataset/raw_images/اصول_تنظیم_و_کنترل_بودجه_دولت_p001.png", "width": 3249488, "status": "created"}
+{"pdf": "اصول تنظیم و کنترل بودجه دولت.pdf", "page": 2, "image_path": "dataset/raw_images/اصول_تنظیم_و_کنترل_بودجه_دولت_p002.png", "width": 1114731, "status": "created"}
+{"pdf": "اصول تنظیم و کنترل بودجه دولت.pdf", "page": 3, "image_path": "dataset/raw_images/اصول_تنظیم_و_کنترل_بودجه_دولت_p003.png", "width": 3208684, "status": "created"}
+{"pdf": "اصول تنظیم و کنترل بودجه دولت.pdf", "page": 4, "image_path": "dataset/raw_images/اصول_تنظیم_و_کنترل_بودجه_دولت_p004.png", "width": 3233162, "status": "created"}
+{"pdf": "اصول تنظیم و کنترل بودجه دولت.pdf", "page": 5, "image_path": "dataset/raw_images/اصول_تنظیم_و_کنترل_بودجه_دولت_p005.png", "width": 1450578, "status": "created"}
+{"pdf": "اصول تنظیم و کنترل بودجه دولت.pdf", "page": 6, "image_path": "dataset/raw_images/اصول_تنظیم_و_کنترل_بودجه_دولت_p006.png", "width": 3067041, "status": "created"}
+{"pdf": "اصول تنظیم و کنترل بودجه دولت.pdf", "page": 7, "image_path": "dataset/raw_images/اصول_تنظیم_و_کنترل_بودجه_دولت_p007.png", "width": 3349641, "status": "created"}
+{"pdf": "اصول تنظیم و کنترل بودجه دولت.pdf", "page": 8, "image_path": "dataset/raw_images/اصول_تنظیم_و_کنترل_بودجه_دولت_p008.png", "width": 3178168, "status": "created"}
+{"pdf": "اصول تنظیم و کنترل بودجه دولت.pdf", "page": 9, "image_path": "dataset/raw_images/اصول_تنظیم_و_کنترل_بودجه_دولت_p009.png", "width": 3820342, "status": "created"}
+{"pdf": "اصول تنظیم و کنترل بودجه دولت.pdf", "page": 10, "image_path": "dataset/raw_images/اصول_تنظیم_و_کنترل_بودجه_دولت_p010.png", "width": 2469573, "status": "created"}
+{"pdf": "اصول تنظیم و کنترل بودجه دولت.pdf", "page": 11, "image_path": "dataset/raw_images/اصول_تنظیم_و_کنترل_بودجه_دولت_p011.png", "width": 4189613, "status": "created"}
+{"pdf": "اصول تنظیم و کنترل بودجه دولت.pdf", "page": 12, "image_path": "dataset/raw_images/اصول_تنظیم_و_کنترل_بودجه_دولت_p012.png", "width": 3375275, "status": "created"}
+{"pdf": "اصول تنظیم و کنترل بودجه دولت.pdf", "page": 13, "image_path": "dataset/raw_images/اصول_تنظیم_و_کنترل_بودجه_دولت_p013.png", "width": 3927700, "status": "created"}
+{"pdf": "اصول تنظیم و کنترل بودجه دولت.pdf", "page": 14, "image_path": "dataset/raw_images/اصول_تنظیم_و_کنترل_بودجه_دولت_p014.png", "width": 2872366, "status": "created"}
+{"pdf": "اصول تنظیم و کنترل بودجه دولت.pdf", "page": 15, "image_path": "dataset/raw_images/اصول_تنظیم_و_کنترل_بودجه_دولت_p015.png", "width": 4214896, "status": "created"}
+{"pdf": "اصول تنظیم و کنترل بودجه دولت.pdf", "page": 16, "image_path": "dataset/raw_images/اصول_تنظیم_و_کنترل_بودجه_دولت_p016.png", "width": 4252511, "status": "created"}
+{"pdf": "اصول تنظیم و کنترل بودجه دولت.pdf", "page": 17, "image_path": "dataset/raw_images/اصول_تنظیم_و_کنترل_بودجه_دولت_p017.png", "width": 3531404, "status": "created"}
+{"pdf": "اصول تنظیم و کنترل بودجه دولت.pdf", "page": 18, "image_path": "dataset/raw_images/اصول_تنظیم_و_کنترل_بودجه_دولت_p018.png", "width": 3707746, "status": "created"}
+{"pdf": "اصول تنظیم و کنترل بودجه دولت.pdf", "page": 19, "image_path": "dataset/raw_images/اصول_تنظیم_و_کنترل_بودجه_دولت_p019.png", "width": 3532541, "status": "created"}
+{"pdf": "اصول تنظیم و کنترل بودجه دولت.pdf", "page": 20, "image_path": "dataset/raw_images/اصول_تنظیم_و_کنترل_بودجه_دولت_p020.png", "width": 3078646, "status": "created"}
+{"pdf": "تحلیل سازه مهندس طاحونی.pdf", "page": 1, "image_path": "dataset/raw_images/تحلیل_سازه_مهندس_طاحونی_p001.png", "width": 328084, "status": "created"}
+{"pdf": "تحلیل سازه مهندس طاحونی.pdf", "page": 2, "image_path": "dataset/raw_images/تحلیل_سازه_مهندس_طاحونی_p002.png", "width": 2186256, "status": "created"}
+{"pdf": "تحلیل سازه مهندس طاحونی.pdf", "page": 3, "image_path": "dataset/raw_images/تحلیل_سازه_مهندس_طاحونی_p003.png", "width": 4813953, "status": "created"}
+{"pdf": "تحلیل سازه مهندس طاحونی.pdf", "page": 4, "image_path": "dataset/raw_images/تحلیل_سازه_مهندس_طاحونی_p004.png", "width": 5076394, "status": "created"}
+{"pdf": "تحلیل سازه مهندس طاحونی.pdf", "page": 5, "image_path": "dataset/raw_images/تحلیل_سازه_مهندس_طاحونی_p005.png", "width": 5426466, "status": "created"}
+{"pdf": "تحلیل سازه مهندس طاحونی.pdf", "page": 6, "image_path": "dataset/raw_images/تحلیل_سازه_مهندس_طاحونی_p006.png", "width": 5060452, "status": "created"}
+{"pdf": "تحلیل سازه مهندس طاحونی.pdf", "page": 7, "image_path": "dataset/raw_images/تحلیل_سازه_مهندس_طاحونی_p007.png", "width": 4666838, "status": "created"}
+{"pdf": "تحلیل سازه مهندس طاحونی.pdf", "page": 8, "image_path": "dataset/raw_images/تحلیل_سازه_مهندس_طاحونی_p008.png", "width": 4222515, "status": "created"}
+{"pdf": "تحلیل سازه مهندس طاحونی.pdf", "page": 9, "image_path": "dataset/raw_images/تحلیل_سازه_مهندس_طاحونی_p009.png", "width": 5542816, "status": "created"}
+{"pdf": "تحلیل سازه مهندس طاحونی.pdf", "page": 10, "image_path": "dataset/raw_images/تحلیل_سازه_مهندس_طاحونی_p010.png", "width": 5447238, "status": "created"}
+{"pdf": "تحلیل سازه مهندس طاحونی.pdf", "page": 11, "image_path": "dataset/raw_images/تحلیل_سازه_مهندس_طاحونی_p011.png", "width": 5887531, "status": "created"}
+{"pdf": "تحلیل سازه مهندس طاحونی.pdf", "page": 12, "image_path": "dataset/raw_images/تحلیل_سازه_مهندس_طاحونی_p012.png", "width": 4303785, "status": "created"}
+{"pdf": "تحلیل سازه مهندس طاحونی.pdf", "page": 13, "image_path": "dataset/raw_images/تحلیل_سازه_مهندس_طاحونی_p013.png", "width": 4206493, "status": "created"}
+{"pdf": "تحلیل سازه مهندس طاحونی.pdf", "page": 14, "image_path": "dataset/raw_images/تحلیل_سازه_مهندس_طاحونی_p014.png", "width": 4576943, "status": "created"}
+{"pdf": "تحلیل سازه مهندس طاحونی.pdf", "page": 15, "image_path": "dataset/raw_images/تحلیل_سازه_مهندس_طاحونی_p015.png", "width": 4814499, "status": "created"}
+{"pdf": "تحلیل سازه مهندس طاحونی.pdf", "page": 16, "image_path": "dataset/raw_images/تحلیل_سازه_مهندس_طاحونی_p016.png", "width": 3505587, "status": "created"}
+{"pdf": "تحلیل سازه مهندس طاحونی.pdf", "page": 17, "image_path": "dataset/raw_images/تحلیل_سازه_مهندس_طاحونی_p017.png", "width": 5958654, "status": "created"}
+{"pdf": "تحلیل سازه مهندس طاحونی.pdf", "page": 18, "image_path": "dataset/raw_images/تحلیل_سازه_مهندس_طاحونی_p018.png", "width": 5312417, "status": "created"}
+{"pdf": "تحلیل سازه مهندس طاحونی.pdf", "page": 19, "image_path": "dataset/raw_images/تحلیل_سازه_مهندس_طاحونی_p019.png", "width": 5372443, "status": "created"}
+{"pdf": "تحلیل سازه مهندس طاحونی.pdf", "page": 20, "image_path": "dataset/raw_images/تحلیل_سازه_مهندس_طاحونی_p020.png", "width": 4043825, "status": "created"}
+{"pdf": "تحلیل سازه مهندس طاحونی.pdf", "page": 21, "image_path": "dataset/raw_images/تحلیل_سازه_مهندس_طاحونی_p021.png", "width": 4487743, "status": "created"}
+{"pdf": "تحلیل سازه مهندس طاحونی.pdf", "page": 22, "image_path": "dataset/raw_images/تحلیل_سازه_مهندس_طاحونی_p022.png", "width": 5502177, "status": "created"}
+{"pdf": "تحلیل سازه مهندس طاحونی.pdf", "page": 23, "image_path": "dataset/raw_images/تحلیل_سازه_مهندس_طاحونی_p023.png", "width": 3732643, "status": "created"}
+{"pdf": "تحلیل سازه مهندس طاحونی.pdf", "page": 24, "image_path": "dataset/raw_images/تحلیل_سازه_مهندس_طاحونی_p024.png", "width": 3822187, "status": "created"}
+{"pdf": "تحلیل سازه مهندس طاحونی.pdf", "page": 25, "image_path": "dataset/raw_images/تحلیل_سازه_مهندس_طاحونی_p025.png", "width": 4107557, "status": "created"}
+{"pdf": "تحلیل سازه مهندس طاحونی.pdf", "page": 26, "image_path": "dataset/raw_images/تحلیل_سازه_مهندس_طاحونی_p026.png", "width": 4528965, "status": "created"}
+{"pdf": "تحلیل سازه مهندس طاحونی.pdf", "page": 27, "image_path": "dataset/raw_images/تحلیل_سازه_مهندس_طاحونی_p027.png", "width": 4041281, "status": "created"}
+{"pdf": "تحلیل سازه مهندس طاحونی.pdf", "page": 28, "image_path": "dataset/raw_images/تحلیل_سازه_مهندس_طاحونی_p028.png", "width": 4777207, "status": "created"}
+{"pdf": "تحلیل سازه مهندس طاحونی.pdf", "page": 29, "image_path": "dataset/raw_images/تحلیل_سازه_مهندس_طاحونی_p029.png", "width": 6062467, "status": "created"}
+{"pdf": "تحلیل سازه مهندس طاحونی.pdf", "page": 30, "image_path": "dataset/raw_images/تحلیل_سازه_مهندس_طاحونی_p030.png", "width": 5033074, "status": "created"}
+{"pdf": "تحلیل سازه مهندس طاحونی.pdf", "page": 31, "image_path": "dataset/raw_images/تحلیل_سازه_مهندس_طاحونی_p031.png", "width": 4142007, "status": "created"}
+{"pdf": "تحلیل سازه مهندس طاحونی.pdf", "page": 32, "image_path": "dataset/raw_images/تحلیل_سازه_مهندس_طاحونی_p032.png", "width": 4606243, "status": "created"}
+{"pdf": "تحلیل سازه مهندس طاحونی.pdf", "page": 33, "image_path": "dataset/raw_images/تحلیل_سازه_مهندس_طاحونی_p033.png", "width": 4818866, "status": "created"}
+{"pdf": "تحلیل سازه مهندس طاحونی.pdf", "page": 34, "image_path": "dataset/raw_images/تحلیل_سازه_مهندس_طاحونی_p034.png", "width": 4218922, "status": "created"}
+{"pdf": "تحلیل سازه مهندس طاحونی.pdf", "page": 35, "image_path": "dataset/raw_images/تحلیل_سازه_مهندس_طاحونی_p035.png", "width": 4343042, "status": "created"}
+{"pdf": "تحلیل سازه مهندس طاحونی.pdf", "page": 36, "image_path": "dataset/raw_images/تحلیل_سازه_مهندس_طاحونی_p036.png", "width": 4694013, "status": "created"}
+{"pdf": "تحلیل سازه مهندس طاحونی.pdf", "page": 37, "image_path": "dataset/raw_images/تحلیل_سازه_مهندس_طاحونی_p037.png", "width": 4920446, "status": "created"}
+{"pdf": "تحلیل سازه مهندس طاحونی.pdf", "page": 38, "image_path": "dataset/raw_images/تحلیل_سازه_مهندس_طاحونی_p038.png", "width": 4868930, "status": "created"}
+{"pdf": "تحلیل سازه مهندس طاحونی.pdf", "page": 39, "image_path": "dataset/raw_images/تحلیل_سازه_مهندس_طاحونی_p039.png", "width": 4572301, "status": "created"}
+{"pdf": "تحلیل سازه مهندس طاحونی.pdf", "page": 40, "image_path": "dataset/raw_images/تحلیل_سازه_مهندس_طاحونی_p040.png", "width": 4373507, "status": "created"}
+{"pdf": "تحلیل سازه مهندس طاحونی.pdf", "page": 41, "image_path": "dataset/raw_images/تحلیل_سازه_مهندس_طاحونی_p041.png", "width": 3834640, "status": "created"}
+{"pdf": "تحلیل سازه مهندس طاحونی.pdf", "page": 42, "image_path": "dataset/raw_images/تحلیل_سازه_مهندس_طاحونی_p042.png", "width": 5227469, "status": "created"}
+{"pdf": "تحلیل سازه مهندس طاحونی.pdf", "page": 43, "image_path": "dataset/raw_images/تحلیل_سازه_مهندس_طاحونی_p043.png", "width": 4783275, "status": "created"}
+{"pdf": "تحلیل سازه مهندس طاحونی.pdf", "page": 44, "image_path": "dataset/raw_images/تحلیل_سازه_مهندس_طاحونی_p044.png", "width": 4503181, "status": "created"}
+{"pdf": "تحلیل سازه مهندس طاحونی.pdf", "page": 45, "image_path": "dataset/raw_images/تحلیل_سازه_مهندس_طاحونی_p045.png", "width": 3678631, "status": "created"}
+{"pdf": "تحلیل سازه مهندس طاحونی.pdf", "page": 46, "image_path": "dataset/raw_images/تحلیل_سازه_مهندس_طاحونی_p046.png", "width": 2183517, "status": "created"}
+{"pdf": "تحلیل سازه مهندس طاحونی.pdf", "page": 47, "image_path": "dataset/raw_images/تحلیل_سازه_مهندس_طاحونی_p047.png", "width": 3337067, "status": "created"}
+{"pdf": "تحلیل سازه مهندس طاحونی.pdf", "page": 48, "image_path": "dataset/raw_images/تحلیل_سازه_مهندس_طاحونی_p048.png", "width": 1952091, "status": "created"}
+{"pdf": "تحلیل سازه مهندس طاحونی.pdf", "page": 49, "image_path": "dataset/raw_images/تحلیل_سازه_مهندس_طاحونی_p049.png", "width": 2884946, "status": "created"}
+{"pdf": "تحلیل سازه مهندس طاحونی.pdf", "page": 50, "image_path": "dataset/raw_images/تحلیل_سازه_مهندس_طاحونی_p050.png", "width": 1269333, "status": "created"}
+{"pdf": "تحلیل سازه مهندس طاحونی.pdf", "page": 51, "image_path": "dataset/raw_images/تحلیل_سازه_مهندس_طاحونی_p051.png", "width": 2410688, "status": "created"}
+{"pdf": "تحلیل سازه مهندس طاحونی.pdf", "page": 52, "image_path": "dataset/raw_images/تحلیل_سازه_مهندس_طاحونی_p052.png", "width": 1225123, "status": "created"}
+{"pdf": "تحلیل سازه مهندس طاحونی.pdf", "page": 53, "image_path": "dataset/raw_images/تحلیل_سازه_مهندس_طاحونی_p053.png", "width": 1755408, "status": "created"}
+{"pdf": "تحلیل سازه مهندس طاحونی.pdf", "page": 54, "image_path": "dataset/raw_images/تحلیل_سازه_مهندس_طاحونی_p054.png", "width": 1959221, "status": "created"}
+{"pdf": "تحلیل سازه مهندس طاحونی.pdf", "page": 55, "image_path": "dataset/raw_images/تحلیل_سازه_مهندس_طاحونی_p055.png", "width": 1963086, "status": "created"}
+{"pdf": "تحلیل سازه مهندس طاحونی.pdf", "page": 56, "image_path": "dataset/raw_images/تحلیل_سازه_مهندس_طاحونی_p056.png", "width": 1248006, "status": "created"}
+{"pdf": "تحلیل سازه مهندس طاحونی.pdf", "page": 57, "image_path": "dataset/raw_images/تحلیل_سازه_مهندس_طاحونی_p057.png", "width": 2501760, "status": "created"}
+{"pdf": "تحلیل سازه مهندس طاحونی.pdf", "page": 58, "image_path": "dataset/raw_images/تحلیل_سازه_مهندس_طاحونی_p058.png", "width": 1636258, "status": "created"}
+{"pdf": "تحلیل سازه مهندس طاحونی.pdf", "page": 59, "image_path": "dataset/raw_images/تحلیل_سازه_مهندس_طاحونی_p059.png", "width": 2487824, "status": "created"}
+{"pdf": "تحلیل سازه مهندس طاحونی.pdf", "page": 60, "image_path": "dataset/raw_images/تحلیل_سازه_مهندس_طاحونی_p060.png", "width": 2000852, "status": "created"}
+{"pdf": "تحلیل سازه مهندس طاحونی.pdf", "page": 61, "image_path": "dataset/raw_images/تحلیل_سازه_مهندس_طاحونی_p061.png", "width": 2112869, "status": "created"}
+{"pdf": "تحلیل سازه مهندس طاحونی.pdf", "page": 62, "image_path": "dataset/raw_images/تحلیل_سازه_مهندس_طاحونی_p062.png", "width": 2711349, "status": "created"}
+{"pdf": "تحلیل سازه مهندس طاحونی.pdf", "page": 63, "image_path": "dataset/raw_images/تحلیل_سازه_مهندس_طاحونی_p063.png", "width": 1975947, "status": "created"}
+{"pdf": "تحلیل سازه مهندس طاحونی.pdf", "page": 64, "image_path": "dataset/raw_images/تحلیل_سازه_مهندس_طاحونی_p064.png", "width": 2250659, "status": "created"}
+{"pdf": "تحلیل سازه مهندس طاحونی.pdf", "page": 65, "image_path": "dataset/raw_images/تحلیل_سازه_مهندس_طاحونی_p065.png", "width": 1896043, "status": "created"}
+{"pdf": "تحلیل سازه مهندس طاحونی.pdf", "page": 66, "image_path": "dataset/raw_images/تحلیل_سازه_مهندس_طاحونی_p066.png", "width": 1564541, "status": "created"}
+{"pdf": "تحلیل سازه مهندس طاحونی.pdf", "page": 67, "image_path": "dataset/raw_images/تحلیل_سازه_مهندس_طاحونی_p067.png", "width": 2056640, "status": "created"}
+{"pdf": "تحلیل سازه مهندس طاحونی.pdf", "page": 68, "image_path": "dataset/raw_images/تحلیل_سازه_مهندس_طاحونی_p068.png", "width": 1998490, "status": "created"}
+{"pdf": "تحلیل سازه مهندس طاحونی.pdf", "page": 69, "image_path": "dataset/raw_images/تحلیل_سازه_مهندس_طاحونی_p069.png", "width": 1646041, "status": "created"}
+{"pdf": "تحلیل سازه مهندس طاحونی.pdf", "page": 70, "image_path": "dataset/raw_images/تحلیل_سازه_مهندس_طاحونی_p070.png", "width": 1462952, "status": "created"}
+{"pdf": "تحلیل سازه مهندس طاحونی.pdf", "page": 71, "image_path": "dataset/raw_images/تحلیل_سازه_مهندس_طاحونی_p071.png", "width": 2739380, "status": "created"}
+{"pdf": "تحلیل سازه مهندس طاحونی.pdf", "page": 72, "image_path": "dataset/raw_images/تحلیل_سازه_مهندس_طاحونی_p072.png", "width": 1657806, "status": "created"}
+{"pdf": "تحلیل سازه مهندس طاحونی.pdf", "page": 73, "image_path": "dataset/raw_images/تحلیل_سازه_مهندس_طاحونی_p073.png", "width": 1894839, "status": "created"}
+{"pdf": "تحلیل سازه مهندس طاحونی.pdf", "page": 74, "image_path": "dataset/raw_images/تحلیل_سازه_مهندس_طاحونی_p074.png", "width": 1714041, "status": "created"}
+{"pdf": "تحلیل سازه مهندس طاحونی.pdf", "page": 75, "image_path": "dataset/raw_images/تحلیل_سازه_مهندس_طاحونی_p075.png", "width": 2244798, "status": "created"}
+{"pdf": "تحلیل سازه مهندس طاحونی.pdf", "page": 76, "image_path": "dataset/raw_images/تحلیل_سازه_مهندس_طاحونی_p076.png", "width": 1705200, "status": "created"}
+{"pdf": "تحلیل سازه مهندس طاحونی.pdf", "page": 77, "image_path": "dataset/raw_images/تحلیل_سازه_مهندس_طاحونی_p077.png", "width": 2478375, "status": "created"}
+{"pdf": "تحلیل سازه مهندس طاحونی.pdf", "page": 78, "image_path": "dataset/raw_images/تحلیل_سازه_مهندس_طاحونی_p078.png", "width": 1914025, "status": "created"}
+{"pdf": "تحلیل سازه مهندس طاحونی.pdf", "page": 79, "image_path": "dataset/raw_images/تحلیل_سازه_مهندس_طاحونی_p079.png", "width": 2316354, "status": "created"}
+{"pdf": "تحلیل سازه مهندس طاحونی.pdf", "page": 80, "image_path": "dataset/raw_images/تحلیل_سازه_مهندس_طاحونی_p080.png", "width": 2644281, "status": "created"}
+{"pdf": "تحلیل سازه مهندس طاحونی.pdf", "page": 81, "image_path": "dataset/raw_images/تحلیل_سازه_مهندس_طاحونی_p081.png", "width": 1753856, "status": "created"}
+{"pdf": "تحلیل سازه مهندس طاحونی.pdf", "page": 82, "image_path": "dataset/raw_images/تحلیل_سازه_مهندس_طاحونی_p082.png", "width": 1985061, "status": "created"}
+{"pdf": "تحلیل سازه مهندس طاحونی.pdf", "page": 83, "image_path": "dataset/raw_images/تحلیل_سازه_مهندس_طاحونی_p083.png", "width": 2292602, "status": "created"}
+{"pdf": "تحلیل سازه مهندس طاحونی.pdf", "page": 84, "image_path": "dataset/raw_images/تحلیل_سازه_مهندس_طاحونی_p084.png", "width": 1743917, "status": "created"}
+{"pdf": "تحلیل سازه مهندس طاحونی.pdf", "page": 85, "image_path": "dataset/raw_images/تحلیل_سازه_مهندس_طاحونی_p085.png", "width": 1847085, "status": "created"}
+{"pdf": "تحلیل سازه مهندس طاحونی.pdf", "page": 86, "image_path": "dataset/raw_images/تحلیل_سازه_مهندس_طاحونی_p086.png", "width": 1387622, "status": "created"}
+{"pdf": "تحلیل سازه مهندس طاحونی.pdf", "page": 87, "image_path": "dataset/raw_images/تحلیل_سازه_مهندس_طاحونی_p087.png", "width": 1959911, "status": "created"}
+{"pdf": "تحلیل سازه مهندس طاحونی.pdf", "page": 88, "image_path": "dataset/raw_images/تحلیل_سازه_مهندس_طاحونی_p088.png", "width": 1715104, "status": "created"}
+{"pdf": "تحلیل سازه مهندس طاحونی.pdf", "page": 89, "image_path": "dataset/raw_images/تحلیل_سازه_مهندس_طاحونی_p089.png", "width": 2545624, "status": "created"}
+{"pdf": "تحلیل سازه مهندس طاحونی.pdf", "page": 90, "image_path": "dataset/raw_images/تحلیل_سازه_مهندس_طاحونی_p090.png", "width": 1898420, "status": "created"}
+{"pdf": "تحلیل سازه مهندس طاحونی.pdf", "page": 91, "image_path": "dataset/raw_images/تحلیل_سازه_مهندس_طاحونی_p091.png", "width": 1692163, "status": "created"}
+{"pdf": "تحلیل سازه مهندس طاحونی.pdf", "page": 92, "image_path": "dataset/raw_images/تحلیل_سازه_مهندس_طاحونی_p092.png", "width": 3310722, "status": "created"}
+{"pdf": "تحلیل سازه مهندس طاحونی.pdf", "page": 93, "image_path": "dataset/raw_images/تحلیل_سازه_مهندس_طاحونی_p093.png", "width": 3250885, "status": "created"}
+{"pdf": "تحلیل سازه مهندس طاحونی.pdf", "page": 94, "image_path": "dataset/raw_images/تحلیل_سازه_مهندس_طاحونی_p094.png", "width": 2556839, "status": "created"}
+{"pdf": "تحلیل سازه مهندس طاحونی.pdf", "page": 95, "image_path": "dataset/raw_images/تحلیل_سازه_مهندس_طاحونی_p095.png", "width": 2578656, "status": "created"}
+{"pdf": "تحلیل سازه مهندس طاحونی.pdf", "page": 96, "image_path": "dataset/raw_images/تحلیل_سازه_مهندس_طاحونی_p096.png", "width": 2483859, "status": "created"}
+{"pdf": "تحلیل سازه مهندس طاحونی.pdf", "page": 97, "image_path": "dataset/raw_images/تحلیل_سازه_مهندس_طاحونی_p097.png", "width": 2518463, "status": "created"}
+{"pdf": "تحلیل سازه مهندس طاحونی.pdf", "page": 98, "image_path": "dataset/raw_images/تحلیل_سازه_مهندس_طاحونی_p098.png", "width": 2075863, "status": "created"}
+{"pdf": "تحلیل سازه مهندس طاحونی.pdf", "page": 99, "image_path": "dataset/raw_images/تحلیل_سازه_مهندس_طاحونی_p099.png", "width": 1397366, "status": "created"}
+{"pdf": "تحلیل سازه مهندس طاحونی.pdf", "page": 100, "image_path": "dataset/raw_images/تحلیل_سازه_مهندس_طاحونی_p100.png", "width": 1811988, "status": "created"}
+{"pdf": "تحلیل سازه مهندس طاحونی.pdf", "page": 101, "image_path": "dataset/raw_images/تحلیل_سازه_مهندس_طاحونی_p101.png", "width": 1470447, "status": "created"}
+{"pdf": "تحلیل سازه مهندس طاحونی.pdf", "page": 102, "image_path": "dataset/raw_images/تحلیل_سازه_مهندس_طاحونی_p102.png", "width": 2751449, "status": "created"}
+{"pdf": "تحلیل سازه مهندس طاحونی.pdf", "page": 103, "image_path": "dataset/raw_images/تحلیل_سازه_مهندس_طاحونی_p103.png", "width": 2011622, "status": "created"}
+{"pdf": "تحلیل سازه مهندس طاحونی.pdf", "page": 104, "image_path": "dataset/raw_images/تحلیل_سازه_مهندس_طاحونی_p104.png", "width": 1883722, "status": "created"}
+{"pdf": "تحلیل سازه مهندس طاحونی.pdf", "page": 105, "image_path": "dataset/raw_images/تحلیل_سازه_مهندس_طاحونی_p105.png", "width": 1784770, "status": "created"}
+{"pdf": "تحلیل سازه مهندس طاحونی.pdf", "page": 106, "image_path": "dataset/raw_images/تحلیل_سازه_مهندس_طاحونی_p106.png", "width": 1618965, "status": "created"}
+{"pdf": "تحلیل سازه مهندس طاحونی.pdf", "page": 107, "image_path": "dataset/raw_images/تحلیل_سازه_مهندس_طاحونی_p107.png", "width": 2310160, "status": "created"}
+{"pdf": "تحلیل سازه مهندس طاحونی.pdf", "page": 108, "image_path": "dataset/raw_images/تحلیل_سازه_مهندس_طاحونی_p108.png", "width": 2236696, "status": "created"}
+{"pdf": "تحلیل سازه مهندس طاحونی.pdf", "page": 109, "image_path": "dataset/raw_images/تحلیل_سازه_مهندس_طاحونی_p109.png", "width": 1601174, "status": "created"}
+{"pdf": "تحلیل سازه مهندس طاحونی.pdf", "page": 110, "image_path": "dataset/raw_images/تحلیل_سازه_مهندس_طاحونی_p110.png", "width": 1350456, "status": "created"}
+{"pdf": "تحلیل سازه مهندس طاحونی.pdf", "page": 111, "image_path": "dataset/raw_images/تحلیل_سازه_مهندس_طاحونی_p111.png", "width": 2014778, "status": "created"}
+{"pdf": "تحلیل سازه مهندس طاحونی.pdf", "page": 112, "image_path": "dataset/raw_images/تحلیل_سازه_مهندس_طاحونی_p112.png", "width": 180632, "status": "created"}
+{"pdf": "تحلیل سازه مهندس طاحونی.pdf", "page": 113, "image_path": "dataset/raw_images/تحلیل_سازه_مهندس_طاحونی_p113.png", "width": 125779, "status": "created"}
+{"pdf": "تست_های_آمار_کاربردی1_فصل_1تا4هادی_رنجبران.pdf", "page": 1, "image_path": "dataset/raw_images/تست_های_ا_مار_کاربردی1_فصل_1تا4هادی_رنجبران_p001.png", "width": 3107071, "status": "created"}
+{"pdf": "تست_های_آمار_کاربردی1_فصل_1تا4هادی_رنجبران.pdf", "page": 2, "image_path": "dataset/raw_images/تست_های_ا_مار_کاربردی1_فصل_1تا4هادی_رنجبران_p002.png", "width": 2823118, "status": "created"}
+{"pdf": "تست_های_آمار_کاربردی1_فصل_1تا4هادی_رنجبران.pdf", "page": 3, "image_path": "dataset/raw_images/تست_های_ا_مار_کاربردی1_فصل_1تا4هادی_رنجبران_p003.png", "width": 2124782, "status": "created"}
+{"pdf": "تست_های_آمار_کاربردی1_فصل_1تا4هادی_رنجبران.pdf", "page": 4, "image_path": "dataset/raw_images/تست_های_ا_مار_کاربردی1_فصل_1تا4هادی_رنجبران_p004.png", "width": 2398175, "status": "created"}
+{"pdf": "تست_های_آمار_کاربردی1_فصل_1تا4هادی_رنجبران.pdf", "page": 5, "image_path": "dataset/raw_images/تست_های_ا_مار_کاربردی1_فصل_1تا4هادی_رنجبران_p005.png", "width": 2165406, "status": "created"}
+{"pdf": "تست_های_آمار_کاربردی1_فصل_1تا4هادی_رنجبران.pdf", "page": 6, "image_path": "dataset/raw_images/تست_های_ا_مار_کاربردی1_فصل_1تا4هادی_رنجبران_p006.png", "width": 2191883, "status": "created"}
+{"pdf": "تست_های_آمار_کاربردی1_فصل_1تا4هادی_رنجبران.pdf", "page": 7, "image_path": "dataset/raw_images/تست_های_ا_مار_کاربردی1_فصل_1تا4هادی_رنجبران_p007.png", "width": 2466726, "status": "created"}
+{"pdf": "تست_های_آمار_کاربردی1_فصل_1تا4هادی_رنجبران.pdf", "page": 8, "image_path": "dataset/raw_images/تست_های_ا_مار_کاربردی1_فصل_1تا4هادی_رنجبران_p008.png", "width": 2239134, "status": "created"}
+{"pdf": "تست_های_آمار_کاربردی1_فصل_1تا4هادی_رنجبران.pdf", "page": 9, "image_path": "dataset/raw_images/تست_های_ا_مار_کاربردی1_فصل_1تا4هادی_رنجبران_p009.png", "width": 2275544, "status": "created"}
+{"pdf": "تست_های_آمار_کاربردی1_فصل_1تا4هادی_رنجبران.pdf", "page": 10, "image_path": "dataset/raw_images/تست_های_ا_مار_کاربردی1_فصل_1تا4هادی_رنجبران_p010.png", "width": 2207720, "status": "created"}
+{"pdf": "تست_های_آمار_کاربردی1_فصل_1تا4هادی_رنجبران.pdf", "page": 11, "image_path": "dataset/raw_images/تست_های_ا_مار_کاربردی1_فصل_1تا4هادی_رنجبران_p011.png", "width": 2058399, "status": "created"}
+{"pdf": "تست_های_آمار_کاربردی1_فصل_1تا4هادی_رنجبران.pdf", "page": 12, "image_path": "dataset/raw_images/تست_های_ا_مار_کاربردی1_فصل_1تا4هادی_رنجبران_p012.png", "width": 2372786, "status": "created"}
+{"pdf": "تست_های_آمار_کاربردی1_فصل_1تا4هادی_رنجبران.pdf", "page": 13, "image_path": "dataset/raw_images/تست_های_ا_مار_کاربردی1_فصل_1تا4هادی_رنجبران_p013.png", "width": 2275382, "status": "created"}
+{"pdf": "تست_های_آمار_کاربردی1_فصل_1تا4هادی_رنجبران.pdf", "page": 14, "image_path": "dataset/raw_images/تست_های_ا_مار_کاربردی1_فصل_1تا4هادی_رنجبران_p014.png", "width": 2282997, "status": "created"}
+{"pdf": "تست_های_آمار_کاربردی1_فصل_1تا4هادی_رنجبران.pdf", "page": 15, "image_path": "dataset/raw_images/تست_های_ا_مار_کاربردی1_فصل_1تا4هادی_رنجبران_p015.png", "width": 3107071, "status": "created"}
+{"pdf": "جزوه دست نویس اصول حسابداری 1.pdf", "page": 1, "image_path": "dataset/raw_images/جزوه_دست_نویس_اصول_حسابداری_1_p001.png", "width": 630182, "status": "created"}
+{"pdf": "جزوه دست نویس اصول حسابداری 1.pdf", "page": 2, "image_path": "dataset/raw_images/جزوه_دست_نویس_اصول_حسابداری_1_p002.png", "width": 569898, "status": "created"}
+{"pdf": "جزوه دست نویس اصول حسابداری 1.pdf", "page": 3, "image_path": "dataset/raw_images/جزوه_دست_نویس_اصول_حسابداری_1_p003.png", "width": 2123276, "status": "created"}
+{"pdf": "جزوه دست نویس اصول حسابداری 1.pdf", "page": 4, "image_path": "dataset/raw_images/جزوه_دست_نویس_اصول_حسابداری_1_p004.png", "width": 2487591, "status": "created"}
+{"pdf": "جزوه دست نویس اصول حسابداری 1.pdf", "page": 5, "image_path": "dataset/raw_images/جزوه_دست_نویس_اصول_حسابداری_1_p005.png", "width": 1896586, "status": "created"}
+{"pdf": "جزوه دست نویس اصول حسابداری 1.pdf", "page": 6, "image_path": "dataset/raw_images/جزوه_دست_نویس_اصول_حسابداری_1_p006.png", "width": 2281737, "status": "created"}
+{"pdf": "جزوه دست نویس اصول حسابداری 1.pdf", "page": 7, "image_path": "dataset/raw_images/جزوه_دست_نویس_اصول_حسابداری_1_p007.png", "width": 2710552, "status": "created"}
+{"pdf": "جزوه دست نویس اصول حسابداری 1.pdf", "page": 8, "image_path": "dataset/raw_images/جزوه_دست_نویس_اصول_حسابداری_1_p008.png", "width": 2708708, "status": "created"}
+{"pdf": "جزوه دست نویس اصول حسابداری 1.pdf", "page": 9, "image_path": "dataset/raw_images/جزوه_دست_نویس_اصول_حسابداری_1_p009.png", "width": 2578480, "status": "created"}
+{"pdf": "جزوه دست نویس اصول حسابداری 1.pdf", "page": 10, "image_path": "dataset/raw_images/جزوه_دست_نویس_اصول_حسابداری_1_p010.png", "width": 2363124, "status": "created"}
+{"pdf": "جزوه دست نویس اصول حسابداری 1.pdf", "page": 11, "image_path": "dataset/raw_images/جزوه_دست_نویس_اصول_حسابداری_1_p011.png", "width": 1938290, "status": "created"}
+{"pdf": "جزوه دست نویس اصول حسابداری 1.pdf", "page": 12, "image_path": "dataset/raw_images/جزوه_دست_نویس_اصول_حسابداری_1_p012.png", "width": 2640972, "status": "created"}
+{"pdf": "جزوه دست نویس اصول حسابداری 1.pdf", "page": 13, "image_path": "dataset/raw_images/جزوه_دست_نویس_اصول_حسابداری_1_p013.png", "width": 2875053, "status": "created"}
+{"pdf": "جزوه دست نویس اصول حسابداری 1.pdf", "page": 14, "image_path": "dataset/raw_images/جزوه_دست_نویس_اصول_حسابداری_1_p014.png", "width": 2621413, "status": "created"}
+{"pdf": "جزوه دست نویس اصول حسابداری 1.pdf", "page": 15, "image_path": "dataset/raw_images/جزوه_دست_نویس_اصول_حسابداری_1_p015.png", "width": 2810325, "status": "created"}
+{"pdf": "جزوه دست نویس اصول حسابداری 1.pdf", "page": 16, "image_path": "dataset/raw_images/جزوه_دست_نویس_اصول_حسابداری_1_p016.png", "width": 2540975, "status": "created"}
+{"pdf": "جزوه دست نویس اصول حسابداری 1.pdf", "page": 17, "image_path": "dataset/raw_images/جزوه_دست_نویس_اصول_حسابداری_1_p017.png", "width": 2603275, "status": "created"}
+{"pdf": "جزوه دست نویس اصول حسابداری 1.pdf", "page": 18, "image_path": "dataset/raw_images/جزوه_دست_نویس_اصول_حسابداری_1_p018.png", "width": 3611121, "status": "created"}
+{"pdf": "جزوه دست نویس اصول حسابداری 1.pdf", "page": 19, "image_path": "dataset/raw_images/جزوه_دست_نویس_اصول_حسابداری_1_p019.png", "width": 2581922, "status": "created"}
+{"pdf": "جزوه دست نویس اصول حسابداری 1.pdf", "page": 20, "image_path": "dataset/raw_images/جزوه_دست_نویس_اصول_حسابداری_1_p020.png", "width": 3234809, "status": "created"}
+{"pdf": "جزوه دست نویس اصول حسابداری 1.pdf", "page": 21, "image_path": "dataset/raw_images/جزوه_دست_نویس_اصول_حسابداری_1_p021.png", "width": 2857616, "status": "created"}
+{"pdf": "جزوه دست نویس اصول حسابداری 1.pdf", "page": 22, "image_path": "dataset/raw_images/جزوه_دست_نویس_اصول_حسابداری_1_p022.png", "width": 3097589, "status": "created"}
+{"pdf": "جزوه دست نویس اصول حسابداری 1.pdf", "page": 23, "image_path": "dataset/raw_images/جزوه_دست_نویس_اصول_حسابداری_1_p023.png", "width": 2620098, "status": "created"}
+{"pdf": "جزوه دست نویس اصول حسابداری 1.pdf", "page": 24, "image_path": "dataset/raw_images/جزوه_دست_نویس_اصول_حسابداری_1_p024.png", "width": 2568593, "status": "created"}
+{"pdf": "جزوه دست نویس اصول حسابداری 1.pdf", "page": 25, "image_path": "dataset/raw_images/جزوه_دست_نویس_اصول_حسابداری_1_p025.png", "width": 2889049, "status": "created"}
+{"pdf": "جزوه دست نویس اصول حسابداری 1.pdf", "page": 26, "image_path": "dataset/raw_images/جزوه_دست_نویس_اصول_حسابداری_1_p026.png", "width": 2212140, "status": "created"}
+{"pdf": "جزوه دست نویس اصول حسابداری 1.pdf", "page": 27, "image_path": "dataset/raw_images/جزوه_دست_نویس_اصول_حسابداری_1_p027.png", "width": 2229134, "status": "created"}
+{"pdf": "جزوه دست نویس اصول حسابداری 1.pdf", "page": 28, "image_path": "dataset/raw_images/جزوه_دست_نویس_اصول_حسابداری_1_p028.png", "width": 2729407, "status": "created"}
+{"pdf": "جزوه دست نویس اصول حسابداری 1.pdf", "page": 29, "image_path": "dataset/raw_images/جزوه_دست_نویس_اصول_حسابداری_1_p029.png", "width": 2523602, "status": "created"}
+{"pdf": "جزوه دست نویس اصول حسابداری 1.pdf", "page": 30, "image_path": "dataset/raw_images/جزوه_دست_نویس_اصول_حسابداری_1_p030.png", "width": 2964914, "status": "created"}
+{"pdf": "جزوه دست نویس اصول حسابداری 1.pdf", "page": 31, "image_path": "dataset/raw_images/جزوه_دست_نویس_اصول_حسابداری_1_p031.png", "width": 3187989, "status": "created"}
+{"pdf": "جزوه دست نویس اصول حسابداری 1.pdf", "page": 32, "image_path": "dataset/raw_images/جزوه_دست_نویس_اصول_حسابداری_1_p032.png", "width": 2686449, "status": "created"}
+{"pdf": "جزوه دست نویس اصول حسابداری 1.pdf", "page": 33, "image_path": "dataset/raw_images/جزوه_دست_نویس_اصول_حسابداری_1_p033.png", "width": 3066800, "status": "created"}
+{"pdf": "جزوه دست نویس اصول حسابداری 1.pdf", "page": 34, "image_path": "dataset/raw_images/جزوه_دست_نویس_اصول_حسابداری_1_p034.png", "width": 2465086, "status": "created"}
+{"pdf": "جزوه دست نویس اصول حسابداری 1.pdf", "page": 35, "image_path": "dataset/raw_images/جزوه_دست_نویس_اصول_حسابداری_1_p035.png", "width": 2856370, "status": "created"}
+{"pdf": "جزوه دست نویس اصول حسابداری 1.pdf", "page": 36, "image_path": "dataset/raw_images/جزوه_دست_نویس_اصول_حسابداری_1_p036.png", "width": 2484152, "status": "created"}
+{"pdf": "جزوه دست نویس اصول حسابداری 1.pdf", "page": 37, "image_path": "dataset/raw_images/جزوه_دست_نویس_اصول_حسابداری_1_p037.png", "width": 3213783, "status": "created"}
+{"pdf": "جزوه دست نویس اصول حسابداری 1.pdf", "page": 38, "image_path": "dataset/raw_images/جزوه_دست_نویس_اصول_حسابداری_1_p038.png", "width": 2584882, "status": "created"}
+{"pdf": "جزوه دست نویس اصول حسابداری 1.pdf", "page": 39, "image_path": "dataset/raw_images/جزوه_دست_نویس_اصول_حسابداری_1_p039.png", "width": 2657016, "status": "created"}
+{"pdf": "جزوه دست نویس اصول حسابداری 1.pdf", "page": 40, "image_path": "dataset/raw_images/جزوه_دست_نویس_اصول_حسابداری_1_p040.png", "width": 3067760, "status": "created"}
+{"pdf": "جزوه دست نویس اصول حسابداری 1.pdf", "page": 41, "image_path": "dataset/raw_images/جزوه_دست_نویس_اصول_حسابداری_1_p041.png", "width": 2266951, "status": "created"}
+{"pdf": "جزوه دست نویس اصول حسابداری 1.pdf", "page": 42, "image_path": "dataset/raw_images/جزوه_دست_نویس_اصول_حسابداری_1_p042.png", "width": 1999275, "status": "created"}
+{"pdf": "جزوه دست نویس اصول حسابداری 1.pdf", "page": 43, "image_path": "dataset/raw_images/جزوه_دست_نویس_اصول_حسابداری_1_p043.png", "width": 1659284, "status": "created"}
+{"pdf": "جزوه دست نویس اصول حسابداری 1.pdf", "page": 44, "image_path": "dataset/raw_images/جزوه_دست_نویس_اصول_حسابداری_1_p044.png", "width": 2843224, "status": "created"}
+{"pdf": "جزوه دست نویس اصول حسابداری 1.pdf", "page": 45, "image_path": "dataset/raw_images/جزوه_دست_نویس_اصول_حسابداری_1_p045.png", "width": 2008886, "status": "created"}
+{"pdf": "جزوه دست نویس اصول حسابداری 1.pdf", "page": 46, "image_path": "dataset/raw_images/جزوه_دست_نویس_اصول_حسابداری_1_p046.png", "width": 1937390, "status": "created"}
+{"pdf": "جزوه دست نویس اصول حسابداری 1.pdf", "page": 47, "image_path": "dataset/raw_images/جزوه_دست_نویس_اصول_حسابداری_1_p047.png", "width": 2835959, "status": "created"}
+{"pdf": "جزوه دست نویس اصول حسابداری 1.pdf", "page": 48, "image_path": "dataset/raw_images/جزوه_دست_نویس_اصول_حسابداری_1_p048.png", "width": 3108211, "status": "created"}
+{"pdf": "جزوه دست نویس اصول حسابداری 1.pdf", "page": 49, "image_path": "dataset/raw_images/جزوه_دست_نویس_اصول_حسابداری_1_p049.png", "width": 2023967, "status": "created"}
+{"pdf": "جزوه دست نویس اصول حسابداری 1.pdf", "page": 50, "image_path": "dataset/raw_images/جزوه_دست_نویس_اصول_حسابداری_1_p050.png", "width": 2684252, "status": "created"}
+{"pdf": "جزوه دست نویس اصول حسابداری 1.pdf", "page": 51, "image_path": "dataset/raw_images/جزوه_دست_نویس_اصول_حسابداری_1_p051.png", "width": 3000247, "status": "created"}
+{"pdf": "جزوه دست نویس اصول حسابداری 1.pdf", "page": 52, "image_path": "dataset/raw_images/جزوه_دست_نویس_اصول_حسابداری_1_p052.png", "width": 2244829, "status": "created"}
+{"pdf": "جزوه دست نویس اصول حسابداری 1.pdf", "page": 53, "image_path": "dataset/raw_images/جزوه_دست_نویس_اصول_حسابداری_1_p053.png", "width": 2300070, "status": "created"}
+{"pdf": "جزوه دست نویس اصول حسابداری 1.pdf", "page": 54, "image_path": "dataset/raw_images/جزوه_دست_نویس_اصول_حسابداری_1_p054.png", "width": 3093985, "status": "created"}
+{"pdf": "جزوه دست نویس اصول حسابداری 1.pdf", "page": 55, "image_path": "dataset/raw_images/جزوه_دست_نویس_اصول_حسابداری_1_p055.png", "width": 2370023, "status": "created"}
+{"pdf": "جزوه دست نویس اصول حسابداری 1.pdf", "page": 56, "image_path": "dataset/raw_images/جزوه_دست_نویس_اصول_حسابداری_1_p056.png", "width": 2315016, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری بخش عمومی.pdf", "page": 1, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_بخش_عمومی_p001.png", "width": 630182, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری بخش عمومی.pdf", "page": 2, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_بخش_عمومی_p002.png", "width": 569898, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری بخش عمومی.pdf", "page": 3, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_بخش_عمومی_p003.png", "width": 2125265, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری بخش عمومی.pdf", "page": 4, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_بخش_عمومی_p004.png", "width": 2482495, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری بخش عمومی.pdf", "page": 5, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_بخش_عمومی_p005.png", "width": 2176608, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری بخش عمومی.pdf", "page": 6, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_بخش_عمومی_p006.png", "width": 2542477, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری بخش عمومی.pdf", "page": 7, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_بخش_عمومی_p007.png", "width": 1847768, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری بخش عمومی.pdf", "page": 8, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_بخش_عمومی_p008.png", "width": 2156796, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری بخش عمومی.pdf", "page": 9, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_بخش_عمومی_p009.png", "width": 2431236, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری بخش عمومی.pdf", "page": 10, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_بخش_عمومی_p010.png", "width": 2362353, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری بخش عمومی.pdf", "page": 11, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_بخش_عمومی_p011.png", "width": 2177769, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری بخش عمومی.pdf", "page": 12, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_بخش_عمومی_p012.png", "width": 2439641, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری بخش عمومی.pdf", "page": 13, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_بخش_عمومی_p013.png", "width": 2221306, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری بخش عمومی.pdf", "page": 14, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_بخش_عمومی_p014.png", "width": 1844501, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری بخش عمومی.pdf", "page": 15, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_بخش_عمومی_p015.png", "width": 2285308, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری بخش عمومی.pdf", "page": 16, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_بخش_عمومی_p016.png", "width": 2315615, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری بخش عمومی.pdf", "page": 17, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_بخش_عمومی_p017.png", "width": 2019751, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری بخش عمومی.pdf", "page": 18, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_بخش_عمومی_p018.png", "width": 1823644, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری بخش عمومی.pdf", "page": 19, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_بخش_عمومی_p019.png", "width": 2184137, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری بخش عمومی.pdf", "page": 20, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_بخش_عمومی_p020.png", "width": 1905827, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری بخش عمومی.pdf", "page": 21, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_بخش_عمومی_p021.png", "width": 2238493, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری بخش عمومی.pdf", "page": 22, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_بخش_عمومی_p022.png", "width": 1480420, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری بخش عمومی.pdf", "page": 23, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_بخش_عمومی_p023.png", "width": 2102598, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری بخش عمومی.pdf", "page": 24, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_بخش_عمومی_p024.png", "width": 1430909, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری بخش عمومی.pdf", "page": 25, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_بخش_عمومی_p025.png", "width": 2048684, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری بخش عمومی.pdf", "page": 26, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_بخش_عمومی_p026.png", "width": 2156694, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری بخش عمومی.pdf", "page": 27, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_بخش_عمومی_p027.png", "width": 2222492, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری بخش عمومی.pdf", "page": 28, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_بخش_عمومی_p028.png", "width": 2237630, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری بخش عمومی.pdf", "page": 29, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_بخش_عمومی_p029.png", "width": 2246995, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری بخش عمومی.pdf", "page": 30, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_بخش_عمومی_p030.png", "width": 1625876, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری بخش عمومی.pdf", "page": 31, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_بخش_عمومی_p031.png", "width": 1599966, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری بخش عمومی.pdf", "page": 32, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_بخش_عمومی_p032.png", "width": 2437538, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری بخش عمومی.pdf", "page": 33, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_بخش_عمومی_p033.png", "width": 1923012, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری بخش عمومی.pdf", "page": 34, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_بخش_عمومی_p034.png", "width": 2572911, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری بخش عمومی.pdf", "page": 35, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_بخش_عمومی_p035.png", "width": 2201071, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری بخش عمومی.pdf", "page": 36, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_بخش_عمومی_p036.png", "width": 2236616, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری بخش عمومی.pdf", "page": 37, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_بخش_عمومی_p037.png", "width": 2404109, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری بخش عمومی.pdf", "page": 38, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_بخش_عمومی_p038.png", "width": 2213067, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری بخش عمومی.pdf", "page": 39, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_بخش_عمومی_p039.png", "width": 2159413, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری بخش عمومی.pdf", "page": 40, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_بخش_عمومی_p040.png", "width": 2339704, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری بخش عمومی.pdf", "page": 41, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_بخش_عمومی_p041.png", "width": 2506197, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری بخش عمومی.pdf", "page": 42, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_بخش_عمومی_p042.png", "width": 2082976, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری بخش عمومی.pdf", "page": 43, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_بخش_عمومی_p043.png", "width": 2038119, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری بخش عمومی.pdf", "page": 44, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_بخش_عمومی_p044.png", "width": 2241069, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری بخش عمومی.pdf", "page": 45, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_بخش_عمومی_p045.png", "width": 2254854, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری بخش عمومی.pdf", "page": 46, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_بخش_عمومی_p046.png", "width": 2276432, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری بخش عمومی.pdf", "page": 47, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_بخش_عمومی_p047.png", "width": 2050915, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری بخش عمومی.pdf", "page": 48, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_بخش_عمومی_p048.png", "width": 2213695, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری بخش عمومی.pdf", "page": 49, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_بخش_عمومی_p049.png", "width": 2299376, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری بخش عمومی.pdf", "page": 50, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_بخش_عمومی_p050.png", "width": 2548952, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری بخش عمومی.pdf", "page": 51, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_بخش_عمومی_p051.png", "width": 1909506, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری بخش عمومی.pdf", "page": 52, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_بخش_عمومی_p052.png", "width": 1843850, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری بخش عمومی.pdf", "page": 53, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_بخش_عمومی_p053.png", "width": 2323983, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری بخش عمومی.pdf", "page": 54, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_بخش_عمومی_p054.png", "width": 2153703, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری بخش عمومی.pdf", "page": 55, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_بخش_عمومی_p055.png", "width": 2270410, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری بخش عمومی.pdf", "page": 56, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_بخش_عمومی_p056.png", "width": 1830571, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری بخش عمومی.pdf", "page": 57, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_بخش_عمومی_p057.png", "width": 2072101, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری بخش عمومی.pdf", "page": 58, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_بخش_عمومی_p058.png", "width": 1874637, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری بخش عمومی.pdf", "page": 59, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_بخش_عمومی_p059.png", "width": 1550794, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری بخش عمومی.pdf", "page": 60, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_بخش_عمومی_p060.png", "width": 1910214, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری بخش عمومی.pdf", "page": 61, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_بخش_عمومی_p061.png", "width": 1756638, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری بخش عمومی.pdf", "page": 62, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_بخش_عمومی_p062.png", "width": 1978091, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری بخش عمومی.pdf", "page": 63, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_بخش_عمومی_p063.png", "width": 2430529, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری بخش عمومی.pdf", "page": 64, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_بخش_عمومی_p064.png", "width": 1727592, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری بخش عمومی.pdf", "page": 65, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_بخش_عمومی_p065.png", "width": 1704521, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری بخش عمومی.pdf", "page": 66, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_بخش_عمومی_p066.png", "width": 1689403, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری بخش عمومی.pdf", "page": 67, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_بخش_عمومی_p067.png", "width": 1757697, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری بخش عمومی.pdf", "page": 68, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_بخش_عمومی_p068.png", "width": 2446614, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری بخش عمومی.pdf", "page": 69, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_بخش_عمومی_p069.png", "width": 1861790, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری بخش عمومی.pdf", "page": 70, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_بخش_عمومی_p070.png", "width": 1787580, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری بخش عمومی.pdf", "page": 71, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_بخش_عمومی_p071.png", "width": 1824540, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری بخش عمومی.pdf", "page": 72, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_بخش_عمومی_p072.png", "width": 2277722, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری بخش عمومی.pdf", "page": 73, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_بخش_عمومی_p073.png", "width": 2301384, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری بخش عمومی.pdf", "page": 74, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_بخش_عمومی_p074.png", "width": 1850599, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری بخش عمومی.pdf", "page": 75, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_بخش_عمومی_p075.png", "width": 1348127, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری بخش عمومی.pdf", "page": 76, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_بخش_عمومی_p076.png", "width": 1999917, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری بخش عمومی.pdf", "page": 77, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_بخش_عمومی_p077.png", "width": 1611680, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری بخش عمومی.pdf", "page": 78, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_بخش_عمومی_p078.png", "width": 2476409, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری بخش عمومی.pdf", "page": 79, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_بخش_عمومی_p079.png", "width": 1984522, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری بخش عمومی.pdf", "page": 80, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_بخش_عمومی_p080.png", "width": 1918077, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری بخش عمومی.pdf", "page": 81, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_بخش_عمومی_p081.png", "width": 1821663, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری بخش عمومی.pdf", "page": 82, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_بخش_عمومی_p082.png", "width": 1839911, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری بخش عمومی.pdf", "page": 83, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_بخش_عمومی_p083.png", "width": 1405810, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری بخش عمومی.pdf", "page": 84, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_بخش_عمومی_p084.png", "width": 1890568, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری بخش عمومی.pdf", "page": 85, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_بخش_عمومی_p085.png", "width": 1511020, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری بخش عمومی.pdf", "page": 86, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_بخش_عمومی_p086.png", "width": 2072936, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری بخش عمومی.pdf", "page": 87, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_بخش_عمومی_p087.png", "width": 1595207, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری بخش عمومی.pdf", "page": 88, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_بخش_عمومی_p088.png", "width": 2028190, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری بخش عمومی.pdf", "page": 89, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_بخش_عمومی_p089.png", "width": 2151919, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری بخش عمومی.pdf", "page": 90, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_بخش_عمومی_p090.png", "width": 1933171, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 1, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p001.png", "width": 630182, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 2, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p002.png", "width": 569898, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 3, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p003.png", "width": 3212044, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 4, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p004.png", "width": 2773370, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 5, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p005.png", "width": 2705762, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 6, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p006.png", "width": 2078083, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 7, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p007.png", "width": 3084263, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 8, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p008.png", "width": 3201408, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 9, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p009.png", "width": 2997114, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 10, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p010.png", "width": 4314216, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 11, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p011.png", "width": 3105529, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 12, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p012.png", "width": 2438072, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 13, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p013.png", "width": 2293035, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 14, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p014.png", "width": 2939856, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 15, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p015.png", "width": 2871720, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 16, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p016.png", "width": 3105483, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 17, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p017.png", "width": 3041764, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 18, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p018.png", "width": 2903883, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 19, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p019.png", "width": 3238793, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 20, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p020.png", "width": 3369225, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 21, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p021.png", "width": 3303793, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 22, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p022.png", "width": 2840906, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 23, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p023.png", "width": 4226441, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 24, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p024.png", "width": 3311577, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 25, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p025.png", "width": 3543197, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 26, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p026.png", "width": 3659842, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 27, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p027.png", "width": 2856737, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 28, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p028.png", "width": 2990897, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 29, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p029.png", "width": 2745874, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 30, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p030.png", "width": 3973769, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 31, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p031.png", "width": 3125849, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 32, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p032.png", "width": 3617658, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 33, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p033.png", "width": 3035096, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 34, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p034.png", "width": 2626789, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 35, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p035.png", "width": 3264839, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 36, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p036.png", "width": 3884209, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 37, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p037.png", "width": 2881963, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 38, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p038.png", "width": 4144156, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 39, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p039.png", "width": 4373487, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 40, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p040.png", "width": 2141679, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 41, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p041.png", "width": 2778460, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 42, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p042.png", "width": 2004929, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 43, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p043.png", "width": 3252919, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 44, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p044.png", "width": 3376338, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 45, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p045.png", "width": 3944029, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 46, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p046.png", "width": 3626877, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 47, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p047.png", "width": 2990303, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 48, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p048.png", "width": 2831622, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 49, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p049.png", "width": 3528083, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 50, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p050.png", "width": 2567778, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 51, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p051.png", "width": 2744940, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 52, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p052.png", "width": 2986439, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 53, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p053.png", "width": 2568449, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 54, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p054.png", "width": 2372731, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 55, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p055.png", "width": 2831662, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 56, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p056.png", "width": 3381191, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 57, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p057.png", "width": 2634367, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 58, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p058.png", "width": 2509551, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 59, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p059.png", "width": 2540436, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 60, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p060.png", "width": 2289253, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 61, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p061.png", "width": 1861438, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 62, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p062.png", "width": 2467741, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 63, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p063.png", "width": 2555535, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 64, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p064.png", "width": 2996424, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 65, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p065.png", "width": 2756626, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 66, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p066.png", "width": 3004557, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 67, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p067.png", "width": 3445084, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 68, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p068.png", "width": 2986354, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 69, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p069.png", "width": 3768509, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 70, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p070.png", "width": 2766619, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 71, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p071.png", "width": 2257394, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 72, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p072.png", "width": 2938609, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 73, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p073.png", "width": 3100326, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 74, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p074.png", "width": 3548923, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 75, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p075.png", "width": 2575991, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 76, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p076.png", "width": 2409175, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 77, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p077.png", "width": 2974662, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 78, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p078.png", "width": 3168186, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 79, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p079.png", "width": 2353683, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 80, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p080.png", "width": 3470691, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 81, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p081.png", "width": 2203918, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 82, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p082.png", "width": 2744332, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 83, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p083.png", "width": 2164622, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 84, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p084.png", "width": 2551349, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 85, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p085.png", "width": 2426823, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 86, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p086.png", "width": 2478399, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 87, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p087.png", "width": 2655742, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 88, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p088.png", "width": 2793116, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 89, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p089.png", "width": 2211232, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 90, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p090.png", "width": 2609366, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 91, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p091.png", "width": 2180989, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 92, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p092.png", "width": 2520326, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 93, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p093.png", "width": 2436869, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 94, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p094.png", "width": 2861939, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 95, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p095.png", "width": 3033900, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 96, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p096.png", "width": 3363553, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 97, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p097.png", "width": 3301953, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 98, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p098.png", "width": 3246019, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 99, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p099.png", "width": 2737143, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 100, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p100.png", "width": 2672787, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 101, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p101.png", "width": 2811651, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 102, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p102.png", "width": 2719787, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 103, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p103.png", "width": 3044490, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 104, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p104.png", "width": 2783721, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 105, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p105.png", "width": 3326219, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 106, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p106.png", "width": 3016996, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 107, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p107.png", "width": 3336384, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 108, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p108.png", "width": 3098182, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 109, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p109.png", "width": 3145243, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 110, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p110.png", "width": 3100426, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 111, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p111.png", "width": 2547035, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 112, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p112.png", "width": 2723692, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 113, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p113.png", "width": 2124758, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 114, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p114.png", "width": 2809474, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 115, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p115.png", "width": 2484775, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 116, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p116.png", "width": 2809623, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 117, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p117.png", "width": 2577652, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 118, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p118.png", "width": 1940058, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 119, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p119.png", "width": 2045626, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 120, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p120.png", "width": 3238737, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 121, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p121.png", "width": 2312955, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 122, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p122.png", "width": 2977473, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 123, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p123.png", "width": 1674325, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 124, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p124.png", "width": 2647754, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 125, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p125.png", "width": 3557019, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 126, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p126.png", "width": 2616123, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 127, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p127.png", "width": 2721804, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 128, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p128.png", "width": 2353097, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 129, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p129.png", "width": 2075757, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 130, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p130.png", "width": 2897380, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 131, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p131.png", "width": 1520642, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 132, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p132.png", "width": 2525343, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 133, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p133.png", "width": 2919231, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 134, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p134.png", "width": 2995124, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 135, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p135.png", "width": 2929977, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 136, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p136.png", "width": 3042866, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 137, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p137.png", "width": 3641117, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 138, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p138.png", "width": 2871487, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 139, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p139.png", "width": 2426080, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 140, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p140.png", "width": 3316743, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 141, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p141.png", "width": 3886608, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 142, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p142.png", "width": 2254646, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 143, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p143.png", "width": 2740603, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 144, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p144.png", "width": 2675456, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 145, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p145.png", "width": 3582843, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 146, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p146.png", "width": 2393984, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 147, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p147.png", "width": 3474800, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 148, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p148.png", "width": 3209837, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 149, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p149.png", "width": 4130619, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 150, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p150.png", "width": 3278660, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 151, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p151.png", "width": 4195467, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 152, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p152.png", "width": 2960942, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 153, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p153.png", "width": 2545978, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 154, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p154.png", "width": 2329756, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 155, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p155.png", "width": 2367585, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 156, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p156.png", "width": 1263230, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 157, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p157.png", "width": 2052647, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 158, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p158.png", "width": 2478488, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 159, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p159.png", "width": 2660943, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 160, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p160.png", "width": 2425689, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 161, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p161.png", "width": 3389465, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 162, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p162.png", "width": 2736919, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 163, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p163.png", "width": 2730973, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 164, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p164.png", "width": 3212690, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 165, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p165.png", "width": 3247790, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 166, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p166.png", "width": 4493386, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 167, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p167.png", "width": 2635409, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 168, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p168.png", "width": 1850425, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 169, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p169.png", "width": 3732137, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 170, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p170.png", "width": 2820646, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 171, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p171.png", "width": 1661463, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 172, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p172.png", "width": 3507321, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 173, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p173.png", "width": 3639312, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 174, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p174.png", "width": 2720833, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 175, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p175.png", "width": 2842621, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 176, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p176.png", "width": 2187622, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 177, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p177.png", "width": 3560439, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 178, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p178.png", "width": 2509300, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 179, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p179.png", "width": 3293621, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 180, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p180.png", "width": 2770376, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 181, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p181.png", "width": 2218379, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 182, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p182.png", "width": 4286017, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 183, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p183.png", "width": 2752391, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 184, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p184.png", "width": 1649100, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 185, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p185.png", "width": 3736685, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 186, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p186.png", "width": 2854330, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 187, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p187.png", "width": 3707557, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 188, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p188.png", "width": 3390214, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 189, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p189.png", "width": 3028959, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 190, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p190.png", "width": 2204528, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 191, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p191.png", "width": 3455293, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 192, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p192.png", "width": 2956491, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 193, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p193.png", "width": 2266806, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 194, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p194.png", "width": 3223949, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 195, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p195.png", "width": 3942474, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 196, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p196.png", "width": 2556717, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 197, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p197.png", "width": 2718035, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 198, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p198.png", "width": 1997991, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 199, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p199.png", "width": 2492932, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 200, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p200.png", "width": 2137702, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 201, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p201.png", "width": 1244898, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 202, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p202.png", "width": 2544998, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 203, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p203.png", "width": 2524650, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 204, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p204.png", "width": 2490137, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 205, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p205.png", "width": 2764922, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 206, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p206.png", "width": 2893142, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 207, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p207.png", "width": 1864224, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 208, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p208.png", "width": 2078493, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 209, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p209.png", "width": 3015808, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 210, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p210.png", "width": 1365497, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 211, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p211.png", "width": 1661580, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 212, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p212.png", "width": 2640532, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 213, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p213.png", "width": 2160191, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 214, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p214.png", "width": 1842240, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 215, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p215.png", "width": 1766015, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 216, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p216.png", "width": 2100644, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 1.pdf", "page": 217, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p217.png", "width": 2439233, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 1, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p001.png", "width": 630182, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 2, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p002.png", "width": 569898, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 3, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p003.png", "width": 1846703, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 4, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p004.png", "width": 2219536, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 5, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p005.png", "width": 2165351, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 6, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p006.png", "width": 2091181, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 7, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p007.png", "width": 2491224, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 8, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p008.png", "width": 2496829, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 9, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p009.png", "width": 2470848, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 10, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p010.png", "width": 2304339, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 11, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p011.png", "width": 2160227, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 12, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p012.png", "width": 2054391, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 13, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p013.png", "width": 2129690, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 14, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p014.png", "width": 1855506, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 15, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p015.png", "width": 1838184, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 16, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p016.png", "width": 2618530, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 17, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p017.png", "width": 2140719, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 18, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p018.png", "width": 2832490, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 19, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p019.png", "width": 2017424, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 20, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p020.png", "width": 2501362, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 21, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p021.png", "width": 2664096, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 22, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p022.png", "width": 2413717, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 23, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p023.png", "width": 2453080, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 24, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p024.png", "width": 2211901, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 25, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p025.png", "width": 1906587, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 26, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p026.png", "width": 2120601, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 27, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p027.png", "width": 1983966, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 28, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p028.png", "width": 2558185, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 29, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p029.png", "width": 2245229, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 30, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p030.png", "width": 2908963, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 31, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p031.png", "width": 2245575, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 32, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p032.png", "width": 2362739, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 33, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p033.png", "width": 2544791, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 34, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p034.png", "width": 2688568, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 35, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p035.png", "width": 2732030, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 36, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p036.png", "width": 2848382, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 37, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p037.png", "width": 2193515, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 38, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p038.png", "width": 1998359, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 39, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p039.png", "width": 1946537, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 40, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p040.png", "width": 2268486, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 41, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p041.png", "width": 2221779, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 42, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p042.png", "width": 1971508, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 43, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p043.png", "width": 2138754, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 44, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p044.png", "width": 2063799, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 45, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p045.png", "width": 1642293, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 46, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p046.png", "width": 1981778, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 47, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p047.png", "width": 2127516, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 48, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p048.png", "width": 2488321, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 49, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p049.png", "width": 1841737, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 50, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p050.png", "width": 2188777, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 51, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p051.png", "width": 2235966, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 52, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p052.png", "width": 2337972, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 53, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p053.png", "width": 2185622, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 54, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p054.png", "width": 2377187, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 55, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p055.png", "width": 2074833, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 56, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p056.png", "width": 2577615, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 57, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p057.png", "width": 1854575, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 58, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p058.png", "width": 2521699, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 59, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p059.png", "width": 2545814, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 60, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p060.png", "width": 2285295, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 61, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p061.png", "width": 2166800, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 62, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p062.png", "width": 1741055, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 63, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p063.png", "width": 1893675, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 64, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p064.png", "width": 2907031, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 65, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p065.png", "width": 2414810, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 66, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p066.png", "width": 1690292, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 67, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p067.png", "width": 2084694, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 68, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p068.png", "width": 2034564, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 69, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p069.png", "width": 2271430, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 70, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p070.png", "width": 2257866, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 71, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p071.png", "width": 2387441, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 72, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p072.png", "width": 1714793, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 73, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p073.png", "width": 1886640, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 74, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p074.png", "width": 2318188, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 75, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p075.png", "width": 2376049, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 76, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p076.png", "width": 2390995, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 77, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p077.png", "width": 3127120, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 78, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p078.png", "width": 2595698, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 79, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p079.png", "width": 2246963, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 80, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p080.png", "width": 2778821, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 81, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p081.png", "width": 2711553, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 82, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p082.png", "width": 2308142, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 83, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p083.png", "width": 2245848, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 84, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p084.png", "width": 2176543, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 85, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p085.png", "width": 1466918, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 86, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p086.png", "width": 2352680, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 87, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p087.png", "width": 2149184, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 88, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p088.png", "width": 1810394, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 89, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p089.png", "width": 1995606, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 90, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p090.png", "width": 1761367, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 91, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p091.png", "width": 2372439, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 92, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p092.png", "width": 2635682, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 93, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p093.png", "width": 2480267, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 94, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p094.png", "width": 3177421, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 95, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p095.png", "width": 2747968, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 96, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p096.png", "width": 2912721, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 97, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p097.png", "width": 2305746, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 98, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p098.png", "width": 2610675, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 99, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p099.png", "width": 2394765, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 100, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p100.png", "width": 2161075, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 101, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p101.png", "width": 1958491, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 102, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p102.png", "width": 1848356, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 103, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p103.png", "width": 2166575, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 104, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p104.png", "width": 2200258, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 105, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p105.png", "width": 1963499, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 106, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p106.png", "width": 2419926, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 107, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p107.png", "width": 1677815, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 108, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p108.png", "width": 2215390, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 109, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p109.png", "width": 2720887, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 110, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p110.png", "width": 2758556, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 111, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p111.png", "width": 2138003, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 112, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p112.png", "width": 2370650, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 113, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p113.png", "width": 2115046, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 114, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p114.png", "width": 1927825, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 115, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p115.png", "width": 2099778, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 116, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p116.png", "width": 2999214, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 117, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p117.png", "width": 2243936, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 118, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p118.png", "width": 2176764, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 119, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p119.png", "width": 2488841, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 120, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p120.png", "width": 2262754, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 121, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p121.png", "width": 2355000, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 122, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p122.png", "width": 2209416, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 123, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p123.png", "width": 2386731, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 124, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p124.png", "width": 2097867, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 125, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p125.png", "width": 1987504, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 126, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p126.png", "width": 2811836, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 127, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p127.png", "width": 2865397, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 128, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p128.png", "width": 2664064, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 129, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p129.png", "width": 2340957, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 130, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p130.png", "width": 2343790, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 131, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p131.png", "width": 2763268, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 132, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p132.png", "width": 2738761, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 133, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p133.png", "width": 2564275, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 134, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p134.png", "width": 2782622, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 135, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p135.png", "width": 2652126, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 136, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p136.png", "width": 3234838, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 137, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p137.png", "width": 3239608, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 138, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p138.png", "width": 2410844, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 139, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p139.png", "width": 2993648, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 140, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p140.png", "width": 3623956, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 141, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p141.png", "width": 2858064, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 142, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p142.png", "width": 3489885, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 143, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p143.png", "width": 3245948, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 144, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p144.png", "width": 2447709, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 145, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p145.png", "width": 2783888, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 146, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p146.png", "width": 2188035, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 147, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p147.png", "width": 2840043, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 148, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p148.png", "width": 2706021, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 149, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p149.png", "width": 2099000, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 150, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p150.png", "width": 2716040, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 151, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p151.png", "width": 2642121, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 152, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p152.png", "width": 2887128, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 153, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p153.png", "width": 3214387, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 154, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p154.png", "width": 3413442, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 155, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p155.png", "width": 3495636, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 156, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p156.png", "width": 2957738, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 157, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p157.png", "width": 2118838, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 158, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p158.png", "width": 2694948, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 159, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p159.png", "width": 2545210, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 160, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p160.png", "width": 2662072, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 161, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p161.png", "width": 2218302, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 162, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p162.png", "width": 3138801, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 163, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p163.png", "width": 5565412, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 164, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p164.png", "width": 3219653, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 165, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p165.png", "width": 2657654, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 166, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p166.png", "width": 3300350, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 167, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p167.png", "width": 2791757, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 168, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p168.png", "width": 2957584, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 169, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p169.png", "width": 3116211, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 170, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p170.png", "width": 3034767, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 171, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p171.png", "width": 2320340, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 172, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p172.png", "width": 2750871, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 173, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p173.png", "width": 3658302, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 174, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p174.png", "width": 2392805, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 175, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p175.png", "width": 2772111, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 176, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p176.png", "width": 2449094, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 177, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p177.png", "width": 3058860, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 178, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p178.png", "width": 1833179, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 179, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p179.png", "width": 2248875, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 180, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p180.png", "width": 1935832, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 181, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p181.png", "width": 1708898, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 182, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p182.png", "width": 1899766, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 183, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p183.png", "width": 1857014, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 184, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p184.png", "width": 2545840, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 185, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p185.png", "width": 2263659, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 186, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p186.png", "width": 1691106, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 187, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p187.png", "width": 2403196, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 188, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p188.png", "width": 2390987, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 189, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p189.png", "width": 2053357, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 190, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p190.png", "width": 2426009, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 191, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p191.png", "width": 2414547, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 192, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p192.png", "width": 2331156, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 193, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p193.png", "width": 2688381, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 194, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p194.png", "width": 1991216, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 195, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p195.png", "width": 1947986, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 196, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p196.png", "width": 2602156, "status": "created"}
+{"pdf": "جزوه دست نویس حسابداری پیشرفته 2.pdf", "page": 197, "image_path": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p197.png", "width": 3159105, "status": "created"}
+{"pdf": "جزوه ریاضی پیش، نیکوکار@mathfree.pdf", "page": 1, "image_path": "dataset/raw_images/جزوه_ریاضی_پیش__نیکوکار_mathfree_p001.png", "width": 2676281, "status": "created"}
+{"pdf": "جزوه ریاضی پیش، نیکوکار@mathfree.pdf", "page": 2, "image_path": "dataset/raw_images/جزوه_ریاضی_پیش__نیکوکار_mathfree_p002.png", "width": 2737719, "status": "created"}
+{"pdf": "جزوه ریاضی پیش، نیکوکار@mathfree.pdf", "page": 3, "image_path": "dataset/raw_images/جزوه_ریاضی_پیش__نیکوکار_mathfree_p003.png", "width": 3426622, "status": "created"}
+{"pdf": "جزوه ریاضی پیش، نیکوکار@mathfree.pdf", "page": 4, "image_path": "dataset/raw_images/جزوه_ریاضی_پیش__نیکوکار_mathfree_p004.png", "width": 3210010, "status": "created"}
+{"pdf": "جزوه ریاضی پیش، نیکوکار@mathfree.pdf", "page": 5, "image_path": "dataset/raw_images/جزوه_ریاضی_پیش__نیکوکار_mathfree_p005.png", "width": 3480572, "status": "created"}
+{"pdf": "جزوه ریاضی پیش، نیکوکار@mathfree.pdf", "page": 6, "image_path": "dataset/raw_images/جزوه_ریاضی_پیش__نیکوکار_mathfree_p006.png", "width": 2717949, "status": "created"}
+{"pdf": "جزوه ریاضی پیش، نیکوکار@mathfree.pdf", "page": 7, "image_path": "dataset/raw_images/جزوه_ریاضی_پیش__نیکوکار_mathfree_p007.png", "width": 2837706, "status": "created"}
+{"pdf": "جزوه ریاضی پیش، نیکوکار@mathfree.pdf", "page": 8, "image_path": "dataset/raw_images/جزوه_ریاضی_پیش__نیکوکار_mathfree_p008.png", "width": 3431309, "status": "created"}
+{"pdf": "جزوه ریاضی پیش، نیکوکار@mathfree.pdf", "page": 9, "image_path": "dataset/raw_images/جزوه_ریاضی_پیش__نیکوکار_mathfree_p009.png", "width": 2778765, "status": "created"}
+{"pdf": "جزوه ریاضی پیش، نیکوکار@mathfree.pdf", "page": 10, "image_path": "dataset/raw_images/جزوه_ریاضی_پیش__نیکوکار_mathfree_p010.png", "width": 3174935, "status": "created"}
+{"pdf": "جزوه ریاضی پیش، نیکوکار@mathfree.pdf", "page": 11, "image_path": "dataset/raw_images/جزوه_ریاضی_پیش__نیکوکار_mathfree_p011.png", "width": 3401157, "status": "created"}
+{"pdf": "جزوه ریاضی پیش، نیکوکار@mathfree.pdf", "page": 12, "image_path": "dataset/raw_images/جزوه_ریاضی_پیش__نیکوکار_mathfree_p012.png", "width": 3698260, "status": "created"}
+{"pdf": "جزوه ریاضی پیش، نیکوکار@mathfree.pdf", "page": 13, "image_path": "dataset/raw_images/جزوه_ریاضی_پیش__نیکوکار_mathfree_p013.png", "width": 3441335, "status": "created"}
+{"pdf": "جزوه ریاضی پیش، نیکوکار@mathfree.pdf", "page": 14, "image_path": "dataset/raw_images/جزوه_ریاضی_پیش__نیکوکار_mathfree_p014.png", "width": 2794691, "status": "created"}
+{"pdf": "جزوه ریاضی پیش، نیکوکار@mathfree.pdf", "page": 15, "image_path": "dataset/raw_images/جزوه_ریاضی_پیش__نیکوکار_mathfree_p015.png", "width": 2448141, "status": "created"}
+{"pdf": "جزوه ریاضی پیش، نیکوکار@mathfree.pdf", "page": 16, "image_path": "dataset/raw_images/جزوه_ریاضی_پیش__نیکوکار_mathfree_p016.png", "width": 3044534, "status": "created"}
+{"pdf": "جزوه ریاضی پیش، نیکوکار@mathfree.pdf", "page": 17, "image_path": "dataset/raw_images/جزوه_ریاضی_پیش__نیکوکار_mathfree_p017.png", "width": 3277321, "status": "created"}
+{"pdf": "جزوه ریاضی پیش، نیکوکار@mathfree.pdf", "page": 18, "image_path": "dataset/raw_images/جزوه_ریاضی_پیش__نیکوکار_mathfree_p018.png", "width": 2805384, "status": "created"}
+{"pdf": "جزوه ریاضی پیش، نیکوکار@mathfree.pdf", "page": 19, "image_path": "dataset/raw_images/جزوه_ریاضی_پیش__نیکوکار_mathfree_p019.png", "width": 3291755, "status": "created"}
+{"pdf": "جزوه ریاضی پیش، نیکوکار@mathfree.pdf", "page": 20, "image_path": "dataset/raw_images/جزوه_ریاضی_پیش__نیکوکار_mathfree_p020.png", "width": 2632451, "status": "created"}
+{"pdf": "جزوه ریاضی پیش، نیکوکار@mathfree.pdf", "page": 21, "image_path": "dataset/raw_images/جزوه_ریاضی_پیش__نیکوکار_mathfree_p021.png", "width": 3579982, "status": "created"}
+{"pdf": "جزوه ریاضی پیش، نیکوکار@mathfree.pdf", "page": 22, "image_path": "dataset/raw_images/جزوه_ریاضی_پیش__نیکوکار_mathfree_p022.png", "width": 3314340, "status": "created"}
+{"pdf": "جزوه ریاضی پیش، نیکوکار@mathfree.pdf", "page": 23, "image_path": "dataset/raw_images/جزوه_ریاضی_پیش__نیکوکار_mathfree_p023.png", "width": 4298500, "status": "created"}
+{"pdf": "جزوه ریاضی پیش، نیکوکار@mathfree.pdf", "page": 24, "image_path": "dataset/raw_images/جزوه_ریاضی_پیش__نیکوکار_mathfree_p024.png", "width": 2967930, "status": "created"}
+{"pdf": "جزوه ریاضی پیش، نیکوکار@mathfree.pdf", "page": 25, "image_path": "dataset/raw_images/جزوه_ریاضی_پیش__نیکوکار_mathfree_p025.png", "width": 3050707, "status": "created"}
+{"pdf": "جزوه ریاضی پیش، نیکوکار@mathfree.pdf", "page": 26, "image_path": "dataset/raw_images/جزوه_ریاضی_پیش__نیکوکار_mathfree_p026.png", "width": 2831567, "status": "created"}
+{"pdf": "جزوه ریاضی پیش، نیکوکار@mathfree.pdf", "page": 27, "image_path": "dataset/raw_images/جزوه_ریاضی_پیش__نیکوکار_mathfree_p027.png", "width": 3255577, "status": "created"}
+{"pdf": "جزوه ریاضی پیش، نیکوکار@mathfree.pdf", "page": 28, "image_path": "dataset/raw_images/جزوه_ریاضی_پیش__نیکوکار_mathfree_p028.png", "width": 2609303, "status": "created"}
+{"pdf": "جزوه ریاضی پیش، نیکوکار@mathfree.pdf", "page": 29, "image_path": "dataset/raw_images/جزوه_ریاضی_پیش__نیکوکار_mathfree_p029.png", "width": 2494261, "status": "created"}
+{"pdf": "جزوه ریاضی پیش، نیکوکار@mathfree.pdf", "page": 30, "image_path": "dataset/raw_images/جزوه_ریاضی_پیش__نیکوکار_mathfree_p030.png", "width": 2967496, "status": "created"}
+{"pdf": "جزوه ریاضی پیش، نیکوکار@mathfree.pdf", "page": 31, "image_path": "dataset/raw_images/جزوه_ریاضی_پیش__نیکوکار_mathfree_p031.png", "width": 3327976, "status": "created"}
+{"pdf": "جزوه ریاضی پیش، نیکوکار@mathfree.pdf", "page": 32, "image_path": "dataset/raw_images/جزوه_ریاضی_پیش__نیکوکار_mathfree_p032.png", "width": 3026792, "status": "created"}
+{"pdf": "جزوه ریاضی پیش، نیکوکار@mathfree.pdf", "page": 33, "image_path": "dataset/raw_images/جزوه_ریاضی_پیش__نیکوکار_mathfree_p033.png", "width": 2871718, "status": "created"}
+{"pdf": "جزوه ریاضی پیش، نیکوکار@mathfree.pdf", "page": 34, "image_path": "dataset/raw_images/جزوه_ریاضی_پیش__نیکوکار_mathfree_p034.png", "width": 2641205, "status": "created"}
+{"pdf": "جزوه ریاضی پیش، نیکوکار@mathfree.pdf", "page": 35, "image_path": "dataset/raw_images/جزوه_ریاضی_پیش__نیکوکار_mathfree_p035.png", "width": 2581125, "status": "created"}
+{"pdf": "جزوه ریاضی پیش، نیکوکار@mathfree.pdf", "page": 36, "image_path": "dataset/raw_images/جزوه_ریاضی_پیش__نیکوکار_mathfree_p036.png", "width": 3075693, "status": "created"}
+{"pdf": "جزوه ریاضی پیش، نیکوکار@mathfree.pdf", "page": 37, "image_path": "dataset/raw_images/جزوه_ریاضی_پیش__نیکوکار_mathfree_p037.png", "width": 3248525, "status": "created"}
+{"pdf": "جزوه ریاضی پیش، نیکوکار@mathfree.pdf", "page": 38, "image_path": "dataset/raw_images/جزوه_ریاضی_پیش__نیکوکار_mathfree_p038.png", "width": 3082126, "status": "created"}
+{"pdf": "جزوه ریاضی پیش، نیکوکار@mathfree.pdf", "page": 39, "image_path": "dataset/raw_images/جزوه_ریاضی_پیش__نیکوکار_mathfree_p039.png", "width": 3270550, "status": "created"}
+{"pdf": "جزوه ریاضی پیش، نیکوکار@mathfree.pdf", "page": 40, "image_path": "dataset/raw_images/جزوه_ریاضی_پیش__نیکوکار_mathfree_p040.png", "width": 2980693, "status": "created"}
+{"pdf": "جزوه ریاضی پیش، نیکوکار@mathfree.pdf", "page": 41, "image_path": "dataset/raw_images/جزوه_ریاضی_پیش__نیکوکار_mathfree_p041.png", "width": 3027816, "status": "created"}
+{"pdf": "جزوه ریاضی پیش، نیکوکار@mathfree.pdf", "page": 42, "image_path": "dataset/raw_images/جزوه_ریاضی_پیش__نیکوکار_mathfree_p042.png", "width": 3034584, "status": "created"}
+{"pdf": "جزوه ریاضی پیش، نیکوکار@mathfree.pdf", "page": 43, "image_path": "dataset/raw_images/جزوه_ریاضی_پیش__نیکوکار_mathfree_p043.png", "width": 2654910, "status": "created"}
+{"pdf": "جزوه ریاضی پیش، نیکوکار@mathfree.pdf", "page": 44, "image_path": "dataset/raw_images/جزوه_ریاضی_پیش__نیکوکار_mathfree_p044.png", "width": 2913987, "status": "created"}
+{"pdf": "جزوه ریاضی پیش، نیکوکار@mathfree.pdf", "page": 45, "image_path": "dataset/raw_images/جزوه_ریاضی_پیش__نیکوکار_mathfree_p045.png", "width": 3274664, "status": "created"}
+{"pdf": "جزوه ریاضی پیش، نیکوکار@mathfree.pdf", "page": 46, "image_path": "dataset/raw_images/جزوه_ریاضی_پیش__نیکوکار_mathfree_p046.png", "width": 3214698, "status": "created"}
+{"pdf": "جزوه ریاضی پیش، نیکوکار@mathfree.pdf", "page": 47, "image_path": "dataset/raw_images/جزوه_ریاضی_پیش__نیکوکار_mathfree_p047.png", "width": 2626428, "status": "created"}
+{"pdf": "جزوه ریاضی پیش، نیکوکار@mathfree.pdf", "page": 48, "image_path": "dataset/raw_images/جزوه_ریاضی_پیش__نیکوکار_mathfree_p048.png", "width": 3067065, "status": "created"}
+{"pdf": "جزوه ریاضی پیش، نیکوکار@mathfree.pdf", "page": 49, "image_path": "dataset/raw_images/جزوه_ریاضی_پیش__نیکوکار_mathfree_p049.png", "width": 3227398, "status": "created"}
+{"pdf": "جزوه ریاضی پیش، نیکوکار@mathfree.pdf", "page": 50, "image_path": "dataset/raw_images/جزوه_ریاضی_پیش__نیکوکار_mathfree_p050.png", "width": 3180743, "status": "created"}
+{"pdf": "جزوه ریاضی پیش، نیکوکار@mathfree.pdf", "page": 51, "image_path": "dataset/raw_images/جزوه_ریاضی_پیش__نیکوکار_mathfree_p051.png", "width": 3176216, "status": "created"}
+{"pdf": "جزوه ریاضی پیش، نیکوکار@mathfree.pdf", "page": 52, "image_path": "dataset/raw_images/جزوه_ریاضی_پیش__نیکوکار_mathfree_p052.png", "width": 2976971, "status": "created"}
+{"pdf": "جزوه ریاضی پیش، نیکوکار@mathfree.pdf", "page": 53, "image_path": "dataset/raw_images/جزوه_ریاضی_پیش__نیکوکار_mathfree_p053.png", "width": 3108206, "status": "created"}
+{"pdf": "جزوه ریاضی پیش، نیکوکار@mathfree.pdf", "page": 54, "image_path": "dataset/raw_images/جزوه_ریاضی_پیش__نیکوکار_mathfree_p054.png", "width": 3785748, "status": "created"}
+{"pdf": "جزوه ریاضی پیش، نیکوکار@mathfree.pdf", "page": 55, "image_path": "dataset/raw_images/جزوه_ریاضی_پیش__نیکوکار_mathfree_p055.png", "width": 3028490, "status": "created"}
+{"pdf": "جزوه ریاضی پیش، نیکوکار@mathfree.pdf", "page": 56, "image_path": "dataset/raw_images/جزوه_ریاضی_پیش__نیکوکار_mathfree_p056.png", "width": 3446730, "status": "created"}
+{"pdf": "جزوه ریاضی پیش، نیکوکار@mathfree.pdf", "page": 57, "image_path": "dataset/raw_images/جزوه_ریاضی_پیش__نیکوکار_mathfree_p057.png", "width": 3518979, "status": "created"}
+{"pdf": "جزوه ریاضی پیش، نیکوکار@mathfree.pdf", "page": 58, "image_path": "dataset/raw_images/جزوه_ریاضی_پیش__نیکوکار_mathfree_p058.png", "width": 2444594, "status": "created"}
+{"pdf": "جزوه ریاضی پیش، نیکوکار@mathfree.pdf", "page": 59, "image_path": "dataset/raw_images/جزوه_ریاضی_پیش__نیکوکار_mathfree_p059.png", "width": 2346642, "status": "created"}
+{"pdf": "جزوه ریاضی پیش، نیکوکار@mathfree.pdf", "page": 60, "image_path": "dataset/raw_images/جزوه_ریاضی_پیش__نیکوکار_mathfree_p060.png", "width": 2758590, "status": "created"}
+{"pdf": "جزوه ریاضی پیش، نیکوکار@mathfree.pdf", "page": 61, "image_path": "dataset/raw_images/جزوه_ریاضی_پیش__نیکوکار_mathfree_p061.png", "width": 2246823, "status": "created"}
+{"pdf": "جزوه ریاضی پیش، نیکوکار@mathfree.pdf", "page": 62, "image_path": "dataset/raw_images/جزوه_ریاضی_پیش__نیکوکار_mathfree_p062.png", "width": 2710953, "status": "created"}
+{"pdf": "جزوه ریاضی پیش، نیکوکار@mathfree.pdf", "page": 63, "image_path": "dataset/raw_images/جزوه_ریاضی_پیش__نیکوکار_mathfree_p063.png", "width": 2511634, "status": "created"}
+{"pdf": "جزوه ریاضی پیش، نیکوکار@mathfree.pdf", "page": 64, "image_path": "dataset/raw_images/جزوه_ریاضی_پیش__نیکوکار_mathfree_p064.png", "width": 2661925, "status": "created"}
+{"pdf": "جزوه ریاضی پیش، نیکوکار@mathfree.pdf", "page": 65, "image_path": "dataset/raw_images/جزوه_ریاضی_پیش__نیکوکار_mathfree_p065.png", "width": 3315534, "status": "created"}
+{"pdf": "جزوه ریاضی پیش، نیکوکار@mathfree.pdf", "page": 66, "image_path": "dataset/raw_images/جزوه_ریاضی_پیش__نیکوکار_mathfree_p066.png", "width": 2687301, "status": "created"}
+{"pdf": "جزوه ریاضی پیش، نیکوکار@mathfree.pdf", "page": 67, "image_path": "dataset/raw_images/جزوه_ریاضی_پیش__نیکوکار_mathfree_p067.png", "width": 2974211, "status": "created"}
+{"pdf": "مقدمات راهنمایی و مشاوره.pdf", "page": 1, "image_path": "dataset/raw_images/مقدمات_راهنمایی_و_مشاوره_p001.png", "width": 3107071, "status": "created"}
+{"pdf": "مقدمات راهنمایی و مشاوره.pdf", "page": 2, "image_path": "dataset/raw_images/مقدمات_راهنمایی_و_مشاوره_p002.png", "width": 4891093, "status": "created"}
+{"pdf": "مقدمات راهنمایی و مشاوره.pdf", "page": 3, "image_path": "dataset/raw_images/مقدمات_راهنمایی_و_مشاوره_p003.png", "width": 4261035, "status": "created"}
+{"pdf": "مقدمات راهنمایی و مشاوره.pdf", "page": 4, "image_path": "dataset/raw_images/مقدمات_راهنمایی_و_مشاوره_p004.png", "width": 5485560, "status": "created"}
+{"pdf": "مقدمات راهنمایی و مشاوره.pdf", "page": 5, "image_path": "dataset/raw_images/مقدمات_راهنمایی_و_مشاوره_p005.png", "width": 4235873, "status": "created"}
+{"pdf": "مقدمات راهنمایی و مشاوره.pdf", "page": 6, "image_path": "dataset/raw_images/مقدمات_راهنمایی_و_مشاوره_p006.png", "width": 5501089, "status": "created"}
+{"pdf": "مقدمات راهنمایی و مشاوره.pdf", "page": 7, "image_path": "dataset/raw_images/مقدمات_راهنمایی_و_مشاوره_p007.png", "width": 4824934, "status": "created"}
+{"pdf": "مقدمات راهنمایی و مشاوره.pdf", "page": 8, "image_path": "dataset/raw_images/مقدمات_راهنمایی_و_مشاوره_p008.png", "width": 3984198, "status": "created"}
+{"pdf": "مقدمات راهنمایی و مشاوره.pdf", "page": 9, "image_path": "dataset/raw_images/مقدمات_راهنمایی_و_مشاوره_p009.png", "width": 3675336, "status": "created"}
+{"pdf": "مقدمات راهنمایی و مشاوره.pdf", "page": 10, "image_path": "dataset/raw_images/مقدمات_راهنمایی_و_مشاوره_p010.png", "width": 4083689, "status": "created"}
+{"pdf": "مقدمات راهنمایی و مشاوره.pdf", "page": 11, "image_path": "dataset/raw_images/مقدمات_راهنمایی_و_مشاوره_p011.png", "width": 3935497, "status": "created"}
+{"pdf": "مقدمات راهنمایی و مشاوره.pdf", "page": 12, "image_path": "dataset/raw_images/مقدمات_راهنمایی_و_مشاوره_p012.png", "width": 3561969, "status": "created"}
+{"pdf": "مقدمات راهنمایی و مشاوره.pdf", "page": 13, "image_path": "dataset/raw_images/مقدمات_راهنمایی_و_مشاوره_p013.png", "width": 3965717, "status": "created"}
+{"pdf": "مقدمات راهنمایی و مشاوره.pdf", "page": 14, "image_path": "dataset/raw_images/مقدمات_راهنمایی_و_مشاوره_p014.png", "width": 3638919, "status": "created"}
+{"pdf": "مقدمات راهنمایی و مشاوره.pdf", "page": 15, "image_path": "dataset/raw_images/مقدمات_راهنمایی_و_مشاوره_p015.png", "width": 3214258, "status": "created"}
+{"pdf": "مقدمات راهنمایی و مشاوره.pdf", "page": 16, "image_path": "dataset/raw_images/مقدمات_راهنمایی_و_مشاوره_p016.png", "width": 2766845, "status": "created"}
+{"pdf": "مقدمات راهنمایی و مشاوره.pdf", "page": 17, "image_path": "dataset/raw_images/مقدمات_راهنمایی_و_مشاوره_p017.png", "width": 3419425, "status": "created"}
+{"pdf": "مقدمات راهنمایی و مشاوره.pdf", "page": 18, "image_path": "dataset/raw_images/مقدمات_راهنمایی_و_مشاوره_p018.png", "width": 4148306, "status": "created"}
+{"pdf": "مقدمات راهنمایی و مشاوره.pdf", "page": 19, "image_path": "dataset/raw_images/مقدمات_راهنمایی_و_مشاوره_p019.png", "width": 3682335, "status": "created"}
+{"pdf": "مقدمات راهنمایی و مشاوره.pdf", "page": 20, "image_path": "dataset/raw_images/مقدمات_راهنمایی_و_مشاوره_p020.png", "width": 4533424, "status": "created"}
+{"pdf": "مقدمات راهنمایی و مشاوره.pdf", "page": 21, "image_path": "dataset/raw_images/مقدمات_راهنمایی_و_مشاوره_p021.png", "width": 4547717, "status": "created"}
+{"pdf": "مقدمات راهنمایی و مشاوره.pdf", "page": 22, "image_path": "dataset/raw_images/مقدمات_راهنمایی_و_مشاوره_p022.png", "width": 3837887, "status": "created"}
+{"pdf": "مقدمات راهنمایی و مشاوره.pdf", "page": 23, "image_path": "dataset/raw_images/مقدمات_راهنمایی_و_مشاوره_p023.png", "width": 3107071, "status": "created"}
