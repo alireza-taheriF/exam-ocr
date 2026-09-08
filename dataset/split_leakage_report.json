@@ -1,0 +1,59 @@
+{
+  "group_key": "source_document",
+  "counts": {
+    "train": {
+      "lines": 16509,
+      "groups": 3,
+      "source_pages": 511,
+      "substantive_groups": 3,
+      "largest_group_lines": 6579
+    },
+    "val": {
+      "lines": 2870,
+      "groups": 58,
+      "source_pages": 212,
+      "substantive_groups": 4,
+      "largest_group_lines": 1151
+    },
+    "test": {
+      "lines": 2871,
+      "groups": 60,
+      "source_pages": 200,
+      "substantive_groups": 4,
+      "largest_group_lines": 1467
+    }
+  },
+  "ratios": {
+    "train": 0.742,
+    "val": 0.129,
+    "test": 0.129
+  },
+  "overlaps": {
+    "train__val": {
+      "shared_groups": 0,
+      "shared_group_examples": [],
+      "shared_source_pages": 0,
+      "shared_image_paths": 0,
+      "duplicate_label_strings": 0,
+      "duplicate_label_pct_of_smaller": 0.0
+    },
+    "train__test": {
+      "shared_groups": 0,
+      "shared_group_examples": [],
+      "shared_source_pages": 0,
+      "shared_image_paths": 0,
+      "duplicate_label_strings": 0,
+      "duplicate_label_pct_of_smaller": 0.0
+    },
+    "val__test": {
+      "shared_groups": 0,
+      "shared_group_examples": [],
+      "shared_source_pages": 0,
+      "shared_image_paths": 0,
+      "duplicate_label_strings": 0,
+      "duplicate_label_pct_of_smaller": 0.0
+    }
+  },
+  "unlabeled_rows": 22250,
+  "leakage_free": true
+}

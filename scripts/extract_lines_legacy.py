@@ -1,3 +1,13 @@
+# DEPRECATED — see scripts/extract_and_align_lines.py
+#
+# Kept as reference only. The alignment strategy here is unsound: line 96 does
+#   count = min(len(bboxes), len(label_lines))
+# and pairs label_lines[i] with bboxes[i] by list index. Surya detects a median
+# of 31 boxes/page while the page-level VLM emitted a median of 17 newline-
+# separated lines, so after the first divergence every later pairing is shifted.
+# Measured result: 16,589 of 17,186 rows in dataset/lines.jsonl are aligned=False
+# (96.5%), and Pearson r(crop width, label length) is 0.194 where correctly
+# paired line data would be >=0.8. Do not run this script.
 #!/usr/bin/env python3
 """
 Extract text-line crops from labeled images for TrOCR training.

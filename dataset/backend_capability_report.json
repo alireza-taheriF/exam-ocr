@@ -1,0 +1,64 @@
+{
+  "endpoint": "https://agentrouter.org/v1",
+  "control_code_len": 6,
+  "crop": "dataset/lines_v3/13dbcaf1c860.jpg",
+  "models": [
+    {
+      "model": "claude-opus-4-8",
+      "accepts_image": false,
+      "note": "APIStatusError: Error code: 402 - {'error': {'message': 'Budget pool quota has been exhausted. Please ask an administrator to increase the limit or select another budget pool.'",
+      "control": null,
+      "crop": null,
+      "text_only": {
+        "ok": false,
+        "error": "APIStatusError: Error code: 402 - {'error': {'message': 'Budget pool quota has been exhausted. Please ask an administrator to increase the limit or select another budget pool.'"
+      },
+      "verdict": "unreachable"
+    },
+    {
+      "model": "claude-opus-5",
+      "accepts_image": false,
+      "note": "APIStatusError: Error code: 402 - {'error': {'message': 'Budget pool quota has been exhausted. Please ask an administrator to increase the limit or select another budget pool.'",
+      "control": null,
+      "crop": null,
+      "text_only": {
+        "ok": false,
+        "error": "APIStatusError: Error code: 402 - {'error': {'message': 'Budget pool quota has been exhausted. Please ask an administrator to increase the limit or select another budget pool.'"
+      },
+      "verdict": "unreachable"
+    },
+    {
+      "model": "glm-5.3",
+      "accepts_image": false,
+      "note": "BadRequestError: Error code: 400 - {'error': {'message': \"***.***.type 参数非法，取值范围 ['text'] [trace_id=807834cc51b0e26d490f295bb4fca425]\", 'type': 'invalid_request_error', 'param':",
+      "control": null,
+      "crop": null,
+      "text_only": {
+        "ok": true,
+        "text": ""
+      },
+      "verdict": "no_vision"
+    },
+    {
+      "model": "deepseek-v4-flash",
+      "accepts_image": false,
+      "note": "BadRequestError: Error code: 400 - {'error': {'message': 'This model does not support image [trace_id=7b39938d47a7a2562d8c1dc89e225af6]', 'type': 'invalid_request_error', 'param",
+      "control": null,
+      "crop": null,
+      "text_only": {
+        "ok": true,
+        "text": ""
+      },
+      "verdict": "no_vision"
+    }
+  ],
+  "passed": [],
+  "no_vision": [
+    "glm-5.3",
+    "deepseek-v4-flash"
+  ],
+  "unreachable": [
+    "claude-opus-4-8",
+    "claude-opus-5"
+  ]
+}

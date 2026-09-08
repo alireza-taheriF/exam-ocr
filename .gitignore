@@ -23,6 +23,8 @@ logs/
 dataset/raw_images/
 dataset/raw_pdfs/
 dataset/lines/
+dataset/lines_v2/
+dataset/lines_v3/
 trocr_training.zip
 *.zip
 

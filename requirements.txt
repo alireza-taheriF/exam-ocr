@@ -16,3 +16,6 @@ python-dotenv
 playwright
 requests
 tenacity
+
+# Dev / test
+pytest==8.4.2
