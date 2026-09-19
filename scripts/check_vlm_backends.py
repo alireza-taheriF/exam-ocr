@@ -49,13 +49,13 @@ from PIL import Image, ImageDraw, ImageFont  # noqa: E402
 
 REPORT_OUT = PROJECT_ROOT / "dataset" / "backend_capability_report.json"
 
-# Requested in the Phase 1B brief. Availability is per-router, not per-vendor:
-# .env points at agentrouter.org, whose catalog is its own.
+# Candidates for a vision bake-off. Catalog membership is per-router — always
+# list /v1/models on the current endpoint before treating these as available.
+# glm-5.3 and deepseek-v4-flash are text-only (weight-level) and are not retested.
 DEFAULT_MODELS = [
     "claude-opus-4-8",
     "claude-opus-5",
-    "glm-5.3",
-    "deepseek-v4-flash",
+    "gpt-5.6-sol",
 ]
 
 # Unambiguous glyphs only: no O/0, I/1, S/5, Z/2 confusions to argue about when a

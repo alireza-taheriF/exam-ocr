@@ -87,29 +87,22 @@ def _is_placeholder(value: str) -> bool:
 
 
 def _resolve_openai_base_url() -> str:
-    for name in (
-        "OPENAI_BASE_URL",
-        "OPENAI_API_BASE",
-        "VISION_API_BASE",
-        "VLM_API_BASE",
-    ):
-        value = os.environ.get(name, "").strip()
-        if value:
-            return value.rstrip("/")
-    return OPENAI_BASE
+    from pipeline.openai_compat import resolve_openai_base_url
+
+    return resolve_openai_base_url(dict(os.environ)) or OPENAI_BASE
 
 
 def _openai_only_config() -> VisionConfig:
     """OpenAI-compatible API only — ignores OpenRouter, Gemini, FreeLLMAPI."""
-    api_key = (
-        os.environ.get("OPENAI_API_KEY", "").strip()
-        or os.environ.get("VISION_API_KEY", "").strip()
-    )
+    from pipeline.openai_compat import resolve_openai_api_key
+
+    api_key = resolve_openai_api_key(dict(os.environ))
     if _is_placeholder(api_key):
         raise SystemExit(
-            "OPENAI_API_KEY is required.\n\n"
+            "JUSTWOKER_API_KEY or OPENAI_API_KEY is required.\n\n"
             "Add to .env:\n"
-            "  OPENAI_API_KEY=sk-proj-...\n\n"
+            "  JUSTWOKER_API_KEY=sk-...\n"
+            "  JUSTWOKER_BASE_URL=https://api.justwoker.icu/v1\n\n"
             "Then run: python scripts/configure_openai_labeling.py"
         )
     model = (

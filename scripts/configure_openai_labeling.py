@@ -23,6 +23,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 ENV = ROOT / ".env"
 AGENTROUTER_BASE = "https://agentrouter.org/v1"
+JUSTWOKER_BASE = "https://api.justwoker.icu/v1"
 
 PLACEHOLDERS = {"", "your_api_key_here", "changeme", "replace_me"}
 
@@ -61,6 +62,11 @@ def _rewrite_env(path: Path, updates: dict[str, str]) -> None:
 
 
 def _resolve_base(env: dict[str, str]) -> str:
+    justwoker = env.get("JUSTWOKER_BASE_URL", "").strip()
+    if justwoker:
+        return justwoker.rstrip("/")
+    if env.get("JUSTWOKER_API_KEY", "").strip():
+        return JUSTWOKER_BASE
     for name in (
         "OPENAI_BASE_URL",
         "OPENAI_API_BASE",
@@ -77,6 +83,8 @@ def _default_model(env: dict[str, str], base: str) -> str:
     model = env.get("OPENAI_MODEL") or env.get("VISION_MODEL") or ""
     if model:
         return model
+    if "justwoker.icu" in base:
+        return "gpt-5.6-sol"
     if "agentrouter.org" in base:
         # gpt-5.5 often hits quota; claude-opus-4-6 works on default group.
         return "claude-opus-4-6"
@@ -86,24 +94,31 @@ def _default_model(env: dict[str, str], base: str) -> str:
 def main() -> int:
     env = _read_env(ENV)
     api_key = (
-        env.get("OPENAI_API_KEY", "").strip()
+        env.get("JUSTWOKER_API_KEY", "").strip()
+        or env.get("OPENAI_API_KEY", "").strip()
         or env.get("AGENT_ROUTER_TOKEN", "").strip()
     )
     if not api_key or api_key in PLACEHOLDERS:
         print(
-            "OPENAI_API_KEY not found in .env\n\n"
+            "JUSTWOKER_API_KEY / OPENAI_API_KEY not found in .env\n\n"
+            "JustWoker:   set JUSTWOKER_API_KEY (do not reuse the AgentRouter key)\n"
             "AgentRouter: https://agentrouter.org/console/token\n"
             "OpenAI:      https://platform.openai.com/api-keys\n"
         )
         return 1
 
     base = _resolve_base(env)
-    if not env.get("OPENAI_BASE_URL") and api_key.startswith("sk-") and not api_key.startswith("sk-proj-"):
+    using_justwoker = bool(env.get("JUSTWOKER_API_KEY", "").strip()) or "justwoker.icu" in base
+    if (
+        not using_justwoker
+        and not env.get("OPENAI_BASE_URL")
+        and api_key.startswith("sk-")
+        and not api_key.startswith("sk-proj-")
+    ):
         base = AGENTROUTER_BASE
     model = _default_model(env, base)
 
     updates = {
-        "OPENAI_API_KEY": api_key,
         "OPENAI_MODEL": model,
         "OPENAI_BASE_URL": base,
         "VISION_API_BASE": base,
@@ -116,12 +131,21 @@ def main() -> int:
         "LABEL_OPENAI_ONLY": "true",
         "LABEL_DIRECT_OPENROUTER": "false",
     }
+    if using_justwoker:
+        updates["JUSTWOKER_API_KEY"] = api_key
+        updates["JUSTWOKER_BASE_URL"] = JUSTWOKER_BASE
+        # Leave OPENAI_API_KEY untouched so the AgentRouter credential stays
+        # distinct from this provider.
+    else:
+        updates["OPENAI_API_KEY"] = api_key
     _rewrite_env(ENV, updates)
 
     print("Configured vision API for labeling and OCR pipeline:")
     print(f"  base:  {base}")
     print(f"  model: {model}")
-    if "agentrouter.org" in base:
+    if "justwoker.icu" in base:
+        print("  provider: JustWoker (OpenAI-compatible chat completions)")
+    elif "agentrouter.org" in base:
         print("  provider: AgentRouter (Codex client headers)")
     print()
     print("Verify:")

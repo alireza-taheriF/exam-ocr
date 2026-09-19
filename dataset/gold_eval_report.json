@@ -1,0 +1,33 @@
+{
+  "gold": "dataset/gold.jsonl",
+  "pred": "dataset/qwen_test_preds.jsonl",
+  "lines_scored": 168,
+  "predictions_missing": 0,
+  "documents": 4,
+  "corpus_cer": 0.4542,
+  "corpus_wer": 0.772,
+  "char_accuracy_pct": 54.58,
+  "exact_match_pct": 5.95,
+  "by_document": [
+    {
+      "document": "جزوه_ریاضی_پیش__نیکوکار_mathfree",
+      "lines": 34,
+      "corpus_cer": 0.7878
+    },
+    {
+      "document": "جزوه_دست_نویس_اصول_حسابداری_1",
+      "lines": 34,
+      "corpus_cer": 0.6128
+    },
+    {
+      "document": "مقدمات_راهنمایی_و_مشاوره",
+      "lines": 60,
+      "corpus_cer": 0.4041
+    },
+    {
+      "document": "CamScanner_۲۰۲۵-۰۶-۰۳_۲۲_۳۲",
+      "lines": 40,
+      "corpus_cer": 0.3594
+    }
+  ]
+}

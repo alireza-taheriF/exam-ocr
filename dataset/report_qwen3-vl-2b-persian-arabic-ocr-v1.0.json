@@ -1,0 +1,11 @@
+{
+  "model": "mohajesmaeili/Qwen3-VL-2B-Persian-Arabic-Ocr-v1.0",
+  "gold": "/Users/alireza/exam-ocr/dataset/gold.jsonl",
+  "lines_scored": 168,
+  "corpus_cer": 0.377,
+  "corpus_wer": 0.7419,
+  "empty_hypotheses": 0,
+  "seconds_median": 1.44,
+  "char_accuracy_pct": 62.3,
+  "exact_match_pct": 3.57
+}

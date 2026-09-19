@@ -1,8 +1,13 @@
-"""OpenAI-compatible client helpers (AgentRouter, etc.)."""
+"""OpenAI-compatible client helpers (JustWoker, AgentRouter, etc.)."""
 
 from __future__ import annotations
 
+import os
+
 from openai import OpenAI
+
+JUSTWOKER_HOST = "justwoker.icu"
+JUSTWOKER_DEFAULT_BASE = "https://api.justwoker.icu/v1"
 
 AGENTROUTER_HOST = "agentrouter.org"
 
@@ -27,7 +32,17 @@ def is_agentrouter(base_url: str | None) -> bool:
     return bool(base_url and AGENTROUTER_HOST in base_url.lower())
 
 
+def is_justwoker(base_url: str | None) -> bool:
+    return bool(base_url and JUSTWOKER_HOST in base_url.lower())
+
+
 def resolve_openai_base_url(environ: dict[str, str]) -> str:
+    justwoker_base = environ.get("JUSTWOKER_BASE_URL", "").strip()
+    if justwoker_base:
+        return justwoker_base.rstrip("/")
+    # Dedicated JustWoker key wins over leftover AgentRouter OPENAI_BASE_URL.
+    if environ.get("JUSTWOKER_API_KEY", "").strip():
+        return JUSTWOKER_DEFAULT_BASE
     for name in (
         "OPENAI_BASE_URL",
         "OPENAI_API_BASE",
@@ -41,7 +56,13 @@ def resolve_openai_base_url(environ: dict[str, str]) -> str:
 
 
 def resolve_openai_api_key(environ: dict[str, str]) -> str:
-    for name in ("OPENAI_API_KEY", "AGENT_ROUTER_TOKEN", "VISION_API_KEY", "VLM_API_KEY"):
+    for name in (
+        "JUSTWOKER_API_KEY",
+        "OPENAI_API_KEY",
+        "AGENT_ROUTER_TOKEN",
+        "VISION_API_KEY",
+        "VLM_API_KEY",
+    ):
         value = environ.get(name, "").strip()
         if value:
             return value
@@ -85,9 +106,15 @@ def format_agentrouter_error(detail: str) -> str:
     return detail[:300]
 
 
-def create_openai_client(*, api_key: str, base_url: str | None) -> OpenAI:
-    normalized = (base_url or "https://api.openai.com/v1").rstrip("/")
-    kwargs: dict = {"api_key": api_key, "base_url": normalized}
+def create_openai_client(*, api_key: str | None = None, base_url: str | None = None) -> OpenAI:
+    env = dict(os.environ)
+    key = (api_key if api_key is not None else resolve_openai_api_key(env)).strip()
+    normalized = (base_url if base_url is not None else resolve_openai_base_url(env)).rstrip("/")
+    if not normalized:
+        normalized = "https://api.openai.com/v1"
+    kwargs: dict = {"api_key": key, "base_url": normalized}
+    # JustWoker is OpenAI chat-completions compatible; Codex headers are
+    # AgentRouter-only and would be the wrong client fingerprint here.
     if is_agentrouter(normalized):
         kwargs["default_headers"] = dict(CODEX_CLIENT_HEADERS)
     return OpenAI(**kwargs)

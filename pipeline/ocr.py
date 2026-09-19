@@ -19,7 +19,11 @@ import cv2
 import numpy as np
 from dotenv import load_dotenv
 from openai import RateLimitError
-from pipeline.openai_compat import create_openai_client
+from pipeline.openai_compat import (
+    create_openai_client,
+    resolve_openai_api_key,
+    resolve_openai_base_url,
+)
 from PIL import Image
 from tenacity import retry, retry_if_exception_type, stop_after_attempt, wait_exponential
 
@@ -56,7 +60,7 @@ _VLM_CONFIG_ERROR: str | None = None
 
 
 def _get_api_key() -> str:
-    return os.environ.get("VLM_API_KEY", "").strip()
+    return resolve_openai_api_key(dict(os.environ))
 
 
 def _validate_vlm_config() -> str | None:
@@ -81,8 +85,8 @@ def _get_vlm_client():
     if _VLM_CLIENT is not None:
         return _VLM_CLIENT
 
-    api_base = os.environ.get("VLM_API_BASE", "https://api.deepseek.com")
-    _VLM_CLIENT = create_openai_client(api_key=_get_api_key(), base_url=api_base.rstrip("/"))
+    api_base = resolve_openai_base_url(dict(os.environ))
+    _VLM_CLIENT = create_openai_client(api_key=_get_api_key(), base_url=api_base)
     _VLM_CONFIG_ERROR = None
     return _VLM_CLIENT
 

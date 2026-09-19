@@ -18,6 +18,7 @@ from pipeline.openai_compat import (
     create_openai_client,
     format_agentrouter_error,
     is_agentrouter,
+    is_justwoker,
     is_insufficient_quota,
     resolve_openai_api_key,
     resolve_openai_base_url,
@@ -27,7 +28,10 @@ from pipeline.openai_compat import (
 def _key_hint(key: str) -> str:
     if key.startswith("sk-proj-"):
         return "فرمت کلید رسمی OpenAI (sk-proj-)"
-    if is_agentrouter(os.environ.get("OPENAI_BASE_URL", "")):
+    base = resolve_openai_base_url(dict(os.environ))
+    if is_justwoker(base):
+        return "کلید JustWoker"
+    if is_agentrouter(base):
         return "کلید AgentRouter"
     if key.startswith("sk-"):
         return f"فرمت sk- (طول {len(key)})"

@@ -341,8 +341,8 @@ def estimate_cost(boxes: list[tuple[int, int, int, int]]) -> dict:
         "caveats": [
             "Prompt caching does not apply: the ~130-token system prompt is far "
             "below the 4096-token minimum cacheable prefix on Opus-tier models.",
-            "Assumes the first-party Anthropic API. .env currently points "
-            "VLM_API_BASE at agentrouter.org/v1, whose pricing differs.",
+            "Assumes the first-party Anthropic API. A third-party router "
+            "(JustWoker, AgentRouter, …) may bill at different rates.",
         ],
     }
 

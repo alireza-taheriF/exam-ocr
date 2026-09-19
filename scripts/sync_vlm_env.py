@@ -33,10 +33,19 @@ def _upsert(path: Path, updates: dict[str, str]) -> None:
 def main() -> int:
     env = _read_env(ENV)
     openai_key = env.get("OPENAI_API_KEY", "").strip()
+    justwoker = env.get("JUSTWOKER_API_KEY", "").strip()
     openrouter = env.get("OPENROUTER_API_KEY", "")
     placeholders = {"", "your_api_key_here", "changeme", "replace_me"}
 
-    if openai_key and openai_key not in placeholders:
+    if justwoker and justwoker not in placeholders:
+        model = env.get("OPENAI_MODEL") or env.get("VISION_MODEL") or "gpt-5.6-sol"
+        base = (env.get("JUSTWOKER_BASE_URL") or "https://api.justwoker.icu/v1").rstrip("/")
+        updates = {
+            "VLM_API_BASE": base,
+            "VLM_API_KEY": justwoker,
+            "VLM_MODEL": model,
+        }
+    elif openai_key and openai_key not in placeholders:
         model = env.get("OPENAI_MODEL") or env.get("VISION_MODEL") or "gpt-4o-mini"
         updates = {
             "VLM_API_BASE": "https://api.openai.com/v1",

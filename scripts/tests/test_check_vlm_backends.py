@@ -102,13 +102,14 @@ def test_missing_explicit_crop_returns_none(tmp_path):
     assert cvb.pick_crop(tmp_path / "nope.jpg") is None
 
 
-def test_default_models_cover_the_four_requested_ids():
+def test_default_models_cover_the_three_vision_candidates():
     assert cvb.DEFAULT_MODELS == [
         "claude-opus-4-8",
         "claude-opus-5",
-        "glm-5.3",
-        "deepseek-v4-flash",
+        "gpt-5.6-sol",
     ]
+    assert "glm-5.3" not in cvb.DEFAULT_MODELS
+    assert "deepseek-v4-flash" not in cvb.DEFAULT_MODELS
 
 
 # ── Text-only probe ────────────────────────────────────────────────────────
