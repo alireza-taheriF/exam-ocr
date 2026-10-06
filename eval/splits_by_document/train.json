@@ -1,0 +1,1465 @@
+{
+  "split": "train",
+  "seed": 42,
+  "ratios": {
+    "train": 0.7,
+    "val": 0.15,
+    "gold_test": 0.15
+  },
+  "group_by": "source_document",
+  "split_by": "document",
+  "n_pages": 76,
+  "n_lines": 120,
+  "n_labeled_lines": 68,
+  "pages": [
+    {
+      "page": "dataset/raw_images/جزوه_دست_نویس_اصول_حسابداری_1_p002.png",
+      "source_document": "جزوه_دست_نویس_اصول_حسابداری_1",
+      "n_lines": 1,
+      "n_labeled_lines": 1,
+      "lines": [
+        {
+          "image_path": "dataset/lines_v3/b92ef8f1fd75.jpg",
+          "text": "t.me/payamnoria",
+          "source_document": "جزوه_دست_نویس_اصول_حسابداری_1",
+          "line_index": 3,
+          "source_image": "dataset/raw_images/جزوه_دست_نویس_اصول_حسابداری_1_p002.png"
+        }
+      ]
+    },
+    {
+      "page": "dataset/raw_images/جزوه_دست_نویس_اصول_حسابداری_1_p003.png",
+      "source_document": "جزوه_دست_نویس_اصول_حسابداری_1",
+      "n_lines": 1,
+      "n_labeled_lines": 0,
+      "lines": [
+        {
+          "image_path": "dataset/lines_v3/b63a1b01b109.jpg",
+          "text": "",
+          "source_document": "جزوه_دست_نویس_اصول_حسابداری_1",
+          "line_index": 6,
+          "source_image": "dataset/raw_images/جزوه_دست_نویس_اصول_حسابداری_1_p003.png"
+        }
+      ]
+    },
+    {
+      "page": "dataset/raw_images/جزوه_دست_نویس_اصول_حسابداری_1_p004.png",
+      "source_document": "جزوه_دست_نویس_اصول_حسابداری_1",
+      "n_lines": 1,
+      "n_labeled_lines": 0,
+      "lines": [
+        {
+          "image_path": "dataset/lines_v3/9a7a18c89ba9.jpg",
+          "text": "",
+          "source_document": "جزوه_دست_نویس_اصول_حسابداری_1",
+          "line_index": 5,
+          "source_image": "dataset/raw_images/جزوه_دست_نویس_اصول_حسابداری_1_p004.png"
+        }
+      ]
+    },
+    {
+      "page": "dataset/raw_images/جزوه_دست_نویس_اصول_حسابداری_1_p007.png",
+      "source_document": "جزوه_دست_نویس_اصول_حسابداری_1",
+      "n_lines": 1,
+      "n_labeled_lines": 0,
+      "lines": [
+        {
+          "image_path": "dataset/lines_v3/f05c530b394e.jpg",
+          "text": "",
+          "source_document": "جزوه_دست_نویس_اصول_حسابداری_1",
+          "line_index": 7,
+          "source_image": "dataset/raw_images/جزوه_دست_نویس_اصول_حسابداری_1_p007.png"
+        }
+      ]
+    },
+    {
+      "page": "dataset/raw_images/جزوه_دست_نویس_اصول_حسابداری_1_p009.png",
+      "source_document": "جزوه_دست_نویس_اصول_حسابداری_1",
+      "n_lines": 2,
+      "n_labeled_lines": 0,
+      "lines": [
+        {
+          "image_path": "dataset/lines_v3/d5aa627df311.jpg",
+          "text": "",
+          "source_document": "جزوه_دست_نویس_اصول_حسابداری_1",
+          "line_index": 4,
+          "source_image": "dataset/raw_images/جزوه_دست_نویس_اصول_حسابداری_1_p009.png"
+        },
+        {
+          "image_path": "dataset/lines_v3/43457745f4ac.jpg",
+          "text": "",
+          "source_document": "جزوه_دست_نویس_اصول_حسابداری_1",
+          "line_index": 6,
+          "source_image": "dataset/raw_images/جزوه_دست_نویس_اصول_حسابداری_1_p009.png"
+        }
+      ]
+    },
+    {
+      "page": "dataset/raw_images/جزوه_دست_نویس_اصول_حسابداری_1_p012.png",
+      "source_document": "جزوه_دست_نویس_اصول_حسابداری_1",
+      "n_lines": 2,
+      "n_labeled_lines": 2,
+      "lines": [
+        {
+          "image_path": "dataset/lines_v3/fcea804c1584.jpg",
+          "text": "دارایی‌هایی که در شرکت وجود دارد به سمت چپ معادله اساسی حسابداری بدهکار است.",
+          "source_document": "جزوه_دست_نویس_اصول_حسابداری_1",
+          "line_index": 2,
+          "source_image": "dataset/raw_images/جزوه_دست_نویس_اصول_حسابداری_1_p012.png"
+        },
+        {
+          "image_path": "dataset/lines_v3/f96142ab301c.jpg",
+          "text": "دارایی های شرکت ماهیت بدهکار دارد.",
+          "source_document": "جزوه_دست_نویس_اصول_حسابداری_1",
+          "line_index": 4,
+          "source_image": "dataset/raw_images/جزوه_دست_نویس_اصول_حسابداری_1_p012.png"
+        }
+      ]
+    },
+    {
+      "page": "dataset/raw_images/جزوه_دست_نویس_اصول_حسابداری_1_p016.png",
+      "source_document": "جزوه_دست_نویس_اصول_حسابداری_1",
+      "n_lines": 1,
+      "n_labeled_lines": 0,
+      "lines": [
+        {
+          "image_path": "dataset/lines_v3/c69a457eea0c.jpg",
+          "text": "",
+          "source_document": "جزوه_دست_نویس_اصول_حسابداری_1",
+          "line_index": 9,
+          "source_image": "dataset/raw_images/جزوه_دست_نویس_اصول_حسابداری_1_p016.png"
+        }
+      ]
+    },
+    {
+      "page": "dataset/raw_images/جزوه_دست_نویس_اصول_حسابداری_1_p017.png",
+      "source_document": "جزوه_دست_نویس_اصول_حسابداری_1",
+      "n_lines": 1,
+      "n_labeled_lines": 0,
+      "lines": [
+        {
+          "image_path": "dataset/lines_v3/6bd1c3bf36cb.jpg",
+          "text": "",
+          "source_document": "جزوه_دست_نویس_اصول_حسابداری_1",
+          "line_index": 5,
+          "source_image": "dataset/raw_images/جزوه_دست_نویس_اصول_حسابداری_1_p017.png"
+        }
+      ]
+    },
+    {
+      "page": "dataset/raw_images/جزوه_دست_نویس_اصول_حسابداری_1_p018.png",
+      "source_document": "جزوه_دست_نویس_اصول_حسابداری_1",
+      "n_lines": 3,
+      "n_labeled_lines": 3,
+      "lines": [
+        {
+          "image_path": "dataset/lines_v3/41bb0d4c8112.jpg",
+          "text": "fun hc iv ]kn efj v,dnhn lhgd hk[hl a,n fvhd [g,'dvd hc hajfhi hpjlhgd",
+          "source_document": "جزوه_دست_نویس_اصول_حسابداری_1",
+          "line_index": 0,
+          "source_image": "dataset/raw_images/جزوه_دست_نویس_اصول_حسابداری_1_p018.png"
+        },
+        {
+          "image_path": "dataset/lines_v3/730b743e1cde.jpg",
+          "text": "حساب",
+          "source_document": "جزوه_دست_نویس_اصول_حسابداری_1",
+          "line_index": 8,
+          "source_image": "dataset/raw_images/جزوه_دست_نویس_اصول_حسابداری_1_p018.png"
+        },
+        {
+          "image_path": "dataset/lines_v3/e2975408fd69.jpg",
+          "text": "درمانده گیری باید در آخر فقط یک ردیف یا بدهکار یا بستانکار باقی بماند در دفتر کل اگر بعد از",
+          "source_document": "جزوه_دست_نویس_اصول_حسابداری_1",
+          "line_index": 14,
+          "source_image": "dataset/raw_images/جزوه_دست_نویس_اصول_حسابداری_1_p018.png"
+        }
+      ]
+    },
+    {
+      "page": "dataset/raw_images/جزوه_دست_نویس_اصول_حسابداری_1_p020.png",
+      "source_document": "جزوه_دست_نویس_اصول_حسابداری_1",
+      "n_lines": 1,
+      "n_labeled_lines": 0,
+      "lines": [
+        {
+          "image_path": "dataset/lines_v3/07fdd0cd5dd9.jpg",
+          "text": "",
+          "source_document": "جزوه_دست_نویس_اصول_حسابداری_1",
+          "line_index": 6,
+          "source_image": "dataset/raw_images/جزوه_دست_نویس_اصول_حسابداری_1_p020.png"
+        }
+      ]
+    },
+    {
+      "page": "dataset/raw_images/جزوه_دست_نویس_اصول_حسابداری_1_p021.png",
+      "source_document": "جزوه_دست_نویس_اصول_حسابداری_1",
+      "n_lines": 1,
+      "n_labeled_lines": 1,
+      "lines": [
+        {
+          "image_path": "dataset/lines_v3/bac14b852514.jpg",
+          "text": "آب، برق تلفن",
+          "source_document": "جزوه_دست_نویس_اصول_حسابداری_1",
+          "line_index": 7,
+          "source_image": "dataset/raw_images/جزوه_دست_نویس_اصول_حسابداری_1_p021.png"
+        }
+      ]
+    },
+    {
+      "page": "dataset/raw_images/جزوه_دست_نویس_اصول_حسابداری_1_p024.png",
+      "source_document": "جزوه_دست_نویس_اصول_حسابداری_1",
+      "n_lines": 1,
+      "n_labeled_lines": 0,
+      "lines": [
+        {
+          "image_path": "dataset/lines_v3/609eab767c23.jpg",
+          "text": "",
+          "source_document": "جزوه_دست_نویس_اصول_حسابداری_1",
+          "line_index": 5,
+          "source_image": "dataset/raw_images/جزوه_دست_نویس_اصول_حسابداری_1_p024.png"
+        }
+      ]
+    },
+    {
+      "page": "dataset/raw_images/جزوه_دست_نویس_اصول_حسابداری_1_p025.png",
+      "source_document": "جزوه_دست_نویس_اصول_حسابداری_1",
+      "n_lines": 1,
+      "n_labeled_lines": 1,
+      "lines": [
+        {
+          "image_path": "dataset/lines_v3/eb04ef74bb18.jpg",
+          "text": "۱۲ ماه",
+          "source_document": "جزوه_دست_نویس_اصول_حسابداری_1",
+          "line_index": 11,
+          "source_image": "dataset/raw_images/جزوه_دست_نویس_اصول_حسابداری_1_p025.png"
+        }
+      ]
+    },
+    {
+      "page": "dataset/raw_images/جزوه_دست_نویس_اصول_حسابداری_1_p026.png",
+      "source_document": "جزوه_دست_نویس_اصول_حسابداری_1",
+      "n_lines": 1,
+      "n_labeled_lines": 0,
+      "lines": [
+        {
+          "image_path": "dataset/lines_v3/4507209d77db.jpg",
+          "text": "",
+          "source_document": "جزوه_دست_نویس_اصول_حسابداری_1",
+          "line_index": 1,
+          "source_image": "dataset/raw_images/جزوه_دست_نویس_اصول_حسابداری_1_p026.png"
+        }
+      ]
+    },
+    {
+      "page": "dataset/raw_images/جزوه_دست_نویس_اصول_حسابداری_1_p027.png",
+      "source_document": "جزوه_دست_نویس_اصول_حسابداری_1",
+      "n_lines": 2,
+      "n_labeled_lines": 1,
+      "lines": [
+        {
+          "image_path": "dataset/lines_v3/f467fb0a8f66.jpg",
+          "text": "",
+          "source_document": "جزوه_دست_نویس_اصول_حسابداری_1",
+          "line_index": 1,
+          "source_image": "dataset/raw_images/جزوه_دست_نویس_اصول_حسابداری_1_p027.png"
+        },
+        {
+          "image_path": "dataset/lines_v3/edbeb2ced908.jpg",
+          "text": "۶ ماه",
+          "source_document": "جزوه_دست_نویس_اصول_حسابداری_1",
+          "line_index": 2,
+          "source_image": "dataset/raw_images/جزوه_دست_نویس_اصول_حسابداری_1_p027.png"
+        }
+      ]
+    },
+    {
+      "page": "dataset/raw_images/جزوه_دست_نویس_اصول_حسابداری_1_p030.png",
+      "source_document": "جزوه_دست_نویس_اصول_حسابداری_1",
+      "n_lines": 1,
+      "n_labeled_lines": 0,
+      "lines": [
+        {
+          "image_path": "dataset/lines_v3/8234adce1762.jpg",
+          "text": "",
+          "source_document": "جزوه_دست_نویس_اصول_حسابداری_1",
+          "line_index": 6,
+          "source_image": "dataset/raw_images/جزوه_دست_نویس_اصول_حسابداری_1_p030.png"
+        }
+      ]
+    },
+    {
+      "page": "dataset/raw_images/جزوه_دست_نویس_اصول_حسابداری_1_p031.png",
+      "source_document": "جزوه_دست_نویس_اصول_حسابداری_1",
+      "n_lines": 6,
+      "n_labeled_lines": 4,
+      "lines": [
+        {
+          "image_path": "dataset/lines_v3/06ff5c878dfd.jpg",
+          "text": "",
+          "source_document": "جزوه_دست_نویس_اصول_حسابداری_1",
+          "line_index": 0,
+          "source_image": "dataset/raw_images/جزوه_دست_نویس_اصول_حسابداری_1_p031.png"
+        },
+        {
+          "image_path": "dataset/lines_v3/0420e130f742.jpg",
+          "text": "",
+          "source_document": "جزوه_دست_نویس_اصول_حسابداری_1",
+          "line_index": 5,
+          "source_image": "dataset/raw_images/جزوه_دست_نویس_اصول_حسابداری_1_p031.png"
+        },
+        {
+          "image_path": "dataset/lines_v3/62898353756b.jpg",
+          "text": "مانده بستاندکار",
+          "source_document": "جزوه_دست_نویس_اصول_حسابداری_1",
+          "line_index": 21,
+          "source_image": "dataset/raw_images/جزوه_دست_نویس_اصول_حسابداری_1_p031.png"
+        },
+        {
+          "image_path": "dataset/lines_v3/f70ec2b82359.jpg",
+          "text": "پیش پرداخت بیمه",
+          "source_document": "جزوه_دست_نویس_اصول_حسابداری_1",
+          "line_index": 24,
+          "source_image": "dataset/raw_images/جزوه_دست_نویس_اصول_حسابداری_1_p031.png"
+        },
+        {
+          "image_path": "dataset/lines_v3/0376aa217c70.jpg",
+          "text": "استهلاک انباشه ساختمان",
+          "source_document": "جزوه_دست_نویس_اصول_حسابداری_1",
+          "line_index": 27,
+          "source_image": "dataset/raw_images/جزوه_دست_نویس_اصول_حسابداری_1_p031.png"
+        },
+        {
+          "image_path": "dataset/lines_v3/a25ab8e8d529.jpg",
+          "text": "60000000",
+          "source_document": "جزوه_دست_نویس_اصول_حسابداری_1",
+          "line_index": 28,
+          "source_image": "dataset/raw_images/جزوه_دست_نویس_اصول_حسابداری_1_p031.png"
+        }
+      ]
+    },
+    {
+      "page": "dataset/raw_images/جزوه_دست_نویس_اصول_حسابداری_1_p033.png",
+      "source_document": "جزوه_دست_نویس_اصول_حسابداری_1",
+      "n_lines": 1,
+      "n_labeled_lines": 1,
+      "lines": [
+        {
+          "image_path": "dataset/lines_v3/5780cfda1edd.jpg",
+          "text": "بدهکار ۸ ماه",
+          "source_document": "جزوه_دست_نویس_اصول_حسابداری_1",
+          "line_index": 10,
+          "source_image": "dataset/raw_images/جزوه_دست_نویس_اصول_حسابداری_1_p033.png"
+        }
+      ]
+    },
+    {
+      "page": "dataset/raw_images/جزوه_دست_نویس_اصول_حسابداری_1_p034.png",
+      "source_document": "جزوه_دست_نویس_اصول_حسابداری_1",
+      "n_lines": 1,
+      "n_labeled_lines": 0,
+      "lines": [
+        {
+          "image_path": "dataset/lines_v3/2bf7cfa09d27.jpg",
+          "text": "",
+          "source_document": "جزوه_دست_نویس_اصول_حسابداری_1",
+          "line_index": 5,
+          "source_image": "dataset/raw_images/جزوه_دست_نویس_اصول_حسابداری_1_p034.png"
+        }
+      ]
+    },
+    {
+      "page": "dataset/raw_images/جزوه_دست_نویس_اصول_حسابداری_1_p035.png",
+      "source_document": "جزوه_دست_نویس_اصول_حسابداری_1",
+      "n_lines": 3,
+      "n_labeled_lines": 1,
+      "lines": [
+        {
+          "image_path": "dataset/lines_v3/ca159d727507.jpg",
+          "text": "",
+          "source_document": "جزوه_دست_نویس_اصول_حسابداری_1",
+          "line_index": 1,
+          "source_image": "dataset/raw_images/جزوه_دست_نویس_اصول_حسابداری_1_p035.png"
+        },
+        {
+          "image_path": "dataset/lines_v3/41642b9aed3f.jpg",
+          "text": "",
+          "source_document": "جزوه_دست_نویس_اصول_حسابداری_1",
+          "line_index": 2,
+          "source_image": "dataset/raw_images/جزوه_دست_نویس_اصول_حسابداری_1_p035.png"
+        },
+        {
+          "image_path": "dataset/lines_v3/8bbcf0d01767.jpg",
+          "text": "ود خالص قبل از مالیا",
+          "source_document": "جزوه_دست_نویس_اصول_حسابداری_1",
+          "line_index": 14,
+          "source_image": "dataset/raw_images/جزوه_دست_نویس_اصول_حسابداری_1_p035.png"
+        }
+      ]
+    },
+    {
+      "page": "dataset/raw_images/جزوه_دست_نویس_اصول_حسابداری_1_p036.png",
+      "source_document": "جزوه_دست_نویس_اصول_حسابداری_1",
+      "n_lines": 1,
+      "n_labeled_lines": 0,
+      "lines": [
+        {
+          "image_path": "dataset/lines_v3/e07095c988b3.jpg",
+          "text": "",
+          "source_document": "جزوه_دست_نویس_اصول_حسابداری_1",
+          "line_index": 2,
+          "source_image": "dataset/raw_images/جزوه_دست_نویس_اصول_حسابداری_1_p036.png"
+        }
+      ]
+    },
+    {
+      "page": "dataset/raw_images/جزوه_دست_نویس_اصول_حسابداری_1_p037.png",
+      "source_document": "جزوه_دست_نویس_اصول_حسابداری_1",
+      "n_lines": 1,
+      "n_labeled_lines": 1,
+      "lines": [
+        {
+          "image_path": "dataset/lines_v3/3b4123728053.jpg",
+          "text": "۲ نوع دارایی: دارایی هایی که کوتاه مدت هستند هر روز می‌ایند و می‌روند . (جاری)(یک سال یا کمتر از یکسال)(دوره جاری)",
+          "source_document": "جزوه_دست_نویس_اصول_حسابداری_1",
+          "line_index": 0,
+          "source_image": "dataset/raw_images/جزوه_دست_نویس_اصول_حسابداری_1_p037.png"
+        }
+      ]
+    },
+    {
+      "page": "dataset/raw_images/جزوه_دست_نویس_اصول_حسابداری_1_p038.png",
+      "source_document": "جزوه_دست_نویس_اصول_حسابداری_1",
+      "n_lines": 1,
+      "n_labeled_lines": 1,
+      "lines": [
+        {
+          "image_path": "dataset/lines_v3/42d962d250e0.jpg",
+          "text": "(22 142 000)",
+          "source_document": "جزوه_دست_نویس_اصول_حسابداری_1",
+          "line_index": 3,
+          "source_image": "dataset/raw_images/جزوه_دست_نویس_اصول_حسابداری_1_p038.png"
+        }
+      ]
+    },
+    {
+      "page": "dataset/raw_images/جزوه_دست_نویس_اصول_حسابداری_1_p040.png",
+      "source_document": "جزوه_دست_نویس_اصول_حسابداری_1",
+      "n_lines": 3,
+      "n_labeled_lines": 1,
+      "lines": [
+        {
+          "image_path": "dataset/lines_v3/3bb7b9149a53.jpg",
+          "text": "۹۷۲۸۰۰۰۰ ۲۵۵۰۰۰۰",
+          "source_document": "جزوه_دست_نویس_اصول_حسابداری_1",
+          "line_index": 4,
+          "source_image": "dataset/raw_images/جزوه_دست_نویس_اصول_حسابداری_1_p040.png"
+        },
+        {
+          "image_path": "dataset/lines_v3/21c9609373fc.jpg",
+          "text": "",
+          "source_document": "جزوه_دست_نویس_اصول_حسابداری_1",
+          "line_index": 7,
+          "source_image": "dataset/raw_images/جزوه_دست_نویس_اصول_حسابداری_1_p040.png"
+        },
+        {
+          "image_path": "dataset/lines_v3/22df52f39d4a.jpg",
+          "text": "",
+          "source_document": "جزوه_دست_نویس_اصول_حسابداری_1",
+          "line_index": 12,
+          "source_image": "dataset/raw_images/جزوه_دست_نویس_اصول_حسابداری_1_p040.png"
+        }
+      ]
+    },
+    {
+      "page": "dataset/raw_images/جزوه_دست_نویس_اصول_حسابداری_1_p041.png",
+      "source_document": "جزوه_دست_نویس_اصول_حسابداری_1",
+      "n_lines": 4,
+      "n_labeled_lines": 4,
+      "lines": [
+        {
+          "image_path": "dataset/lines_v3/aef408c219f0.jpg",
+          "text": "Date:",
+          "source_document": "جزوه_دست_نویس_اصول_حسابداری_1",
+          "line_index": 2,
+          "source_image": "dataset/raw_images/جزوه_دست_نویس_اصول_حسابداری_1_p041.png"
+        },
+        {
+          "image_path": "dataset/lines_v3/93ea6c48ab7a.jpg",
+          "text": "شرح",
+          "source_document": "جزوه_دست_نویس_اصول_حسابداری_1",
+          "line_index": 5,
+          "source_image": "dataset/raw_images/جزوه_دست_نویس_اصول_حسابداری_1_p041.png"
+        },
+        {
+          "image_path": "dataset/lines_v3/e331dc160df3.jpg",
+          "text": "بابت بستن هزینه‌ها",
+          "source_document": "جزوه_دست_نویس_اصول_حسابداری_1",
+          "line_index": 27,
+          "source_image": "dataset/raw_images/جزوه_دست_نویس_اصول_حسابداری_1_p041.png"
+        },
+        {
+          "image_path": "dataset/lines_v3/84839754c154.jpg",
+          "text": "۱۲",
+          "source_document": "جزوه_دست_نویس_اصول_حسابداری_1",
+          "line_index": 42,
+          "source_image": "dataset/raw_images/جزوه_دست_نویس_اصول_حسابداری_1_p041.png"
+        }
+      ]
+    },
+    {
+      "page": "dataset/raw_images/جزوه_دست_نویس_اصول_حسابداری_1_p042.png",
+      "source_document": "جزوه_دست_نویس_اصول_حسابداری_1",
+      "n_lines": 2,
+      "n_labeled_lines": 2,
+      "lines": [
+        {
+          "image_path": "dataset/lines_v3/c19b876bc376.jpg",
+          "text": "Date:",
+          "source_document": "جزوه_دست_نویس_اصول_حسابداری_1",
+          "line_index": 1,
+          "source_image": "dataset/raw_images/جزوه_دست_نویس_اصول_حسابداری_1_p042.png"
+        },
+        {
+          "image_path": "dataset/lines_v3/98ee1afef555.jpg",
+          "text": "صندوق",
+          "source_document": "جزوه_دست_نویس_اصول_حسابداری_1",
+          "line_index": 7,
+          "source_image": "dataset/raw_images/جزوه_دست_نویس_اصول_حسابداری_1_p042.png"
+        }
+      ]
+    },
+    {
+      "page": "dataset/raw_images/جزوه_دست_نویس_اصول_حسابداری_1_p044.png",
+      "source_document": "جزوه_دست_نویس_اصول_حسابداری_1",
+      "n_lines": 1,
+      "n_labeled_lines": 1,
+      "lines": [
+        {
+          "image_path": "dataset/lines_v3/729881e4be96.jpg",
+          "text": "در این گزارش کاری به سرمایه نداریم چون آنرا بعدا در گزارش بعدی انجانم می دهم",
+          "source_document": "جزوه_دست_نویس_اصول_حسابداری_1",
+          "line_index": 3,
+          "source_image": "dataset/raw_images/جزوه_دست_نویس_اصول_حسابداری_1_p044.png"
+        }
+      ]
+    },
+    {
+      "page": "dataset/raw_images/جزوه_دست_نویس_اصول_حسابداری_1_p045.png",
+      "source_document": "جزوه_دست_نویس_اصول_حسابداری_1",
+      "n_lines": 4,
+      "n_labeled_lines": 4,
+      "lines": [
+        {
+          "image_path": "dataset/lines_v3/3f328ee008f2.jpg",
+          "text": "شرح",
+          "source_document": "جزوه_دست_نویس_اصول_حسابداری_1",
+          "line_index": 6,
+          "source_image": "dataset/raw_images/جزوه_دست_نویس_اصول_حسابداری_1_p045.png"
+        },
+        {
+          "image_path": "dataset/lines_v3/de1dd713a23a.jpg",
+          "text": "برگشت از فروش و تخفیفات",
+          "source_document": "جزوه_دست_نویس_اصول_حسابداری_1",
+          "line_index": 25,
+          "source_image": "dataset/raw_images/جزوه_دست_نویس_اصول_حسابداری_1_p045.png"
+        },
+        {
+          "image_path": "dataset/lines_v3/86816f2798db.jpg",
+          "text": "حساب دریافتی",
+          "source_document": "جزوه_دست_نویس_اصول_حسابداری_1",
+          "line_index": 28,
+          "source_image": "dataset/raw_images/جزوه_دست_نویس_اصول_حسابداری_1_p045.png"
+        },
+        {
+          "image_path": "dataset/lines_v3/3f5e0bbeee0e.jpg",
+          "text": "۰ ۰۰۰ ۰۰۰",
+          "source_document": "جزوه_دست_نویس_اصول_حسابداری_1",
+          "line_index": 31,
+          "source_image": "dataset/raw_images/جزوه_دست_نویس_اصول_حسابداری_1_p045.png"
+        }
+      ]
+    },
+    {
+      "page": "dataset/raw_images/جزوه_دست_نویس_اصول_حسابداری_1_p046.png",
+      "source_document": "جزوه_دست_نویس_اصول_حسابداری_1",
+      "n_lines": 2,
+      "n_labeled_lines": 2,
+      "lines": [
+        {
+          "image_path": "dataset/lines_v3/196a0d14ed0c.jpg",
+          "text": "صندوق",
+          "source_document": "جزوه_دست_نویس_اصول_حسابداری_1",
+          "line_index": 23,
+          "source_image": "dataset/raw_images/جزوه_دست_نویس_اصول_حسابداری_1_p046.png"
+        },
+        {
+          "image_path": "dataset/lines_v3/55c2b4241f14.jpg",
+          "text": "تحقیقات نقدی خرید",
+          "source_document": "جزوه_دست_نویس_اصول_حسابداری_1",
+          "line_index": 34,
+          "source_image": "dataset/raw_images/جزوه_دست_نویس_اصول_حسابداری_1_p046.png"
+        }
+      ]
+    },
+    {
+      "page": "dataset/raw_images/جزوه_دست_نویس_اصول_حسابداری_1_p047.png",
+      "source_document": "جزوه_دست_نویس_اصول_حسابداری_1",
+      "n_lines": 2,
+      "n_labeled_lines": 1,
+      "lines": [
+        {
+          "image_path": "dataset/lines_v3/8d1fd187a9ac.jpg",
+          "text": "سود سرمایه",
+          "source_document": "جزوه_دست_نویس_اصول_حسابداری_1",
+          "line_index": 0,
+          "source_image": "dataset/raw_images/جزوه_دست_نویس_اصول_حسابداری_1_p047.png"
+        },
+        {
+          "image_path": "dataset/lines_v3/4b535c669a21.jpg",
+          "text": "",
+          "source_document": "جزوه_دست_نویس_اصول_حسابداری_1",
+          "line_index": 3,
+          "source_image": "dataset/raw_images/جزوه_دست_نویس_اصول_حسابداری_1_p047.png"
+        }
+      ]
+    },
+    {
+      "page": "dataset/raw_images/جزوه_دست_نویس_اصول_حسابداری_1_p048.png",
+      "source_document": "جزوه_دست_نویس_اصول_حسابداری_1",
+      "n_lines": 1,
+      "n_labeled_lines": 0,
+      "lines": [
+        {
+          "image_path": "dataset/lines_v3/b48089a0e268.jpg",
+          "text": "",
+          "source_document": "جزوه_دست_نویس_اصول_حسابداری_1",
+          "line_index": 4,
+          "source_image": "dataset/raw_images/جزوه_دست_نویس_اصول_حسابداری_1_p048.png"
+        }
+      ]
+    },
+    {
+      "page": "dataset/raw_images/جزوه_دست_نویس_اصول_حسابداری_1_p050.png",
+      "source_document": "جزوه_دست_نویس_اصول_حسابداری_1",
+      "n_lines": 2,
+      "n_labeled_lines": 0,
+      "lines": [
+        {
+          "image_path": "dataset/lines_v3/9754e0feffe7.jpg",
+          "text": "",
+          "source_document": "جزوه_دست_نویس_اصول_حسابداری_1",
+          "line_index": 3,
+          "source_image": "dataset/raw_images/جزوه_دست_نویس_اصول_حسابداری_1_p050.png"
+        },
+        {
+          "image_path": "dataset/lines_v3/b7ba2bd1e1e0.jpg",
+          "text": "",
+          "source_document": "جزوه_دست_نویس_اصول_حسابداری_1",
+          "line_index": 6,
+          "source_image": "dataset/raw_images/جزوه_دست_نویس_اصول_حسابداری_1_p050.png"
+        }
+      ]
+    },
+    {
+      "page": "dataset/raw_images/جزوه_دست_نویس_اصول_حسابداری_1_p053.png",
+      "source_document": "جزوه_دست_نویس_اصول_حسابداری_1",
+      "n_lines": 2,
+      "n_labeled_lines": 2,
+      "lines": [
+        {
+          "image_path": "dataset/lines_v3/eded64904a23.jpg",
+          "text": "بدانیم که کالایی که فروختیم چقدر برای خودمان آب خورده است.",
+          "source_document": "جزوه_دست_نویس_اصول_حسابداری_1",
+          "line_index": 0,
+          "source_image": "dataset/raw_images/جزوه_دست_نویس_اصول_حسابداری_1_p053.png"
+        },
+        {
+          "image_path": "dataset/lines_v3/fb8fff6cbec3.jpg",
+          "text": "بهای تمام شده کاالای آماده برای فروش ۹۰۰۰۰۰۰",
+          "source_document": "جزوه_دست_نویس_اصول_حسابداری_1",
+          "line_index": 3,
+          "source_image": "dataset/raw_images/جزوه_دست_نویس_اصول_حسابداری_1_p053.png"
+        }
+      ]
+    },
+    {
+      "page": "dataset/raw_images/جزوه_دست_نویس_اصول_حسابداری_1_p054.png",
+      "source_document": "جزوه_دست_نویس_اصول_حسابداری_1",
+      "n_lines": 2,
+      "n_labeled_lines": 0,
+      "lines": [
+        {
+          "image_path": "dataset/lines_v3/80e35fd8e237.jpg",
+          "text": "",
+          "source_document": "جزوه_دست_نویس_اصول_حسابداری_1",
+          "line_index": 3,
+          "source_image": "dataset/raw_images/جزوه_دست_نویس_اصول_حسابداری_1_p054.png"
+        },
+        {
+          "image_path": "dataset/lines_v3/7ddf969e7e74.jpg",
+          "text": "",
+          "source_document": "جزوه_دست_نویس_اصول_حسابداری_1",
+          "line_index": 7,
+          "source_image": "dataset/raw_images/جزوه_دست_نویس_اصول_حسابداری_1_p054.png"
+        }
+      ]
+    },
+    {
+      "page": "dataset/raw_images/جزوه_ریاضی_پیش__نیکوکار_mathfree_p001.png",
+      "source_document": "جزوه_ریاضی_پیش__نیکوکار_mathfree",
+      "n_lines": 1,
+      "n_labeled_lines": 0,
+      "lines": [
+        {
+          "image_path": "dataset/lines_v3/25e518392a00.jpg",
+          "text": "",
+          "source_document": "جزوه_ریاضی_پیش__نیکوکار_mathfree",
+          "line_index": 2,
+          "source_image": "dataset/raw_images/جزوه_ریاضی_پیش__نیکوکار_mathfree_p001.png"
+        }
+      ]
+    },
+    {
+      "page": "dataset/raw_images/جزوه_ریاضی_پیش__نیکوکار_mathfree_p002.png",
+      "source_document": "جزوه_ریاضی_پیش__نیکوکار_mathfree",
+      "n_lines": 1,
+      "n_labeled_lines": 0,
+      "lines": [
+        {
+          "image_path": "dataset/lines_v3/87b5a509043e.jpg",
+          "text": "",
+          "source_document": "جزوه_ریاضی_پیش__نیکوکار_mathfree",
+          "line_index": 14,
+          "source_image": "dataset/raw_images/جزوه_ریاضی_پیش__نیکوکار_mathfree_p002.png"
+        }
+      ]
+    },
+    {
+      "page": "dataset/raw_images/جزوه_ریاضی_پیش__نیکوکار_mathfree_p003.png",
+      "source_document": "جزوه_ریاضی_پیش__نیکوکار_mathfree",
+      "n_lines": 1,
+      "n_labeled_lines": 1,
+      "lines": [
+        {
+          "image_path": "dataset/lines_v3/8264201417a3.jpg",
+          "text": "۲- خامت",
+          "source_document": "جزوه_ریاضی_پیش__نیکوکار_mathfree",
+          "line_index": 8,
+          "source_image": "dataset/raw_images/جزوه_ریاضی_پیش__نیکوکار_mathfree_p003.png"
+        }
+      ]
+    },
+    {
+      "page": "dataset/raw_images/جزوه_ریاضی_پیش__نیکوکار_mathfree_p005.png",
+      "source_document": "جزوه_ریاضی_پیش__نیکوکار_mathfree",
+      "n_lines": 2,
+      "n_labeled_lines": 2,
+      "lines": [
+        {
+          "image_path": "dataset/lines_v3/850f0385ff1b.jpg",
+          "text": "نمودار شکل را حداکثر در یک",
+          "source_document": "جزوه_ریاضی_پیش__نیکوکار_mathfree",
+          "line_index": 12,
+          "source_image": "dataset/raw_images/جزوه_ریاضی_پیش__نیکوکار_mathfree_p005.png"
+        },
+        {
+          "image_path": "dataset/lines_v3/48b8c902467f.jpg",
+          "text": "نقطه و قلع",
+          "source_document": "جزوه_ریاضی_پیش__نیکوکار_mathfree",
+          "line_index": 13,
+          "source_image": "dataset/raw_images/جزوه_ریاضی_پیش__نیکوکار_mathfree_p005.png"
+        }
+      ]
+    },
+    {
+      "page": "dataset/raw_images/جزوه_ریاضی_پیش__نیکوکار_mathfree_p006.png",
+      "source_document": "جزوه_ریاضی_پیش__نیکوکار_mathfree",
+      "n_lines": 1,
+      "n_labeled_lines": 1,
+      "lines": [
+        {
+          "image_path": "dataset/lines_v3/ccbba2661a22.jpg",
+          "text": "0",
+          "source_document": "جزوه_ریاضی_پیش__نیکوکار_mathfree",
+          "line_index": 21,
+          "source_image": "dataset/raw_images/جزوه_ریاضی_پیش__نیکوکار_mathfree_p006.png"
+        }
+      ]
+    },
+    {
+      "page": "dataset/raw_images/جزوه_ریاضی_پیش__نیکوکار_mathfree_p008.png",
+      "source_document": "جزوه_ریاضی_پیش__نیکوکار_mathfree",
+      "n_lines": 2,
+      "n_labeled_lines": 0,
+      "lines": [
+        {
+          "image_path": "dataset/lines_v3/20f72f2d772c.jpg",
+          "text": "",
+          "source_document": "جزوه_ریاضی_پیش__نیکوکار_mathfree",
+          "line_index": 11,
+          "source_image": "dataset/raw_images/جزوه_ریاضی_پیش__نیکوکار_mathfree_p008.png"
+        },
+        {
+          "image_path": "dataset/lines_v3/326d2ea62e0a.jpg",
+          "text": "",
+          "source_document": "جزوه_ریاضی_پیش__نیکوکار_mathfree",
+          "line_index": 14,
+          "source_image": "dataset/raw_images/جزوه_ریاضی_پیش__نیکوکار_mathfree_p008.png"
+        }
+      ]
+    },
+    {
+      "page": "dataset/raw_images/جزوه_ریاضی_پیش__نیکوکار_mathfree_p009.png",
+      "source_document": "جزوه_ریاضی_پیش__نیکوکار_mathfree",
+      "n_lines": 2,
+      "n_labeled_lines": 2,
+      "lines": [
+        {
+          "image_path": "dataset/lines_v3/2f7942e3dc08.jpg",
+          "text": "Subject:",
+          "source_document": "جزوه_ریاضی_پیش__نیکوکار_mathfree",
+          "line_index": 0,
+          "source_image": "dataset/raw_images/جزوه_ریاضی_پیش__نیکوکار_mathfree_p009.png"
+        },
+        {
+          "image_path": "dataset/lines_v3/ca0cfcc23e66.jpg",
+          "text": "a",
+          "source_document": "جزوه_ریاضی_پیش__نیکوکار_mathfree",
+          "line_index": 4,
+          "source_image": "dataset/raw_images/جزوه_ریاضی_پیش__نیکوکار_mathfree_p009.png"
+        }
+      ]
+    },
+    {
+      "page": "dataset/raw_images/جزوه_ریاضی_پیش__نیکوکار_mathfree_p012.png",
+      "source_document": "جزوه_ریاضی_پیش__نیکوکار_mathfree",
+      "n_lines": 2,
+      "n_labeled_lines": 2,
+      "lines": [
+        {
+          "image_path": "dataset/lines_v3/ff5ddedfe891.jpg",
+          "text": "f(x)=",
+          "source_document": "جزوه_ریاضی_پیش__نیکوکار_mathfree",
+          "line_index": 17,
+          "source_image": "dataset/raw_images/جزوه_ریاضی_پیش__نیکوکار_mathfree_p012.png"
+        },
+        {
+          "image_path": "dataset/lines_v3/46e6346cd127.jpg",
+          "text": "x",
+          "source_document": "جزوه_ریاضی_پیش__نیکوکار_mathfree",
+          "line_index": 18,
+          "source_image": "dataset/raw_images/جزوه_ریاضی_پیش__نیکوکار_mathfree_p012.png"
+        }
+      ]
+    },
+    {
+      "page": "dataset/raw_images/جزوه_ریاضی_پیش__نیکوکار_mathfree_p013.png",
+      "source_document": "جزوه_ریاضی_پیش__نیکوکار_mathfree",
+      "n_lines": 1,
+      "n_labeled_lines": 0,
+      "lines": [
+        {
+          "image_path": "dataset/lines_v3/327c9794f453.jpg",
+          "text": "",
+          "source_document": "جزوه_ریاضی_پیش__نیکوکار_mathfree",
+          "line_index": 10,
+          "source_image": "dataset/raw_images/جزوه_ریاضی_پیش__نیکوکار_mathfree_p013.png"
+        }
+      ]
+    },
+    {
+      "page": "dataset/raw_images/جزوه_ریاضی_پیش__نیکوکار_mathfree_p015.png",
+      "source_document": "جزوه_ریاضی_پیش__نیکوکار_mathfree",
+      "n_lines": 1,
+      "n_labeled_lines": 1,
+      "lines": [
+        {
+          "image_path": "dataset/lines_v3/a836c8cf60b5.jpg",
+          "text": "و می",
+          "source_document": "جزوه_ریاضی_پیش__نیکوکار_mathfree",
+          "line_index": 28,
+          "source_image": "dataset/raw_images/جزوه_ریاضی_پیش__نیکوکار_mathfree_p015.png"
+        }
+      ]
+    },
+    {
+      "page": "dataset/raw_images/جزوه_ریاضی_پیش__نیکوکار_mathfree_p018.png",
+      "source_document": "جزوه_ریاضی_پیش__نیکوکار_mathfree",
+      "n_lines": 1,
+      "n_labeled_lines": 1,
+      "lines": [
+        {
+          "image_path": "dataset/lines_v3/ff464af6094b.jpg",
+          "text": "cos",
+          "source_document": "جزوه_ریاضی_پیش__نیکوکار_mathfree",
+          "line_index": 13,
+          "source_image": "dataset/raw_images/جزوه_ریاضی_پیش__نیکوکار_mathfree_p018.png"
+        }
+      ]
+    },
+    {
+      "page": "dataset/raw_images/جزوه_ریاضی_پیش__نیکوکار_mathfree_p019.png",
+      "source_document": "جزوه_ریاضی_پیش__نیکوکار_mathfree",
+      "n_lines": 1,
+      "n_labeled_lines": 1,
+      "lines": [
+        {
+          "image_path": "dataset/lines_v3/6cf91b784767.jpg",
+          "text": "f(-x)=f(-x)",
+          "source_document": "جزوه_ریاضی_پیش__نیکوکار_mathfree",
+          "line_index": 21,
+          "source_image": "dataset/raw_images/جزوه_ریاضی_پیش__نیکوکار_mathfree_p019.png"
+        }
+      ]
+    },
+    {
+      "page": "dataset/raw_images/جزوه_ریاضی_پیش__نیکوکار_mathfree_p020.png",
+      "source_document": "جزوه_ریاضی_پیش__نیکوکار_mathfree",
+      "n_lines": 1,
+      "n_labeled_lines": 1,
+      "lines": [
+        {
+          "image_path": "dataset/lines_v3/9d88938ea044.jpg",
+          "text": "Subject:",
+          "source_document": "جزوه_ریاضی_پیش__نیکوکار_mathfree",
+          "line_index": 0,
+          "source_image": "dataset/raw_images/جزوه_ریاضی_پیش__نیکوکار_mathfree_p020.png"
+        }
+      ]
+    },
+    {
+      "page": "dataset/raw_images/جزوه_ریاضی_پیش__نیکوکار_mathfree_p022.png",
+      "source_document": "جزوه_ریاضی_پیش__نیکوکار_mathfree",
+      "n_lines": 2,
+      "n_labeled_lines": 1,
+      "lines": [
+        {
+          "image_path": "dataset/lines_v3/9c80bae2c0af.jpg",
+          "text": "Year:",
+          "source_document": "جزوه_ریاضی_پیش__نیکوکار_mathfree",
+          "line_index": 3,
+          "source_image": "dataset/raw_images/جزوه_ریاضی_پیش__نیکوکار_mathfree_p022.png"
+        },
+        {
+          "image_path": "dataset/lines_v3/bec171a0a593.jpg",
+          "text": "",
+          "source_document": "جزوه_ریاضی_پیش__نیکوکار_mathfree",
+          "line_index": 17,
+          "source_image": "dataset/raw_images/جزوه_ریاضی_پیش__نیکوکار_mathfree_p022.png"
+        }
+      ]
+    },
+    {
+      "page": "dataset/raw_images/جزوه_ریاضی_پیش__نیکوکار_mathfree_p023.png",
+      "source_document": "جزوه_ریاضی_پیش__نیکوکار_mathfree",
+      "n_lines": 3,
+      "n_labeled_lines": 0,
+      "lines": [
+        {
+          "image_path": "dataset/lines_v3/6beb0852cc62.jpg",
+          "text": "",
+          "source_document": "جزوه_ریاضی_پیش__نیکوکار_mathfree",
+          "line_index": 11,
+          "source_image": "dataset/raw_images/جزوه_ریاضی_پیش__نیکوکار_mathfree_p023.png"
+        },
+        {
+          "image_path": "dataset/lines_v3/8260d3d53fdf.jpg",
+          "text": "",
+          "source_document": "جزوه_ریاضی_پیش__نیکوکار_mathfree",
+          "line_index": 14,
+          "source_image": "dataset/raw_images/جزوه_ریاضی_پیش__نیکوکار_mathfree_p023.png"
+        },
+        {
+          "image_path": "dataset/lines_v3/3917aa4bf33f.jpg",
+          "text": "",
+          "source_document": "جزوه_ریاضی_پیش__نیکوکار_mathfree",
+          "line_index": 58,
+          "source_image": "dataset/raw_images/جزوه_ریاضی_پیش__نیکوکار_mathfree_p023.png"
+        }
+      ]
+    },
+    {
+      "page": "dataset/raw_images/جزوه_ریاضی_پیش__نیکوکار_mathfree_p025.png",
+      "source_document": "جزوه_ریاضی_پیش__نیکوکار_mathfree",
+      "n_lines": 1,
+      "n_labeled_lines": 0,
+      "lines": [
+        {
+          "image_path": "dataset/lines_v3/d44bd7d93309.jpg",
+          "text": "",
+          "source_document": "جزوه_ریاضی_پیش__نیکوکار_mathfree",
+          "line_index": 28,
+          "source_image": "dataset/raw_images/جزوه_ریاضی_پیش__نیکوکار_mathfree_p025.png"
+        }
+      ]
+    },
+    {
+      "page": "dataset/raw_images/جزوه_ریاضی_پیش__نیکوکار_mathfree_p026.png",
+      "source_document": "جزوه_ریاضی_پیش__نیکوکار_mathfree",
+      "n_lines": 2,
+      "n_labeled_lines": 1,
+      "lines": [
+        {
+          "image_path": "dataset/lines_v3/fa1d7ed33cab.jpg",
+          "text": "x : 0",
+          "source_document": "جزوه_ریاضی_پیش__نیکوکار_mathfree",
+          "line_index": 7,
+          "source_image": "dataset/raw_images/جزوه_ریاضی_پیش__نیکوکار_mathfree_p026.png"
+        },
+        {
+          "image_path": "dataset/lines_v3/161208914a31.jpg",
+          "text": "",
+          "source_document": "جزوه_ریاضی_پیش__نیکوکار_mathfree",
+          "line_index": 19,
+          "source_image": "dataset/raw_images/جزوه_ریاضی_پیش__نیکوکار_mathfree_p026.png"
+        }
+      ]
+    },
+    {
+      "page": "dataset/raw_images/جزوه_ریاضی_پیش__نیکوکار_mathfree_p027.png",
+      "source_document": "جزوه_ریاضی_پیش__نیکوکار_mathfree",
+      "n_lines": 3,
+      "n_labeled_lines": 1,
+      "lines": [
+        {
+          "image_path": "dataset/lines_v3/4f19ff09e0f3.jpg",
+          "text": "",
+          "source_document": "جزوه_ریاضی_پیش__نیکوکار_mathfree",
+          "line_index": 13,
+          "source_image": "dataset/raw_images/جزوه_ریاضی_پیش__نیکوکار_mathfree_p027.png"
+        },
+        {
+          "image_path": "dataset/lines_v3/27481fc1330b.jpg",
+          "text": "cos x",
+          "source_document": "جزوه_ریاضی_پیش__نیکوکار_mathfree",
+          "line_index": 23,
+          "source_image": "dataset/raw_images/جزوه_ریاضی_پیش__نیکوکار_mathfree_p027.png"
+        },
+        {
+          "image_path": "dataset/lines_v3/087ae794c7a6.jpg",
+          "text": "",
+          "source_document": "جزوه_ریاضی_پیش__نیکوکار_mathfree",
+          "line_index": 29,
+          "source_image": "dataset/raw_images/جزوه_ریاضی_پیش__نیکوکار_mathfree_p027.png"
+        }
+      ]
+    },
+    {
+      "page": "dataset/raw_images/جزوه_ریاضی_پیش__نیکوکار_mathfree_p028.png",
+      "source_document": "جزوه_ریاضی_پیش__نیکوکار_mathfree",
+      "n_lines": 1,
+      "n_labeled_lines": 1,
+      "lines": [
+        {
+          "image_path": "dataset/lines_v3/abbe5bdc1b7c.jpg",
+          "text": "m : 3",
+          "source_document": "جزوه_ریاضی_پیش__نیکوکار_mathfree",
+          "line_index": 12,
+          "source_image": "dataset/raw_images/جزوه_ریاضی_پیش__نیکوکار_mathfree_p028.png"
+        }
+      ]
+    },
+    {
+      "page": "dataset/raw_images/جزوه_ریاضی_پیش__نیکوکار_mathfree_p029.png",
+      "source_document": "جزوه_ریاضی_پیش__نیکوکار_mathfree",
+      "n_lines": 1,
+      "n_labeled_lines": 0,
+      "lines": [
+        {
+          "image_path": "dataset/lines_v3/78a455c6acb6.jpg",
+          "text": "",
+          "source_document": "جزوه_ریاضی_پیش__نیکوکار_mathfree",
+          "line_index": 6,
+          "source_image": "dataset/raw_images/جزوه_ریاضی_پیش__نیکوکار_mathfree_p029.png"
+        }
+      ]
+    },
+    {
+      "page": "dataset/raw_images/جزوه_ریاضی_پیش__نیکوکار_mathfree_p032.png",
+      "source_document": "جزوه_ریاضی_پیش__نیکوکار_mathfree",
+      "n_lines": 1,
+      "n_labeled_lines": 0,
+      "lines": [
+        {
+          "image_path": "dataset/lines_v3/352f8cde7cb8.jpg",
+          "text": "",
+          "source_document": "جزوه_ریاضی_پیش__نیکوکار_mathfree",
+          "line_index": 6,
+          "source_image": "dataset/raw_images/جزوه_ریاضی_پیش__نیکوکار_mathfree_p032.png"
+        }
+      ]
+    },
+    {
+      "page": "dataset/raw_images/جزوه_ریاضی_پیش__نیکوکار_mathfree_p033.png",
+      "source_document": "جزوه_ریاضی_پیش__نیکوکار_mathfree",
+      "n_lines": 2,
+      "n_labeled_lines": 2,
+      "lines": [
+        {
+          "image_path": "dataset/lines_v3/60bc5197ef7f.jpg",
+          "text": "x-1",
+          "source_document": "جزوه_ریاضی_پیش__نیکوکار_mathfree",
+          "line_index": 22,
+          "source_image": "dataset/raw_images/جزوه_ریاضی_پیش__نیکوکار_mathfree_p033.png"
+        },
+        {
+          "image_path": "dataset/lines_v3/224f5f7647d8.jpg",
+          "text": "۸۸",
+          "source_document": "جزوه_ریاضی_پیش__نیکوکار_mathfree",
+          "line_index": 35,
+          "source_image": "dataset/raw_images/جزوه_ریاضی_پیش__نیکوکار_mathfree_p033.png"
+        }
+      ]
+    },
+    {
+      "page": "dataset/raw_images/جزوه_ریاضی_پیش__نیکوکار_mathfree_p036.png",
+      "source_document": "جزوه_ریاضی_پیش__نیکوکار_mathfree",
+      "n_lines": 1,
+      "n_labeled_lines": 1,
+      "lines": [
+        {
+          "image_path": "dataset/lines_v3/7ff5d96b683d.jpg",
+          "text": "Year:",
+          "source_document": "جزوه_ریاضی_پیش__نیکوکار_mathfree",
+          "line_index": 2,
+          "source_image": "dataset/raw_images/جزوه_ریاضی_پیش__نیکوکار_mathfree_p036.png"
+        }
+      ]
+    },
+    {
+      "page": "dataset/raw_images/جزوه_ریاضی_پیش__نیکوکار_mathfree_p037.png",
+      "source_document": "جزوه_ریاضی_پیش__نیکوکار_mathfree",
+      "n_lines": 2,
+      "n_labeled_lines": 1,
+      "lines": [
+        {
+          "image_path": "dataset/lines_v3/5f7306e6cd02.jpg",
+          "text": "",
+          "source_document": "جزوه_ریاضی_پیش__نیکوکار_mathfree",
+          "line_index": 14,
+          "source_image": "dataset/raw_images/جزوه_ریاضی_پیش__نیکوکار_mathfree_p037.png"
+        },
+        {
+          "image_path": "dataset/lines_v3/3bb837a93deb.jpg",
+          "text": "ax+b x>1",
+          "source_document": "جزوه_ریاضی_پیش__نیکوکار_mathfree",
+          "line_index": 31,
+          "source_image": "dataset/raw_images/جزوه_ریاضی_پیش__نیکوکار_mathfree_p037.png"
+        }
+      ]
+    },
+    {
+      "page": "dataset/raw_images/جزوه_ریاضی_پیش__نیکوکار_mathfree_p043.png",
+      "source_document": "جزوه_ریاضی_پیش__نیکوکار_mathfree",
+      "n_lines": 2,
+      "n_labeled_lines": 1,
+      "lines": [
+        {
+          "image_path": "dataset/lines_v3/60f7e3418410.jpg",
+          "text": "Year:",
+          "source_document": "جزوه_ریاضی_پیش__نیکوکار_mathfree",
+          "line_index": 3,
+          "source_image": "dataset/raw_images/جزوه_ریاضی_پیش__نیکوکار_mathfree_p043.png"
+        },
+        {
+          "image_path": "dataset/lines_v3/70d0ab535ec8.jpg",
+          "text": "",
+          "source_document": "جزوه_ریاضی_پیش__نیکوکار_mathfree",
+          "line_index": 13,
+          "source_image": "dataset/raw_images/جزوه_ریاضی_پیش__نیکوکار_mathfree_p043.png"
+        }
+      ]
+    },
+    {
+      "page": "dataset/raw_images/جزوه_ریاضی_پیش__نیکوکار_mathfree_p044.png",
+      "source_document": "جزوه_ریاضی_پیش__نیکوکار_mathfree",
+      "n_lines": 1,
+      "n_labeled_lines": 1,
+      "lines": [
+        {
+          "image_path": "dataset/lines_v3/2aeb7e04c263.jpg",
+          "text": "Subject;",
+          "source_document": "جزوه_ریاضی_پیش__نیکوکار_mathfree",
+          "line_index": 0,
+          "source_image": "dataset/raw_images/جزوه_ریاضی_پیش__نیکوکار_mathfree_p044.png"
+        }
+      ]
+    },
+    {
+      "page": "dataset/raw_images/جزوه_ریاضی_پیش__نیکوکار_mathfree_p045.png",
+      "source_document": "جزوه_ریاضی_پیش__نیکوکار_mathfree",
+      "n_lines": 1,
+      "n_labeled_lines": 1,
+      "lines": [
+        {
+          "image_path": "dataset/lines_v3/1298fc3d9091.jpg",
+          "text": "Subject:",
+          "source_document": "جزوه_ریاضی_پیش__نیکوکار_mathfree",
+          "line_index": 0,
+          "source_image": "dataset/raw_images/جزوه_ریاضی_پیش__نیکوکار_mathfree_p045.png"
+        }
+      ]
+    },
+    {
+      "page": "dataset/raw_images/جزوه_ریاضی_پیش__نیکوکار_mathfree_p047.png",
+      "source_document": "جزوه_ریاضی_پیش__نیکوکار_mathfree",
+      "n_lines": 2,
+      "n_labeled_lines": 2,
+      "lines": [
+        {
+          "image_path": "dataset/lines_v3/1536962b83a3.jpg",
+          "text": "Year:",
+          "source_document": "جزوه_ریاضی_پیش__نیکوکار_mathfree",
+          "line_index": 1,
+          "source_image": "dataset/raw_images/جزوه_ریاضی_پیش__نیکوکار_mathfree_p047.png"
+        },
+        {
+          "image_path": "dataset/lines_v3/dbb73d8566dc.jpg",
+          "text": "۲۶ y",
+          "source_document": "جزوه_ریاضی_پیش__نیکوکار_mathfree",
+          "line_index": 15,
+          "source_image": "dataset/raw_images/جزوه_ریاضی_پیش__نیکوکار_mathfree_p047.png"
+        }
+      ]
+    },
+    {
+      "page": "dataset/raw_images/جزوه_ریاضی_پیش__نیکوکار_mathfree_p048.png",
+      "source_document": "جزوه_ریاضی_پیش__نیکوکار_mathfree",
+      "n_lines": 1,
+      "n_labeled_lines": 0,
+      "lines": [
+        {
+          "image_path": "dataset/lines_v3/484dad32cbde.jpg",
+          "text": "",
+          "source_document": "جزوه_ریاضی_پیش__نیکوکار_mathfree",
+          "line_index": 9,
+          "source_image": "dataset/raw_images/جزوه_ریاضی_پیش__نیکوکار_mathfree_p048.png"
+        }
+      ]
+    },
+    {
+      "page": "dataset/raw_images/جزوه_ریاضی_پیش__نیکوکار_mathfree_p049.png",
+      "source_document": "جزوه_ریاضی_پیش__نیکوکار_mathfree",
+      "n_lines": 1,
+      "n_labeled_lines": 1,
+      "lines": [
+        {
+          "image_path": "dataset/lines_v3/836adf025fc4.jpg",
+          "text": "y=f(a) ; (0) = (y=0)",
+          "source_document": "جزوه_ریاضی_پیش__نیکوکار_mathfree",
+          "line_index": 14,
+          "source_image": "dataset/raw_images/جزوه_ریاضی_پیش__نیکوکار_mathfree_p049.png"
+        }
+      ]
+    },
+    {
+      "page": "dataset/raw_images/جزوه_ریاضی_پیش__نیکوکار_mathfree_p051.png",
+      "source_document": "جزوه_ریاضی_پیش__نیکوکار_mathfree",
+      "n_lines": 3,
+      "n_labeled_lines": 1,
+      "lines": [
+        {
+          "image_path": "dataset/lines_v3/fdddfe5ee3f1.jpg",
+          "text": "",
+          "source_document": "جزوه_ریاضی_پیش__نیکوکار_mathfree",
+          "line_index": 5,
+          "source_image": "dataset/raw_images/جزوه_ریاضی_پیش__نیکوکار_mathfree_p051.png"
+        },
+        {
+          "image_path": "dataset/lines_v3/d8053ef2c966.jpg",
+          "text": "",
+          "source_document": "جزوه_ریاضی_پیش__نیکوکار_mathfree",
+          "line_index": 13,
+          "source_image": "dataset/raw_images/جزوه_ریاضی_پیش__نیکوکار_mathfree_p051.png"
+        },
+        {
+          "image_path": "dataset/lines_v3/053ae2d65df6.jpg",
+          "text": "Scanned by شپئزشددثق",
+          "source_document": "جزوه_ریاضی_پیش__نیکوکار_mathfree",
+          "line_index": 28,
+          "source_image": "dataset/raw_images/جزوه_ریاضی_پیش__نیکوکار_mathfree_p051.png"
+        }
+      ]
+    },
+    {
+      "page": "dataset/raw_images/جزوه_ریاضی_پیش__نیکوکار_mathfree_p052.png",
+      "source_document": "جزوه_ریاضی_پیش__نیکوکار_mathfree",
+      "n_lines": 1,
+      "n_labeled_lines": 1,
+      "lines": [
+        {
+          "image_path": "dataset/lines_v3/b1b4aef2224d.jpg",
+          "text": "Scanned by CamScanner",
+          "source_document": "جزوه_ریاضی_پیش__نیکوکار_mathfree",
+          "line_index": 15,
+          "source_image": "dataset/raw_images/جزوه_ریاضی_پیش__نیکوکار_mathfree_p052.png"
+        }
+      ]
+    },
+    {
+      "page": "dataset/raw_images/جزوه_ریاضی_پیش__نیکوکار_mathfree_p054.png",
+      "source_document": "جزوه_ریاضی_پیش__نیکوکار_mathfree",
+      "n_lines": 1,
+      "n_labeled_lines": 0,
+      "lines": [
+        {
+          "image_path": "dataset/lines_v3/0dee82aedf93.jpg",
+          "text": "",
+          "source_document": "جزوه_ریاضی_پیش__نیکوکار_mathfree",
+          "line_index": 8,
+          "source_image": "dataset/raw_images/جزوه_ریاضی_پیش__نیکوکار_mathfree_p054.png"
+        }
+      ]
+    },
+    {
+      "page": "dataset/raw_images/جزوه_ریاضی_پیش__نیکوکار_mathfree_p056.png",
+      "source_document": "جزوه_ریاضی_پیش__نیکوکار_mathfree",
+      "n_lines": 1,
+      "n_labeled_lines": 1,
+      "lines": [
+        {
+          "image_path": "dataset/lines_v3/5cedaa3026bd.jpg",
+          "text": "۰",
+          "source_document": "جزوه_ریاضی_پیش__نیکوکار_mathfree",
+          "line_index": 4,
+          "source_image": "dataset/raw_images/جزوه_ریاضی_پیش__نیکوکار_mathfree_p056.png"
+        }
+      ]
+    },
+    {
+      "page": "dataset/raw_images/جزوه_ریاضی_پیش__نیکوکار_mathfree_p057.png",
+      "source_document": "جزوه_ریاضی_پیش__نیکوکار_mathfree",
+      "n_lines": 1,
+      "n_labeled_lines": 1,
+      "lines": [
+        {
+          "image_path": "dataset/lines_v3/99b823a82ee7.jpg",
+          "text": "Scanned by CamScanner",
+          "source_document": "جزوه_ریاضی_پیش__نیکوکار_mathfree",
+          "line_index": 15,
+          "source_image": "dataset/raw_images/جزوه_ریاضی_پیش__نیکوکار_mathfree_p057.png"
+        }
+      ]
+    },
+    {
+      "page": "dataset/raw_images/جزوه_ریاضی_پیش__نیکوکار_mathfree_p058.png",
+      "source_document": "جزوه_ریاضی_پیش__نیکوکار_mathfree",
+      "n_lines": 2,
+      "n_labeled_lines": 1,
+      "lines": [
+        {
+          "image_path": "dataset/lines_v3/677200d719df.jpg",
+          "text": "Date:",
+          "source_document": "جزوه_ریاضی_پیش__نیکوکار_mathfree",
+          "line_index": 1,
+          "source_image": "dataset/raw_images/جزوه_ریاضی_پیش__نیکوکار_mathfree_p058.png"
+        },
+        {
+          "image_path": "dataset/lines_v3/1300ef77298d.jpg",
+          "text": "",
+          "source_document": "جزوه_ریاضی_پیش__نیکوکار_mathfree",
+          "line_index": 14,
+          "source_image": "dataset/raw_images/جزوه_ریاضی_پیش__نیکوکار_mathfree_p058.png"
+        }
+      ]
+    },
+    {
+      "page": "dataset/raw_images/جزوه_ریاضی_پیش__نیکوکار_mathfree_p059.png",
+      "source_document": "جزوه_ریاضی_پیش__نیکوکار_mathfree",
+      "n_lines": 1,
+      "n_labeled_lines": 0,
+      "lines": [
+        {
+          "image_path": "dataset/lines_v3/eba6e06496c7.jpg",
+          "text": "",
+          "source_document": "جزوه_ریاضی_پیش__نیکوکار_mathfree",
+          "line_index": 5,
+          "source_image": "dataset/raw_images/جزوه_ریاضی_پیش__نیکوکار_mathfree_p059.png"
+        }
+      ]
+    },
+    {
+      "page": "dataset/raw_images/جزوه_ریاضی_پیش__نیکوکار_mathfree_p060.png",
+      "source_document": "جزوه_ریاضی_پیش__نیکوکار_mathfree",
+      "n_lines": 1,
+      "n_labeled_lines": 0,
+      "lines": [
+        {
+          "image_path": "dataset/lines_v3/06a1a4fe0d26.jpg",
+          "text": "",
+          "source_document": "جزوه_ریاضی_پیش__نیکوکار_mathfree",
+          "line_index": 15,
+          "source_image": "dataset/raw_images/جزوه_ریاضی_پیش__نیکوکار_mathfree_p060.png"
+        }
+      ]
+    },
+    {
+      "page": "dataset/raw_images/جزوه_ریاضی_پیش__نیکوکار_mathfree_p063.png",
+      "source_document": "جزوه_ریاضی_پیش__نیکوکار_mathfree",
+      "n_lines": 1,
+      "n_labeled_lines": 1,
+      "lines": [
+        {
+          "image_path": "dataset/lines_v3/ccf28143a279.jpg",
+          "text": "C",
+          "source_document": "جزوه_ریاضی_پیش__نیکوکار_mathfree",
+          "line_index": 12,
+          "source_image": "dataset/raw_images/جزوه_ریاضی_پیش__نیکوکار_mathfree_p063.png"
+        }
+      ]
+    },
+    {
+      "page": "dataset/raw_images/جزوه_ریاضی_پیش__نیکوکار_mathfree_p064.png",
+      "source_document": "جزوه_ریاضی_پیش__نیکوکار_mathfree",
+      "n_lines": 1,
+      "n_labeled_lines": 1,
+      "lines": [
+        {
+          "image_path": "dataset/lines_v3/50f25741a5ce.jpg",
+          "text": "y=",
+          "source_document": "جزوه_ریاضی_پیش__نیکوکار_mathfree",
+          "line_index": 18,
+          "source_image": "dataset/raw_images/جزوه_ریاضی_پیش__نیکوکار_mathfree_p064.png"
+        }
+      ]
+    },
+    {
+      "page": "dataset/raw_images/جزوه_ریاضی_پیش__نیکوکار_mathfree_p066.png",
+      "source_document": "جزوه_ریاضی_پیش__نیکوکار_mathfree",
+      "n_lines": 2,
+      "n_labeled_lines": 1,
+      "lines": [
+        {
+          "image_path": "dataset/lines_v3/62ff970a54fd.jpg",
+          "text": "۰",
+          "source_document": "جزوه_ریاضی_پیش__نیکوکار_mathfree",
+          "line_index": 11,
+          "source_image": "dataset/raw_images/جزوه_ریاضی_پیش__نیکوکار_mathfree_p066.png"
+        },
+        {
+          "image_path": "dataset/lines_v3/7903155c3c0e.jpg",
+          "text": "",
+          "source_document": "جزوه_ریاضی_پیش__نیکوکار_mathfree",
+          "line_index": 14,
+          "source_image": "dataset/raw_images/جزوه_ریاضی_پیش__نیکوکار_mathfree_p066.png"
+        }
+      ]
+    },
+    {
+      "page": "dataset/raw_images/جزوه_ریاضی_پیش__نیکوکار_mathfree_p067.png",
+      "source_document": "جزوه_ریاضی_پیش__نیکوکار_mathfree",
+      "n_lines": 1,
+      "n_labeled_lines": 0,
+      "lines": [
+        {
+          "image_path": "dataset/lines_v3/d4d001c57831.jpg",
+          "text": "",
+          "source_document": "جزوه_ریاضی_پیش__نیکوکار_mathfree",
+          "line_index": 8,
+          "source_image": "dataset/raw_images/جزوه_ریاضی_پیش__نیکوکار_mathfree_p067.png"
+        }
+      ]
+    }
+  ],
+  "policy": "May be used for training (train) or tuning (val)."
+}

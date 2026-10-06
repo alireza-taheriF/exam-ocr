@@ -1,0 +1,100 @@
+{
+  "seed": 42,
+  "ratios": {
+    "train": 0.7,
+    "val": 0.15,
+    "gold_test": 0.15
+  },
+  "group_by": "source_image",
+  "split_by": "page",
+  "splits": {
+    "train": {
+      "path": "eval/splits/train.json",
+      "n_pages": 74,
+      "n_lines": 169,
+      "n_labeled_lines": 118
+    },
+    "val": {
+      "path": "eval/splits/val.json",
+      "n_pages": 16,
+      "n_lines": 40,
+      "n_labeled_lines": 32
+    },
+    "gold_test": {
+      "path": "eval/splits/gold_test.json",
+      "n_pages": 16,
+      "n_lines": 31,
+      "n_labeled_lines": 18
+    }
+  },
+  "leakage_check": {
+    "ok": true,
+    "overlaps": {
+      "train_vs_val": {
+        "n_overlap": 0,
+        "pages": []
+      },
+      "train_vs_gold_test": {
+        "n_overlap": 0,
+        "pages": []
+      },
+      "val_vs_gold_test": {
+        "n_overlap": 0,
+        "pages": []
+      }
+    }
+  },
+  "document_leakage_check": {
+    "ok": false,
+    "n_documents": 4,
+    "n_leaked_documents": 4,
+    "leaked_documents": {
+      "CamScanner_۲۰۲۵-۰۶-۰۳_۲۲_۳۲": {
+        "splits": [
+          "gold_test",
+          "train"
+        ],
+        "pages_per_split": {
+          "train": 10,
+          "gold_test": 1
+        }
+      },
+      "جزوه_دست_نویس_اصول_حسابداری_1": {
+        "splits": [
+          "gold_test",
+          "train",
+          "val"
+        ],
+        "pages_per_split": {
+          "train": 20,
+          "val": 7,
+          "gold_test": 7
+        }
+      },
+      "جزوه_ریاضی_پیش__نیکوکار_mathfree": {
+        "splits": [
+          "gold_test",
+          "train",
+          "val"
+        ],
+        "pages_per_split": {
+          "train": 32,
+          "val": 6,
+          "gold_test": 4
+        }
+      },
+      "مقدمات_راهنمایی_و_مشاوره": {
+        "splits": [
+          "gold_test",
+          "train",
+          "val"
+        ],
+        "pages_per_split": {
+          "train": 12,
+          "val": 3,
+          "gold_test": 4
+        }
+      }
+    }
+  }
+}

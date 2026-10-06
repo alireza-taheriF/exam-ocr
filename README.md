@@ -15,12 +15,22 @@ exam-ocr/
 │   └── index.html       # Persian upload UI
 ├── pipeline/
 │   ├── preprocess.py    # Image preprocessing
-│   ├── layout.py        # Block detection (text, table, figure, handwriting)
-│   ├── ocr.py           # Persian OCR via Surya
+│   ├── layout.py        # Line-level layout (+ OpenCV fallback)
+│   ├── ocr.py           # Persian OCR via VLM API
 │   ├── crop.py          # Smart cropping for non-OCR blocks
+│   ├── normalizer.py    # Shared Persian normalization
 │   └── export.py        # DOCX export (RTL)
+├── eval/                # Evaluation harness (split / metrics / baseline)
+│   ├── split.py
+│   ├── normalize.py
+│   ├── metrics.py
+│   ├── run_baseline.py
+│   └── splits/          # train / val / gold_test manifests
+├── dataset/
+│   ├── gold.jsonl       # Hand-verified labeled line crops
+│   └── lines_v3/        # Line crop images
 ├── uploads/             # Uploaded input files
-├── outputs/             # Generated DOCX files
+├── outputs/             # Generated DOCX + eval artifacts
 └── logs/
     └── errors.log       # Error log (created at runtime)
 ```
@@ -53,6 +63,58 @@ Open in your browser:
 
 - Upload UI: [http://127.0.0.1:8000/](http://127.0.0.1:8000/)
 - API docs: [http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs)
+
+---
+
+## Evaluation harness / ارزیابی
+
+Clean hand-labeled data lives in **`dataset/gold.jsonl`** (240 line crops; 168 with
+non-empty text), with images under `dataset/lines_v3/` and page links via
+`source_image` / `source_document`. This set is separate from the old broken
+page→line alignment outputs (`dataset/lines.jsonl`, `dataset/dataset.jsonl`).
+
+**Primary metric:** mean **sentence-level similarity** with partial credit
+(after `eval/normalize.py`):
+
+```
+sentence_similarity = clip(1 - levenshtein(pred, ref) / max(len(ref), 1), 0, 1)
+```
+
+Also reported: % units with similarity ≥ 0.80, exact-match rate, CER, WER, word accuracy.
+Because gold labels are line crops with sparse sentence punctuation, the harness
+**falls back to line-level units** (newline-separated) and states this in the report.
+`gold_test` is hold-out only — never use it for training, tuning, or thresholding.
+
+```bash
+source .venv/bin/activate
+
+# 1) Deterministic page-level split → eval/splits/{train,val,gold_test}.json
+python -m eval.split --seed 42
+
+# 2) Unit tests for metrics / normalize / split
+pytest eval/tests -q
+
+# 3) Baseline on val + gold_test (local Surya recognition; no VLM spend)
+python -m eval.run_baseline --mode page --ocr-backend surya --splits val gold_test
+
+# 4) Before/after layout fix (legacy region blocks vs line segmentation) on val
+#    (uses val only for decisions; do not tune on gold_test)
+python -m eval.run_baseline --compare-layout --mode page --ocr-backend surya --splits val
+
+# 5) Debug overlays for 10 val/train pages (skip scoring)
+python -m eval.run_baseline --debug-overlays 10 --overlays-only
+
+# Optional: OCR gold line crops only (layout-independent recognition check)
+python -m eval.run_baseline --mode line_crops --ocr-backend surya --splits val gold_test
+```
+
+Page-mode scoring matches each gold line to the best overlapping detected block
+(via IoU / containment) so sparse gold labels are not compared against full-page
+transcripts. Outputs land in `outputs/eval/` (`metrics_*.json`, `errors_*.csv`
+sorted worst-first, `layout_debug_*` overlays, `before_after_summary.json`).
+
+**Note:** keep `transformers` in the range pinned by `requirements.txt`
+(`>=4.41,<4.46`). Newer major versions break Surya recognition/ordering imports.
 
 ---
 

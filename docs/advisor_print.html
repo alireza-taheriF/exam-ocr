@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<title>گزارش مختصر آزمایش OCR دست‌نویس فارسی</title>
+<style>
+@font-face {
+  font-family: Vazir;
+  src: url("file:///Users/alireza/Library/Fonts/Vazir.ttf") format("truetype");
+  font-weight: 400;
+}
+@font-face {
+  font-family: Vazir;
+  src: url("file:///Users/alireza/Library/Fonts/Vazir-Bold.ttf") format("truetype");
+  font-weight: 700;
+}
+@page { size: A4; margin: 16mm 14mm 16mm 14mm; }
+* { box-sizing: border-box; }
+html, body {
+  font-family: Vazir, sans-serif;
+  font-size: 11.5pt;
+  line-height: 1.85;
+  color: #1a1a1a;
+  background: #fff;
+}
+h1 { font-size: 18pt; margin: 0 0 8px; }
+h2 { font-size: 13.5pt; margin: 22px 0 8px; border-bottom: 1px solid #ddd; padding-bottom: 4px; }
+h3 { font-size: 12pt; margin: 16px 0 6px; }
+.meta { color: #444; margin-bottom: 14px; }
+.result {
+  background: #f4f4f4;
+  padding: 10px 14px;
+  margin: 10px 0 14px;
+  font-size: 13pt;
+  font-weight: 700;
+}
+pre {
+  background: #f6f6f6;
+  padding: 10px 12px;
+  white-space: pre-wrap;
+  font-family: Vazir, sans-serif;
+  font-size: 10.5pt;
+}
+table { width: 100%; border-collapse: collapse; margin: 10px 0 14px; font-size: 10.5pt; }
+th, td { border: 1px solid #ccc; padding: 6px 8px; text-align: right; }
+th { background: #f0f0f0; }
+img.crop {
+  display: block;
+  max-width: 100%;
+  max-height: 90px;
+  width: auto;
+  margin: 6px 0 8px;
+  border: 1px solid #ddd;
+}
+.chart { margin: 12px 0 18px; }
+.chart .title { font-weight: 700; margin-bottom: 8px; }
+.row { display: flex; align-items: center; gap: 8px; margin: 5px 0; }
+.lbl { width: 130px; flex-shrink: 0; font-size: 10pt; }
+.track { flex: 1; background: #eee; height: 16px; }
+.bar { height: 16px; background: #444; }
+.val { width: 48px; font-size: 10pt; }
+.note { font-size: 10.5pt; color: #333; }
+ul { padding-right: 18px; }
+li { margin: 4px 0; }
+</style>
+</head>
+<body>
+
+<h1>گزارش مختصر آزمایش OCR دست‌نویس فارسی</h1>
+<p class="meta">تاریخ: ۲۰۲۶-۰۹-۱۹ &nbsp;|&nbsp; معیار: CER روی مجموعهٔ طلایی دستی (۱۶۸ خط دارای متن)</p>
+
+<h2>نتیجه</h2>
+<p>بهترین مدل محلی (Qwen3-VL-2B مخصوص تک‌خط فارسی) روی خطوط رونویسی‌شدهٔ انسان به</p>
+<p class="result">دقت کاراکتری ۶۲٫۳٪ (CER = ۰٫۳۷۷)</p>
+<p>رسید. مدل قبلی محلی ۷ میلیارد پارامتری ۵۴٫۶٪ بود.</p>
+<pre>CER = (جایگزینی + حذف + درج) / طول متن طلایی
+دقت کاراکتری = ۱ − CER</pre>
+
+<table>
+<tr><th>مدل</th><th>CER</th><th>دقت</th><th>WER</th></tr>
+<tr><td><b>Qwen3-VL-2B Persian line-OCR</b></td><td><b>۰٫۳۷۷</b></td><td><b>۶۲٫۳٪</b></td><td>۰٫۷۴</td></tr>
+<tr><td>Qwen2.5-VL-7B محلی</td><td>۰٫۴۵۴</td><td>۵۴٫۶٪</td><td>۰٫۷۷</td></tr>
+<tr><td>تشخیص خط Surya</td><td>—</td><td>برای دست‌نویس قابل استفاده نبود</td><td>—</td></tr>
+</table>
+
+<div class="chart">
+  <div class="title">دقت کاراکتری روی ۱۶۸ خط طلایی</div>
+  <div class="row"><div class="lbl">مدل ۷B قبلی</div><div class="track"><div class="bar" style="width:54.6%"></div></div><div class="val">۵۴٫۶٪</div></div>
+  <div class="row"><div class="lbl">مدل ۲B فعلی</div><div class="track"><div class="bar" style="width:62.3%"></div></div><div class="val">۶۲٫۳٪</div></div>
+  <div class="row"><div class="lbl">هدف میانی</div><div class="track"><div class="bar" style="width:79%"></div></div><div class="val">۷۹٪</div></div>
+  <div class="row"><div class="lbl">هدف نهایی</div><div class="track"><div class="bar" style="width:95%"></div></div><div class="val">۹۵٪</div></div>
+</div>
+
+<h2>داده و روش آزمایش</h2>
+<ol>
+<li>صفحات اسکن‌شده به <b>خطوط</b> بریده شدند (Surya + فیلتر هندسی): <b>۲۲٬۲۵۰</b> کراپ از ۹۴۵ صفحه.</li>
+<li>تقسیم train/val/test <b>در سطح سند</b> است؛ نشتی سند/صفحه/کراپ بین splitها <b>صفر</b> است.</li>
+<li>مجموعهٔ طلایی: <b>۲۴۰</b> خط از split تست، رونویسی دستی. ۱۶۸ خط متن دارند؛ ۷۲ خط ناخوانا از نمره حذف شدند.</li>
+<li>هر مدل همان کراپ را جداگانه خواند (نه متن کل صفحه). عدد CER توافق با مدل دیگر نیست؛ مقایسه با انسان است.</li>
+</ol>
+<p>علت اصلی خطای ۶۲٪: کراپ‌های خیلی کوتاه. روی خطوط بلند دقت حدود <b>۶۸٪</b> است.</p>
+
+<div class="chart">
+  <div class="title">دقت بر حسب طول خط</div>
+  <div class="row"><div class="lbl">تا ۴ حرف</div><div class="track"><div class="bar" style="width:18.9%"></div></div><div class="val">۱۸٫۹٪</div></div>
+  <div class="row"><div class="lbl">۵ تا ۲۰ حرف</div><div class="track"><div class="bar" style="width:36.1%"></div></div><div class="val">۳۶٫۱٪</div></div>
+  <div class="row"><div class="lbl">بیش از ۲۰ حرف</div><div class="track"><div class="bar" style="width:67.7%"></div></div><div class="val">۶۷٫۷٪</div></div>
+</div>
+
+<h2>نمونه‌های آزمایش</h2>
+<p>همه از مجموعهٔ طلایی‌اند. تصویر همان ورودی مدل است.</p>
+
+<h3>۱) تطابق کامل — CER = ۰</h3>
+<img class="crop" src="file:///Users/alireza/exam-ocr/docs/samples/01_exact_hesab.jpg" alt="حساب دریافتی">
+<table><tr><th>طلایی</th><td>حساب دریافتی</td></tr><tr><th>مدل</th><td>حساب دریافتی</td></tr></table>
+
+<h3>۲) خط بلند، خطای جزئی — CER = ۰٫۰۴</h3>
+<img class="crop" src="file:///Users/alireza/exam-ocr/docs/samples/02_good_ellis.jpg" alt="الیس">
+<table><tr><th>طلایی</th><td>الیس: در درمان رفتاری از شیوه تعیین تکلیف استفاده میکند</td></tr>
+<tr><th>مدل</th><td>الیس در درمان رفتاری از شیوه تعیین تکلیف استفاده میکند.</td></tr></table>
+<p class="note">تفاوت عمدتاً نقطه‌گذاری است.</p>
+
+<h3>۳) خط بلند، چند حرف اشتباه — CER = ۰٫۰۹</h3>
+<img class="crop" src="file:///Users/alireza/exam-ocr/docs/samples/03_good_pieri.jpg" alt="پیری">
+<table><tr><th>طلایی</th><td>متوجه این تحلیل می‌شوند و پیری را روند ناگهانی و غیر پیوسته می‌دانند</td></tr>
+<tr><th>مدل</th><td>متوجه این تکلیل می‌سوند و پیرک را روند نالحاتی و غیر پیوسته می‌دانند</td></tr></table>
+<p class="note">ساختار جمله درست است؛ چند حرف نزدیک به هم اشتباه شده (تحلیل ← تکلیل).</p>
+
+<h3>۴) خط متوسط، قابل خواندن ولی پرخطا — CER = ۰٫۱۶</h3>
+<img class="crop" src="file:///Users/alireza/exam-ocr/docs/samples/04_mid_motavas.jpg" alt="متوسن">
+<table><tr><th>طلایی</th><td>متوسن: انسان نیاز به درک خویستن و سازگاری با واقعیت محیطی دارد</td></tr>
+<tr><th>مدل</th><td>متوسنه که انشان نیاز به درک خموشیست و سازگاری با و اقتعیت محیطی دارد</td></tr></table>
+<p class="note">برچسب طلایی املای نویسنده را حفظ کرده، نه املای صحیح.</p>
+
+<h3>۵) دست‌نویس حسابداری — CER = ۰٫۲۴</h3>
+<img class="crop" src="file:///Users/alireza/exam-ocr/docs/samples/05_mid_accounting.jpg" alt="معادله حسابداری">
+<table><tr><th>طلایی</th><td>دارایی‌هایی که در شرکت وجود دارد به سمت چپ معادله اساسی حسابداری بدهکار است.</td></tr>
+<tr><th>مدل</th><td>دارنی هانی نه در سریت وجود دارید به سست چپ معا دل۹ اساتی هسادجاری بدهکلر است.</td></tr></table>
+<p class="note">معنی کلی تا حدی حفظ شده؛ حروف شبیه به هم زیاد جابه‌جا شده‌اند.</p>
+
+<h3>۶) نقل‌قول کوتاه — CER = ۰٫۱۷</h3>
+<img class="crop" src="file:///Users/alireza/exam-ocr/docs/samples/06_mid_javad.jpg" alt="امام جواد">
+<table><tr><th>طلایی</th><td>امام جواد(ع): همانا مشورت همراه برکت است.</td></tr>
+<tr><th>مدل</th><td>امام جباد (ع)» دهانه امشورت همراه برکت است.</td></tr></table>
+
+<h3>۷) کراپ تک‌حرف — CER = ۱٫۰ (شکست کامل)</h3>
+<img class="crop" src="file:///Users/alireza/exam-ocr/docs/samples/07_fail_short.jpg" alt="تک حرف">
+<table><tr><th>طلایی</th><td>ص</td></tr><tr><th>مدل</th><td>میک</td></tr></table>
+<p class="note">روی کراپ‌های خیلی کوتاه مدل غالباً حدس می‌زند. این دسته دقت کل را پایین می‌کشد.</p>
+
+<h3>۸) توهم متن اضافه — CER = ۱٫۰</h3>
+<img class="crop" src="file:///Users/alireza/exam-ocr/docs/samples/08_fail_hallucination.jpg" alt="توهم">
+<table><tr><th>طلایی</th><td>مبانی مشاوره و راهنمایی: فصل ۱۱</td></tr>
+<tr><th>مدل</th><td>میانی مشاوره دور اهلنای فصل۱۱ تاربرد سارح در میدانهای جنگ، برده‌تر است.</td></tr></table>
+<p class="note">بخشی از عنوان درست است؛ ادامه ساختگی است.</p>
+
+<h2>جمع‌بندی برای قدم بعد</h2>
+<ul>
+<li>پیکرهٔ خطی و مجموعهٔ طلایی آماده است؛ عدد ۶۲٫۳٪ روی hold-out دستی قابل دفاع است.</li>
+<li>روی <b>خطوط جمله‌دار</b> مدل نزدیک ۶۸٪ است؛ گلوگاه کراپ‌های کوتاه، فرمول ریاضی، و توهم متن است.</li>
+<li>مسیر پیشنهادی تا ۷۹٪+: فیلتر کراپ‌های خیلی کوتاه + fine-tune روی همین خطوط.</li>
+</ul>
+
+</body>
+</html>

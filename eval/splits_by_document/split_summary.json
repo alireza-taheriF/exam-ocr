@@ -1,0 +1,53 @@
+{
+  "seed": 42,
+  "ratios": {
+    "train": 0.7,
+    "val": 0.15,
+    "gold_test": 0.15
+  },
+  "group_by": "source_document",
+  "split_by": "document",
+  "splits": {
+    "train": {
+      "path": "eval/splits_by_document/train.json",
+      "n_pages": 76,
+      "n_lines": 120,
+      "n_labeled_lines": 68
+    },
+    "val": {
+      "path": "eval/splits_by_document/val.json",
+      "n_pages": 19,
+      "n_lines": 60,
+      "n_labeled_lines": 60
+    },
+    "gold_test": {
+      "path": "eval/splits_by_document/gold_test.json",
+      "n_pages": 11,
+      "n_lines": 60,
+      "n_labeled_lines": 40
+    }
+  },
+  "leakage_check": {
+    "ok": true,
+    "overlaps": {
+      "train_vs_val": {
+        "n_overlap": 0,
+        "pages": []
+      },
+      "train_vs_gold_test": {
+        "n_overlap": 0,
+        "pages": []
+      },
+      "val_vs_gold_test": {
+        "n_overlap": 0,
+        "pages": []
+      }
+    }
+  },
+  "document_leakage_check": {
+    "ok": true,
+    "n_documents": 4,
+    "n_leaked_documents": 0,
+    "leaked_documents": {}
+  }
+}

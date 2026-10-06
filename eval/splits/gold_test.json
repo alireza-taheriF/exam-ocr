@@ -1,0 +1,362 @@
+{
+  "split": "gold_test",
+  "seed": 42,
+  "ratios": {
+    "train": 0.7,
+    "val": 0.15,
+    "gold_test": 0.15
+  },
+  "group_by": "source_image",
+  "split_by": "page",
+  "n_pages": 16,
+  "n_lines": 31,
+  "n_labeled_lines": 18,
+  "pages": [
+    {
+      "page": "dataset/raw_images/CamScanner_۲۰۲۵-۰۶-۰۳_۲۲_۳۲_p008.png",
+      "source_document": "CamScanner_۲۰۲۵-۰۶-۰۳_۲۲_۳۲",
+      "n_lines": 8,
+      "n_labeled_lines": 3,
+      "lines": [
+        {
+          "image_path": "dataset/lines_v3/75b3bbe6ddbf.jpg",
+          "text": "",
+          "source_document": "CamScanner_۲۰۲۵-۰۶-۰۳_۲۲_۳۲",
+          "line_index": 6,
+          "source_image": "dataset/raw_images/CamScanner_۲۰۲۵-۰۶-۰۳_۲۲_۳۲_p008.png"
+        },
+        {
+          "image_path": "dataset/lines_v3/bd097b7b22fc.jpg",
+          "text": "",
+          "source_document": "CamScanner_۲۰۲۵-۰۶-۰۳_۲۲_۳۲",
+          "line_index": 14,
+          "source_image": "dataset/raw_images/CamScanner_۲۰۲۵-۰۶-۰۳_۲۲_۳۲_p008.png"
+        },
+        {
+          "image_path": "dataset/lines_v3/1faa8c581b98.jpg",
+          "text": "",
+          "source_document": "CamScanner_۲۰۲۵-۰۶-۰۳_۲۲_۳۲",
+          "line_index": 16,
+          "source_image": "dataset/raw_images/CamScanner_۲۰۲۵-۰۶-۰۳_۲۲_۳۲_p008.png"
+        },
+        {
+          "image_path": "dataset/lines_v3/3bff77e2ad27.jpg",
+          "text": "",
+          "source_document": "CamScanner_۲۰۲۵-۰۶-۰۳_۲۲_۳۲",
+          "line_index": 22,
+          "source_image": "dataset/raw_images/CamScanner_۲۰۲۵-۰۶-۰۳_۲۲_۳۲_p008.png"
+        },
+        {
+          "image_path": "dataset/lines_v3/7219dc3ff00f.jpg",
+          "text": "",
+          "source_document": "CamScanner_۲۰۲۵-۰۶-۰۳_۲۲_۳۲",
+          "line_index": 23,
+          "source_image": "dataset/raw_images/CamScanner_۲۰۲۵-۰۶-۰۳_۲۲_۳۲_p008.png"
+        },
+        {
+          "image_path": "dataset/lines_v3/9dfff6365b6e.jpg",
+          "text": "متوجه این تحلیل می‌شوند و پیری را روند ناگهانی و غیر پیوسته می‌دانند",
+          "source_document": "CamScanner_۲۰۲۵-۰۶-۰۳_۲۲_۳۲",
+          "line_index": 25,
+          "source_image": "dataset/raw_images/CamScanner_۲۰۲۵-۰۶-۰۳_۲۲_۳۲_p008.png"
+        },
+        {
+          "image_path": "dataset/lines_v3/359af4ef4e3f.jpg",
+          "text": "سارتر: پیری توسط فرد احساس نمی شود. بازتابی از رفتار دیگران است.",
+          "source_document": "CamScanner_۲۰۲۵-۰۶-۰۳_۲۲_۳۲",
+          "line_index": 27,
+          "source_image": "dataset/raw_images/CamScanner_۲۰۲۵-۰۶-۰۳_۲۲_۳۲_p008.png"
+        },
+        {
+          "image_path": "dataset/lines_v3/e2871b1155f7.jpg",
+          "text": "عاطفی: شامل اثرات رویدادهای زندگی(مرگ- دستاوردها و)",
+          "source_document": "CamScanner_۲۰۲۵-۰۶-۰۳_۲۲_۳۲",
+          "line_index": 29,
+          "source_image": "dataset/raw_images/CamScanner_۲۰۲۵-۰۶-۰۳_۲۲_۳۲_p008.png"
+        }
+      ]
+    },
+    {
+      "page": "dataset/raw_images/جزوه_دست_نویس_اصول_حسابداری_1_p021.png",
+      "source_document": "جزوه_دست_نویس_اصول_حسابداری_1",
+      "n_lines": 1,
+      "n_labeled_lines": 1,
+      "lines": [
+        {
+          "image_path": "dataset/lines_v3/bac14b852514.jpg",
+          "text": "آب، برق تلفن",
+          "source_document": "جزوه_دست_نویس_اصول_حسابداری_1",
+          "line_index": 7,
+          "source_image": "dataset/raw_images/جزوه_دست_نویس_اصول_حسابداری_1_p021.png"
+        }
+      ]
+    },
+    {
+      "page": "dataset/raw_images/جزوه_دست_نویس_اصول_حسابداری_1_p030.png",
+      "source_document": "جزوه_دست_نویس_اصول_حسابداری_1",
+      "n_lines": 1,
+      "n_labeled_lines": 0,
+      "lines": [
+        {
+          "image_path": "dataset/lines_v3/8234adce1762.jpg",
+          "text": "",
+          "source_document": "جزوه_دست_نویس_اصول_حسابداری_1",
+          "line_index": 6,
+          "source_image": "dataset/raw_images/جزوه_دست_نویس_اصول_حسابداری_1_p030.png"
+        }
+      ]
+    },
+    {
+      "page": "dataset/raw_images/جزوه_دست_نویس_اصول_حسابداری_1_p033.png",
+      "source_document": "جزوه_دست_نویس_اصول_حسابداری_1",
+      "n_lines": 1,
+      "n_labeled_lines": 1,
+      "lines": [
+        {
+          "image_path": "dataset/lines_v3/5780cfda1edd.jpg",
+          "text": "بدهکار ۸ ماه",
+          "source_document": "جزوه_دست_نویس_اصول_حسابداری_1",
+          "line_index": 10,
+          "source_image": "dataset/raw_images/جزوه_دست_نویس_اصول_حسابداری_1_p033.png"
+        }
+      ]
+    },
+    {
+      "page": "dataset/raw_images/جزوه_دست_نویس_اصول_حسابداری_1_p034.png",
+      "source_document": "جزوه_دست_نویس_اصول_حسابداری_1",
+      "n_lines": 1,
+      "n_labeled_lines": 0,
+      "lines": [
+        {
+          "image_path": "dataset/lines_v3/2bf7cfa09d27.jpg",
+          "text": "",
+          "source_document": "جزوه_دست_نویس_اصول_حسابداری_1",
+          "line_index": 5,
+          "source_image": "dataset/raw_images/جزوه_دست_نویس_اصول_حسابداری_1_p034.png"
+        }
+      ]
+    },
+    {
+      "page": "dataset/raw_images/جزوه_دست_نویس_اصول_حسابداری_1_p037.png",
+      "source_document": "جزوه_دست_نویس_اصول_حسابداری_1",
+      "n_lines": 1,
+      "n_labeled_lines": 1,
+      "lines": [
+        {
+          "image_path": "dataset/lines_v3/3b4123728053.jpg",
+          "text": "۲ نوع دارایی: دارایی هایی که کوتاه مدت هستند هر روز می‌ایند و می‌روند . (جاری)(یک سال یا کمتر از یکسال)(دوره جاری)",
+          "source_document": "جزوه_دست_نویس_اصول_حسابداری_1",
+          "line_index": 0,
+          "source_image": "dataset/raw_images/جزوه_دست_نویس_اصول_حسابداری_1_p037.png"
+        }
+      ]
+    },
+    {
+      "page": "dataset/raw_images/جزوه_دست_نویس_اصول_حسابداری_1_p040.png",
+      "source_document": "جزوه_دست_نویس_اصول_حسابداری_1",
+      "n_lines": 3,
+      "n_labeled_lines": 1,
+      "lines": [
+        {
+          "image_path": "dataset/lines_v3/3bb7b9149a53.jpg",
+          "text": "۹۷۲۸۰۰۰۰ ۲۵۵۰۰۰۰",
+          "source_document": "جزوه_دست_نویس_اصول_حسابداری_1",
+          "line_index": 4,
+          "source_image": "dataset/raw_images/جزوه_دست_نویس_اصول_حسابداری_1_p040.png"
+        },
+        {
+          "image_path": "dataset/lines_v3/21c9609373fc.jpg",
+          "text": "",
+          "source_document": "جزوه_دست_نویس_اصول_حسابداری_1",
+          "line_index": 7,
+          "source_image": "dataset/raw_images/جزوه_دست_نویس_اصول_حسابداری_1_p040.png"
+        },
+        {
+          "image_path": "dataset/lines_v3/22df52f39d4a.jpg",
+          "text": "",
+          "source_document": "جزوه_دست_نویس_اصول_حسابداری_1",
+          "line_index": 12,
+          "source_image": "dataset/raw_images/جزوه_دست_نویس_اصول_حسابداری_1_p040.png"
+        }
+      ]
+    },
+    {
+      "page": "dataset/raw_images/جزوه_دست_نویس_اصول_حسابداری_1_p048.png",
+      "source_document": "جزوه_دست_نویس_اصول_حسابداری_1",
+      "n_lines": 1,
+      "n_labeled_lines": 0,
+      "lines": [
+        {
+          "image_path": "dataset/lines_v3/b48089a0e268.jpg",
+          "text": "",
+          "source_document": "جزوه_دست_نویس_اصول_حسابداری_1",
+          "line_index": 4,
+          "source_image": "dataset/raw_images/جزوه_دست_نویس_اصول_حسابداری_1_p048.png"
+        }
+      ]
+    },
+    {
+      "page": "dataset/raw_images/جزوه_ریاضی_پیش__نیکوکار_mathfree_p013.png",
+      "source_document": "جزوه_ریاضی_پیش__نیکوکار_mathfree",
+      "n_lines": 1,
+      "n_labeled_lines": 0,
+      "lines": [
+        {
+          "image_path": "dataset/lines_v3/327c9794f453.jpg",
+          "text": "",
+          "source_document": "جزوه_ریاضی_پیش__نیکوکار_mathfree",
+          "line_index": 10,
+          "source_image": "dataset/raw_images/جزوه_ریاضی_پیش__نیکوکار_mathfree_p013.png"
+        }
+      ]
+    },
+    {
+      "page": "dataset/raw_images/جزوه_ریاضی_پیش__نیکوکار_mathfree_p022.png",
+      "source_document": "جزوه_ریاضی_پیش__نیکوکار_mathfree",
+      "n_lines": 2,
+      "n_labeled_lines": 1,
+      "lines": [
+        {
+          "image_path": "dataset/lines_v3/9c80bae2c0af.jpg",
+          "text": "Year:",
+          "source_document": "جزوه_ریاضی_پیش__نیکوکار_mathfree",
+          "line_index": 3,
+          "source_image": "dataset/raw_images/جزوه_ریاضی_پیش__نیکوکار_mathfree_p022.png"
+        },
+        {
+          "image_path": "dataset/lines_v3/bec171a0a593.jpg",
+          "text": "",
+          "source_document": "جزوه_ریاضی_پیش__نیکوکار_mathfree",
+          "line_index": 17,
+          "source_image": "dataset/raw_images/جزوه_ریاضی_پیش__نیکوکار_mathfree_p022.png"
+        }
+      ]
+    },
+    {
+      "page": "dataset/raw_images/جزوه_ریاضی_پیش__نیکوکار_mathfree_p049.png",
+      "source_document": "جزوه_ریاضی_پیش__نیکوکار_mathfree",
+      "n_lines": 1,
+      "n_labeled_lines": 1,
+      "lines": [
+        {
+          "image_path": "dataset/lines_v3/836adf025fc4.jpg",
+          "text": "y=f(a) ; (0) = (y=0)",
+          "source_document": "جزوه_ریاضی_پیش__نیکوکار_mathfree",
+          "line_index": 14,
+          "source_image": "dataset/raw_images/جزوه_ریاضی_پیش__نیکوکار_mathfree_p049.png"
+        }
+      ]
+    },
+    {
+      "page": "dataset/raw_images/جزوه_ریاضی_پیش__نیکوکار_mathfree_p067.png",
+      "source_document": "جزوه_ریاضی_پیش__نیکوکار_mathfree",
+      "n_lines": 1,
+      "n_labeled_lines": 0,
+      "lines": [
+        {
+          "image_path": "dataset/lines_v3/d4d001c57831.jpg",
+          "text": "",
+          "source_document": "جزوه_ریاضی_پیش__نیکوکار_mathfree",
+          "line_index": 8,
+          "source_image": "dataset/raw_images/جزوه_ریاضی_پیش__نیکوکار_mathfree_p067.png"
+        }
+      ]
+    },
+    {
+      "page": "dataset/raw_images/مقدمات_راهنمایی_و_مشاوره_p002.png",
+      "source_document": "مقدمات_راهنمایی_و_مشاوره",
+      "n_lines": 3,
+      "n_labeled_lines": 3,
+      "lines": [
+        {
+          "image_path": "dataset/lines_v3/134fee57973f.jpg",
+          "text": "راجرز: b",
+          "source_document": "مقدمات_راهنمایی_و_مشاوره",
+          "line_index": 6,
+          "source_image": "dataset/raw_images/مقدمات_راهنمایی_و_مشاوره_p002.png"
+        },
+        {
+          "image_path": "dataset/lines_v3/a87f8cff21ed.jpg",
+          "text": "هر دوک مراجع نقاط ضعف و محدودیت های نیازمند درمان را به موقعیت می‌آورد",
+          "source_document": "مقدمات_راهنمایی_و_مشاوره",
+          "line_index": 11,
+          "source_image": "dataset/raw_images/مقدمات_راهنمایی_و_مشاوره_p002.png"
+        },
+        {
+          "image_path": "dataset/lines_v3/ae9c068050ab.jpg",
+          "text": "مهم ترین وجه مشترک: درگیر شدن با نگرش‌ها، احساست",
+          "source_document": "مقدمات_راهنمایی_و_مشاوره",
+          "line_index": 13,
+          "source_image": "dataset/raw_images/مقدمات_راهنمایی_و_مشاوره_p002.png"
+        }
+      ]
+    },
+    {
+      "page": "dataset/raw_images/مقدمات_راهنمایی_و_مشاوره_p009.png",
+      "source_document": "مقدمات_راهنمایی_و_مشاوره",
+      "n_lines": 2,
+      "n_labeled_lines": 2,
+      "lines": [
+        {
+          "image_path": "dataset/lines_v3/0bae2cec38d1.jpg",
+          "text": "ص",
+          "source_document": "مقدمات_راهنمایی_و_مشاوره",
+          "line_index": 1,
+          "source_image": "dataset/raw_images/مقدمات_راهنمایی_و_مشاوره_p009.png"
+        },
+        {
+          "image_path": "dataset/lines_v3/6f7c3d4c1c63.jpg",
+          "text": "انواع اضطراب از دیدگاه فروید: واقعی- روان رنجوری- اخلاقی",
+          "source_document": "مقدمات_راهنمایی_و_مشاوره",
+          "line_index": 11,
+          "source_image": "dataset/raw_images/مقدمات_راهنمایی_و_مشاوره_p009.png"
+        }
+      ]
+    },
+    {
+      "page": "dataset/raw_images/مقدمات_راهنمایی_و_مشاوره_p017.png",
+      "source_document": "مقدمات_راهنمایی_و_مشاوره",
+      "n_lines": 1,
+      "n_labeled_lines": 1,
+      "lines": [
+        {
+          "image_path": "dataset/lines_v3/0e4f8926c10f.jpg",
+          "text": "ص ۱۶",
+          "source_document": "مقدمات_راهنمایی_و_مشاوره",
+          "line_index": 0,
+          "source_image": "dataset/raw_images/مقدمات_راهنمایی_و_مشاوره_p017.png"
+        }
+      ]
+    },
+    {
+      "page": "dataset/raw_images/مقدمات_راهنمایی_و_مشاوره_p021.png",
+      "source_document": "مقدمات_راهنمایی_و_مشاوره",
+      "n_lines": 3,
+      "n_labeled_lines": 3,
+      "lines": [
+        {
+          "image_path": "dataset/lines_v3/d76881952835.jpg",
+          "text": "مبانی راهنمایی و مشاوره فصل ۱۳",
+          "source_document": "مقدمات_راهنمایی_و_مشاوره",
+          "line_index": 0,
+          "source_image": "dataset/raw_images/مقدمات_راهنمایی_و_مشاوره_p021.png"
+        },
+        {
+          "image_path": "dataset/lines_v3/b04c59df8819.jpg",
+          "text": "بروزنسکی: ۱ شناخت ۲ تغییرات سریع بدنی و سازگاری با آن ۳ بیشتر شدن قدرت استدلال",
+          "source_document": "مقدمات_راهنمایی_و_مشاوره",
+          "line_index": 2,
+          "source_image": "dataset/raw_images/مقدمات_راهنمایی_و_مشاوره_p021.png"
+        },
+        {
+          "image_path": "dataset/lines_v3/0ced992e62fc.jpg",
+          "text": "میشل: (عوامل شخصی) دوره‌ی نوجوانی را در ۳ مرحله می‌داند: سالهای اولیه نوجوانی را ۱۱، ۱۲، ۱۳",
+          "source_document": "مقدمات_راهنمایی_و_مشاوره",
+          "line_index": 7,
+          "source_image": "dataset/raw_images/مقدمات_راهنمایی_و_مشاوره_p021.png"
+        }
+      ]
+    }
+  ],
+  "policy": "gold_test is hold-out only: never use for training, tuning, threshold selection, or debugging decisions."
+}
