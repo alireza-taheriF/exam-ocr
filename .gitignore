@@ -19,12 +19,19 @@ uploads/
 outputs/
 logs/
 
+# Local labeling DB + live exports (JSONL history is regenerated from DB)
+labeling/labels.db
+labeling/labels.db-*
+labeling/exports/
+
 # Large dataset assets (jsonl manifests are tracked)
 dataset/raw_images/
 dataset/raw_pdfs/
 dataset/lines/
 dataset/lines_v2/
 dataset/lines_v3/
+dataset/external/
+dataset/qwen_ft/images/
 trocr_training.zip
 *.zip
 

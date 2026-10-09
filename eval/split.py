@@ -1,9 +1,11 @@
 #!/usr/bin/env python3
 """Deterministic split of the hand-labeled gold set.
 
-Default: split **by ``source_image`` (page)** so no page appears in more than
-one split. Optional ``--split-by document`` keeps all pages of a
-``source_document`` in the same split (avoids writer/document leakage).
+Default: ``--split-by document`` → ``eval/splits_by_document`` so no
+``source_document`` appears in more than one split.
+
+Optional ``--split-by page`` keeps pages intact but can leak documents across
+splits (legacy; use ``--out-dir eval/splits``).
 
 Ratios default to 70% / 15% / 15% → ``train`` / ``val`` / ``gold_test``.
 
@@ -12,7 +14,7 @@ debugging decisions — only for final reporting.
 
 Usage:
     python -m eval.split
-    python -m eval.split --split-by document --out-dir eval/splits_by_document
+    python -m eval.split --split-by page --out-dir eval/splits
     python -m eval.split --seed 42 --ratios 0.70 0.15 0.15
     python -m eval.split --audit
 """
@@ -33,7 +35,9 @@ if str(PROJECT_ROOT) not in sys.path:
     sys.path.insert(0, str(PROJECT_ROOT))
 
 DEFAULT_GOLD = PROJECT_ROOT / "dataset" / "gold.jsonl"
-DEFAULT_OUT_DIR = PROJECT_ROOT / "eval" / "splits"
+# Phase C default: document-level splits (no source_document leakage).
+DEFAULT_OUT_DIR = PROJECT_ROOT / "eval" / "splits_by_document"
+DEFAULT_PAGE_SPLIT_DIR = PROJECT_ROOT / "eval" / "splits"
 
 SPLITS = ("train", "val", "gold_test")
 SplitBy = Literal["page", "document"]
@@ -356,8 +360,8 @@ def main(argv: list[str] | None = None) -> int:
     p.add_argument(
         "--split-by",
         choices=["page", "document"],
-        default="page",
-        help="page (default): no page in two splits. document: keep whole docs together.",
+        default="document",
+        help="document (default): keep whole docs together. page: no page in two splits.",
     )
     p.add_argument(
         "--labeled-only",

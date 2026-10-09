@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>برچسب‌زنی new_gold (محلی)</title>
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+  <header class="top">
+    <div class="brand">Exam OCR · new_gold</div>
+    <div class="progress-wrap">
+      <div id="progressBar" class="bar"></div>
+    </div>
+    <div id="progressText" class="stats">—</div>
+  </header>
+
+  <main>
+    <section class="context" id="contextStrip">
+      <div class="ctx prev" id="ctxPrev"></div>
+      <div class="ctx next" id="ctxNext"></div>
+    </section>
+
+    <section class="crop-panel">
+      <div class="crop-toolbar">
+        <span id="blindBadge" class="badge hidden">حالت کور (بدون متن مدل)</span>
+        <span id="lineMeta" class="meta"></span>
+        <div class="zoom">
+          <button type="button" id="zoomOut" title="کوچک">−</button>
+          <button type="button" id="zoomReset" title="بازنشانی">۱۰۰٪</button>
+          <button type="button" id="zoomIn" title="بزرگ">+</button>
+        </div>
+      </div>
+      <div class="crop-stage" id="cropStage">
+        <img id="cropImg" alt="line crop" draggable="false" />
+      </div>
+    </section>
+
+    <section class="editor">
+      <label class="label" for="textBox">متن خط</label>
+      <textarea id="textBox" dir="rtl" spellcheck="false" autofocus
+        placeholder="آنچه می‌بینید را بنویسید…"></textarea>
+      <div class="row">
+        <fieldset class="region">
+          <legend>نوع ناحیه</legend>
+          <label><input type="radio" name="region" value="body" checked /> بدنه</label>
+          <label><input type="radio" name="region" value="form_field" /> فیلد فرم</label>
+        </fieldset>
+        <div class="actions">
+          <button type="button" id="btnSave" class="primary">ذخیره و بعدی (Enter)</button>
+          <button type="button" id="btnIllegible">ناخوانا (Ctrl+I)</button>
+          <button type="button" id="btnSkip">رد کردن (Esc)</button>
+          <button type="button" id="btnUndo">بازگردانی (Ctrl+Z)</button>
+        </div>
+      </div>
+      <p id="warn" class="warn hidden"></p>
+      <p class="hints">
+        میانبرها: Enter ذخیره · Ctrl+I ناخوانا · Ctrl+Z undo · Esc رد ·
+        چرخ‌ماوس روی تصویر برای زوم
+      </p>
+    </section>
+  </main>
+
+  <div id="donePanel" class="done hidden">
+    <h1>صف تمام شد</h1>
+    <p id="doneStats"></p>
+    <p>گزارش: <code>python -m eval.new_gold_report</code></p>
+  </div>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>

@@ -8,12 +8,11 @@ Production OCR backend is the VLM path in ``pipeline/ocr.py`` (OpenAI-compatible
 vision API). Local Surya recognition is the free zero-shot baseline.
 
 Usage:
-    python -m eval.split
-    python -m eval.run_baseline --mode line_crops --ocr-backend surya
-    python -m eval.run_baseline --mode line_crops --ocr-backend vlm --splits val gold_test
-    python -m eval.run_baseline --compare-backends surya vlm --mode line_crops
+    python -m eval.split                          # document split → eval/splits_by_document
+    python -m eval.run_baseline                   # line_crops + qwen_local (defaults)
+    python -m eval.run_baseline --splits val --error-analysis
+    QWEN_LORA_PATH=models/qwen3-vl-fa-exam-lora-v1 python -m eval.run_baseline --splits val
     python -m eval.run_baseline --mode page --ocr-backend surya --diagnose-matching
-    python -m eval.run_baseline --error-analysis --mode line_crops --ocr-backend vlm --splits gold_test
 """
 
 from __future__ import annotations
@@ -68,8 +67,15 @@ def _ensure_splits(split_dir: Path, gold_path: Path, seed: int) -> dict[str, dic
     needed = [split_dir / f"{s}.json" for s in ("train", "val", "gold_test")]
     if all(p.exists() for p in needed):
         return {p.stem: json.loads(p.read_text(encoding="utf-8")) for p in needed}
-    print(f"[baseline] splits missing under {split_dir}; creating with seed={seed}")
-    manifests = build_split_manifests(load_jsonl(gold_path), seed=seed)
+    # Infer split mode from directory name; default to document (Phase C).
+    split_by = "page" if split_dir.name == "splits" else "document"
+    print(
+        f"[baseline] splits missing under {split_dir}; "
+        f"creating with seed={seed} split_by={split_by}"
+    )
+    manifests = build_split_manifests(
+        load_jsonl(gold_path), seed=seed, split_by=split_by
+    )
     save_manifests(manifests, split_dir)
     return manifests
 
@@ -136,31 +142,55 @@ def _load_pred_cache(path: Path) -> dict[str, str]:
     return out
 
 
-def _ocr_crop_qwen_local(crop: Image.Image) -> str:
-    """Local Qwen3-VL Persian line OCR (bakeoff winner; free, offline)."""
+QWEN_OCR_PROMPT = "Transcribe the Persian text in this image. Output only the text."
+
+
+def _qwen_load_key() -> tuple[str, str]:
+    model_id = os.environ.get("QWEN_OCR_MODEL", _DEFAULT_QWEN_MODEL)
+    lora = os.environ.get("QWEN_LORA_PATH", "").strip()
+    return model_id, lora
+
+
+def _ensure_qwen_local_loaded() -> tuple[object, object]:
+    """Load (or reuse) Qwen + optional LoRA adapter. Returns (processor, model)."""
     import torch
     from transformers import AutoModelForImageTextToText, AutoProcessor
 
-    model_id = os.environ.get("QWEN_OCR_MODEL", _DEFAULT_QWEN_MODEL)
-    if not hasattr(_ocr_crop_qwen_local, "_model"):
+    model_id, lora_path = _qwen_load_key()
+    cache_key = f"{model_id}||{lora_path}"
+    if getattr(_ensure_qwen_local_loaded, "_key", None) != cache_key:
         device = os.environ.get("QWEN_OCR_DEVICE", "mps")
         processor = AutoProcessor.from_pretrained(model_id)
         model = AutoModelForImageTextToText.from_pretrained(
             model_id, dtype=torch.float16, device_map=device
         )
-        model.eval()
-        _ocr_crop_qwen_local._processor = processor  # type: ignore[attr-defined]
-        _ocr_crop_qwen_local._model = model  # type: ignore[attr-defined]
-        print(f"[baseline] loaded qwen_local {model_id} on {device}")
+        if lora_path:
+            from peft import PeftModel
 
-    processor = _ocr_crop_qwen_local._processor  # type: ignore[attr-defined]
-    model = _ocr_crop_qwen_local._model  # type: ignore[attr-defined]
-    prompt = "Transcribe the Persian text in this image. Output only the text."
+            model = PeftModel.from_pretrained(model, lora_path)
+            print(f"[baseline] loaded qwen_local {model_id} + LoRA {lora_path} on {device}")
+        else:
+            print(f"[baseline] loaded qwen_local {model_id} on {device}")
+        model.eval()
+        _ensure_qwen_local_loaded._key = cache_key  # type: ignore[attr-defined]
+        _ensure_qwen_local_loaded._processor = processor  # type: ignore[attr-defined]
+        _ensure_qwen_local_loaded._model = model  # type: ignore[attr-defined]
+    return (
+        _ensure_qwen_local_loaded._processor,  # type: ignore[attr-defined]
+        _ensure_qwen_local_loaded._model,  # type: ignore[attr-defined]
+    )
+
+
+def _ocr_crop_qwen_local(crop: Image.Image) -> str:
+    """Local Qwen3-VL Persian line OCR (bakeoff winner; optional LoRA)."""
+    import torch
+
+    processor, model = _ensure_qwen_local_loaded()
     messages = [{
         "role": "user",
         "content": [
             {"type": "image", "image": crop.convert("RGB")},
-            {"type": "text", "text": prompt},
+            {"type": "text", "text": QWEN_OCR_PROMPT},
         ],
     }]
     inputs = processor.apply_chat_template(
@@ -187,13 +217,15 @@ def _ocr_crops(
     if ocr_backend == "vlm":
         return [_ocr_crop_vlm(c) for c in crops]
     if ocr_backend == "qwen_local":
-        # Prefer on-disk bakeoff cache when paths are known (fast, reproducible).
-        cache_path = Path(
-            os.environ.get("QWEN_PRED_CACHE", str(_DEFAULT_QWEN_PRED_CACHE))
-        )
-        cache = _load_pred_cache(cache_path)
-        if image_paths and all(p in cache for p in image_paths):
-            return [cache[p] for p in image_paths]
+        # Bakeoff cache only for the base model without a LoRA adapter.
+        _, lora_path = _qwen_load_key()
+        if not lora_path:
+            cache_path = Path(
+                os.environ.get("QWEN_PRED_CACHE", str(_DEFAULT_QWEN_PRED_CACHE))
+            )
+            cache = _load_pred_cache(cache_path)
+            if image_paths and all(p in cache for p in image_paths):
+                return [cache[p] for p in image_paths]
         return [_ocr_crop_qwen_local(c) for c in crops]
     if ocr_backend == "empty":
         return [""] * len(crops)
@@ -959,8 +991,8 @@ def main(argv: list[str] | None = None) -> int:
     p.add_argument("--out-dir", type=Path, default=DEFAULT_OUT)
     p.add_argument("--seed", type=int, default=42)
     p.add_argument("--splits", nargs="+", default=["val", "gold_test"])
-    p.add_argument("--mode", choices=["page", "line_crops"], default="page")
-    p.add_argument("--ocr-backend", choices=list(OCR_BACKENDS), default="surya")
+    p.add_argument("--mode", choices=["page", "line_crops"], default="line_crops")
+    p.add_argument("--ocr-backend", choices=list(OCR_BACKENDS), default="qwen_local")
     p.add_argument(
         "--compare-backends",
         nargs="+",

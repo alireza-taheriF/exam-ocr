@@ -1,0 +1,30 @@
+{
+  "sealed": true,
+  "n_lines": 300,
+  "target": 300,
+  "seed": 7,
+  "candidates_export": "dataset/gold_candidates.jsonl",
+  "stratified_by": "source_document (notebook)",
+  "excluded_from_training_manifests": [
+    "dataset/qwen_ft/train_mix_indomain.jsonl",
+    "dataset/qwen_ft/train_mix.jsonl",
+    "dataset/qwen_ft/train_mix_balanced.jsonl",
+    "dataset/qwen_ft/train_mix_fast.jsonl"
+  ],
+  "hash_check_overlaps": [],
+  "hash_check_ok": true,
+  "by_notebook": {
+    "CamScanner_۲۰۲۵-۰۶-۰۳_۲۲_۳۲": 27,
+    "جزوه_دست_نویس_اصول_حسابداری_1": 27,
+    "تحلیل_سازه_مهندس_طاحونی": 27,
+    "تست_های_ا_مار_کاربردی1_فصل_1تا4هادی_رنجبران": 27,
+    "اصول_تنظیم_و_کنترل_بودجه_دولت": 27,
+    "Summary_of_Yule": 27,
+    "جزوه_ریاضی_پیش__نیکوکار_mathfree": 27,
+    "جزوه_دست_نویس_حسابداری_پیشرفته_2": 28,
+    "جزوه_دست_نویس_حسابداری_بخش_عمومی": 27,
+    "جزوه_دست_نویس_حسابداری_پیشرفته_1": 29,
+    "مقدمات_راهنمایی_و_مشاوره": 27
+  },
+  "policy": "Do not use these crops for training or for hyperparameter selection. Label via: python -m labeling.ui --queue new_gold. Then score with: python -m eval.new_gold_report"
+}

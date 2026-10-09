@@ -1,0 +1,21 @@
+{
+  "train_mix": "dataset/qwen_ft/train_mix.jsonl",
+  "val_gold": "dataset/qwen_ft/val_gold.jsonl",
+  "n_train": 6586,
+  "n_val_gold": 60,
+  "by_source": {
+    "persian-ocr-230k": 5000,
+    "synthetic_print": 1000,
+    "gold_oversample": 96,
+    "pseudo_qwen": 422,
+    "gold": 68
+  },
+  "train_documents": [
+    "جزوه_دست_نویس_اصول_حسابداری_1",
+    "جزوه_ریاضی_پیش__نیکوکار_mathfree"
+  ],
+  "val_documents": [
+    "مقدمات_راهنمایی_و_مشاوره"
+  ],
+  "leakage_note": "pseudo/external never include val or gold_test documents"
+}

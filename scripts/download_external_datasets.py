@@ -10,9 +10,13 @@ Usage:
 from __future__ import annotations
 
 import argparse
+import csv
 import json
 import sys
+import zipfile
 from pathlib import Path
+
+from huggingface_hub import hf_hub_download
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 EXTERNAL_DIR = PROJECT_ROOT / "dataset" / "external"
@@ -21,7 +25,7 @@ ALL_TRAIN = PROJECT_ROOT / "dataset" / "all_train.jsonl"
 DATASETS = {
     "persian-ocr-230k": {
         "hf_id": "ordaktaktak/Persian-OCR-230k",
-        "description": "Persian printed text (~230k samples)",
+        "description": "Persian text line images (~230k; Images.zip + CSV)",
     },
 }
 
@@ -32,43 +36,63 @@ def list_datasets() -> None:
 
 
 def download_persian_ocr_230k(*, limit: int | None, output_dir: Path) -> list[dict]:
-    try:
-        from datasets import load_dataset
-    except ImportError:
-        raise SystemExit("Install: pip install datasets")
-
+    """Download Images.zip + train.csv and materialize local JPEG crops."""
     output_dir.mkdir(parents=True, exist_ok=True)
     images_dir = output_dir / "images"
     images_dir.mkdir(exist_ok=True)
 
-    print(f"Loading {DATASETS['persian-ocr-230k']['hf_id']} ...")
-    ds = load_dataset(DATASETS["persian-ocr-230k"]["hf_id"], split="train", streaming=True)
+    repo = DATASETS["persian-ocr-230k"]["hf_id"]
+    print(f"Downloading {repo} (Images.zip + train.csv) ...")
+    zip_path = Path(
+        hf_hub_download(repo, "data/Images.zip", repo_type="dataset")
+    )
+    csv_path = Path(
+        hf_hub_download(repo, "data/train.csv", repo_type="dataset")
+    )
+
+    # Map fname -> text from CSV (columns: fname,text or similar).
+    labels: dict[str, str] = {}
+    with csv_path.open(encoding="utf-8") as f:
+        reader = csv.DictReader(f)
+        for row in reader:
+            fname = (row.get("fname") or row.get("file") or "").strip()
+            text = (row.get("text") or row.get("label") or "").strip()
+            if fname and text:
+                # Normalize key to basename for zip lookup.
+                labels[fname] = text
+                labels[Path(fname).name] = text
 
     records: list[dict] = []
-    for i, row in enumerate(ds):
-        if limit is not None and i >= limit:
-            break
-
-        image = row.get("image")
-        text = row.get("text") or row.get("label") or ""
-        if image is None or not str(text).strip():
-            continue
-
-        fname = f"pocr_{i:06d}.jpg"
-        img_path = images_dir / fname
-        image.convert("RGB").save(img_path, quality=90)
-
-        records.append({
-            "image_path": str(img_path.relative_to(PROJECT_ROOT)),
-            "text": str(text).strip(),
-            "source": "persian-ocr-230k",
-        })
-
-        if (i + 1) % 500 == 0:
-            print(f"  downloaded {i + 1}...")
+    with zipfile.ZipFile(zip_path) as zf:
+        members = [m for m in zf.namelist() if m.lower().endswith((".jpg", ".jpeg", ".png"))]
+        for i, member in enumerate(members):
+            if limit is not None and len(records) >= limit:
+                break
+            base = Path(member).name
+            # CSV may store Images/img_x.jpg
+            text = labels.get(member) or labels.get(f"Images/{base}") or labels.get(base)
+            if not text:
+                continue
+            out_name = f"pocr_{len(records):06d}{Path(base).suffix.lower() or '.jpg'}"
+            out_path = images_dir / out_name
+            if not out_path.exists():
+                with zf.open(member) as src, out_path.open("wb") as dst:
+                    dst.write(src.read())
+            records.append(
+                {
+                    "image_path": str(out_path.relative_to(PROJECT_ROOT)),
+                    "text": text,
+                    "source": "persian-ocr-230k",
+                }
+            )
+            if (len(records)) % 500 == 0:
+                print(f"  extracted {len(records)}...")
 
     meta = output_dir / "meta.json"
-    meta.write_text(json.dumps({"count": len(records), "source": "persian-ocr-230k"}, indent=2))
+    meta.write_text(
+        json.dumps({"count": len(records), "source": "persian-ocr-230k"}, indent=2),
+        encoding="utf-8",
+    )
     return records
 
 
@@ -118,6 +142,11 @@ def main() -> int:
     else:
         print(f"Not implemented: {args.dataset}")
         return 1
+
+    records_path = out_dir / "records.jsonl"
+    with records_path.open("w", encoding="utf-8") as f:
+        for rec in records:
+            f.write(json.dumps(rec, ensure_ascii=False) + "\n")
 
     print(f"Downloaded {len(records)} samples → {out_dir}")
 

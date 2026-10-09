@@ -66,6 +66,26 @@ Open in your browser:
 
 ---
 
+## Hand-label sealed new_gold / برچسب‌زنی مجموعهٔ مهرشده
+
+A **local-only** correction UI for the sealed 300-line set under `eval/new_gold/`
+(excluded from every training mix by path + SHA-256). Binds to `127.0.0.1` only.
+
+```bash
+# Cache OCR preds for both local backends (Qwen3 via transformers; Qwen2.5 via LM Studio)
+python -m labeling.precompute_preds --models qwen3
+python -m labeling.precompute_preds --models qwen25   # needs LM Studio on :1234
+
+# Label (≈50–75 min at 10–15 s/line; ~315 presentations with 5% repeats)
+python -m labeling.ui --queue new_gold
+# → http://127.0.0.1:8765/
+
+# Score models on your corrections (body vs form_field, blind vs prefilled, …)
+python -m eval.new_gold_report
+```
+
+Details: [`labeling/README.md`](labeling/README.md). Do **not** train on these crops.
+
 ## Evaluation harness / ارزیابی
 
 Clean hand-labeled data lives in **`dataset/gold.jsonl`** (240 line crops; 168 with
@@ -88,30 +108,28 @@ Because gold labels are line crops with sparse sentence punctuation, the harness
 ```bash
 source .venv/bin/activate
 
-# 1) Deterministic page-level split → eval/splits/{train,val,gold_test}.json
+# 1) Document-level split (default) → eval/splits_by_document/
 python -m eval.split --seed 42
+# Optional page-level split (leaks documents across splits):
+# python -m eval.split --split-by page --out-dir eval/splits
 
 # 2) Unit tests for metrics / normalize / split
 pytest eval/tests -q
 
-# 3) Baseline on val + gold_test (local Surya recognition; no VLM spend)
-python -m eval.run_baseline --mode page --ocr-backend surya --splits val gold_test
+# 3) Recognition baseline (default: line_crops + qwen_local on document split)
+python -m eval.run_baseline --splits val gold_test
 
-# 4) Before/after layout fix (legacy region blocks vs line segmentation) on val
-#    (uses val only for decisions; do not tune on gold_test)
-python -m eval.run_baseline --compare-layout --mode page --ocr-backend surya --splits val
+# Fine-tuned LoRA adapter (after Phase C training):
+# QWEN_LORA_PATH=models/qwen3-vl-fa-exam-lora-v1 python -m eval.run_baseline --splits val
 
-# 5) Debug overlays for 10 val/train pages (skip scoring)
-python -m eval.run_baseline --debug-overlays 10 --overlays-only
-
-# Optional: OCR gold line crops only (layout-independent recognition check)
-python -m eval.run_baseline --mode line_crops --ocr-backend surya --splits val gold_test
+# 4) Layout debugging only (not the primary metric):
+python -m eval.run_baseline --mode page --ocr-backend surya --compare-layout --splits val
+python -m eval.run_baseline --mode page --debug-overlays 10 --overlays-only
 ```
 
-Page-mode scoring matches each gold line to the best overlapping detected block
-(via IoU / containment) so sparse gold labels are not compared against full-page
-transcripts. Outputs land in `outputs/eval/` (`metrics_*.json`, `errors_*.csv`
-sorted worst-first, `layout_debug_*` overlays, `before_after_summary.json`).
+Primary workflow is **line_crops recognition** with `qwen_local` on
+`eval/splits_by_document`. Page-mode scoring matches gold lines to detected
+blocks for layout diagnosis only. Outputs land in `outputs/eval/`.
 
 **Note:** keep `transformers` in the range pinned by `requirements.txt`
 (`>=4.41,<4.46`). Newer major versions break Surya recognition/ordering imports.
