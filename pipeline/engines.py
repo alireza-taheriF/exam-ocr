@@ -200,8 +200,6 @@ class QwenLocalEngine:
                 return_dict_in_generate=True,
                 **gen_kwargs,
             )
-        if image.width * image.height > 1_000_000 and self.model.device.type == "mps":
-            torch.mps.empty_cache()  # large crops leave GBs in the MPS cache
         prompt_len = inputs["input_ids"].shape[1]
         new_tokens = out.sequences[0][prompt_len:]
         text = self.processor.decode(new_tokens, skip_special_tokens=True).strip()
@@ -214,6 +212,11 @@ class QwenLocalEngine:
             if finite:
                 # Geometric-mean token probability: a single bad token pulls it down.
                 confidence = math.exp(sum(finite) / len(finite))
+        if self.model.device.type == "mps":
+            # The MPS cache grows across calls (~14 GB after 160 gold lines) until
+            # a large crop OOMs on a 16 GB Mac; releasing it per line costs ms.
+            del out, inputs
+            torch.mps.empty_cache()
         if s.drop_loops and is_repetition_loop(text):
             return "", confidence
         return text, confidence
