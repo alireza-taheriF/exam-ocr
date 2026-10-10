@@ -1,0 +1,122 @@
+{
+  "label": "qw_prompt_fa",
+  "created": "2026-10-10T19:29:57+00:00",
+  "config": {
+    "engine": "qwen_local",
+    "adapter": null,
+    "gold": "/Users/alireza/exam-ocr/dataset/gold.jsonl",
+    "settings": {
+      "prompt": "متن فارسی داخل این تصویر را بنویس. فقط متن را خروجی بده.",
+      "max_new_tokens": 96,
+      "px_per_token": 0.0,
+      "repetition_penalty": 1.0,
+      "min_height": 0,
+      "clahe": false,
+      "route_min_width": 0,
+      "drop_loops": false
+    }
+  },
+  "config_hash": "8fd12579d1cc",
+  "lines": 168,
+  "cer": 0.3743,
+  "wer": 0.7519,
+  "accuracy_pct": 62.57,
+  "cer_ci95": [
+    0.3266,
+    0.4251
+  ],
+  "exact_match_pct": 5.36,
+  "by_document": {
+    "CamScanner_۲۰۲۵-۰۶-۰۳_۲۲_۳۲": {
+      "lines": 40,
+      "cer": 0.3613,
+      "wer": 0.7552,
+      "accuracy_pct": 63.87
+    },
+    "جزوه_دست_نویس_اصول_حسابداری_1": {
+      "lines": 34,
+      "cer": 0.5226,
+      "wer": 0.8982,
+      "accuracy_pct": 47.74
+    },
+    "جزوه_ریاضی_پیش__نیکوکار_mathfree": {
+      "lines": 34,
+      "cer": 0.5633,
+      "wer": 0.7833,
+      "accuracy_pct": 43.67
+    },
+    "مقدمات_راهنمایی_و_مشاوره": {
+      "lines": 60,
+      "cer": 0.3073,
+      "wer": 0.6958,
+      "accuracy_pct": 69.27
+    }
+  },
+  "by_length": {
+    "5-20": {
+      "lines": 73,
+      "cer": 0.5935,
+      "wer": 0.8971,
+      "accuracy_pct": 40.65
+    },
+    "<=4": {
+      "lines": 23,
+      "cer": 0.8113,
+      "wer": 0.931,
+      "accuracy_pct": 18.87
+    },
+    ">20": {
+      "lines": 72,
+      "cer": 0.3282,
+      "wer": 0.718,
+      "accuracy_pct": 67.18
+    }
+  },
+  "by_script": {
+    "handwritten": {
+      "lines": 168,
+      "cer": 0.3743,
+      "wer": 0.7519,
+      "accuracy_pct": 62.57
+    }
+  },
+  "legible_without_routed": {
+    "lines": 168,
+    "cer": 0.3743,
+    "wer": 0.7519,
+    "accuracy_pct": 62.57
+  },
+  "routing": {
+    "legible_lines_returned_empty": 0,
+    "illegible_lines": 72,
+    "illegible_lines_returned_empty": 0,
+    "illegible_lines_with_text": 72
+  },
+  "seconds_per_line_median": 1.01,
+  "vs_champion": {
+    "champion": "base_v1",
+    "paired": {
+      "lines": 168,
+      "delta_cer": -0.0027,
+      "ci95": [
+        -0.0173,
+        0.01
+      ]
+    },
+    "accuracy_gain_points": 0.27,
+    "document_delta_points": {
+      "CamScanner_۲۰۲۵-۰۶-۰۳_۲۲_۳۲": 1.27,
+      "جزوه_دست_نویس_اصول_حسابداری_1": 1.54,
+      "جزوه_ریاضی_پیش__نیکوکار_mathfree": 11.83,
+      "مقدمات_راهنمایی_و_مشاوره": -1.83
+    },
+    "checks": {
+      "lower_cer": true,
+      "ci_excludes_zero": false,
+      "beyond_noise_1pt": false,
+      "no_document_regresses_over_5pt": true,
+      "correction_holdout_not_worse": null
+    },
+    "passes_promotion_rule": false
+  }
+}
