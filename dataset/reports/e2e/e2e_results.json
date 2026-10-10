@@ -1,0 +1,35 @@
+[
+  {
+    "image": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p055.png",
+    "doc_id": "31a30e3e-f03e-4eb9-be16-41682c2b3b3f",
+    "process_seconds": 37.2,
+    "text_lines": 13,
+    "low_confidence_lines": 9,
+    "edit": {
+      "before": "ا",
+      "after": "ا (ویرایش آزمایشی)"
+    }
+  },
+  {
+    "image": "dataset/raw_images/تحلیل_سازه_مهندس_طاحونی_p064.png",
+    "doc_id": "1adb521b-dd6c-469d-a16a-b5afeb74cd47",
+    "process_seconds": 4.4,
+    "text_lines": 2,
+    "low_confidence_lines": 2,
+    "edit": {
+      "before": "",
+      "after": " (ویرایش آزمایشی)"
+    }
+  },
+  {
+    "image": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p040.png",
+    "doc_id": "72e2e834-e156-4c82-a648-8129369522d1",
+    "process_seconds": 64.8,
+    "text_lines": 53,
+    "low_confidence_lines": 44,
+    "edit": {
+      "before": "ا",
+      "after": "ا (ویرایش آزمایشی)"
+    }
+  }
+]
