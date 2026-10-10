@@ -3,378 +3,307 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>خواندن برگه امتحان — Exam OCR</title>
+  <title>برگهٔ امتحان — Exam OCR</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 16 16%22%3E%3Crect width=%2216%22 height=%2216%22 rx=%223%22 fill=%22%232563eb%22/%3E%3Cpath d=%22M4 5h8M4 8h8M4 11h5%22 stroke=%22white%22 stroke-width=%221.5%22/%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700&display=swap" rel="stylesheet" />
   <style>
+    :root {
+      --bg: #f6f7fb; --card: #fff; --ink: #0f172a; --muted: #64748b; --line: #e2e8f0;
+      --accent: #2563eb; --accent-ink: #fff; --warn-bg: #fff7ed; --warn: #c2410c;
+      --ok: #15803d; --learn-bg: #ecfdf5; --learn: #047857; --err: #b91c1c;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) {
+        --bg: #0b1120; --card: #111a2e; --ink: #e2e8f0; --muted: #94a3b8; --line: #1e293b;
+        --accent: #3b82f6; --warn-bg: #2a1a0c; --warn: #fdba74; --ok: #4ade80;
+        --learn-bg: #062a20; --learn: #6ee7b7; --err: #f87171;
+      }
+    }
     * { box-sizing: border-box; }
-
-    body {
-      margin: 0;
-      min-height: 100vh;
-      font-family: Tahoma, "B Nazanin", "Segoe UI", Arial, sans-serif;
-      background: linear-gradient(160deg, #eef2ff 0%, #f8fafc 45%, #f0fdf4 100%);
-      color: #0f172a;
-      padding: 24px 16px 48px;
-    }
-
-    .wrap {
-      max-width: 720px;
-      margin: 0 auto;
-    }
-
-    header {
-      text-align: center;
-      margin-bottom: 28px;
-    }
-
-    h1 {
-      margin: 0 0 8px;
-      font-size: 1.75rem;
-    }
-
-    .subtitle {
-      margin: 0;
-      color: #475569;
-      line-height: 1.7;
-    }
-
-    .card {
-      background: #fff;
-      border-radius: 18px;
-      box-shadow: 0 12px 40px rgba(15, 23, 42, 0.08);
-      padding: 28px;
-      margin-bottom: 20px;
-    }
-
-    .tips {
-      margin: 0 0 20px;
-      padding: 14px 16px;
-      background: #f8fafc;
-      border: 1px solid #e2e8f0;
-      border-radius: 12px;
-      color: #475569;
-      font-size: 0.92rem;
-      line-height: 1.8;
-    }
-
-    .dropzone {
-      border: 2px dashed #94a3b8;
-      border-radius: 14px;
-      padding: 28px 16px;
-      text-align: center;
-      background: #f8fafc;
-      transition: border-color 0.2s, background 0.2s;
-      cursor: pointer;
-    }
-
-    .dropzone.dragover {
-      border-color: #2563eb;
-      background: #eff6ff;
-    }
-
-    .dropzone p {
-      margin: 0 0 12px;
-      color: #334155;
-    }
-
-    .file-name {
-      margin-top: 10px;
-      font-size: 0.9rem;
-      color: #2563eb;
-      word-break: break-all;
-    }
-
-    .actions {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-      margin-top: 18px;
-    }
-
-    button, .btn-link {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 14px 16px;
-      border-radius: 12px;
-      font-size: 1rem;
-      font-weight: 700;
-      text-decoration: none;
-      cursor: pointer;
-      border: none;
-      transition: background 0.2s, opacity 0.2s;
-    }
-
-    #upload-btn {
-      grid-column: 1 / -1;
-      background: #2563eb;
-      color: #fff;
-    }
-
-    #upload-btn:hover:not(:disabled) { background: #1d4ed8; }
-
-    #camera-btn {
-      background: #fff;
-      color: #1e40af;
-      border: 1px solid #bfdbfe;
-    }
-
-    #file-btn {
-      background: #fff;
-      color: #334155;
-      border: 1px solid #cbd5e1;
-    }
-
-    button:disabled {
-      opacity: 0.65;
-      cursor: not-allowed;
-    }
-
-    input[type="file"] { display: none; }
-
-    .loading {
-      display: none;
-      text-align: center;
-      padding: 18px;
-      color: #475569;
-    }
-
-    .loading.visible { display: block; }
-
-    .spinner {
-      width: 36px;
-      height: 36px;
-      border: 3px solid #dbeafe;
-      border-top-color: #2563eb;
-      border-radius: 50%;
-      margin: 0 auto 12px;
-      animation: spin 0.8s linear infinite;
-    }
-
-    @keyframes spin { to { transform: rotate(360deg); } }
-
-    .result {
-      display: none;
-      padding: 18px;
-      border-radius: 14px;
-      line-height: 1.8;
-    }
-
-    .result.visible { display: block; }
-    .result.error { background: #fef2f2; border: 1px solid #fecaca; color: #991b1b; }
-    .result.success { background: #eff6ff; border: 1px solid #bfdbfe; color: #1e3a8a; }
-
-    .stats {
-      margin: 12px 0;
-      font-size: 0.95rem;
-    }
-
-    .download-link {
-      display: inline-block;
-      margin-top: 8px;
-      color: #1d4ed8;
-      font-weight: 700;
-    }
-
-    .text-preview {
-      margin-top: 16px;
-      padding: 16px;
-      background: #fff;
-      border: 1px solid #e2e8f0;
-      border-radius: 12px;
-      max-height: 360px;
-      overflow: auto;
-      white-space: pre-wrap;
-      text-align: right;
-      direction: rtl;
-      color: #0f172a;
-      font-size: 1rem;
-      line-height: 2;
-    }
-
-    .text-preview.empty {
-      color: #94a3b8;
-      font-style: italic;
-    }
-
-    .copy-btn {
-      margin-top: 10px;
-      background: #0f766e;
-      color: #fff;
-      width: 100%;
-    }
-
-    @media (max-width: 520px) {
-      .actions { grid-template-columns: 1fr; }
-      #upload-btn { grid-column: auto; }
-    }
+    body { margin: 0; background: var(--bg); color: var(--ink);
+      font-family: Vazirmatn, Tahoma, sans-serif; line-height: 1.7; }
+    .wrap { max-width: 860px; margin: 0 auto; padding: 24px 16px 120px; }
+    header h1 { margin: 0; font-size: 1.5rem; }
+    header p { margin: 4px 0 20px; color: var(--muted); }
+    .card { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 20px; margin-bottom: 16px; }
+    label { display: block; font-weight: 500; margin: 10px 0 4px; }
+    input[type=text], input[type=file] { width: 100%; padding: 9px 11px; border: 1px solid var(--line);
+      border-radius: 9px; background: var(--bg); color: var(--ink); font: inherit; }
+    .row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    @media (max-width: 600px) { .row2 { grid-template-columns: 1fr; } }
+    .check { display: flex; gap: 8px; align-items: flex-start; margin-top: 12px; font-weight: 400; color: var(--muted); }
+    button, .btn { font: inherit; border: 0; border-radius: 9px; padding: 9px 16px; cursor: pointer;
+      background: var(--accent); color: var(--accent-ink); text-decoration: none; display: inline-block; }
+    button.ghost, .btn.ghost { background: transparent; color: var(--accent); border: 1px solid var(--line); }
+    button:disabled { opacity: .5; cursor: not-allowed; }
+    .muted { color: var(--muted); font-size: .9rem; }
+    .error { color: var(--err); }
+    .hidden { display: none !important; }
+    .help { background: var(--bg); border: 1px dashed var(--line); border-radius: 10px; padding: 10px 14px; font-size: .92rem; color: var(--muted); }
+    .toolbar { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; justify-content: space-between; margin-bottom: 12px; }
+    .line { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 12px; margin-bottom: 10px; }
+    .line.low { border-color: var(--warn); background: var(--warn-bg); }
+    .line.focus { outline: 2px solid var(--accent); }
+    .line img { display: block; max-width: 100%; max-height: 160px; margin: 0 auto 8px; border-radius: 6px; background: #fff; }
+    .line textarea { width: 100%; min-height: 44px; resize: vertical; padding: 8px 10px; font: inherit; font-size: 1.05rem;
+      border: 1px solid var(--line); border-radius: 8px; background: var(--card); color: var(--ink); }
+    .meta { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-top: 6px; font-size: .82rem; color: var(--muted); }
+    .badge { border-radius: 99px; padding: 1px 9px; font-size: .78rem; }
+    .badge.warn { background: var(--warn-bg); color: var(--warn); border: 1px solid var(--warn); }
+    .badge.learn { background: var(--learn-bg); color: var(--learn); }
+    .badge.ok { color: var(--ok); }
+    .linkbtn { background: none; border: 0; padding: 0; color: var(--accent); cursor: pointer; font-size: .82rem; }
+    .history { margin-top: 8px; font-size: .88rem; border-top: 1px dashed var(--line); padding-top: 6px; }
+    .history div { padding: 2px 0; }
+    .bar { position: fixed; inset: auto 0 0 0; background: var(--card); border-top: 1px solid var(--line); padding: 12px 16px; }
+    .bar .inner { max-width: 860px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 10px; align-items: center; justify-content: space-between; }
+    .progress { height: 6px; background: var(--line); border-radius: 99px; overflow: hidden; width: 160px; }
+    .progress span { display: block; height: 100%; background: var(--ok); width: 0; }
   </style>
 </head>
 <body>
-  <div class="wrap">
-    <header>
-      <h1>خواندن برگه امتحان</h1>
-      <p class="subtitle">
-        عکس یا اسکن برگه آزمون فارسی را بارگذاری کنید؛
-        متن دست‌نویس و چاپی با دقت بالا استخراج و در فایل Word ذخیره می‌شود.
-      </p>
-    </header>
+<div class="wrap">
+  <header>
+    <h1>تبدیل برگهٔ امتحان به متن</h1>
+    <p>برگه را بارگذاری کنید، متن تشخیص‌داده‌شدهٔ هر خط را بررسی و اصلاح کنید و در پایان تأیید کنید.</p>
+  </header>
 
-    <main class="card">
-      <div class="tips">
-        برای بهترین نتیجه: نور کافی، بدون سایه، برگه صاف و تمام صفحه در کادر باشد.
-        فرمت‌های مجاز: JPG، PNG، TIFF، PDF
+  <section id="upload" class="card">
+    <form id="uploadForm">
+      <label for="file">فایل برگه (jpg، png، tiff، pdf)</label>
+      <input id="file" type="file" accept=".jpg,.jpeg,.png,.tif,.tiff,.webp,.pdf" required />
+      <div class="row2">
+        <div><label for="author">نام یا شمارهٔ دانشجویی (اختیاری)</label><input id="author" type="text" maxlength="120" /></div>
+        <div><label for="course">نام درس (اختیاری)</label><input id="course" type="text" maxlength="120" /></div>
       </div>
+      <label class="check"><input id="consent" type="checkbox" />
+        <span>اجازه می‌دهم اصلاحات من (بدون نام) برای بهبود دقت سامانه استفاده شود.</span></label>
+      <p style="margin-top:16px"><button id="uploadBtn" type="submit">شروع پردازش</button>
+        <span id="uploadStatus" class="muted"></span></p>
+    </form>
+  </section>
 
-      <form id="upload-form">
-        <div id="dropzone" class="dropzone" tabindex="0" role="button" aria-label="انتخاب فایل">
-          <p>فایل را اینجا رها کنید یا دکمه زیر را بزنید</p>
-          <div id="file-name" class="file-name"></div>
-        </div>
+  <section id="editor" class="hidden">
+    <div class="help">هر خط را با تصویرش مقایسه کنید و <b>دقیقاً همان چیزی که روی برگه نوشته شده</b> را بنویسید، حتی اگر غلط املایی دارد.
+      تغییرات خودکار ذخیره می‌شوند. <b>Enter</b> = خط بعدی · نیم‌فاصله: <b>Shift+Space</b>.
+      خطوط نارنجی را سامانه با اطمینان کم خوانده است.</div>
+    <div class="toolbar" style="margin-top:12px">
+      <div><b id="docTitle"></b> <span id="docMeta" class="muted"></span></div>
+      <label class="check" style="margin:0"><input id="onlyLow" type="checkbox" /> فقط خطوط نیازمند بررسی</label>
+    </div>
+    <div id="lines"></div>
+  </section>
+</div>
 
-        <input id="file-input" type="file" accept="image/*,.pdf,application/pdf" capture="environment" />
-
-        <div class="actions">
-          <button type="button" id="file-btn">انتخاب از گالری</button>
-          <button type="button" id="camera-btn">عکس با دوربین</button>
-          <button id="upload-btn" type="submit">شروع خواندن متن</button>
-        </div>
-      </form>
-
-      <div id="loading" class="loading">
-        <div class="spinner"></div>
-        <div>در حال خواندن برگه… ممکن است چند دقیقه طول بکشد.</div>
-      </div>
-
-      <div id="result" class="result"></div>
-    </main>
+<div id="bar" class="bar hidden">
+  <div class="inner">
+    <div style="display:flex;gap:10px;align-items:center">
+      <div class="progress"><span id="progressFill"></span></div>
+      <span id="progressText" class="muted"></span>
+    </div>
+    <div style="display:flex;gap:8px;flex-wrap:wrap">
+      <a id="dlTxt" class="btn ghost" href="#">TXT</a>
+      <a id="dlDocx" class="btn ghost" href="#">Word</a>
+      <button id="newBtn" class="ghost" type="button">برگهٔ جدید</button>
+      <button id="confirmBtn" type="button">تأیید نهایی</button>
+    </div>
   </div>
+</div>
 
-  <script>
-    const form = document.getElementById("upload-form");
-    const fileInput = document.getElementById("file-input");
-    const uploadBtn = document.getElementById("upload-btn");
-    const fileBtn = document.getElementById("file-btn");
-    const cameraBtn = document.getElementById("camera-btn");
-    const dropzone = document.getElementById("dropzone");
-    const fileNameEl = document.getElementById("file-name");
-    const loading = document.getElementById("loading");
-    const result = document.getElementById("result");
+<script>
+const $ = (id) => document.getElementById(id);
+const state = { doc: null, lines: [], timers: {}, started: {}, pending: new Set() };
 
-    let selectedFile = null;
+function anonId() {
+  try {
+    let id = localStorage.getItem("examocr_anon");
+    if (!id) { id = "anon-" + crypto.randomUUID().slice(0, 8); localStorage.setItem("examocr_anon", id); }
+    return id;
+  } catch { return "anon"; }
+}
+function author() { return $("author").value.trim() || anonId(); }
+const fa = (n) => Number(n).toLocaleString("fa-IR");
+function esc(s) { const d = document.createElement("div"); d.textContent = s ?? ""; return d.innerHTML; }
 
-    function setFile(file) {
-      selectedFile = file || null;
-      fileNameEl.textContent = file ? file.name : "";
+async function api(path, opts = {}) {
+  const res = await fetch(path, opts);
+  const body = res.headers.get("content-type")?.includes("json") ? await res.json() : await res.text();
+  if (!res.ok) throw new Error(body?.detail || res.statusText);
+  return body;
+}
+
+$("uploadForm").addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const file = $("file").files[0];
+  if (!file) return;
+  const fd = new FormData();
+  fd.append("file", file);
+  fd.append("author", author());
+  fd.append("course", $("course").value.trim());
+  fd.append("consent", $("consent").checked ? "true" : "false");
+  $("uploadBtn").disabled = true;
+  $("uploadStatus").textContent = "در حال بارگذاری…";
+  $("uploadStatus").className = "muted";
+  try {
+    const { id } = await api("/api/documents", { method: "POST", body: fd });
+    history.replaceState(null, "", "#doc=" + id);
+    await waitForDoc(id);
+  } catch (err) {
+    $("uploadStatus").textContent = "خطا: " + err.message;
+    $("uploadStatus").className = "error";
+  } finally { $("uploadBtn").disabled = false; }
+});
+
+async function waitForDoc(id) {
+  for (;;) {
+    const doc = await api("/api/documents/" + id);
+    if (doc.status === "done") return openDoc(doc);
+    if (doc.status === "failed") throw new Error(doc.error || "پردازش ناموفق بود");
+    $("uploadStatus").textContent = "در حال پردازش… " + (doc.step || "");
+    await new Promise((r) => setTimeout(r, 1000));
+  }
+}
+
+function openDoc(doc) {
+  state.doc = doc;
+  state.lines = doc.lines;
+  $("upload").classList.add("hidden");
+  $("editor").classList.remove("hidden");
+  $("bar").classList.remove("hidden");
+  $("docTitle").textContent = doc.filename;
+  $("docMeta").textContent = " · مدل: " + (doc.model_version || "—") + (doc.course ? " · درس: " + doc.course : "");
+  $("dlTxt").href = `/api/documents/${doc.id}/export?format=txt`;
+  $("dlDocx").href = `/api/documents/${doc.id}/export?format=docx`;
+  render();
+}
+
+function render() {
+  const onlyLow = $("onlyLow").checked;
+  const locked = state.doc.confirmed;
+  const box = $("lines");
+  box.innerHTML = "";
+  const textLines = state.lines.filter((l) => l.kind === "text");
+  if (!state.lines.length) box.innerHTML = '<div class="card muted">هیچ خطی در این برگه پیدا نشد.</div>';
+  for (const l of state.lines) {
+    if (onlyLow && !(l.kind === "text" && l.low_confidence)) continue;
+    const el = document.createElement("div");
+    el.className = "line" + (l.kind === "text" && l.low_confidence ? " low" : "");
+    el.dataset.id = l.id;
+    const img = `<img src="${l.crop_url}" alt="تصویر خط ${l.position}" loading="lazy" />`;
+    if (l.kind === "image") {
+      el.innerHTML = img + '<div class="meta">شکل یا جدول — به‌صورت تصویر در خروجی قرار می‌گیرد.</div>';
+      box.appendChild(el); continue;
     }
-
-    function showResult(html, type) {
-      result.className = "result visible " + type;
-      result.innerHTML = html;
-    }
-
-    fileBtn.addEventListener("click", () => {
-      fileInput.removeAttribute("capture");
-      fileInput.click();
+    const rules = (l.applied_rules || []).map((r) => `<span class="badge learn" title="یادگرفته از اصلاحات دانشجویان">اصلاح خودکار: ${esc(r.src)} ← ${esc(r.dst)}</span>`).join(" ");
+    const conf = l.confidence == null ? "" : `اطمینان ${fa(Math.round(l.confidence * 100))}٪`;
+    el.innerHTML = img + `
+      <textarea dir="rtl" lang="fa" rows="1" ${locked ? "readonly" : ""} aria-label="متن خط ${l.position}">${esc(l.text)}</textarea>
+      <div class="meta">
+        <span>خط ${fa(l.position)}</span><span>${conf}</span>
+        ${l.low_confidence ? '<span class="badge warn">نیاز به بررسی</span>' : ""}
+        ${rules}
+        <span class="save badge ok">${l.edit_version ? "ویرایش‌شده ✓" : ""}</span>
+        <button class="linkbtn" type="button" data-hist>تاریخچه</button>
+      </div>
+      <div class="history hidden"></div>`;
+    const ta = el.querySelector("textarea");
+    ta.addEventListener("focus", () => { state.started[l.id] ??= Date.now(); el.classList.add("focus"); });
+    ta.addEventListener("blur", () => { el.classList.remove("focus"); save(l, ta.value, el); });
+    ta.addEventListener("input", () => {
+      clearTimeout(state.timers[l.id]);
+      state.timers[l.id] = setTimeout(() => save(l, ta.value, el), 900);
     });
-
-    cameraBtn.addEventListener("click", () => {
-      fileInput.setAttribute("capture", "environment");
-      fileInput.click();
-    });
-
-    dropzone.addEventListener("click", () => fileBtn.click());
-
-    dropzone.addEventListener("dragover", (e) => {
-      e.preventDefault();
-      dropzone.classList.add("dragover");
-    });
-
-    dropzone.addEventListener("dragleave", () => dropzone.classList.remove("dragover"));
-
-    dropzone.addEventListener("drop", (e) => {
-      e.preventDefault();
-      dropzone.classList.remove("dragover");
-      const file = e.dataTransfer.files[0];
-      if (file) setFile(file);
-    });
-
-    fileInput.addEventListener("change", () => {
-      if (fileInput.files[0]) setFile(fileInput.files[0]);
-    });
-
-    async function copyText(text) {
-      try {
-        await navigator.clipboard.writeText(text);
-        alert("متن در حافظه کپی شد.");
-      } catch {
-        alert("کپی خودکار ممکن نشد؛ متن را دستی انتخاب کنید.");
-      }
-    }
-
-    form.addEventListener("submit", async (event) => {
-      event.preventDefault();
-
-      if (!selectedFile) {
-        showResult("لطفاً یک عکس یا PDF از برگه امتحان انتخاب کنید.", "error");
-        return;
-      }
-
-      const formData = new FormData();
-      formData.append("file", selectedFile);
-
-      uploadBtn.disabled = true;
-      loading.classList.add("visible");
-      result.className = "result";
-
-      try {
-        const response = await fetch("/upload", { method: "POST", body: formData });
-        const data = await response.json().catch(() => ({}));
-
-        if (!response.ok) {
-          let message = "خطا در پردازش فایل.";
-          if (typeof data.detail === "string") message = data.detail;
-          else if (Array.isArray(data.detail)) {
-            message = data.detail.map((item) => item.msg || JSON.stringify(item)).join(" ؛ ");
-          } else if (data.detail) message = String(data.detail);
-          showResult(message, "error");
-          return;
-        }
-
-        const downloadUrl = "/download/" + data.job_id;
-        const fullText = (data.full_text || "").trim();
-        const previewClass = fullText ? "text-preview" : "text-preview empty";
-        const previewBody = fullText || "متنی استخراج نشد؛ بخش‌های ناخوانا به‌صورت تصویر در Word قرار گرفته‌اند.";
-
-        showResult(
-          "<strong>خواندن برگه با موفقیت انجام شد.</strong>" +
-            '<div class="stats">' +
-            "بلوک‌های متنی: " + data.text_blocks + " از " + data.block_count + "<br />" +
-            "بخش‌های تصویری (جدول/ناخوانا): " + data.cropped_blocks +
-            "</div>" +
-            '<a class="download-link" href="' + downloadUrl + '">دانلود فایل Word</a>' +
-            '<div class="' + previewClass + '" id="extracted-text">' + escapeHtml(previewBody) + "</div>" +
-            (fullText
-              ? '<button type="button" class="copy-btn" id="copy-btn">کپی متن</button>'
-              : ""),
-          "success"
-        );
-
-        const copyBtn = document.getElementById("copy-btn");
-        if (copyBtn) copyBtn.addEventListener("click", () => copyText(fullText));
-      } catch {
-        showResult("ارتباط با سرور برقرار نشد. مطمئن شوید سرور در حال اجراست.", "error");
-      } finally {
-        uploadBtn.disabled = false;
-        loading.classList.remove("visible");
+    ta.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" && !e.shiftKey) {
+        e.preventDefault();
+        const all = [...box.querySelectorAll("textarea")];
+        all[all.indexOf(ta) + 1]?.focus();
+      } else if (e.key === " " && e.shiftKey) {
+        e.preventDefault();
+        ta.setRangeText("‌", ta.selectionStart, ta.selectionEnd, "end");
+        ta.dispatchEvent(new Event("input"));
       }
     });
+    el.querySelector("[data-hist]").addEventListener("click", () => toggleHistory(l, el));
+    box.appendChild(el);
+  }
+  updateProgress(textLines);
+  $("confirmBtn").disabled = locked;
+  $("confirmBtn").textContent = locked ? "تأیید شده ✓" : "تأیید نهایی";
+}
 
-    function escapeHtml(text) {
-      return text
-        .replace(/&/g, "&amp;")
-        .replace(/</g, "&lt;")
-        .replace(/>/g, "&gt;");
-    }
-  </script>
+function save(l, value, el) {
+  const p = doSave(l, value, el);
+  state.pending.add(p);
+  p.finally(() => state.pending.delete(p));
+  return p;
+}
+
+async function doSave(l, value, el) {
+  clearTimeout(state.timers[l.id]);
+  value = value.replace(/\s*\n\s*/g, " ").trim();
+  if (value === l.text || state.doc.confirmed) return;
+  const tag = el.querySelector(".save");
+  tag.textContent = "در حال ذخیره…";
+  try {
+    const started = state.started[l.id];
+    const r = await api(`/api/lines/${l.id}`, {
+      method: "PUT", headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ text: value, author: author(), edit_ms: started ? Date.now() - started : null }),
+    });
+    l.text = value; l.edit_version = r.version;
+    tag.textContent = "ذخیره شد ✓"; tag.className = "save badge ok";
+    updateProgress(state.lines.filter((x) => x.kind === "text"));
+  } catch (err) {
+    tag.textContent = "ذخیره نشد: " + err.message; tag.className = "save badge error";
+  }
+}
+
+async function toggleHistory(l, el) {
+  const box = el.querySelector(".history");
+  if (!box.classList.contains("hidden")) { box.classList.add("hidden"); return; }
+  const h = await api(`/api/lines/${l.id}/history`);
+  const p = h.predictions[h.predictions.length - 1];
+  const fmt = (t) => new Date(t * 1000).toLocaleString("fa-IR");
+  box.innerHTML =
+    `<div><b>خروجی خام مدل (${esc(p.model_version)}):</b> ${esc(p.raw_text) || "—"}</div>` +
+    (p.raw_text !== p.text ? `<div><b>بعد از اصلاح خودکار:</b> ${esc(p.text)}</div>` : "") +
+    (h.edits.length ? h.edits.map((e) => `<div>نسخهٔ ${fa(e.version)} · ${fmt(e.created_at)} · ${esc(e.author || "")}: ${esc(e.text) || "<i>خالی</i>"}</div>`).join("")
+                    : '<div class="muted">هنوز ویرایشی ثبت نشده.</div>');
+  box.classList.remove("hidden");
+}
+
+function updateProgress(textLines) {
+  const done = textLines.filter((l) => l.edit_version).length;
+  const pct = textLines.length ? Math.round((100 * done) / textLines.length) : 0;
+  $("progressFill").style.width = pct + "%";
+  $("progressText").textContent = `${fa(done)} از ${fa(textLines.length)} خط ویرایش شده`;
+}
+
+$("onlyLow").addEventListener("change", render);
+
+$("confirmBtn").addEventListener("click", async () => {
+  const active = document.activeElement;
+  if (active?.tagName === "TEXTAREA") active.blur();
+  if (!confirm("بعد از تأیید نهایی دیگر نمی‌توانید متن را تغییر دهید. ادامه می‌دهید؟")) return;
+  await Promise.allSettled([...state.pending]);
+  await api(`/api/documents/${state.doc.id}/confirm`, { method: "POST" });
+  state.doc = await api("/api/documents/" + state.doc.id);
+  state.lines = state.doc.lines;
+  render();
+});
+
+$("newBtn").addEventListener("click", () => {
+  history.replaceState(null, "", location.pathname);
+  state.doc = null;
+  $("editor").classList.add("hidden"); $("bar").classList.add("hidden");
+  $("upload").classList.remove("hidden");
+  $("uploadForm").reset(); $("uploadStatus").textContent = "";
+});
+
+const m = location.hash.match(/doc=([\w-]+)/);
+if (m) waitForDoc(m[1]).catch((err) => { $("uploadStatus").textContent = "خطا: " + err.message; });
+</script>
 </body>
 </html>

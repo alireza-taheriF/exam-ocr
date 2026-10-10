@@ -1,0 +1,16 @@
+# Student editing app without heavy ML deps (works with OCR_ENGINE=fake|vlm and SEGMENTER=opencv).
+fastapi
+uvicorn
+python-multipart
+opencv-python-headless
+numpy
+Pillow
+python-docx
+pypdfium2
+python-dotenv
+openai
+tenacity
+
+# Dev / test
+pytest
+httpx

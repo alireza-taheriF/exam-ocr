@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>پنل یادگیری — Exam OCR</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 16 16%22%3E%3Crect width=%2216%22 height=%2216%22 rx=%223%22 fill=%22%232563eb%22/%3E%3Cpath d=%22M4 5h8M4 8h8M4 11h5%22 stroke=%22white%22 stroke-width=%221.5%22/%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700&display=swap" rel="stylesheet" />
+  <style>
+    :root { --bg: #f6f7fb; --card: #fff; --ink: #0f172a; --muted: #64748b; --line: #e2e8f0; --accent: #2563eb; --warn: #c2410c; }
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) { --bg: #0b1120; --card: #111a2e; --ink: #e2e8f0; --muted: #94a3b8; --line: #1e293b; --accent: #60a5fa; --warn: #fdba74; }
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--bg); color: var(--ink); font-family: Vazirmatn, Tahoma, sans-serif; line-height: 1.7; }
+    .wrap { max-width: 1000px; margin: 0 auto; padding: 24px 16px 48px; }
+    h1 { font-size: 1.5rem; margin: 0 0 4px; }
+    h2 { font-size: 1.1rem; margin: 0 0 10px; }
+    .card { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 18px; margin-bottom: 16px; overflow-x: auto; }
+    table { width: 100%; border-collapse: collapse; font-size: .92rem; }
+    th, td { text-align: right; padding: 6px 8px; border-bottom: 1px solid var(--line); vertical-align: top; }
+    th { color: var(--muted); font-weight: 500; }
+    .num { font-variant-numeric: tabular-nums; }
+    .muted { color: var(--muted); font-size: .9rem; }
+    .warn { color: var(--warn); }
+    a { color: var(--accent); }
+    .kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 12px; }
+    .kpi { border: 1px solid var(--line); border-radius: 12px; padding: 12px; }
+    .kpi b { display: block; font-size: 1.5rem; }
+  </style>
+</head>
+<body>
+<div class="wrap">
+  <h1>پنل یادگیری و بازبینی</h1>
+  <p class="muted" id="note"></p>
+
+  <div class="card"><h2>دقت به تفکیک نسخهٔ مدل</h2>
+    <p class="muted">«دقت مدل خام» = خروجی مستقیم مدل در برابر متن تأییدشدهٔ دانشجو · «دقت نمایش‌داده‌شده» = بعد از اصلاح خودکار حافظهٔ اصلاحات.
+      این اعداد روی دادهٔ واقعی دانشجوها هستند؛ معیار ارتقای مدل همچنان مجموعهٔ طلایی است.</p>
+    <table><thead><tr><th>نسخهٔ مدل</th><th>خطوط بازبینی‌شده</th><th>ویرایش‌شده</th><th>دقت مدل خام</th><th>دقت نمایش‌داده‌شده</th></tr></thead>
+      <tbody id="versions"></tbody></table>
+  </div>
+
+  <div class="card"><h2>قواعد فعال حافظهٔ اصلاحات</h2>
+    <p class="muted">قاعده‌ای فعال می‌شود که چند دانشجوی مستقل همان اصلاح را انجام داده باشند و دقت آن بالا باشد.</p>
+    <table><thead><tr><th>خروجی مدل</th><th>اصلاح</th><th>دامنه</th><th>تکرار</th><th>دانشجو</th><th>دقت قاعده</th></tr></thead>
+      <tbody id="rules"></tbody></table>
+  </div>
+
+  <div class="card"><h2>نامزدها (هنوز فعال نشده)</h2>
+    <table><thead><tr><th>خروجی مدل</th><th>اصلاح</th><th>دامنه</th><th>تکرار</th><th>دانشجو</th><th>دقت قاعده</th></tr></thead>
+      <tbody id="candidates"></tbody></table>
+  </div>
+
+  <div class="card"><h2>ویرایش‌های قرنطینه‌شده</h2>
+    <p class="muted">ویرایش‌هایی که بیشتر شبیه تغییر محتوای پاسخ هستند تا اصلاح OCR. این‌ها در یادگیری استفاده نمی‌شوند.</p>
+    <table><thead><tr><th>سند</th><th>متن نمایش‌داده‌شده</th><th>متن دانشجو</th><th>دلیل</th></tr></thead>
+      <tbody id="quarantined"></tbody></table>
+  </div>
+
+  <div class="card"><h2>اسناد</h2>
+    <table><thead><tr><th>فایل</th><th>دانشجو</th><th>درس</th><th>وضعیت</th><th>خطوط</th><th>ویرایش‌شده</th><th>رضایت</th><th>hold-out</th></tr></thead>
+      <tbody id="docs"></tbody></table>
+  </div>
+</div>
+<script>
+const esc = (s) => { const d = document.createElement("div"); d.textContent = s ?? ""; return d.innerHTML; };
+const fa = (n) => Number(n).toLocaleString("fa-IR");
+const empty = (cols) => `<tr><td colspan="${cols}" class="muted">موردی نیست.</td></tr>`;
+const ruleRow = (r) => `<tr><td>${esc(r.src)}</td><td>${esc(r.dst)}</td><td>${r.scope === "*" ? "همه" : esc(r.scope)}</td>
+  <td class="num">${fa(r.count)}</td><td class="num">${fa(r.authors)}</td><td class="num">${fa(Math.round(r.precision * 100))}٪</td></tr>`;
+
+async function load() {
+  const [stats, docs] = await Promise.all([fetch("/api/stats").then((r) => r.json()), fetch("/api/documents").then((r) => r.json())]);
+  document.getElementById("note").textContent = `موتور فعال: ${stats.engine} · ${stats.note}`;
+  document.getElementById("versions").innerHTML = stats.versions.map((v) => `<tr><td>${esc(v.model_version)}</td>
+    <td class="num">${fa(v.lines)}</td><td class="num">${fa(v.edited_lines)}</td>
+    <td class="num">${fa(v.raw_model_accuracy_pct)}٪</td><td class="num">${fa(v.post_edit_accuracy_pct)}٪</td></tr>`).join("") || empty(5);
+  document.getElementById("rules").innerHTML = stats.rules.map(ruleRow).join("") || empty(6);
+  document.getElementById("candidates").innerHTML = stats.candidates.map(ruleRow).join("") || empty(6);
+  document.getElementById("quarantined").innerHTML = stats.quarantined.map((q) => `<tr>
+    <td><a href="/#doc=${q.document_id}">مشاهده</a></td><td>${esc(q.predicted)}</td><td>${esc(q.final)}</td>
+    <td class="warn">${esc(q.reasons.join("، "))}</td></tr>`).join("") || empty(4);
+  document.getElementById("docs").innerHTML = docs.map((d) => `<tr>
+    <td><a href="/#doc=${d.id}">${esc(d.filename)}</a></td><td>${esc(d.author || "—")}</td><td>${esc(d.course || "—")}</td>
+    <td>${d.confirmed_at ? "تأییدشده" : ({done: "منتظر تأیید دانشجو", processing: "در حال پردازش", queued: "در صف", failed: "ناموفق"}[d.status] || esc(d.status))}</td><td class="num">${fa(d.text_lines)}</td><td class="num">${fa(d.edited_lines)}</td>
+    <td>${d.consent ? "✓" : "—"}</td><td>${d.holdout ? "✓" : "—"}</td></tr>`).join("") || empty(8);
+}
+load();
+</script>
+</body>
+</html>

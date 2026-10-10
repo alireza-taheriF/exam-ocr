@@ -1,0 +1,8 @@
+# Local Qwen3-VL line OCR (OCR_ENGINE=qwen_local). Install on top of requirements-app.txt.
+# Keep this in a separate venv from surya-ocr: surya 0.6 pins transformers 4.45, Qwen3-VL needs >= 4.57.
+-r requirements-app.txt
+torch
+torchvision
+transformers>=4.57
+accelerate
+peft
