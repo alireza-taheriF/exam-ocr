@@ -1,0 +1,72 @@
+{
+  "base_model": "mohajesmaeili/Qwen3-VL-2B-Persian-Arabic-Ocr-v1.0",
+  "prompt": "Transcribe the Persian text in this image. Output only the text.",
+  "sources": {
+    "local": [
+      "/private/tmp/claude-501/-Users-alireza-exam-ocr/0bbf5dbc-e41b-44fe-8d6e-3d35c3d7e164/scratchpad/dry/dry20.jsonl"
+    ],
+    "hf_handwriting": "MR3z4/persian-handwriting-ocr",
+    "hf_replay": "mohajesmaeili/Persian_Arabic_TextLine_Image_Ocr_Small",
+    "replay_ratio": 0.0
+  },
+  "train_counts": {
+    "dry20": 20
+  },
+  "n_train": 20,
+  "n_val": 0,
+  "train_data_sha256": "33faf13868be5727b0eaa197ae2f5b390c42231cb8a1be734d86ba0ded3fc0bb",
+  "val_data_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "sealed_crops_refused": 3063,
+  "config": {
+    "out": "/private/tmp/claude-501/-Users-alireza-exam-ocr/0bbf5dbc-e41b-44fe-8d6e-3d35c3d7e164/scratchpad/dry/out",
+    "base_model": "mohajesmaeili/Qwen3-VL-2B-Persian-Arabic-Ocr-v1.0",
+    "device": "cpu",
+    "local": [
+      "/private/tmp/claude-501/-Users-alireza-exam-ocr/0bbf5dbc-e41b-44fe-8d6e-3d35c3d7e164/scratchpad/dry/dry20.jsonl"
+    ],
+    "hf_handwriting": 0,
+    "hf_handwriting_split": "train",
+    "hw_image_col": null,
+    "hw_text_col": null,
+    "hw_bbox_col": null,
+    "replay_ratio": 0.0,
+    "replay_split": "train",
+    "rp_image_col": null,
+    "rp_text_col": null,
+    "data_dir": "/content/ocr_data",
+    "val_fraction": 0.0,
+    "val_max": 200,
+    "max_samples": 20,
+    "epochs": 1.0,
+    "max_steps": 2,
+    "lr": 0.0001,
+    "batch_size": 2,
+    "grad_accum": 1,
+    "lora_r": 16,
+    "lora_alpha": 32,
+    "lora_dropout": 0.05,
+    "max_long_side": 384,
+    "max_label_tokens": 128,
+    "save_steps": 200,
+    "seed": 42,
+    "skip_eval": true
+  },
+  "dtype": "torch.float32",
+  "steps": 2,
+  "loss_first": 3.5677,
+  "loss_last": 3.7201,
+  "loss_history": [
+    {
+      "step": 1,
+      "loss": 3.5677
+    },
+    {
+      "step": 2,
+      "loss": 3.7201
+    }
+  ],
+  "val_cer_before": null,
+  "val_cer_after": null,
+  "minutes": 0.6,
+  "next": "scripts/eval_gate.py --label <name> --adapter models/<name> --register"
+}
