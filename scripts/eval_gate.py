@@ -107,6 +107,18 @@ def paired_delta_ci(a: dict[str, dict], b: dict[str, dict], seed: int = 0) -> di
             "ci95": [round(vals[int(0.025 * len(vals))], 4), round(vals[int(0.975 * len(vals)) - 1], 4)]}
 
 
+class LabelsEngine:
+    """Replays a labels JSONL (keyed by crop file name) so a labeler is scored
+    exactly like an OCR engine. A crop with no label counts as an empty read."""
+
+    def __init__(self, path: Path):
+        self.texts = {Path(r["image_path"]).name: r.get("text") or ""
+                      for r in map(json.loads, path.open(encoding="utf-8")) if r}
+
+    def recognize(self, image, key: str) -> tuple[str, None]:
+        return self.texts.get(Path(key).name, ""), None
+
+
 def build_report(gold: list[dict], preds: dict[str, dict]) -> tuple[dict, dict[str, dict]]:
     scored, illegible = [], []
     for g in gold:
@@ -156,16 +168,13 @@ def load_registry() -> dict:
     return {"champion": None, "history": []}
 
 
-def compare(champion_label: str, report: dict, scored: dict[str, dict]) -> dict:
-    champ_preds = REPORTS / f"{champion_label}.preds.jsonl"
-    champ_report = json.loads((REPORTS / f"{champion_label}.json").read_text(encoding="utf-8"))
-    gold_rows = {}
-    for line in champ_preds.open(encoding="utf-8"):
-        p = json.loads(line)
-        if normalize_text(p.get("gold") or ""):
-            cd, cl, wd, wl = line_counts(p["gold"], p["text"])
-            gold_rows[p["image_path"]] = {"cd": cd, "cl": cl}
-    delta = paired_delta_ci(gold_rows, scored)
+def compare(champion_label: str, report: dict, scored: dict[str, dict], gold: list[dict]) -> dict:
+    # The champion is re-scored against the *current* gold, not the copy of gold
+    # stored in its preds file, so a gold correction moves both sides equally.
+    champ_preds = {p["image_path"]: p for p in map(json.loads, (REPORTS / f"{champion_label}.preds.jsonl")
+                                                    .open(encoding="utf-8"))}
+    champ_report, champ_scored = build_report(gold, champ_preds)
+    delta = paired_delta_ci(champ_scored, scored)
     doc_deltas = {}
     for doc, cur in report["by_document"].items():
         old = champ_report["by_document"].get(doc)
@@ -188,7 +197,9 @@ def compare(champion_label: str, report: dict, scored: dict[str, dict]) -> dict:
 def main() -> int:
     p = argparse.ArgumentParser(description="Score an engine configuration on gold and compare with the champion")
     p.add_argument("--label", required=True, help="report name: dataset/reports/<label>.json")
-    p.add_argument("--engine", default="qwen_local", choices=["qwen_local", "fake"])
+    p.add_argument("--engine", default="qwen_local", choices=["qwen_local", "fake", "labels"])
+    p.add_argument("--labels", type=Path, default=None,
+                   help="labels JSONL to score as if it were an engine (--engine labels), e.g. a labeler's output")
     p.add_argument("--adapter", default="", help="LoRA adapter dir (qwen_local)")
     p.add_argument("--gold", type=Path, default=DEFAULT_GOLD)
     p.add_argument("--champion", default=None, help="label to compare with (default: registry champion)")
@@ -210,8 +221,12 @@ def main() -> int:
                             px_per_token=args.px_per_token, repetition_penalty=args.repetition_penalty,
                             min_height=args.min_height, clahe=args.clahe,
                             route_min_width=args.route_min_width, drop_loops=args.drop_loops)
+    if (args.engine == "labels") != (args.labels is not None):
+        p.error("--engine labels and --labels go together")
     config = {"engine": args.engine, "adapter": args.adapter or None, "gold": str(args.gold),
               "settings": dataclasses.asdict(settings)}
+    if args.labels:
+        config = {"engine": "labels", "labels": str(args.labels), "gold": str(args.gold)}
     config_hash = hashlib.sha1(json.dumps(config, sort_keys=True, ensure_ascii=False).encode()).hexdigest()[:12]
 
     REPORTS.mkdir(parents=True, exist_ok=True)
@@ -235,7 +250,9 @@ def main() -> int:
     if todo:
         from PIL import Image
 
-        if args.engine == "fake":
+        if args.engine == "labels":
+            engine = LabelsEngine(args.labels)
+        elif args.engine == "fake":
             from pipeline.engines import FakeEngine
             engine = FakeEngine()
         else:
@@ -245,7 +262,8 @@ def main() -> int:
             for i, g in enumerate(todo, 1):
                 image = Image.open(PROJECT_ROOT / g["image_path"]).convert("RGB")
                 t0 = time.perf_counter()
-                text, conf = engine.recognize(image)
+                text, conf = engine.recognize(image, key=g["image_path"]) if args.engine == "labels" \
+                    else engine.recognize(image)
                 row = {"image_path": g["image_path"], "source_document": g.get("source_document"),
                        "gold": g.get("text") or "", "text": text, "confidence": conf,
                        "width": image.width, "height": image.height,
@@ -261,7 +279,7 @@ def main() -> int:
     champion = args.champion or (registry["champion"] or {}).get("label")
     comparison = None
     if champion and champion != args.label and (REPORTS / f"{champion}.json").exists():
-        comparison = compare(champion, report, scored)
+        comparison = compare(champion, report, scored, gold)
 
     result = {"label": args.label, "created": datetime.now(timezone.utc).isoformat(timespec="seconds"),
               "config": config, "config_hash": config_hash, **report, "vs_champion": comparison}
@@ -277,6 +295,8 @@ def main() -> int:
     print(f"  wrote {report_path}")
 
     if args.register:
+        if args.engine == "labels":
+            sys.exit("a labeler is not a servable model; --register is refused for --engine labels")
         entry = {"label": args.label, "report": str(report_path.relative_to(PROJECT_ROOT)),
                  "adapter": args.adapter or None, "settings": config["settings"],
                  "cer": result["cer"], "accuracy_pct": result["accuracy_pct"], "date": result["created"]}
