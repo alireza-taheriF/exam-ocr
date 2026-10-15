@@ -13,8 +13,8 @@
       "route_min_width": 0,
       "drop_loops": false
     },
-    "cer": 0.377,
-    "accuracy_pct": 62.3,
+    "cer": 0.3691,
+    "accuracy_pct": 63.09,
     "date": "2026-10-10T13:54:05+00:00",
     "status": "champion"
   },
@@ -33,8 +33,8 @@
         "route_min_width": 0,
         "drop_loops": false
       },
-      "cer": 0.377,
-      "accuracy_pct": 62.3,
+      "cer": 0.3691,
+      "accuracy_pct": 63.09,
       "date": "2026-10-10T13:54:05+00:00",
       "status": "champion"
     },
@@ -52,8 +52,8 @@
         "route_min_width": 0,
         "drop_loops": false
       },
-      "cer": 0.3743,
-      "accuracy_pct": 62.57,
+      "cer": 0.3664,
+      "accuracy_pct": 63.36,
       "date": "2026-10-10T19:29:57+00:00",
       "status": "rejected"
     },
@@ -71,8 +71,8 @@
         "route_min_width": 0,
         "drop_loops": false
       },
-      "cer": 0.3763,
-      "accuracy_pct": 62.37,
+      "cer": 0.3682,
+      "accuracy_pct": 63.18,
       "date": "2026-10-10T19:29:57+00:00",
       "status": "rejected"
     },
@@ -90,8 +90,8 @@
         "route_min_width": 0,
         "drop_loops": false
       },
-      "cer": 0.3774,
-      "accuracy_pct": 62.26,
+      "cer": 0.3695,
+      "accuracy_pct": 63.05,
       "date": "2026-10-10T19:29:58+00:00",
       "status": "rejected"
     },
@@ -109,8 +109,8 @@
         "route_min_width": 0,
         "drop_loops": false
       },
-      "cer": 0.379,
-      "accuracy_pct": 62.1,
+      "cer": 0.3704,
+      "accuracy_pct": 62.96,
       "date": "2026-10-10T19:29:58+00:00",
       "status": "rejected"
     },
@@ -128,8 +128,8 @@
         "route_min_width": 0,
         "drop_loops": false
       },
-      "cer": 0.377,
-      "accuracy_pct": 62.3,
+      "cer": 0.3691,
+      "accuracy_pct": 63.09,
       "date": "2026-10-10T19:29:59+00:00",
       "status": "rejected"
     },
@@ -147,8 +147,8 @@
         "route_min_width": 0,
         "drop_loops": false
       },
-      "cer": 0.3824,
-      "accuracy_pct": 61.76,
+      "cer": 0.3744,
+      "accuracy_pct": 62.56,
       "date": "2026-10-10T19:29:59+00:00",
       "status": "rejected"
     },
@@ -166,8 +166,8 @@
         "route_min_width": 0,
         "drop_loops": false
       },
-      "cer": 0.3922,
-      "accuracy_pct": 60.78,
+      "cer": 0.3899,
+      "accuracy_pct": 61.01,
       "date": "2026-10-10T19:29:59+00:00",
       "status": "rejected"
     },
@@ -185,8 +185,8 @@
         "route_min_width": 0,
         "drop_loops": false
       },
-      "cer": 0.3774,
-      "accuracy_pct": 62.26,
+      "cer": 0.3695,
+      "accuracy_pct": 63.05,
       "date": "2026-10-10T19:30:00+00:00",
       "status": "rejected"
     },
@@ -204,8 +204,8 @@
         "route_min_width": 0,
         "drop_loops": false
       },
-      "cer": 0.3656,
-      "accuracy_pct": 63.44,
+      "cer": 0.3565,
+      "accuracy_pct": 64.35,
       "date": "2026-10-10T19:30:00+00:00",
       "status": "rejected"
     },
@@ -223,8 +223,8 @@
         "route_min_width": 0,
         "drop_loops": true
       },
-      "cer": 0.377,
-      "accuracy_pct": 62.3,
+      "cer": 0.3691,
+      "accuracy_pct": 63.09,
       "date": "2026-10-10T19:30:00+00:00",
       "status": "rejected"
     },
@@ -242,8 +242,8 @@
         "route_min_width": 150,
         "drop_loops": false
       },
-      "cer": 0.3819,
-      "accuracy_pct": 61.81,
+      "cer": 0.374,
+      "accuracy_pct": 62.6,
       "date": "2026-10-10T19:30:01+00:00",
       "status": "rejected"
     },
@@ -261,8 +261,8 @@
         "route_min_width": 0,
         "drop_loops": false
       },
-      "cer": 0.3577,
-      "accuracy_pct": 64.23,
+      "cer": 0.3518,
+      "accuracy_pct": 64.82,
       "date": "2026-10-14T22:29:46+00:00",
       "status": "rejected"
     }
