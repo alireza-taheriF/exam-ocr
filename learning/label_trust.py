@@ -52,3 +52,14 @@ def assess(predicted: str, final: str, confidence: float | None) -> Trust:
     if confidence is not None and confidence >= CONFIDENT and ratio > REWRITE_ON_CONFIDENT:
         reasons.append("rewrite_on_confident_line")
     return Trust(QUARANTINED if reasons else TRUSTED, ratio, reasons)
+
+
+def trust_for(row: dict) -> Trust:
+    """Trust of a stored correction row; an admin verdict (``row["review"]``) overrides the heuristics."""
+    ratio = edit_ratio(row.get("predicted_text") or "", row.get("final_text") or "")
+    review = row.get("review")
+    if review == "approved" and normalize_text(row.get("final_text") or ""):
+        return Trust(TRUSTED, ratio, ["admin_approved"])
+    if review == "rejected":
+        return Trust(REJECTED, ratio, ["admin_rejected"])
+    return assess(row.get("predicted_text") or "", row.get("final_text") or "", row.get("confidence"))

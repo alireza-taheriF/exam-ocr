@@ -161,7 +161,16 @@ class QwenLocalEngine:
 
         self.processor = AutoProcessor.from_pretrained(model_id)
         model = AutoModelForImageTextToText.from_pretrained(model_id, dtype=dtype, device_map=device)
-        adapter = (adapter if adapter is not None else os.environ.get("QWEN_ADAPTER_PATH", "")).strip()
+        if adapter is None:
+            # QWEN_ADAPTER_PATH overrides; otherwise the registry champion is what runs.
+            # Set QWEN_ADAPTER_PATH="" (empty) in the env to force the base model.
+            env = os.environ.get("QWEN_ADAPTER_PATH")
+            if env is None:
+                from learning.registry import champion_adapter
+
+                env = champion_adapter()
+            adapter = env
+        adapter = adapter.strip()
         if adapter:
             from peft import PeftModel
 
