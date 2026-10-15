@@ -171,6 +171,7 @@ def main(argv=None) -> int:
     p.add_argument("--max-long-side", type=int, default=768, help="cap image long side (vision tokens / memory)")
     p.add_argument("--max-label-tokens", type=int, default=128)
     p.add_argument("--save-steps", type=int, default=200)
+    p.add_argument("--keep-checkpoints", type=int, default=5)
     p.add_argument("--seed", type=int, default=42)
     p.add_argument("--skip-eval", action="store_true", help="no val decoding before/after (dry runs)")
     args = p.parse_args(argv)
@@ -206,7 +207,9 @@ def main(argv=None) -> int:
     if cuda:  # T4 has no bf16: fp16 base weights, fp32 LoRA weights + AMP
         dtype = torch.bfloat16 if torch.cuda.is_bf16_supported() else torch.float16
     else:
-        dtype = torch.float16 if args.device == "mps" else torch.float32
+        # bf16, not fp16: fp16 on MPS has no loss scaling and overflowed to NaN at step ~330
+        # (models/lora_v2_mac_nan_diverged, 2026-10-14). bf16 keeps fp32's range.
+        dtype = torch.bfloat16 if args.device == "mps" else torch.float32
     processor = AutoProcessor.from_pretrained(args.base_model)
     model = AutoModelForImageTextToText.from_pretrained(args.base_model, dtype=dtype, device_map=args.device)
     model.gradient_checkpointing_enable(gradient_checkpointing_kwargs={"use_reentrant": False})
@@ -233,22 +236,44 @@ def main(argv=None) -> int:
             if logs and "loss" in logs:
                 losses.append({"step": state.global_step, "loss": round(float(logs["loss"]), 4)})
 
+    class StopOnNaN(TrainerCallback):
+        # A non-finite loss or gradient never recovers; stop before it overwrites good checkpoints.
+        def on_log(self, _args, state, control, logs=None, **_):
+            if not logs:
+                return
+            bad = [k for k in ("loss", "grad_norm") if k in logs and not math.isfinite(float(logs[k]))]
+            if bad or ("loss" in logs and float(logs["loss"]) > 50):
+                print(f"[train] non-finite/exploding {bad or 'loss'} at step {state.global_step}: {logs}; stopping",
+                      flush=True)
+                control.should_training_stop = True
+                control.should_save = False
+                state.diverged = True
+
+    class ReleaseMPSCache(TrainerCallback):
+        # The MPS allocator keeps freed blocks; without this the cache grows until OOM
+        # (same failure as Qwen inference on the Mac, fixed there by a per-line release).
+        def on_step_end(self, *_a, **_k):
+            torch.mps.empty_cache()
+
     args.out.mkdir(parents=True, exist_ok=True)
     targs = TrainingArguments(
         output_dir=str(args.out), per_device_train_batch_size=args.batch_size,
         gradient_accumulation_steps=args.grad_accum, learning_rate=args.lr,
         num_train_epochs=args.epochs, max_steps=args.max_steps, warmup_steps=0.03,  # float = ratio (transformers 5)
         lr_scheduler_type="cosine", logging_steps=1 if args.max_steps and 0 < args.max_steps <= 20 else 10,
-        save_steps=args.save_steps, save_total_limit=2, eval_strategy="no",
+        save_steps=args.save_steps, save_total_limit=args.keep_checkpoints, eval_strategy="no",
         remove_unused_columns=False, dataloader_pin_memory=False, report_to=[], seed=args.seed,
         fp16=cuda and dtype == torch.float16, bf16=cuda and dtype == torch.bfloat16,
         gradient_checkpointing=True, gradient_checkpointing_kwargs={"use_reentrant": False},
         use_cpu=args.device == "cpu",
     )
     trainer = Trainer(model=model, args=targs, train_dataset=ds,
-                      data_collator=lambda f: collate(f, pad_id), callbacks=[LossLog()])
+                      data_collator=lambda f: collate(f, pad_id),
+                      callbacks=[LossLog(), StopOnNaN()] + ([ReleaseMPSCache()] if args.device == "mps" else []))
     resume = any(args.out.glob("checkpoint-*"))
     trainer.train(resume_from_checkpoint=True if resume else None)
+    if getattr(trainer.state, "diverged", False):
+        raise SystemExit("[train] diverged: no adapter saved; resume from the last good checkpoint-* with a lower --lr")
     model.save_pretrained(str(args.out))
     processor.save_pretrained(str(args.out))
 

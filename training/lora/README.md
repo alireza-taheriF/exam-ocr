@@ -1,7 +1,17 @@
 # LoRA روی Colab — گام‌به‌گام
 
-آموزش روی مک انجام نمی‌شود (۱۶ گیگ کافی نیست؛ اجرای قبلی در step 224 با OOM قطع شد).
-مک فقط داده را آماده و آداپتور نهایی را ارزیابی می‌کند.
+آموزش روی مک (M2 Pro، ۱۶ گیگ) با تنظیمات کم‌حافظه ممکن است: اسکریپت حالا بعد از هر step کش MPS را
+آزاد می‌کند (اجرای قبلی بدون آن در step 224 با OOM قطع شد). سنجیده‌شده ۲۰۲۶-۱۰-۱۳: ~۷ ثانیه/step با
+batch 1 × accum 4، اوج حافظه ۱۲٫۷ گیگ — یعنی ~۴ ساعت برای ۸۰۰۰ خط:
+
+```bash
+HF_HUB_OFFLINE=1 .venv-qwen/bin/python training/lora/train_qwen_lora.py --out models/lora_v2_mac --device mps \
+    --local dataset/external/hw_lines/train.jsonl --max-samples 8000 --batch-size 1 --grad-accum 8 \
+    --max-long-side 512 --max-label-tokens 96 --replay-ratio 0 --val-max 100 --save-steps 100
+```
+
+Colab (T4) سریع‌تر است و برای اجراهای بزرگ‌تر (با replay) همچنان مسیر اصلی است.
+دادهٔ دست‌خط: `scripts/build_hw_lines.py` (MR3z4 روی Hub ستون تصویر ندارد؛ فقط از bundle می‌آید).
 
 ## ۰. قانون داده
 `dataset/gold.jsonl`، `dataset/test_v3.jsonl` و `eval/new_gold` هرگز وارد آموزش نمی‌شوند.

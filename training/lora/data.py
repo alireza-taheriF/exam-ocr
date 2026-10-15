@@ -8,15 +8,17 @@ with the image saved as a file (so one Dataset class serves every source):
   val lines, etc. ``image_path`` may be relative to the project root or to the
   manifest's own directory. Sealed crops (gold, test split, new_gold) are
   refused — see ``training/sealed.py``.
-- **MR3z4/persian-handwriting-ocr** — real Persian handwriting.
+- **MR3z4/persian-handwriting-ocr** — real Persian handwriting. Its HF rows are
+  word boxes on page files with no Image column, so ``hf_rows`` cannot read it;
+  build line crops on the Mac with ``scripts/build_hw_lines.py`` and pass the
+  manifests as local data.
 - **mohajesmaeili/Persian_Arabic_TextLine_Image_Ocr_Small** — the base model's
   own training distribution; used as replay so the adapter does not forget it.
+  Columns ``Image``/``Text``, splits ``Train``/``Test`` (checked 2026-10-13).
 
-The HF column names were NOT verified from this machine (no network when this
-was written). ``hf_rows`` auto-detects an Image column and a text column and,
-if the dataset stores page images with a box, crops the box; it prints the
-features it found so a wrong guess is visible in the Colab log, and every
-choice can be overridden on the command line.
+``hf_rows`` matches column and split names case-insensitively and prints the
+features it found, so a wrong guess is visible in the Colab log; every choice
+can be overridden on the command line.
 """
 
 from __future__ import annotations
@@ -60,16 +62,28 @@ def load_local(manifest: Path, sealed: set[str], source: str | None = None) -> l
 def _pick_columns(features: dict, image_col: str | None, text_col: str | None, bbox_col: str | None):
     from datasets import Image as HFImage
 
+    by_lower = {k.lower(): k for k in features}
     if image_col is None:
         image_col = next((k for k, v in features.items() if isinstance(v, HFImage)), None)
     if text_col is None:
-        text_col = next((k for k in TEXT_COLUMNS if k in features), None)
+        text_col = next((by_lower[k] for k in TEXT_COLUMNS if k in by_lower), None)
     if bbox_col is None:
-        bbox_col = next((k for k in BBOX_COLUMNS if k in features), None)
+        bbox_col = next((by_lower[k] for k in BBOX_COLUMNS if k in by_lower), None)
     if image_col is None or text_col is None:
         raise SystemExit(f"Cannot tell image/text columns from features {list(features)}; "
                          f"pass --*-image-col / --*-text-col")
     return image_col, text_col, bbox_col
+
+
+def resolve_split(split: str, available: Iterable[str]) -> str:
+    """``train`` → ``Train`` when the dataset capitalizes its split names."""
+    available = list(available)
+    if split in available:
+        return split
+    match = next((a for a in available if a.lower() == split.lower()), None)
+    if match is None:
+        raise SystemExit(f"split {split!r} not in {available}")
+    return match
 
 
 def _crop(image, bbox):
@@ -85,8 +99,9 @@ def hf_rows(name: str, n: int, out_dir: Path, *, split: str = "train", seed: int
     """Stream ``n`` labeled lines from an HF dataset, saving each crop as a JPEG."""
     if n <= 0:
         return []
-    from datasets import load_dataset
+    from datasets import get_dataset_split_names, load_dataset
 
+    split = resolve_split(split, get_dataset_split_names(name))
     ds = load_dataset(name, split=split, streaming=True)
     features = ds.features or {}
     image_col, text_col, bbox_col = _pick_columns(features, image_col, text_col, bbox_col)
