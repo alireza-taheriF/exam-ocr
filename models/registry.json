@@ -246,6 +246,25 @@
       "accuracy_pct": 61.81,
       "date": "2026-10-10T19:30:01+00:00",
       "status": "rejected"
+    },
+    {
+      "label": "lora_v2",
+      "report": "dataset/reports/lora_v2.json",
+      "adapter": "models/lora_v2",
+      "settings": {
+        "prompt": "Transcribe the Persian text in this image. Output only the text.",
+        "max_new_tokens": 96,
+        "px_per_token": 0.0,
+        "repetition_penalty": 1.0,
+        "min_height": 0,
+        "clahe": false,
+        "route_min_width": 0,
+        "drop_loops": false
+      },
+      "cer": 0.3577,
+      "accuracy_pct": 64.23,
+      "date": "2026-10-14T22:29:46+00:00",
+      "status": "rejected"
     }
   ]
 }
