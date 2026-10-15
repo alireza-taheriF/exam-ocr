@@ -128,3 +128,77 @@ def test_export_uses_edited_text(client):
 def test_rejects_bad_extension(client):
     r = client.post("/api/documents", files={"file": ("a.exe", io.BytesIO(b"x"), "application/octet-stream")})
     assert r.status_code == 400
+
+
+def test_edit_button_keeps_image_and_shows_it_to_admin(client):
+    doc = _upload(client, "s1")
+    line = next(l for l in doc["lines"] if l["kind"] == "text")
+    r = client.post(f"/api/lines/{line['id']}/edit", json={"author": "s1"})
+    assert r.status_code == 200, r.text
+    assert r.json()["shown_text"] == line["text"]
+    client.put(f"/api/lines/{line['id']}", json={"text": "اصول حسابداری", "author": "s1"})
+
+    rows = client.get("/api/admin/corrections").json()
+    assert len(rows) == 1
+    row = rows[0]
+    assert row["predicted_text"] == "اصول هسادجاری و معادله اساسی"
+    assert row["student_text"] == "اصول حسابداری"
+    assert row["author"] == "s1"
+    img = client.get(row["image_url"])
+    assert img.status_code == 200
+    assert img.content == client.get(line["crop_url"]).content
+
+
+def test_save_without_edit_button_still_keeps_image(client):
+    doc = _upload(client, "s1")
+    line = next(l for l in doc["lines"] if l["kind"] == "text")
+    client.put(f"/api/lines/{line['id']}", json={"text": "متن"})
+    rows = client.get("/api/admin/corrections").json()
+    assert [r["line_id"] for r in rows] == [line["id"]]
+    assert client.get(rows[0]["image_url"]).status_code == 200
+
+
+def test_edit_button_rejected_after_confirm_and_for_image_items(client):
+    doc = _upload(client, "s1")
+    image = next(l for l in doc["lines"] if l["kind"] == "image")
+    assert client.post(f"/api/lines/{image['id']}/edit", json={}).status_code == 400
+    client.post(f"/api/documents/{doc['id']}/confirm")
+    text = next(l for l in doc["lines"] if l["kind"] == "text")
+    assert client.post(f"/api/lines/{text['id']}/edit", json={}).status_code == 409
+
+
+def test_admin_review_overrides_trust_for_learning(client):
+    # Two students rewrite every word: near-total rewrite is quarantined, so no rule is learned.
+    docs = []
+    for s in ("s1", "s2"):
+        doc = _upload(client, s)
+        line = next(l for l in doc["lines"] if l["kind"] == "text" and not l["low_confidence"])
+        client.put(f"/api/lines/{line['id']}", json={"text": "ثثثث ثثثث ث ثثثثث ثثثثث", "author": s})
+        client.post(f"/api/documents/{doc['id']}/confirm")
+        docs.append(doc)
+    rows = client.get("/api/admin/corrections").json()
+    assert {r["trust"] for r in rows} == {"quarantined"}
+    assert client.get("/api/stats").json()["candidates"] == []
+
+    for r in rows:
+        assert client.post(f"/api/admin/lines/{r['line_id']}/review", json={"verdict": "approved"}).status_code == 200
+    rows = client.get("/api/admin/corrections").json()
+    assert {r["trust"] for r in rows} == {"trusted"}
+    assert {r["review"] for r in rows} == {"approved"}
+    # Approved corrections now reach the memory (as candidates: the unedited lines of the
+    # same documents still count as evidence against the substitution).
+    assert any(c["dst"] == "ثثثث" and c["authors"] == 2 for c in client.get("/api/stats").json()["candidates"])
+
+    client.post(f"/api/admin/lines/{rows[0]['line_id']}/review", json={"verdict": "rejected"})
+    assert client.get("/api/admin/corrections").json()[0]["trust"] == "rejected"
+    assert client.post(f"/api/admin/lines/{rows[0]['line_id']}/review", json={"verdict": "maybe"}).status_code == 422
+
+
+def test_retrain_status_counts_trusted_corrections(client, monkeypatch, tmp_path):
+    monkeypatch.setenv("MODEL_REGISTRY", str(tmp_path / "registry.json"))
+    monkeypatch.setenv("RETRAIN_MIN_CORRECTIONS", "3")
+    _fix_all(client, _upload(client, "s1"), "s1")
+    r = client.get("/api/admin/retrain").json()
+    assert r["trusted_train_corrections"] >= 4
+    assert r["ready"] is True
+    assert client.post("/api/admin/reload-engine").json()["engine"] == "fake@1"

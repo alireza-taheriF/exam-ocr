@@ -12,7 +12,7 @@ import logging
 import os
 import uuid
 from pathlib import Path
-from typing import Any
+from typing import Any, Literal
 
 from dotenv import load_dotenv
 
@@ -32,7 +32,8 @@ from pydantic import BaseModel, Field
 
 from app.service import LOW_CONFIDENCE, current_memory, is_holdout, process_document, reviewed_rows
 from app.store import Store
-from learning.label_trust import assess
+from learning import retrain
+from learning.label_trust import trust_for
 from pipeline.engines import get_engine
 from pipeline.export import export_to_word
 from pipeline.segment import segmenter_name
@@ -44,7 +45,8 @@ LOGS_DIR = BASE_DIR / "logs"
 ALLOWED_EXTENSIONS = {".jpg", ".jpeg", ".png", ".tif", ".tiff", ".webp", ".pdf"}
 MAX_UPLOAD_BYTES = 30 * 1024 * 1024
 
-for d in (DATA_DIR / "uploads", DATA_DIR / "exports", LOGS_DIR):
+SNAPSHOTS_DIR = DATA_DIR / "corrections"
+for d in (DATA_DIR / "uploads", DATA_DIR / "exports", SNAPSHOTS_DIR, LOGS_DIR):
     d.mkdir(parents=True, exist_ok=True)
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(name)s: %(message)s")
@@ -62,6 +64,16 @@ class EditIn(BaseModel):
     text: str = Field(max_length=5000)
     author: str | None = Field(default=None, max_length=120)
     edit_ms: int | None = Field(default=None, ge=0)
+
+
+class EditStartIn(BaseModel):
+    author: str | None = Field(default=None, max_length=120)
+
+
+class ReviewIn(BaseModel):
+    verdict: Literal["approved", "rejected"]
+    reviewer: str | None = Field(default=None, max_length=120)
+    note: str | None = Field(default=None, max_length=1000)
 
 
 def _document_or_404(doc_id: str) -> dict[str, Any]:
@@ -191,8 +203,7 @@ def line_crop(line_id: int) -> FileResponse:
     return FileResponse(line["crop_path"], media_type="image/png")
 
 
-@app.put("/api/lines/{line_id}")
-def edit_line(line_id: int, body: EditIn) -> dict[str, Any]:
+def _editable_line_or_error(line_id: int) -> tuple[dict[str, Any], dict[str, Any]]:
     line = store.get_line(line_id)
     if line is None:
         raise HTTPException(status_code=404, detail="خط پیدا نشد.")
@@ -201,9 +212,40 @@ def edit_line(line_id: int, body: EditIn) -> dict[str, Any]:
     doc = _document_or_404(line["document_id"])
     if doc["confirmed_at"] is not None:
         raise HTTPException(status_code=409, detail="سند تأیید نهایی شده و دیگر قابل ویرایش نیست.")
+    return line, doc
+
+
+def _start_edit(line_id: int, author: str | None) -> dict[str, Any]:
+    line = store.get_line(line_id)
+    return store.start_edit(line_id, author=author, snapshots_dir=SNAPSHOTS_DIR / line["document_id"])
+
+
+@app.post("/api/lines/{line_id}/edit")
+def start_edit(line_id: int, body: EditStartIn) -> dict[str, Any]:
+    """The student pressed "ویرایش": keep the crop and the text they saw, for the admin and for training."""
+    _, doc = _editable_line_or_error(line_id)
+    session = _start_edit(line_id, body.author or doc["author"])
+    return {"line_id": line_id, "session_id": session["session_id"], "shown_text": session["shown_text"]}
+
+
+@app.put("/api/lines/{line_id}")
+def edit_line(line_id: int, body: EditIn) -> dict[str, Any]:
+    _, doc = _editable_line_or_error(line_id)
+    author = body.author or doc["author"]
+    # Every saved correction has its image kept, even if a client skipped the edit button.
+    if not store.has_edit_session(line_id):
+        _start_edit(line_id, author)
     text = body.text.replace("\r", "").replace("\n", " ").strip()
-    result = store.add_edit(line_id, text, author=body.author or doc["author"], edit_ms=body.edit_ms)
+    result = store.add_edit(line_id, text, author=author, edit_ms=body.edit_ms)
     return {"line_id": line_id, **result}
+
+
+@app.get("/api/edit-sessions/{session_id}/image")
+def edit_session_image(session_id: int) -> FileResponse:
+    session = store.get_edit_session(session_id)
+    if session is None or not Path(session["snapshot_path"]).exists():
+        raise HTTPException(status_code=404, detail="تصویر ویرایش پیدا نشد.")
+    return FileResponse(session["snapshot_path"], media_type="image/png")
 
 
 @app.get("/api/lines/{line_id}/history")
@@ -211,6 +253,83 @@ def line_history(line_id: int) -> dict[str, Any]:
     if store.get_line(line_id) is None:
         raise HTTPException(status_code=404, detail="خط پیدا نشد.")
     return store.line_history(line_id)
+
+
+# ── admin: student corrections with their images ────────────────────────────
+@app.get("/api/admin/corrections")
+def admin_corrections(limit: int = 300) -> list[dict[str, Any]]:
+    out = []
+    for row in store.corrections_for_admin(limit=min(max(limit, 1), 1000)):
+        final = row["final_text"] if row["final_text"] is not None else row["predicted_text"]
+        trust = trust_for({**row, "final_text": final}) if row["version"] else None
+        out.append({
+            "line_id": row["line_id"],
+            "document_id": row["document_id"],
+            "filename": row["filename"],
+            "position": row["position"],
+            "author": row["author"] or row["session_author"] or row["doc_author"],
+            "course": row["course"],
+            "image_url": f"/api/edit-sessions/{row['session_id']}/image",
+            "model_version": row["model_version"],
+            "raw_text": row["raw_text"],
+            "predicted_text": row["predicted_text"],
+            "shown_text": row["shown_text"],
+            "student_text": row["final_text"],
+            "edit_version": row["version"] or 0,
+            "confidence": row["confidence"],
+            "opened_at": row["opened_at"],
+            "saved_at": row["saved_at"],
+            "confirmed": row["confirmed_at"] is not None,
+            "consent": bool(row["consent"]),
+            "holdout": bool(row["holdout"]),
+            "review": row["review"],
+            "trust": trust.status if trust else None,
+            "trust_reasons": trust.reasons if trust else [],
+        })
+    return out
+
+
+@app.post("/api/admin/lines/{line_id}/review")
+def review_line(line_id: int, body: ReviewIn) -> dict[str, Any]:
+    if store.get_line(line_id) is None:
+        raise HTTPException(status_code=404, detail="خط پیدا نشد.")
+    store.add_review(line_id, body.verdict, reviewer=body.reviewer, note=body.note)
+    return {"line_id": line_id, "review": body.verdict}
+
+
+_prepare_job: dict[str, Any] = {"running": False, "error": None}
+
+
+def _run_prepare() -> None:
+    _prepare_job.update(running=True, error=None)
+    try:
+        retrain.prepare(store)
+    except Exception as exc:  # surfaced in the admin panel
+        logging.getLogger(__name__).error("retrain prepare failed: %s", exc)
+        _prepare_job["error"] = str(exc)
+    finally:
+        _prepare_job["running"] = False
+
+
+@app.get("/api/admin/retrain")
+def retrain_status() -> dict[str, Any]:
+    return {**retrain.status(store), "preparing": _prepare_job["running"], "prepare_error": _prepare_job["error"],
+            "engine": get_engine().version}
+
+
+@app.post("/api/admin/retrain/prepare", status_code=202)
+def retrain_prepare(background: BackgroundTasks) -> dict[str, Any]:
+    if _prepare_job["running"]:
+        raise HTTPException(status_code=409, detail="ساخت بستهٔ آموزشی در حال اجراست.")
+    background.add_task(_run_prepare)
+    return {"started": True}
+
+
+@app.post("/api/admin/reload-engine")
+def reload_engine() -> dict[str, Any]:
+    """Load the registry champion (after promotion or rollback) without restarting the server."""
+    get_engine.cache_clear()
+    return {"engine": get_engine().version}
 
 
 # ── learning / metrics ──────────────────────────────────────────────────────
@@ -223,7 +342,7 @@ def stats() -> dict[str, Any]:
     for row in rows:
         by_version.setdefault(row["model_version"], []).append(row)
         if row["version"]:
-            t = assess(row["predicted_text"], row["final_text"], row["confidence"])
+            t = trust_for(row)
             trust_counts[t.status] = trust_counts.get(t.status, 0) + 1
             if t.status != "trusted":
                 quarantined.append({"line_id": row["line_id"], "document_id": row["document_id"],

@@ -8,9 +8,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700&display=swap" rel="stylesheet" />
   <style>
-    :root { --bg: #f6f7fb; --card: #fff; --ink: #0f172a; --muted: #64748b; --line: #e2e8f0; --accent: #2563eb; --warn: #c2410c; }
+    :root { --bg: #f6f7fb; --card: #fff; --ink: #0f172a; --muted: #64748b; --line: #e2e8f0; --accent: #2563eb; --warn: #c2410c; --ok: #15803d; --err: #b91c1c; }
     @media (prefers-color-scheme: dark) {
-      :root:not([data-theme="light"]) { --bg: #0b1120; --card: #111a2e; --ink: #e2e8f0; --muted: #94a3b8; --line: #1e293b; --accent: #60a5fa; --warn: #fdba74; }
+      :root:not([data-theme="light"]) { --bg: #0b1120; --card: #111a2e; --ink: #e2e8f0; --muted: #94a3b8; --line: #1e293b; --accent: #60a5fa; --warn: #fdba74; --ok: #4ade80; --err: #f87171; }
     }
     * { box-sizing: border-box; }
     body { margin: 0; background: var(--bg); color: var(--ink); font-family: Vazirmatn, Tahoma, sans-serif; line-height: 1.7; }
@@ -28,12 +28,51 @@
     .kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 12px; }
     .kpi { border: 1px solid var(--line); border-radius: 12px; padding: 12px; }
     .kpi b { display: block; font-size: 1.5rem; }
+    .toolbar { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin-bottom: 10px; }
+    select, button { font: inherit; }
+    button { border: 1px solid var(--line); border-radius: 8px; padding: 3px 12px; cursor: pointer; background: var(--card); color: var(--ink); }
+    button.ok { border-color: var(--ok); color: var(--ok); }
+    button.bad { border-color: var(--err); color: var(--err); }
+    .corr { border: 1px solid var(--line); border-radius: 12px; padding: 12px; margin-bottom: 10px; }
+    .corr img { display: block; max-width: 100%; max-height: 160px; margin: 0 auto 8px; border-radius: 6px; background: #fff; }
+    .pair { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    @media (max-width: 600px) { .pair { grid-template-columns: 1fr; } }
+    .pair div { background: var(--bg); border-radius: 8px; padding: 6px 10px; min-height: 2.2em; }
+    .pair small { display: block; color: var(--muted); }
+    .cmeta { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin-top: 8px; font-size: .85rem; color: var(--muted); }
+    .tag { border-radius: 99px; padding: 0 9px; border: 1px solid currentColor; }
+    .tag.trusted { color: var(--ok); } .tag.quarantined { color: var(--warn); } .tag.rejected { color: var(--err); }
   </style>
 </head>
 <body>
 <div class="wrap">
   <h1>پنل یادگیری و بازبینی</h1>
   <p class="muted" id="note"></p>
+
+  <div class="card"><h2>اصلاحات دانشجویان</h2>
+    <p class="muted">هر بار که دانشجو «ویرایش» را می‌زند، تصویر همان خط ذخیره می‌شود. «تأیید» یعنی متن دانشجو با تصویر می‌خواند و برای یادگیری
+      استفاده شود (حتی اگر فیلتر خودکار قرنطینه‌اش کرده باشد)؛ «رد» یعنی هرگز استفاده نشود.</p>
+    <div class="toolbar">
+      <label>نمایش: <select id="corrFilter">
+        <option value="todo">نیازمند بررسی ادمین</option>
+        <option value="quarantined">قرنطینه‌شده</option>
+        <option value="all">همه</option>
+      </select></label>
+      <span id="corrCount" class="muted"></span>
+    </div>
+    <div id="corrections"></div>
+  </div>
+
+  <div class="card"><h2>بازآموزی مدل از اصلاحات</h2>
+    <p class="muted">اصلاحات قابل‌اعتماد (تأییدشده توسط ادمین یا عبورکرده از فیلتر خودکار، از اسناد تأییدشده با رضایت دانشجو) جمع می‌شوند.
+      وقتی تعدادشان به آستانه رسید، بستهٔ آموزشی ساخته می‌شود، آموزش روی Colab انجام می‌شود و مدل جدید فقط اگر روی مجموعهٔ طلایی
+      <b>و</b> روی اسناد hold-out بهتر باشد فعال می‌شود.</p>
+    <div class="kpis" id="retrainKpis"></div>
+    <p id="retrainNext" class="muted" style="margin-top:12px"></p>
+    <button id="prepareBtn" type="button">ساخت بستهٔ آموزشی</button>
+    <button id="reloadBtn" type="button">بارگذاری مدل فعال</button>
+    <span id="retrainMsg" class="muted"></span>
+  </div>
 
   <div class="card"><h2>دقت به تفکیک نسخهٔ مدل</h2>
     <p class="muted">«دقت مدل خام» = خروجی مستقیم مدل در برابر متن تأییدشدهٔ دانشجو · «دقت نمایش‌داده‌شده» = بعد از اصلاح خودکار حافظهٔ اصلاحات.
@@ -87,7 +126,91 @@ async function load() {
     <td>${d.confirmed_at ? "تأییدشده" : ({done: "منتظر تأیید دانشجو", processing: "در حال پردازش", queued: "در صف", failed: "ناموفق"}[d.status] || esc(d.status))}</td><td class="num">${fa(d.text_lines)}</td><td class="num">${fa(d.edited_lines)}</td>
     <td>${d.consent ? "✓" : "—"}</td><td>${d.holdout ? "✓" : "—"}</td></tr>`).join("") || empty(8);
 }
+const TRUST = { trusted: "قابل‌اعتماد", quarantined: "قرنطینه", rejected: "رد شده" };
+let corrections = [];
+
+function corrCard(c) {
+  const changed = c.edit_version > 0;
+  const status = c.trust ? `<span class="tag ${c.trust}">${TRUST[c.trust] || esc(c.trust)}${c.trust_reasons.length ? " · " + esc(c.trust_reasons.join("، ")) : ""}</span>` : '<span class="muted">هنوز ذخیره نشده</span>';
+  return `<div class="corr" data-line="${c.line_id}">
+    <img src="${c.image_url}" alt="تصویر خط ${fa(c.position)}" loading="lazy" />
+    <div class="pair">
+      <div><small>متن مدل (${esc(c.model_version)})</small>${esc(c.predicted_text) || "<i>خالی</i>"}</div>
+      <div><small>متن دانشجو${changed ? ` · نسخهٔ ${fa(c.edit_version)}` : ""}</small>${changed ? (esc(c.student_text) || "<i>خالی</i>") : '<i class="muted">بدون تغییر</i>'}</div>
+    </div>
+    <div class="cmeta">
+      <a href="/#doc=${c.document_id}">${esc(c.filename)}</a> · خط ${fa(c.position)}
+      <span>${esc(c.author || "—")}</span>${c.course ? `<span>${esc(c.course)}</span>` : ""}
+      <span>${c.confirmed ? "سند تأییدشده" : "سند هنوز تأیید نشده"}</span>
+      ${c.consent ? "" : '<span class="warn">بدون رضایت — در آموزش استفاده نمی‌شود</span>'}
+      ${c.holdout ? "<span>hold-out (فقط ارزیابی)</span>" : ""}
+      ${status}
+      ${changed ? `<button class="ok" data-v="approved" ${c.review === "approved" ? "disabled" : ""}>تأیید</button>
+      <button class="bad" data-v="rejected" ${c.review === "rejected" ? "disabled" : ""}>رد</button>` : ""}
+    </div></div>`;
+}
+
+function renderCorrections() {
+  const f = document.getElementById("corrFilter").value;
+  const shown = corrections.filter((c) => f === "all" || (f === "quarantined" ? c.trust === "quarantined" : c.edit_version > 0 && !c.review));
+  document.getElementById("corrCount").textContent = `${fa(shown.length)} از ${fa(corrections.length)}`;
+  document.getElementById("corrections").innerHTML = shown.map(corrCard).join("") || '<p class="muted">موردی نیست.</p>';
+}
+
+async function loadCorrections() {
+  corrections = await fetch("/api/admin/corrections").then((r) => r.json());
+  renderCorrections();
+}
+
+document.getElementById("corrFilter").addEventListener("change", renderCorrections);
+document.getElementById("corrections").addEventListener("click", async (e) => {
+  const btn = e.target.closest("button[data-v]");
+  if (!btn) return;
+  const id = btn.closest(".corr").dataset.line;
+  btn.disabled = true;
+  const res = await fetch(`/api/admin/lines/${id}/review`, {
+    method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ verdict: btn.dataset.v }),
+  });
+  if (!res.ok) { btn.disabled = false; alert("ثبت نشد"); return; }
+  await Promise.all([loadCorrections(), load()]);
+});
+
+async function loadRetrain() {
+  const r = await fetch("/api/admin/retrain").then((x) => x.json());
+  const kpi = (label, value) => `<div class="kpi"><span class="muted">${label}</span><b class="num">${value}</b></div>`;
+  document.getElementById("retrainKpis").innerHTML =
+    kpi("مدل فعال", esc(r.champion || "—") + (r.champion_accuracy_pct != null ? ` <small class="muted">(${fa(r.champion_accuracy_pct)}٪ روی طلایی)</small>` : "")) +
+    kpi("اصلاحات جدید قابل‌آموزش", `${fa(r.new_corrections)} / ${fa(r.threshold)}`) +
+    kpi("اصلاحات hold-out (فقط ارزیابی)", fa(r.trusted_holdout_corrections)) +
+    kpi("موتور در حال اجرا", esc(r.engine));
+  const p = r.prepared;
+  let next = r.ready ? "به آستانه رسیده؛ بستهٔ آموزشی را بسازید." : "هنوز به آستانه نرسیده؛ می‌توانید همین حالا هم با دادهٔ دست‌خط عمومی بسته بسازید.";
+  if (!r.handwriting_lines_ready) next += " (دادهٔ دست‌خط ساخته نشده: scripts/build_hw_lines.py)";
+  if (p) next += ` · آخرین بسته: ${new Date(p.created_at * 1000).toLocaleString("fa-IR")} با ${fa(p.corrections_used)} اصلاح → ${esc(p.bundle)} ` +
+    "— این فایل را در Google Drive بگذارید، notebook را روی Colab اجرا کنید، سپس: python -m learning.retrain evaluate --label <نام> --adapter models/<نام>";
+  if (r.preparing) next = "در حال ساخت بسته…";
+  if (r.prepare_error) next = "خطا در ساخت بسته: " + r.prepare_error;
+  document.getElementById("retrainNext").textContent = next;
+  document.getElementById("prepareBtn").disabled = r.preparing;
+  if (r.preparing) setTimeout(loadRetrain, 3000);
+}
+
+document.getElementById("prepareBtn").addEventListener("click", async () => {
+  const res = await fetch("/api/admin/retrain/prepare", { method: "POST" });
+  document.getElementById("retrainMsg").textContent = res.ok ? "شروع شد" : "شروع نشد";
+  loadRetrain();
+});
+document.getElementById("reloadBtn").addEventListener("click", async () => {
+  const msg = document.getElementById("retrainMsg");
+  msg.textContent = "در حال بارگذاری مدل…";
+  const res = await fetch("/api/admin/reload-engine", { method: "POST" });
+  msg.textContent = res.ok ? "مدل فعال: " + (await res.json()).engine : "بارگذاری نشد";
+  loadRetrain();
+});
+
 load();
+loadCorrections();
+loadRetrain();
 </script>
 </body>
 </html>

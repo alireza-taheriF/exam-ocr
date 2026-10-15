@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Drive the student editor end to end with a real browser and save screenshots.
 
-upload → wait for lines → edit one line → confirm → /admin, for each page given.
+upload → wait for lines → ویرایش one line → ذخیره → confirm → /admin (image + text), for each page given.
 Run against a server started with a throwaway DATA_DIR so demo edits never reach
 the training export; leave consent unchecked for the same reason.
 
@@ -36,12 +36,17 @@ def run_page(page, base: str, image: Path, out: Path, idx: int) -> dict:
 
     edited = None
     if n_text:
-        ta = page.locator("#lines textarea").first
+        line = page.locator("#lines .line:has(textarea)").first
+        ta = line.locator("textarea")
         before = ta.input_value()
-        ta.click()
+        assert ta.get_attribute("readonly") is not None, "text box should be read-only until ویرایش"
+        line.locator("[data-edit]").click()          # ویرایش → server keeps the crop
+        page.wait_for_function("el => !el.readOnly", arg=ta.element_handle(), timeout=15000)
         ta.fill(before + " (ویرایش آزمایشی)")
-        ta.press("Tab")  # blur → save
+        line.locator("[data-edit]").click()          # ذخیره
         page.wait_for_selector("#lines .line .save:has-text('ذخیره شد')", timeout=15000)
+        assert ta.get_attribute("readonly") is not None
+        page.screenshot(path=str(out / f"{idx}_edited.png"), full_page=False)
         edited = {"before": before, "after": ta.input_value()}
 
     page.once("dialog", lambda d: d.accept())

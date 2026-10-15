@@ -8,6 +8,7 @@ always recoverable (required for exam answer sheets, see PLAN §3 phase 8).
 from __future__ import annotations
 
 import json
+import shutil
 import sqlite3
 import threading
 import time
@@ -73,9 +74,33 @@ CREATE TABLE IF NOT EXISTS edits (
     UNIQUE (line_id, version)
 );
 
+-- One row per press of the student's "edit" button: the crop is copied so the
+-- admin always sees the exact image the student was correcting.
+CREATE TABLE IF NOT EXISTS edit_sessions (
+    id            INTEGER PRIMARY KEY AUTOINCREMENT,
+    line_id       INTEGER NOT NULL REFERENCES lines(id) ON DELETE CASCADE,
+    prediction_id INTEGER NOT NULL REFERENCES predictions(id) ON DELETE CASCADE,
+    shown_text    TEXT NOT NULL,        -- text in the box when the student pressed edit
+    snapshot_path TEXT NOT NULL,
+    author        TEXT,
+    created_at    REAL NOT NULL
+);
+
+-- Admin verdicts on a line's correction (append-only; latest wins).
+CREATE TABLE IF NOT EXISTS reviews (
+    id         INTEGER PRIMARY KEY AUTOINCREMENT,
+    line_id    INTEGER NOT NULL REFERENCES lines(id) ON DELETE CASCADE,
+    verdict    TEXT NOT NULL CHECK (verdict IN ('approved', 'rejected')),
+    reviewer   TEXT,
+    note       TEXT,
+    created_at REAL NOT NULL
+);
+
 CREATE INDEX IF NOT EXISTS idx_lines_doc ON lines(document_id, position);
 CREATE INDEX IF NOT EXISTS idx_pred_line ON predictions(line_id);
 CREATE INDEX IF NOT EXISTS idx_edits_line ON edits(line_id, version);
+CREATE INDEX IF NOT EXISTS idx_sessions_line ON edit_sessions(line_id);
+CREATE INDEX IF NOT EXISTS idx_reviews_line ON reviews(line_id, id);
 """
 
 
@@ -254,6 +279,66 @@ class Store:
             )
             return {"version": version, "changed": True}
 
+    # ── edit sessions / admin review ────────────────────────────────────────
+    def start_edit(self, line_id: int, *, author: str | None, snapshots_dir: Path) -> dict[str, Any]:
+        """Record an "edit" button press and keep a copy of the crop being corrected."""
+        line = self.get_line(line_id)
+        if line is None:
+            raise ValueError(f"line {line_id} not found")
+        pred = self.latest_prediction(line_id)
+        if pred is None:
+            raise ValueError(f"line {line_id} has no prediction to edit")
+        last = self._one(
+            "SELECT text FROM edits WHERE line_id = ? ORDER BY version DESC LIMIT 1", (line_id,)
+        )
+        shown = last["text"] if last else pred["text"]
+        snapshots_dir.mkdir(parents=True, exist_ok=True)
+        now = time.time()
+        with self._tx() as c:
+            cur = c.execute(
+                "INSERT INTO edit_sessions (line_id, prediction_id, shown_text, snapshot_path, author, created_at)"
+                " VALUES (?, ?, ?, '', ?, ?)",
+                (line_id, pred["id"], shown, author, now),
+            )
+            session_id = int(cur.lastrowid)
+            dst = snapshots_dir / f"{line_id}_{session_id}{Path(line['crop_path']).suffix or '.png'}"
+            shutil.copyfile(line["crop_path"], dst)
+            c.execute("UPDATE edit_sessions SET snapshot_path = ? WHERE id = ?", (str(dst), session_id))
+        return {"session_id": session_id, "shown_text": shown, "snapshot_path": str(dst)}
+
+    def get_edit_session(self, session_id: int) -> dict[str, Any] | None:
+        return self._one("SELECT * FROM edit_sessions WHERE id = ?", (session_id,))
+
+    def has_edit_session(self, line_id: int) -> bool:
+        return self._one("SELECT 1 AS x FROM edit_sessions WHERE line_id = ? LIMIT 1", (line_id,)) is not None
+
+    def add_review(self, line_id: int, verdict: str, *, reviewer: str | None, note: str | None) -> None:
+        with self._tx() as c:
+            c.execute(
+                "INSERT INTO reviews (line_id, verdict, reviewer, note, created_at) VALUES (?, ?, ?, ?, ?)",
+                (line_id, verdict, reviewer, note, time.time()),
+            )
+
+    def corrections_for_admin(self, limit: int = 300) -> list[dict[str, Any]]:
+        """Every line a student opened for editing: snapshot, model text and current student text."""
+        return self._all(
+            "SELECT l.id AS line_id, l.document_id, l.position, d.filename, d.author AS doc_author, d.course,"
+            "       d.consent, d.holdout, d.confirmed_at,"
+            "       s.id AS session_id, s.shown_text, s.author AS session_author, s.created_at AS opened_at,"
+            "       (SELECT COUNT(*) FROM edit_sessions x WHERE x.line_id = l.id) AS sessions,"
+            "       p.model_version, p.raw_text, p.text AS predicted_text, p.confidence,"
+            "       e.text AS final_text, e.version, e.author, e.created_at AS saved_at,"
+            "       (SELECT verdict FROM reviews r WHERE r.line_id = l.id ORDER BY r.id DESC LIMIT 1) AS review"
+            " FROM edit_sessions s"
+            " JOIN lines l ON l.id = s.line_id"
+            " JOIN documents d ON d.id = l.document_id"
+            " JOIN predictions p ON p.id = (SELECT MAX(id) FROM predictions WHERE line_id = l.id)"
+            " LEFT JOIN edits e ON e.id = (SELECT MAX(id) FROM edits WHERE line_id = l.id)"
+            " WHERE s.id = (SELECT MAX(id) FROM edit_sessions WHERE line_id = l.id)"
+            " ORDER BY s.created_at DESC LIMIT ?",
+            (limit,),
+        )
+
     def line_history(self, line_id: int) -> dict[str, Any]:
         return {
             "predictions": self._all(
@@ -274,7 +359,8 @@ class Store:
             "SELECT l.id AS line_id, l.document_id, l.crop_path, d.author AS doc_author,"
             "       d.course, d.consent, d.holdout, d.confirmed_at,"
             "       p.model_version, p.raw_text, p.text AS predicted_text, p.confidence,"
-            "       e.text AS final_text, e.author, e.version"
+            "       e.text AS final_text, e.author, e.version,"
+            "       (SELECT verdict FROM reviews r WHERE r.line_id = l.id ORDER BY r.id DESC LIMIT 1) AS review"
             " FROM edits e"
             " JOIN lines l ON l.id = e.line_id"
             " JOIN documents d ON d.id = l.document_id"
@@ -291,7 +377,8 @@ class Store:
             "SELECT l.id AS line_id, l.document_id, l.crop_path, d.author AS doc_author, d.course,"
             "       d.consent, d.holdout, d.confirmed_at, p.model_version, p.raw_text,"
             "       p.text AS predicted_text, p.confidence, p.text AS final_text,"
-            "       d.author AS author, 0 AS version"
+            "       d.author AS author, 0 AS version,"
+            "       (SELECT verdict FROM reviews r WHERE r.line_id = l.id ORDER BY r.id DESC LIMIT 1) AS review"
             " FROM lines l JOIN documents d ON d.id = l.document_id"
             " JOIN predictions p ON p.id = (SELECT MAX(id) FROM predictions WHERE line_id = l.id)"
             " WHERE l.kind = 'text' AND d.confirmed_at IS NOT NULL"

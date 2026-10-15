@@ -46,6 +46,9 @@
     .line.low { border-color: var(--warn); background: var(--warn-bg); }
     .line.focus { outline: 2px solid var(--accent); }
     .line img { display: block; max-width: 100%; max-height: 160px; margin: 0 auto 8px; border-radius: 6px; background: #fff; }
+    .line textarea[readonly] { background: var(--bg); cursor: default; }
+    .line.editing textarea { border-color: var(--accent); }
+    .editbtn { padding: 3px 12px; font-size: .85rem; }
     .line textarea { width: 100%; min-height: 44px; resize: vertical; padding: 8px 10px; font: inherit; font-size: 1.05rem;
       border: 1px solid var(--line); border-radius: 8px; background: var(--card); color: var(--ink); }
     .meta { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-top: 6px; font-size: .82rem; color: var(--muted); }
@@ -85,9 +88,9 @@
   </section>
 
   <section id="editor" class="hidden">
-    <div class="help">هر خط را با تصویرش مقایسه کنید و <b>دقیقاً همان چیزی که روی برگه نوشته شده</b> را بنویسید، حتی اگر غلط املایی دارد.
-      تغییرات خودکار ذخیره می‌شوند. <b>Enter</b> = خط بعدی · نیم‌فاصله: <b>Shift+Space</b>.
-      خطوط نارنجی را سامانه با اطمینان کم خوانده است.</div>
+    <div class="help">هر خط را با تصویرش مقایسه کنید. اگر متن درست نیست، روی <b>ویرایش</b> بزنید و <b>دقیقاً همان چیزی که روی برگه نوشته شده</b> را بنویسید، حتی اگر غلط املایی دارد،
+      بعد <b>ذخیره</b> را بزنید (یا <b>Enter</b>). نیم‌فاصله: <b>Shift+Space</b>.
+      خطوط نارنجی را سامانه با اطمینان کم خوانده است. اصلاحات شما (با تصویر خط) برای بهبود سامانه بررسی می‌شوند.</div>
     <div class="toolbar" style="margin-top:12px">
       <div><b id="docTitle"></b> <span id="docMeta" class="muted"></span></div>
       <label class="check" style="margin:0"><input id="onlyLow" type="checkbox" /> فقط خطوط نیازمند بررسی</label>
@@ -113,7 +116,7 @@
 
 <script>
 const $ = (id) => document.getElementById(id);
-const state = { doc: null, lines: [], timers: {}, started: {}, pending: new Set() };
+const state = { doc: null, lines: [], timers: {}, started: {}, pending: new Set(), editing: new Set() };
 
 function anonId() {
   try {
@@ -198,8 +201,9 @@ function render() {
     const rules = (l.applied_rules || []).map((r) => `<span class="badge learn" title="یادگرفته از اصلاحات دانشجویان">اصلاح خودکار: ${esc(r.src)} ← ${esc(r.dst)}</span>`).join(" ");
     const conf = l.confidence == null ? "" : `اطمینان ${fa(Math.round(l.confidence * 100))}٪`;
     el.innerHTML = img + `
-      <textarea dir="rtl" lang="fa" rows="1" ${locked ? "readonly" : ""} aria-label="متن خط ${l.position}">${esc(l.text)}</textarea>
+      <textarea dir="rtl" lang="fa" rows="1" readonly aria-label="متن خط ${l.position}">${esc(l.text)}</textarea>
       <div class="meta">
+        ${locked ? "" : '<button class="editbtn" type="button" data-edit>ویرایش</button>'}
         <span>خط ${fa(l.position)}</span><span>${conf}</span>
         ${l.low_confidence ? '<span class="badge warn">نیاز به بررسی</span>' : ""}
         ${rules}
@@ -208,17 +212,24 @@ function render() {
       </div>
       <div class="history hidden"></div>`;
     const ta = el.querySelector("textarea");
-    ta.addEventListener("focus", () => { state.started[l.id] ??= Date.now(); el.classList.add("focus"); });
-    ta.addEventListener("blur", () => { el.classList.remove("focus"); save(l, ta.value, el); });
+    const btn = el.querySelector("[data-edit]");
+    if (btn) btn.addEventListener("click", () => state.editing.has(l.id) ? finishEdit(l, el) : beginEdit(l, el));
+    if (state.editing.has(l.id) && !locked) setEditing(el, true);
+    ta.addEventListener("focus", () => el.classList.add("focus"));
+    ta.addEventListener("blur", () => { el.classList.remove("focus"); if (state.editing.has(l.id)) save(l, ta.value, el); });
     ta.addEventListener("input", () => {
+      if (!state.editing.has(l.id)) return;
       clearTimeout(state.timers[l.id]);
       state.timers[l.id] = setTimeout(() => save(l, ta.value, el), 900);
     });
     ta.addEventListener("keydown", (e) => {
+      if (!state.editing.has(l.id)) return;
       if (e.key === "Enter" && !e.shiftKey) {
         e.preventDefault();
-        const all = [...box.querySelectorAll("textarea")];
-        all[all.indexOf(ta) + 1]?.focus();
+        finishEdit(l, el).then(() => {
+          const btns = [...box.querySelectorAll("[data-edit]")];
+          btns[btns.indexOf(btn) + 1]?.focus();
+        });
       } else if (e.key === " " && e.shiftKey) {
         e.preventDefault();
         ta.setRangeText("‌", ta.selectionStart, ta.selectionEnd, "end");
@@ -231,6 +242,43 @@ function render() {
   updateProgress(textLines);
   $("confirmBtn").disabled = locked;
   $("confirmBtn").textContent = locked ? "تأیید شده ✓" : "تأیید نهایی";
+}
+
+function setEditing(el, on) {
+  const ta = el.querySelector("textarea");
+  const btn = el.querySelector("[data-edit]");
+  ta.readOnly = !on;
+  el.classList.toggle("editing", on);
+  if (btn) { btn.textContent = on ? "ذخیره" : "ویرایش"; btn.classList.toggle("ghost", !on); }
+}
+
+async function beginEdit(l, el) {
+  if (state.doc.confirmed) return;
+  const btn = el.querySelector("[data-edit]");
+  const tag = el.querySelector(".save");
+  btn.disabled = true;
+  try {
+    // The server keeps a copy of this line's image and the text shown, for the admin and for training.
+    await api(`/api/lines/${l.id}/edit`, {
+      method: "POST", headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ author: author() }),
+    });
+    state.editing.add(l.id);
+    state.started[l.id] = Date.now();
+    setEditing(el, true);
+    const ta = el.querySelector("textarea");
+    ta.focus();
+    ta.setSelectionRange(ta.value.length, ta.value.length);
+  } catch (err) {
+    tag.textContent = "ویرایش ممکن نشد: " + err.message; tag.className = "save badge error";
+  } finally { btn.disabled = false; }
+}
+
+async function finishEdit(l, el) {
+  const ta = el.querySelector("textarea");
+  await save(l, ta.value, el);
+  state.editing.delete(l.id);
+  setEditing(el, false);
 }
 
 function save(l, value, el) {
@@ -286,11 +334,17 @@ $("onlyLow").addEventListener("change", render);
 $("confirmBtn").addEventListener("click", async () => {
   const active = document.activeElement;
   if (active?.tagName === "TEXTAREA") active.blur();
+  for (const id of [...state.editing]) {
+    const el = document.querySelector(`.line[data-id="${id}"]`);
+    const l = state.lines.find((x) => x.id === id);
+    if (el && l) await finishEdit(l, el);
+  }
   if (!confirm("بعد از تأیید نهایی دیگر نمی‌توانید متن را تغییر دهید. ادامه می‌دهید؟")) return;
   await Promise.allSettled([...state.pending]);
   await api(`/api/documents/${state.doc.id}/confirm`, { method: "POST" });
   state.doc = await api("/api/documents/" + state.doc.id);
   state.lines = state.doc.lines;
+  state.editing.clear();
   render();
 });
 

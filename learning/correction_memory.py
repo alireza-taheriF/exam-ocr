@@ -17,7 +17,7 @@ from dataclasses import dataclass, field
 from difflib import SequenceMatcher
 from typing import Any, Iterable
 
-from learning.label_trust import TRUSTED, assess
+from learning.label_trust import TRUSTED, trust_for
 from pipeline.normalizer import normalize_text
 
 MAX_PHRASE_TOKENS = 3
@@ -92,7 +92,7 @@ def build_memory(
     for row in rows:
         if not row.get("consent") or row.get("holdout"):
             continue
-        trust = assess(row["predicted_text"], row["final_text"], row.get("confidence"))
+        trust = trust_for(row)
         if trust.status == TRUSTED:
             usable.append(row)
 
