@@ -1,0 +1,84 @@
+{
+  "gold": "dataset/dev_claude.jsonl",
+  "pred": "dataset/preds/dev_dyn15.jsonl",
+  "gold_rows": 400,
+  "illegible_or_empty": 268,
+  "scored_before_width_filter": 132,
+  "min_width": 0,
+  "skipped_by_width": 0,
+  "missing_predictions": 0,
+  "overall": {
+    "lines": 132,
+    "cer": 0.5007,
+    "wer": 0.7606,
+    "char_accuracy_pct": 49.93,
+    "exact_pct": 16.67
+  },
+  "by_document": {
+    "Summary_of_Yule": {
+      "lines": 37,
+      "cer": 0.6581,
+      "wer": 0.7797,
+      "char_accuracy_pct": 34.19,
+      "exact_pct": 21.62
+    },
+    "web/540da133-0080-4fc8-a77b-713026897c10": {
+      "lines": 9,
+      "cer": 0.4054,
+      "wer": 0.7273,
+      "char_accuracy_pct": 59.46,
+      "exact_pct": 0.0
+    },
+    "اصول_تنظیم_و_کنترل_بودجه_دولت": {
+      "lines": 8,
+      "cer": 0.6434,
+      "wer": 0.871,
+      "char_accuracy_pct": 35.66,
+      "exact_pct": 0.0
+    },
+    "تست_های_ا_مار_کاربردی1_فصل_1تا4هادی_رنجبران": {
+      "lines": 38,
+      "cer": 0.5214,
+      "wer": 0.7197,
+      "char_accuracy_pct": 47.86,
+      "exact_pct": 23.68
+    },
+    "جزوه_دست_نویس_حسابداری_بخش_عمومی": {
+      "lines": 40,
+      "cer": 0.4195,
+      "wer": 0.7708,
+      "char_accuracy_pct": 58.05,
+      "exact_pct": 12.5
+    }
+  },
+  "by_width": {
+    "<150": {
+      "lines": 33,
+      "cer": 0.5887,
+      "wer": 0.7818,
+      "char_accuracy_pct": 41.13,
+      "exact_pct": 15.15
+    },
+    "150-250": {
+      "lines": 24,
+      "cer": 0.6347,
+      "wer": 0.7576,
+      "char_accuracy_pct": 36.53,
+      "exact_pct": 20.83
+    },
+    "250-500": {
+      "lines": 31,
+      "cer": 0.6379,
+      "wer": 0.7042,
+      "char_accuracy_pct": 36.21,
+      "exact_pct": 16.13
+    },
+    ">=500": {
+      "lines": 44,
+      "cer": 0.4431,
+      "wer": 0.7708,
+      "char_accuracy_pct": 55.69,
+      "exact_pct": 15.91
+    }
+  }
+}

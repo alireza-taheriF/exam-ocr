@@ -20,6 +20,7 @@ normalized Persian text and ZWNJ is no longer silently folded to a space.
 
 from __future__ import annotations
 
+import re
 import sys
 from pathlib import Path
 from typing import Sequence
@@ -30,6 +31,7 @@ if __package__ in (None, ""):  # allow `python training/eval/metrics.py`
 from pipeline.normalizer import normalize_text as _normalize
 
 __all__ = [
+    "lenient_normalize",
     "normalize_text",
     "corpus_cer",
     "corpus_wer",
@@ -43,6 +45,26 @@ __all__ = [
 def normalize_text(text: str) -> str:
     """Back-compat shim. Prefer importing from `pipeline.normalizer`."""
     return _normalize(text)
+
+
+_ARROWS_RE = re.compile("[←→↑↓↔⇒⇐⇔↦⟶⟵➔➜➝➞]")
+_COMMA_RE = re.compile("[,،٬٫]")
+_PUNCT_SPACE_RE = re.compile(r"\s*([:=،;.()\[\]/\-+*×÷])\s*")
+
+
+def lenient_normalize(text: str) -> str:
+    """Orthographic-convention-insensitive normalization for the 'lenient' metric.
+
+    Applied symmetrically to reference and hypothesis. On top of `normalize_text`
+    (which already unifies digit systems) it ignores differences that are purely
+    typographic: comma variants, arrows, and spaces next to punctuation/operators.
+    Letters, digits and word boundaries between words are untouched.
+    """
+    out = _normalize(text or "")
+    out = _ARROWS_RE.sub(" ", out)
+    out = _COMMA_RE.sub("،", out)
+    out = _PUNCT_SPACE_RE.sub(r"\1", out)
+    return re.sub(r" +", " ", out).strip()
 
 
 def levenshtein(a: Sequence, b: Sequence) -> int:
@@ -70,6 +92,7 @@ def _aggregate(
     hypotheses: Sequence[str],
     *,
     tokenize: bool,
+    lenient: bool = False,
 ) -> float:
     if len(references) != len(hypotheses):
         raise ValueError(
@@ -80,8 +103,9 @@ def _aggregate(
     total_distance = 0
     total_length = 0
     for ref_raw, hyp_raw in zip(references, hypotheses):
-        ref = _normalize(ref_raw or "")
-        hyp = _normalize(hyp_raw or "")
+        norm = lenient_normalize if lenient else _normalize
+        ref = norm(ref_raw or "")
+        hyp = norm(hyp_raw or "")
         if tokenize:
             ref_seq: Sequence = ref.split()
             hyp_seq: Sequence = hyp.split()
@@ -107,18 +131,18 @@ def _aggregate(
     return total_distance / total_length
 
 
-def corpus_cer(references: Sequence[str], hypotheses: Sequence[str]) -> float:
+def corpus_cer(references: Sequence[str], hypotheses: Sequence[str], *, lenient: bool = False) -> float:
     """Corpus-level Character Error Rate in [0.0, 1.0].
 
     `Σ edit_distance(hyp_i, ref_i) / Σ len(ref_i)` over the whole corpus — not a
     per-line average. Both sides are normalized via `pipeline.normalizer`.
     """
-    return _aggregate(references, hypotheses, tokenize=False)
+    return _aggregate(references, hypotheses, tokenize=False, lenient=lenient)
 
 
-def corpus_wer(references: Sequence[str], hypotheses: Sequence[str]) -> float:
+def corpus_wer(references: Sequence[str], hypotheses: Sequence[str], *, lenient: bool = False) -> float:
     """Corpus-level Word Error Rate in [0.0, 1.0], whitespace-tokenized."""
-    return _aggregate(references, hypotheses, tokenize=True)
+    return _aggregate(references, hypotheses, tokenize=True, lenient=lenient)
 
 
 def cer(reference: str, hypothesis: str) -> float:

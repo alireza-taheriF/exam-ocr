@@ -1,0 +1,184 @@
+{
+  "gold": "dataset/dev_claude.jsonl",
+  "pred": "dataset/preds/dev_base.jsonl",
+  "gold_rows": 400,
+  "illegible_or_empty": 268,
+  "scored_before_width_filter": 132,
+  "min_width": 0,
+  "skipped_by_width": 0,
+  "missing_predictions": 0,
+  "overall": {
+    "lines": 132,
+    "cer": 0.4928,
+    "cer_ci95": [
+      0.4242,
+      0.5658
+    ],
+    "cer_lenient": 0.4788,
+    "cer_lenient_ci95": [
+      0.411,
+      0.5519
+    ],
+    "wer": 0.7584,
+    "char_accuracy_pct": 50.72,
+    "char_accuracy_lenient_pct": 52.12,
+    "exact_pct": 16.67
+  },
+  "by_document": {
+    "Summary_of_Yule": {
+      "lines": 37,
+      "cer": 0.6581,
+      "cer_ci95": [
+        0.4631,
+        0.8352
+      ],
+      "cer_lenient": 0.6421,
+      "cer_lenient_ci95": [
+        0.4497,
+        0.8273
+      ],
+      "wer": 0.7797,
+      "char_accuracy_pct": 34.19,
+      "char_accuracy_lenient_pct": 35.79,
+      "exact_pct": 21.62
+    },
+    "web/540da133-0080-4fc8-a77b-713026897c10": {
+      "lines": 9,
+      "cer": 0.2905,
+      "cer_ci95": [
+        0.18,
+        0.4304
+      ],
+      "cer_lenient": 0.2905,
+      "cer_lenient_ci95": [
+        0.18,
+        0.4304
+      ],
+      "wer": 0.697,
+      "char_accuracy_pct": 70.95,
+      "char_accuracy_lenient_pct": 70.95,
+      "exact_pct": 0.0
+    },
+    "اصول_تنظیم_و_کنترل_بودجه_دولت": {
+      "lines": 8,
+      "cer": 0.6434,
+      "cer_ci95": [
+        0.5548,
+        0.7736
+      ],
+      "cer_lenient": 0.6479,
+      "cer_lenient_ci95": [
+        0.5541,
+        0.783
+      ],
+      "wer": 0.871,
+      "char_accuracy_pct": 35.66,
+      "char_accuracy_lenient_pct": 35.21,
+      "exact_pct": 0.0
+    },
+    "تست_های_ا_مار_کاربردی1_فصل_1تا4هادی_رنجبران": {
+      "lines": 38,
+      "cer": 0.5214,
+      "cer_ci95": [
+        0.3629,
+        0.6935
+      ],
+      "cer_lenient": 0.4946,
+      "cer_lenient_ci95": [
+        0.3393,
+        0.6763
+      ],
+      "wer": 0.7197,
+      "char_accuracy_pct": 47.86,
+      "char_accuracy_lenient_pct": 50.54,
+      "exact_pct": 23.68
+    },
+    "جزوه_دست_نویس_حسابداری_بخش_عمومی": {
+      "lines": 40,
+      "cer": 0.4195,
+      "cer_ci95": [
+        0.3613,
+        0.4968
+      ],
+      "cer_lenient": 0.4093,
+      "cer_lenient_ci95": [
+        0.3544,
+        0.4855
+      ],
+      "wer": 0.7708,
+      "char_accuracy_pct": 58.05,
+      "char_accuracy_lenient_pct": 59.07,
+      "exact_pct": 12.5
+    }
+  },
+  "by_width": {
+    "<150": {
+      "lines": 33,
+      "cer": 0.5325,
+      "cer_ci95": [
+        0.3925,
+        0.6979
+      ],
+      "cer_lenient": 0.524,
+      "cer_lenient_ci95": [
+        0.3849,
+        0.6935
+      ],
+      "wer": 0.7636,
+      "char_accuracy_pct": 46.75,
+      "char_accuracy_lenient_pct": 47.6,
+      "exact_pct": 15.15
+    },
+    "150-250": {
+      "lines": 24,
+      "cer": 0.6108,
+      "cer_ci95": [
+        0.4375,
+        0.8063
+      ],
+      "cer_lenient": 0.5915,
+      "cer_lenient_ci95": [
+        0.4107,
+        0.7919
+      ],
+      "wer": 0.7576,
+      "char_accuracy_pct": 38.92,
+      "char_accuracy_lenient_pct": 40.85,
+      "exact_pct": 20.83
+    },
+    "250-500": {
+      "lines": 31,
+      "cer": 0.6379,
+      "cer_ci95": [
+        0.486,
+        0.7861
+      ],
+      "cer_lenient": 0.6181,
+      "cer_lenient_ci95": [
+        0.4704,
+        0.767
+      ],
+      "wer": 0.7042,
+      "char_accuracy_pct": 36.21,
+      "char_accuracy_lenient_pct": 38.19,
+      "exact_pct": 16.13
+    },
+    ">=500": {
+      "lines": 44,
+      "cer": 0.4431,
+      "cer_ci95": [
+        0.3577,
+        0.5414
+      ],
+      "cer_lenient": 0.4296,
+      "cer_lenient_ci95": [
+        0.3482,
+        0.5228
+      ],
+      "wer": 0.7708,
+      "char_accuracy_pct": 55.69,
+      "char_accuracy_lenient_pct": 57.04,
+      "exact_pct": 15.91
+    }
+  }
+}
