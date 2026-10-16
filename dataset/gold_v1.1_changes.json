@@ -1,0 +1,13 @@
+{
+  "changed": [
+    {
+      "row": 201,
+      "image_path": "dataset/lines_v3/41bb0d4c8112.jpg",
+      "old": "fun hc iv ]kn efj v,dnhn lhgd hk[hl a,n fvhd [g,'dvd hc hajfhi hpjlhgd",
+      "new": "بعد از هر چند ثبت رویداد مالی انجام شود برای جلوگیری از اشتباه احتمالی"
+    }
+  ],
+  "skipped": {
+    "200": "Persian-layout keys typed for Latin text ('CamScanner' -> 'شپئزشددثق'); the inverse mapping cannot recover the leading 'C' (shift+c), so the row is left unchanged rather than replaced with a known-wrong label."
+  }
+}

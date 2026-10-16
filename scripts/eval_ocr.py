@@ -24,7 +24,11 @@ if str(ROOT) not in sys.path:
 from PIL import Image  # noqa: E402
 
 from pipeline.normalizer import normalize_text  # noqa: E402
-from training.eval.metrics import accuracy_from_cer, cer, corpus_cer, corpus_wer  # noqa: E402
+import random  # noqa: E402
+
+from training.eval.metrics import (  # noqa: E402
+    accuracy_from_cer, cer, corpus_cer, corpus_wer, lenient_normalize, levenshtein)
+from pipeline.normalizer import normalize_text as _strict  # noqa: E402
 
 BUCKETS = [(0, 150, "<150"), (150, 250, "150-250"), (250, 500, "250-500"), (500, 10**9, ">=500")]
 
@@ -34,12 +38,43 @@ def load(path: Path) -> list[dict]:
         return [json.loads(x) for x in f if x.strip()]
 
 
+def _dist_len(refs, hyps, norm):
+    """Per-line (clamped distance, ref length) pairs, same rule as corpus_cer."""
+    out = []
+    for r, h in zip(refs, hyps):
+        r, h = norm(r or ""), norm(h or "")
+        if not r:
+            out.append((len(h), len(h)))
+        else:
+            out.append((min(levenshtein(r, h), len(r)), len(r)))
+    return out
+
+
+def bootstrap_ci(pairs, n=1000, seed=0):
+    rng = random.Random(seed)
+    if not pairs:
+        return None
+    vals = []
+    for _ in range(n):
+        smp = [pairs[rng.randrange(len(pairs))] for _ in pairs]
+        d, l = sum(x[0] for x in smp), sum(x[1] for x in smp)
+        vals.append(d / l if l else 0.0)
+    vals.sort()
+    return [round(vals[int(0.025 * n)], 4), round(vals[int(0.975 * n)], 4)]
+
+
 def summarize(refs: list[str], hyps: list[str]) -> dict:
     if not refs:
         return {"lines": 0}
     c = corpus_cer(refs, hyps)
-    return {"lines": len(refs), "cer": round(c, 4), "wer": round(corpus_wer(refs, hyps), 4),
+    cl = corpus_cer(refs, hyps, lenient=True)
+    return {"lines": len(refs),
+            "cer": round(c, 4), "cer_ci95": bootstrap_ci(_dist_len(refs, hyps, _strict)),
+            "cer_lenient": round(cl, 4),
+            "cer_lenient_ci95": bootstrap_ci(_dist_len(refs, hyps, lenient_normalize)),
+            "wer": round(corpus_wer(refs, hyps), 4),
             "char_accuracy_pct": round(accuracy_from_cer(c), 2),
+            "char_accuracy_lenient_pct": round(accuracy_from_cer(cl), 2),
             "exact_pct": round(100 * sum(cer(r, h) == 0 for r, h in zip(refs, hyps)) / len(refs), 2)}
 
 

@@ -24,3 +24,14 @@
   - Error sources: (a) 35 of 168 gold rows I left empty (662/4467 gold chars): 16 are ≤4 chars (ص ۵, فصل ۴, ۰, شرح) — tiny/blurry crops gold annotator labeled; incl. ≥1 clear mistake (one readable line skipped). (b) on 133 rows both labeled: CER 0.134 — conventions (I add space before ':' and '=', arrows '←', Persian digits/commas), 2 gold rows keyboard-garbled (unfixable), digits ۲۹ vs ۲۶ misreads, partial-line crops.
 - Items 1, 2, 4: NOT yet done (dev relabel of 268 illegible at native res; dev ≥300 scorable from width>150 + bootstrap CI; LoRA failure diagnosis) — pending user decision.
 - Phase 2 dev sweep (132 lines, CER): base 0.4928 | dyn_tokens15 0.5007 | rep1.05 0.4673 | rep1.10 0.4789 | rep1.15 0.4896 | dyn15+rep1.05 0.4752 | dyn15+rep1.10 0.4868. Differences < noise; none proven.
+
+## Update 3 — labeler re-measure (user items 1-5 of the 2nd message)
+- Metric: training/eval/metrics.py::lenient_normalize (symmetric: arrows, comma variants, spaces around punctuation); eval_ocr.py reports strict+lenient+bootstrap CI95. All earlier numbers recomputed in dataset/reports/v2/.
+  - base@gold strict .3770 / lenient .3780; base@gold_v1.1 .3714 / .3724
+  - dev v1 base .4928/.4788 ; rp1.05 .4673/.4524 (CIs overlap → no proven gain)
+- gold_v1.1.jsonl: only row 201 (QWERTY→Persian) fixed; row 200 ("Scanned by CamScanner" typed on Persian layout) NOT fixed because the inverse mapping cannot recover the leading shift-C deterministically → left as is. Log: dataset/gold_v1.1_changes.json.
+- docs/transcription_rules.md written (general rules only).
+- Labeler round 2 (context sheets: 3 crops/image, enlarged crop + page context, scripts/make_context_sheets.py), single re-measure as instructed:
+  - gold_v1.1: strict **0.1081** [0.091,0.127], lenient **0.0889** [0.072,0.108]; gold.jsonl: 0.1209 / 0.1023. ≤0.15 → passes the user's gate.
+  - CAVEAT (must be read with the number): before round 2 I had printed ~40 gold strings (worst-error list after round 1: e.g. «ص ۵», «فصل ۴», «شرح», «x : 0», ...). The decision to transcribe tiny crops was user-directed, but my round-2 readings of those crops were not blind to those strings. True blind labeler CER is likely higher than 0.108; I estimate it unknowable from this run. A clean check would need a fresh blind sample (e.g. dev crops double-labeled), not another pass on gold.
+- Next (per user): relabel dev with the new method (400 existing + 268 illegible; extend to ≥300 scorable from val_v3 width>150), bootstrap CIs, re-confirm rep_penalty=1.05, LoRA-failure diagnosis (items 4 a–e) before Phase 5.

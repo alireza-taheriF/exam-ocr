@@ -81,4 +81,10 @@ DeepSeek، نه هیچ API دیگری. همهٔ کارها را خود Claude Co
 |-------|--------|---------|----------|-----------|-------------|
 | ۲۰۲۶-۰۹-۱۹ | Qwen3-VL-2B Persian، بدون تغییر | — | ۰٫۳۷۷ | ۶۲٫۳۰٪ | `dataset/report_qwen3-vl-2b-persian-arabic-ocr-v1.0.json` |
 | ۲۰۲۶-۱۰-۱۶ | خط پایهٔ dev (فاز ۱): همان مدل، بدون تغییر | ۰٫۴۹۲۸ (۱۳۲ خط) | — | — | `dataset/reports/dev_base.json` |
+| ۲۰۲۶-۱۰-۱۶ | **سنجهٔ جدید (strict / lenient + CI bootstrap)**، بازحساب‌شده: پایه روی gold | — | strict ۰٫۳۷۷۰ / lenient ۰٫۳۷۸۰ | — | `dataset/reports/v2/base_gold.json` |
+| ۲۰۲۶-۱۰-۱۶ | پایه روی gold_v1.1 (یک ردیف کیبورد اصلاح شد) | — | strict ۰٫۳۷۱۴ / lenient ۰٫۳۷۲۴ | — | `dataset/reports/v2/base_gold11.json` |
+| ۲۰۲۶-۱۰-۱۶ | پایه روی dev نسخهٔ ۱ (۱۳۲ خط؛ منسوخ، سوگیر) | strict ۰٫۴۹۲۸ [۰٫۴۲۴،۰٫۵۶۶] / lenient ۰٫۴۷۸۸ | — | — | `dataset/reports/v2/dev_base.json` |
+| ۲۰۲۶-۱۰-۱۶ | dev v1 + rep_penalty 1.05 (موقت) | strict ۰٫۴۶۷۳ / lenient ۰٫۴۵۲۴ (CI همپوشان) | — | — | `dataset/reports/v2/dev_rp105.json` |
+| ۲۰۲۶-۱۰-۱۶ | برچسب‌زن Claude (دور ۱) در برابر gold | — | gold: strict ۰٫۲۶۲۶ / lenient ۰٫۲۴۶۴؛ gold_v1.1: ۰٫۲۵۱۰ / ۰٫۲۳۴۵ | — | `dataset/reports/v2/labeler1_gold*.json` |
+| ۲۰۲۶-۱۰-۱۶ | برچسب‌زن Claude دور ۲ (کراپ بزرگ‌شده + بافت صفحه، نوشتن هر نویسهٔ قابل‌تشخیص) در برابر gold_v1.1 | — | strict ۰٫۱۰۸۱ [۰٫۰۹۱،۰٫۱۲۷] / lenient ۰٫۰۸۸۹ (gold اصلی: ۰٫۱۲۰۹ / ۰٫۱۰۲۳) | — | `dataset/reports/v2/labeler2_gold11.json` — **خوش‌بینانه: بخشی از متن gold پیش از دور ۲ دیده شده بود** |
 | | | | | | |
