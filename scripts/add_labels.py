@@ -33,10 +33,15 @@ with a.out.open("a", encoding="utf-8") as f:
     for idx, path in mapping.items():
         if path in have:
             continue
-        t = (labels[idx] or "").strip()
-        f.write(json.dumps({"image_path": path,
-                            "source_document": meta[path]["source_document"],
-                            "text": t, "illegible": not t,
-                            "labeler": a.labeler}, ensure_ascii=False) + "\n")
+        v = labels[idx]
+        conf = None
+        if isinstance(v, dict):  # {"t": text, "c": "high"|"low"}
+            conf, v = v.get("c"), v.get("t")
+        t = (v or "").strip()
+        row = {"image_path": path, "source_document": meta[path]["source_document"],
+               "text": t, "illegible": not t, "labeler": a.labeler}
+        if conf:
+            row["confidence"] = conf
+        f.write(json.dumps(row, ensure_ascii=False) + "\n")
         n += 1
 print(f"added {n}, total {len(have) + n}")
