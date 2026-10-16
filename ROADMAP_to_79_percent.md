@@ -290,4 +290,7 @@ python scripts/check_vlm_backends.py --models <نام مدل>
 |-------|--------|-----|------|-------------|
 | ۲۰۲۶-۰۹-۱۹ | Qwen2.5-VL-7B، بدون تغییر | ۰٫۴۵۴ | ۵۴٫۵۸٪ | `dataset/qwen_test_report.json` |
 | ۲۰۲۶-۰۹-۱۹ | Qwen3-VL-2B Persian، بدون تغییر | ۰٫۳۷۷ | ۶۲٫۳۰٪ | `dataset/report_qwen3-vl-2b-persian-arabic-ocr-v1.0.json` |
+| ۲۰۲۶-۱۰-۱۰ | همان مدل از مسیر `eval_gate` (۱۶۸/۱۶۸ خط یکسان) | ۰٫۳۷۷ | ۶۲٫۳۰٪ | `dataset/reports/base_v1.json` |
+| ۲۰۲۶-۱۰-۱۰ | ۴ prompt، طول متناسب با عرض، repetition_penalty، بزرگ‌نمایی، مسیریابی — هیچ‌کدام معنادار بهتر نشد | ۰٫۳۷۴–۰٫۳۹۲ | ۶۰٫۸–۶۲٫۶٪ | `dataset/reports/qw_*.json` |
+| ۲۰۲۶-۱۰-۱۰ | CLAHE (بهترین، ولی CI از صفر رد نمی‌شود) | ۰٫۳۶۶ | ۶۳٫۴۴٪ | `dataset/reports/qw_clahe.json` |
 | — | | | | |

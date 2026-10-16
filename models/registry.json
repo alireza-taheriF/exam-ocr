@@ -1,0 +1,289 @@
+{
+  "champion": {
+    "label": "base_v1",
+    "report": "dataset/reports/base_v1.json",
+    "adapter": null,
+    "settings": {
+      "prompt": "Transcribe the Persian text in this image. Output only the text.",
+      "max_new_tokens": 96,
+      "px_per_token": 0.0,
+      "repetition_penalty": 1.0,
+      "min_height": 0,
+      "clahe": false,
+      "route_min_width": 0,
+      "drop_loops": false
+    },
+    "cer": 0.3691,
+    "accuracy_pct": 63.09,
+    "date": "2026-10-10T13:54:05+00:00",
+    "status": "champion"
+  },
+  "history": [
+    {
+      "label": "base_v1",
+      "report": "dataset/reports/base_v1.json",
+      "adapter": null,
+      "settings": {
+        "prompt": "Transcribe the Persian text in this image. Output only the text.",
+        "max_new_tokens": 96,
+        "px_per_token": 0.0,
+        "repetition_penalty": 1.0,
+        "min_height": 0,
+        "clahe": false,
+        "route_min_width": 0,
+        "drop_loops": false
+      },
+      "cer": 0.3691,
+      "accuracy_pct": 63.09,
+      "date": "2026-10-10T13:54:05+00:00",
+      "status": "champion"
+    },
+    {
+      "label": "qw_prompt_fa",
+      "report": "dataset/reports/qw_prompt_fa.json",
+      "adapter": null,
+      "settings": {
+        "prompt": "متن فارسی داخل این تصویر را بنویس. فقط متن را خروجی بده.",
+        "max_new_tokens": 96,
+        "px_per_token": 0.0,
+        "repetition_penalty": 1.0,
+        "min_height": 0,
+        "clahe": false,
+        "route_min_width": 0,
+        "drop_loops": false
+      },
+      "cer": 0.3664,
+      "accuracy_pct": 63.36,
+      "date": "2026-10-10T19:29:57+00:00",
+      "status": "rejected"
+    },
+    {
+      "label": "qw_prompt_exact",
+      "report": "dataset/reports/qw_prompt_exact.json",
+      "adapter": null,
+      "settings": {
+        "prompt": "Read the single line of handwritten Persian text in this image and write it exactly as written. Output only the text.",
+        "max_new_tokens": 96,
+        "px_per_token": 0.0,
+        "repetition_penalty": 1.0,
+        "min_height": 0,
+        "clahe": false,
+        "route_min_width": 0,
+        "drop_loops": false
+      },
+      "cer": 0.3682,
+      "accuracy_pct": 63.18,
+      "date": "2026-10-10T19:29:57+00:00",
+      "status": "rejected"
+    },
+    {
+      "label": "qw_prompt_short",
+      "report": "dataset/reports/qw_prompt_short.json",
+      "adapter": null,
+      "settings": {
+        "prompt": "Transcribe the text in this image.",
+        "max_new_tokens": 96,
+        "px_per_token": 0.0,
+        "repetition_penalty": 1.0,
+        "min_height": 0,
+        "clahe": false,
+        "route_min_width": 0,
+        "drop_loops": false
+      },
+      "cer": 0.3695,
+      "accuracy_pct": 63.05,
+      "date": "2026-10-10T19:29:58+00:00",
+      "status": "rejected"
+    },
+    {
+      "label": "qw_prompt_fa_exact",
+      "report": "dataset/reports/qw_prompt_fa_exact.json",
+      "adapter": null,
+      "settings": {
+        "prompt": "این تصویر یک خط از جزوهٔ دست‌نویس فارسی است. متن را دقیقاً همان‌طور که نوشته شده بنویس و چیزی اضافه نکن.",
+        "max_new_tokens": 96,
+        "px_per_token": 0.0,
+        "repetition_penalty": 1.0,
+        "min_height": 0,
+        "clahe": false,
+        "route_min_width": 0,
+        "drop_loops": false
+      },
+      "cer": 0.3704,
+      "accuracy_pct": 62.96,
+      "date": "2026-10-10T19:29:58+00:00",
+      "status": "rejected"
+    },
+    {
+      "label": "qw_len_w15",
+      "report": "dataset/reports/qw_len_w15.json",
+      "adapter": null,
+      "settings": {
+        "prompt": "Transcribe the Persian text in this image. Output only the text.",
+        "max_new_tokens": 96,
+        "px_per_token": 15.0,
+        "repetition_penalty": 1.0,
+        "min_height": 0,
+        "clahe": false,
+        "route_min_width": 0,
+        "drop_loops": false
+      },
+      "cer": 0.3691,
+      "accuracy_pct": 63.09,
+      "date": "2026-10-10T19:29:59+00:00",
+      "status": "rejected"
+    },
+    {
+      "label": "qw_rep105",
+      "report": "dataset/reports/qw_rep105.json",
+      "adapter": null,
+      "settings": {
+        "prompt": "Transcribe the Persian text in this image. Output only the text.",
+        "max_new_tokens": 96,
+        "px_per_token": 0.0,
+        "repetition_penalty": 1.05,
+        "min_height": 0,
+        "clahe": false,
+        "route_min_width": 0,
+        "drop_loops": false
+      },
+      "cer": 0.3744,
+      "accuracy_pct": 62.56,
+      "date": "2026-10-10T19:29:59+00:00",
+      "status": "rejected"
+    },
+    {
+      "label": "qw_rep110",
+      "report": "dataset/reports/qw_rep110.json",
+      "adapter": null,
+      "settings": {
+        "prompt": "Transcribe the Persian text in this image. Output only the text.",
+        "max_new_tokens": 96,
+        "px_per_token": 0.0,
+        "repetition_penalty": 1.1,
+        "min_height": 0,
+        "clahe": false,
+        "route_min_width": 0,
+        "drop_loops": false
+      },
+      "cer": 0.3899,
+      "accuracy_pct": 61.01,
+      "date": "2026-10-10T19:29:59+00:00",
+      "status": "rejected"
+    },
+    {
+      "label": "qw_upscale64",
+      "report": "dataset/reports/qw_upscale64.json",
+      "adapter": null,
+      "settings": {
+        "prompt": "Transcribe the Persian text in this image. Output only the text.",
+        "max_new_tokens": 96,
+        "px_per_token": 0.0,
+        "repetition_penalty": 1.0,
+        "min_height": 64,
+        "clahe": false,
+        "route_min_width": 0,
+        "drop_loops": false
+      },
+      "cer": 0.3695,
+      "accuracy_pct": 63.05,
+      "date": "2026-10-10T19:30:00+00:00",
+      "status": "rejected"
+    },
+    {
+      "label": "qw_clahe",
+      "report": "dataset/reports/qw_clahe.json",
+      "adapter": null,
+      "settings": {
+        "prompt": "Transcribe the Persian text in this image. Output only the text.",
+        "max_new_tokens": 96,
+        "px_per_token": 0.0,
+        "repetition_penalty": 1.0,
+        "min_height": 0,
+        "clahe": true,
+        "route_min_width": 0,
+        "drop_loops": false
+      },
+      "cer": 0.3565,
+      "accuracy_pct": 64.35,
+      "date": "2026-10-10T19:30:00+00:00",
+      "status": "rejected"
+    },
+    {
+      "label": "qw_drop_loops",
+      "report": "dataset/reports/qw_drop_loops.json",
+      "adapter": null,
+      "settings": {
+        "prompt": "Transcribe the Persian text in this image. Output only the text.",
+        "max_new_tokens": 96,
+        "px_per_token": 0.0,
+        "repetition_penalty": 1.0,
+        "min_height": 0,
+        "clahe": false,
+        "route_min_width": 0,
+        "drop_loops": true
+      },
+      "cer": 0.3691,
+      "accuracy_pct": 63.09,
+      "date": "2026-10-10T19:30:00+00:00",
+      "status": "rejected"
+    },
+    {
+      "label": "qw_route_w150",
+      "report": "dataset/reports/qw_route_w150.json",
+      "adapter": null,
+      "settings": {
+        "prompt": "Transcribe the Persian text in this image. Output only the text.",
+        "max_new_tokens": 96,
+        "px_per_token": 0.0,
+        "repetition_penalty": 1.0,
+        "min_height": 0,
+        "clahe": false,
+        "route_min_width": 150,
+        "drop_loops": false
+      },
+      "cer": 0.374,
+      "accuracy_pct": 62.6,
+      "date": "2026-10-10T19:30:01+00:00",
+      "status": "rejected"
+    },
+    {
+      "label": "lora_v2",
+      "report": "dataset/reports/lora_v2.json",
+      "adapter": "models/lora_v2",
+      "settings": {
+        "prompt": "Transcribe the Persian text in this image. Output only the text.",
+        "max_new_tokens": 96,
+        "px_per_token": 0.0,
+        "repetition_penalty": 1.0,
+        "min_height": 0,
+        "clahe": false,
+        "route_min_width": 0,
+        "drop_loops": false
+      },
+      "cer": 0.3518,
+      "accuracy_pct": 64.82,
+      "date": "2026-10-14T22:29:46+00:00",
+      "status": "rejected"
+    },
+    {
+      "label": "lora_v3_claude",
+      "report": "dataset/reports/lora_v3_claude.json",
+      "adapter": "models/lora_v3_claude",
+      "settings": {
+        "prompt": "Transcribe the Persian text in this image. Output only the text.",
+        "max_new_tokens": 96,
+        "px_per_token": 0.0,
+        "repetition_penalty": 1.0,
+        "min_height": 0,
+        "clahe": false,
+        "route_min_width": 0,
+        "drop_loops": false
+      },
+      "cer": 0.3932,
+      "accuracy_pct": 60.68,
+      "date": "2026-10-15T14:06:47+00:00",
+      "status": "rejected"
+    }
+  ]
+}

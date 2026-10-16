@@ -1,0 +1,129 @@
+{
+  "mean": {
+    "surya_recall_iou50": 0.197,
+    "surya_covered": 0.294,
+    "opencv_on_text": 0.395
+  },
+  "pages": [
+    {
+      "page": "dataset/raw_images/CamScanner_۲۰۲۵-۰۶-۰۳_۲۲_۳۲_p005.png",
+      "opencv_text_lines": 45,
+      "opencv_image_blocks": 0,
+      "surya_ref_lines": 21,
+      "surya_matched_iou50": 3,
+      "surya_recall_iou50": 0.143,
+      "surya_covered": 0.19,
+      "opencv_on_text": 0.2,
+      "median_line_height": 82,
+      "tall_lines_gt2x_median": 2
+    },
+    {
+      "page": "dataset/raw_images/Summary_of_Yule_p034.png",
+      "opencv_text_lines": 65,
+      "opencv_image_blocks": 1,
+      "surya_ref_lines": 21,
+      "surya_matched_iou50": 3,
+      "surya_recall_iou50": 0.143,
+      "surya_covered": 0.238,
+      "opencv_on_text": 0.169,
+      "median_line_height": 86,
+      "tall_lines_gt2x_median": 2
+    },
+    {
+      "page": "dataset/raw_images/اصول_تنظیم_و_کنترل_بودجه_دولت_p001.png",
+      "opencv_text_lines": 36,
+      "opencv_image_blocks": 0,
+      "surya_ref_lines": 30,
+      "surya_matched_iou50": 14,
+      "surya_recall_iou50": 0.467,
+      "surya_covered": 0.4,
+      "opencv_on_text": 0.639,
+      "median_line_height": 145.0,
+      "tall_lines_gt2x_median": 0
+    },
+    {
+      "page": "dataset/raw_images/تحلیل_سازه_مهندس_طاحونی_p093.png",
+      "opencv_text_lines": 19,
+      "opencv_image_blocks": 1,
+      "surya_ref_lines": 51,
+      "surya_matched_iou50": 1,
+      "surya_recall_iou50": 0.02,
+      "surya_covered": 0.137,
+      "opencv_on_text": 0.632,
+      "median_line_height": 103,
+      "tall_lines_gt2x_median": 2
+    },
+    {
+      "page": "dataset/raw_images/تست_های_ا_مار_کاربردی1_فصل_1تا4هادی_رنجبران_p014.png",
+      "opencv_text_lines": 50,
+      "opencv_image_blocks": 1,
+      "surya_ref_lines": 23,
+      "surya_matched_iou50": 6,
+      "surya_recall_iou50": 0.261,
+      "surya_covered": 0.261,
+      "opencv_on_text": 0.26,
+      "median_line_height": 59.0,
+      "tall_lines_gt2x_median": 6
+    },
+    {
+      "page": "dataset/raw_images/جزوه_دست_نویس_اصول_حسابداری_1_p025.png",
+      "opencv_text_lines": 57,
+      "opencv_image_blocks": 0,
+      "surya_ref_lines": 13,
+      "surya_matched_iou50": 3,
+      "surya_recall_iou50": 0.231,
+      "surya_covered": 0.231,
+      "opencv_on_text": 0.14,
+      "median_line_height": 57,
+      "tall_lines_gt2x_median": 7
+    },
+    {
+      "page": "dataset/raw_images/جزوه_دست_نویس_حسابداری_بخش_عمومی_p023.png",
+      "opencv_text_lines": 19,
+      "opencv_image_blocks": 0,
+      "surya_ref_lines": 15,
+      "surya_matched_iou50": 4,
+      "surya_recall_iou50": 0.267,
+      "surya_covered": 0.2,
+      "opencv_on_text": 0.316,
+      "median_line_height": 77,
+      "tall_lines_gt2x_median": 0
+    },
+    {
+      "page": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_1_p020.png",
+      "opencv_text_lines": 24,
+      "opencv_image_blocks": 1,
+      "surya_ref_lines": 33,
+      "surya_matched_iou50": 0,
+      "surya_recall_iou50": 0.0,
+      "surya_covered": 0.394,
+      "opencv_on_text": 0.625,
+      "median_line_height": 102.0,
+      "tall_lines_gt2x_median": 2
+    },
+    {
+      "page": "dataset/raw_images/جزوه_دست_نویس_حسابداری_پیشرفته_2_p048.png",
+      "opencv_text_lines": 54,
+      "opencv_image_blocks": 0,
+      "surya_ref_lines": 33,
+      "surya_matched_iou50": 8,
+      "surya_recall_iou50": 0.242,
+      "surya_covered": 0.545,
+      "opencv_on_text": 0.537,
+      "median_line_height": 65.5,
+      "tall_lines_gt2x_median": 2
+    },
+    {
+      "page": "dataset/raw_images/جزوه_ریاضی_پیش__نیکوکار_mathfree_p034.png",
+      "opencv_text_lines": 46,
+      "opencv_image_blocks": 1,
+      "surya_ref_lines": 26,
+      "surya_matched_iou50": 5,
+      "surya_recall_iou50": 0.192,
+      "surya_covered": 0.346,
+      "opencv_on_text": 0.435,
+      "median_line_height": 118.0,
+      "tall_lines_gt2x_median": 8
+    }
+  ]
+}

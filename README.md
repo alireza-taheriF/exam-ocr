@@ -6,192 +6,91 @@
 
 ---
 
+## Student editing app / سامانهٔ ویرایش دانشجو
+
+دانشجو برگهٔ اسکن‌شده را بارگذاری می‌کند؛ هر خط تشخیص‌داده‌شده به‌صورت **تصویر خط + باکس متن قابل‌ویرایش**
+نمایش داده می‌شود. ویرایش‌ها خودکار و **append-only** ذخیره می‌شوند (متن اولیهٔ OCR و همهٔ نسخه‌ها برای مدرس
+قابل‌مشاهده است). بعد از «تأیید نهایی» سند قفل می‌شود. اصلاحات تأییدشده:
+
+1. **فوراً** وارد حافظهٔ اصلاحات می‌شوند: اصلاحی که چند دانشجوی مستقل تکرار کرده باشند روی خروجی‌های بعدی خودکار اعمال می‌شود.
+2. **دوره‌ای** با `scripts/export_corrections.py` برای fine-tune روی Colab خروجی گرفته می‌شوند.
+
+پلن کامل: [`PLAN_90_percent_feedback_loop.md`](PLAN_90_percent_feedback_loop.md)
+
+### اجرای دمو (بدون مدل، چند ثانیه)
+
+```bash
+python3 -m venv .venv && source .venv/bin/activate
+pip install -r requirements-app.txt
+OCR_ENGINE=fake SEGMENTER=opencv HOLDOUT_FRACTION=0 MEMORY_MIN_AUTHORS=2 uvicorn main:app --port 8000
+```
+
+- دانشجو: <http://127.0.0.1:8000/>
+- پنل یادگیری/مدرس: <http://127.0.0.1:8000/admin>
+
+موتور `fake` برای همهٔ خطوط یک جملهٔ ثابت با یک غلط عمدی («هسادجاری») برمی‌گرداند. برای نشان دادن یادگیری:
+با دو نام مختلف برگه را بارگذاری کنید، تیک رضایت را بزنید، «هسادجاری» را به «حسابداری» اصلاح و تأیید کنید؛
+بارگذاری سوم آن را خودکار اصلاح‌شده (با برچسب سبز «اصلاح خودکار») نشان می‌دهد.
+
+### اجرا با مدل واقعی (مک، CPU/MPS)
+
+```bash
+python3.12 -m venv .venv-qwen && source .venv-qwen/bin/activate
+pip install -r requirements-qwen.txt
+OCR_ENGINE=qwen_local SEGMENTER=opencv uvicorn main:app --port 8000
+```
+
+مدل `mohajesmaeili/Qwen3-VL-2B-Persian-Arabic-Ocr-v1.0` (۴٫۳ گیگ) بار اول دانلود می‌شود؛ روی M2 حدود
+۱٫۴ ثانیه برای هر خط (اندازه‌گیری‌شده در گزارش bake-off). Surya به‌دلیل ناسازگاری `transformers` در این محیط
+نصب نمی‌شود؛ تقسیم خطوط با OpenCV انجام می‌شود.
+
+### API
+
+| Method | Path | Description |
+|--------|------|-------------|
+| `POST` | `/api/documents` | بارگذاری (`file`, `author`, `course`, `consent`) — پردازش در پس‌زمینه |
+| `GET` | `/api/documents/{id}` | وضعیت + خطوط (متن فعلی، اطمینان، اصلاحات خودکار) |
+| `PUT` | `/api/lines/{id}` | ذخیرهٔ ویرایش (`text`, `author`, `edit_ms`) — نسخهٔ جدید |
+| `GET` | `/api/lines/{id}/history` | خروجی خام مدل + همهٔ نسخه‌های ویرایش |
+| `GET` | `/api/lines/{id}/crop` | تصویر خط |
+| `POST` | `/api/documents/{id}/confirm` | تأیید نهایی و قفل |
+| `GET` | `/api/documents/{id}/export?format=docx\|txt` | خروجی از متن ویرایش‌شده |
+| `GET` | `/api/stats` | دقت پس‌از‌ویرایش به تفکیک نسخهٔ مدل، قواعد یادگرفته، ویرایش‌های قرنطینه |
+| `GET` | `/health` | وضعیت |
+
+### خروجی برای آموزش
+
+```bash
+python scripts/export_corrections.py --out exports/corrections_v1
+```
+
+فقط اسناد تأییدشده با رضایت، و فقط اصلاحات «قابل‌اعتماد» (`learning/label_trust.py`) صادر می‌شوند؛
+اسناد hold-out جداگانه در `holdout.jsonl` برای ارزیابی می‌آیند.
+
+### تست
+
+```bash
+pytest tests learning pipeline/tests training/eval/tests
+```
+
+---
+
 ## Project structure / ساختار پروژه
 
 ```
 exam-ocr/
-├── main.py              # FastAPI application
-├── static/
-│   └── index.html       # Persian upload UI
-├── pipeline/
-│   ├── preprocess.py    # Image preprocessing
-│   ├── layout.py        # Block detection (text, table, figure, handwriting)
-│   ├── ocr.py           # Persian OCR via Surya
-│   ├── crop.py          # Smart cropping for non-OCR blocks
-│   └── export.py        # DOCX export (RTL)
-├── uploads/             # Uploaded input files
-├── outputs/             # Generated DOCX files
-└── logs/
-    └── errors.log       # Error log (created at runtime)
+├── main.py                 # FastAPI app (student editor + admin API)
+├── app/store.py            # SQLite: documents, lines, predictions, append-only edits
+├── app/service.py          # render → segment → OCR → correction memory → DB
+├── pipeline/segment.py     # line segmentation (Surya or OpenCV)
+├── pipeline/engines.py     # OCR engines: qwen_local | vlm | fake
+├── learning/               # label trust + correction memory (fast learning loop)
+├── static/index.html       # student editor (RTL)
+├── static/admin.html       # learning / instructor panel
+├── scripts/export_corrections.py
+├── pipeline/ training/ scripts/ dataset/   # OCR pipeline, eval, dataset tooling
+└── data/                   # runtime DB, uploads, crops (gitignored)
 ```
-
----
-
-## Installation / نصب
-
-**Python 3.10, 3.11, or 3.12 is required.** Python 3.13+ is not supported by `surya-ocr` 0.6.x with current dependencies.
-
-```bash
-cd exam-ocr
-python3.12 -m venv .venv
-source .venv/bin/activate   # Windows: .venv\Scripts\activate
-pip install -r requirements.txt
-```
-
-**Requirements:** PyTorch and Surya OCR models (downloaded automatically on first OCR run into `.cache/huggingface/`).
-
----
-
-## Run the server / اجرای سرور
-
-```bash
-source .venv/bin/activate
-uvicorn main:app --reload --host 127.0.0.1 --port 8000
-```
-
-Open in your browser:
-
-- Upload UI: [http://127.0.0.1:8000/](http://127.0.0.1:8000/)
-- API docs: [http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs)
-
----
-
-## Testing / تست
-
-### 1) Quick health check
-
-```bash
-curl http://127.0.0.1:8000/health
-# {"status":"ok"}
-```
-
-### 2) Upload via browser
-
-1. Open `http://127.0.0.1:8000/`
-2. Choose a real exam scan/photo (`jpg`, `png`, `tiff`, or `pdf`)
-3. Click **شروع پردازش**
-4. Download the Word file from the result link
-
-> **Note:** A synthetic test image may return HTTP 500 (`OCR failed completely`) because it contains no real Persian text.
-
-### 3) Upload via curl
-
-```bash
-curl -X POST "http://127.0.0.1:8000/upload" \
-  -F "file=@/path/to/exam.jpg;type=image/jpeg;filename=exam.jpg"
-```
-
-Example success response:
-
-```json
-{
-  "job_id": "371c809b-9cc1-4e83-8291-70b1bb078a50",
-  "status": "done",
-  "output_file": "outputs/result_371c809b-9cc1-4e83-8291-70b1bb078a50.docx",
-  "block_count": 12,
-  "text_blocks": 9,
-  "cropped_blocks": 3
-}
-```
-
-### 4) Check status and download
-
-```bash
-JOB_ID="<paste job_id here>"
-
-curl "http://127.0.0.1:8000/status/${JOB_ID}"
-
-curl -OJ "http://127.0.0.1:8000/download/${JOB_ID}"
-```
-
-### 5) Verify imports locally
-
-```bash
-python -c "from main import app; from pipeline.ocr import run_ocr; print('OK')"
-```
-
-### 6) Error log
-
-If something fails, inspect:
-
-```bash
-cat logs/errors.log
-```
-
----
-
-## API endpoints
-
-| Method | Path | Description |
-|--------|------|-------------|
-| `POST` | `/upload` | Upload file and run full pipeline |
-| `GET` | `/download/{job_id}` | Download generated DOCX |
-| `GET` | `/status/{job_id}` | Check job status |
-| `GET` | `/health` | Health check |
-
-**Example upload (curl):**
-
-```bash
-curl -X POST "http://127.0.0.1:8000/upload" \
-  -F "file=@uploads/exam.jpg"
-```
-
-**Example response:**
-
-```json
-{
-  "job_id": "uuid",
-  "status": "done",
-  "output_file": "outputs/result_uuid.docx",
-  "block_count": 12,
-  "text_blocks": 9,
-  "cropped_blocks": 3
-}
-```
-
----
-
-## Pipeline diagram / نمودار pipeline
-
-```
-┌─────────────┐
-│ Upload file │  jpg / png / tiff / pdf
-└──────┬──────┘
-       │
-       ▼
-┌─────────────────┐
-│  preprocess.py  │  grayscale → deskew → denoise → threshold → CLAHE
-└──────┬──────────┘
-       │
-       ▼
-┌─────────────────┐
-│   layout.py     │  detect blocks: text / table / figure / handwriting
-└──────┬──────────┘
-       │
-       ▼
-┌─────────────────┐
-│    ocr.py       │  Surya OCR (fa) on text blocks
-│    crop.py      │  crop tables, figures, low-confidence handwriting
-└──────┬──────────┘
-       │
-       ▼
-┌─────────────────┐
-│   export.py     │  RTL Word document (.docx)
-└──────┬──────────┘
-       │
-       ▼
-┌─────────────────┐
-│ Download DOCX   │  GET /download/{job_id}
-└─────────────────┘
-```
-
-**Block routing:**
-
-- **Printed text** → OCR → text paragraph in Word
-- **Table / figure** → crop → embedded image in Word
-- **Messy handwriting** (confidence < 0.6) → crop → embedded image in Word
-
-Blocks are ordered **top-to-bottom, right-to-left** (Persian reading order).
 
 ---
 

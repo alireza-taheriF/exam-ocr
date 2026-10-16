@@ -11,6 +11,7 @@ import os
 from pathlib import Path
 
 import cv2
+import numpy as np
 from PIL import Image
 from surya.detection import batch_text_detection
 from surya.layout import batch_layout_detection
@@ -155,3 +156,10 @@ def detect_blocks(image: np.ndarray) -> list[Block]:
 
     _debug(f"final total: {len(blocks)} blocks")
     return blocks
+
+
+def detect_text_lines(image: np.ndarray) -> list[list[int]]:
+    """Return Surya text-line boxes [x1, y1, x2, y2] (unordered)."""
+    pil_image = _to_pil_rgb(image)
+    line_predictions = batch_text_detection([pil_image], det_model, det_processor)
+    return [_bbox_xyxy(box.bbox) for box in line_predictions[0].bboxes]
