@@ -80,4 +80,5 @@ DeepSeek، نه هیچ API دیگری. همهٔ کارها را خود Claude Co
 | تاریخ | تغییر | CER dev | CER gold | دقت gold | فایل گزارش |
 |-------|--------|---------|----------|-----------|-------------|
 | ۲۰۲۶-۰۹-۱۹ | Qwen3-VL-2B Persian، بدون تغییر | — | ۰٫۳۷۷ | ۶۲٫۳۰٪ | `dataset/report_qwen3-vl-2b-persian-arabic-ocr-v1.0.json` |
+| ۲۰۲۶-۱۰-۱۶ | خط پایهٔ dev (فاز ۱): همان مدل، بدون تغییر | ۰٫۴۹۲۸ (۱۳۲ خط) | — | — | `dataset/reports/dev_base.json` |
 | | | | | | |
