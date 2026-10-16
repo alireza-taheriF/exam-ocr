@@ -116,7 +116,7 @@ def make(manifest: Path, out_dir: Path, allow_sealed: bool, limit: int) -> None:
             height += im.height + GAP
         index.append({"num": num, "sheet": n_sheets, "image_path": r["image_path"],
                       "source_document": r.get("source_document"), "line_index": r.get("line_index"),
-                      "source_image": r.get("source_image")})
+                      "source_image": r.get("source_image"), "line_id": r.get("line_id")})
     flush()
     with (out_dir / "index.jsonl").open("w", encoding="utf-8") as f:
         for row in index:
@@ -124,8 +124,8 @@ def make(manifest: Path, out_dir: Path, allow_sealed: bool, limit: int) -> None:
     print(f"{len(rows)} crops → {n_sheets} sheets in {out_dir}")
 
 
-def ingest(sheet_dir: Path, out: Path, labeled_by: str) -> None:
-    index = {r["num"]: r for r in map(json.loads, (sheet_dir / "index.jsonl").open(encoding="utf-8"))}
+def read_transcriptions(sheet_dir: Path) -> dict[int, str]:
+    """{crop number: text} from sheet_*.txt; "" means the reader marked it unreadable."""
     texts: dict[int, str] = {}
     for txt in sorted(sheet_dir.glob("sheet_*.txt")):
         for line in txt.read_text(encoding="utf-8").splitlines():
@@ -134,6 +134,12 @@ def ingest(sheet_dir: Path, out: Path, labeled_by: str) -> None:
             num, _, text = line.partition("\t")
             text = text.strip()
             texts[int(num)] = "" if text == ILLEGIBLE else text
+    return texts
+
+
+def ingest(sheet_dir: Path, out: Path, labeled_by: str) -> None:
+    index = {r["num"]: r for r in map(json.loads, (sheet_dir / "index.jsonl").open(encoding="utf-8"))}
+    texts = read_transcriptions(sheet_dir)
     missing = sorted(set(index) - set(texts))
     out.parent.mkdir(parents=True, exist_ok=True)
     with out.open("w", encoding="utf-8") as f:
