@@ -13,3 +13,14 @@
 - dev is small (132 scorable lines, 5 docs) → differences < ~1.5 CER points are noise.
 - Earlier-session finding: LoRA on 855 Claude labels scored 60.7% on gold vs base 63.1% (rejected); opencv segmentation fragments are a bottleneck. Phase 5 must beat base on dev before being kept.
 **Next:** commit+push Phase 1; Phase 2 items 1-5 each measured on dev; one gold run at end of phase.
+
+**Known failing tests (not our change):** 4 tests in test_pipeline.py (PipelineIntegrationTest: full_pipeline_with_mock_vlm, invalid_api_key_falls_back_to_crop, layout_detects_blocks, layout_fallback_on_blank_page) fail with `ImportError: find_pruneable_heads_and_indices` — surya 0.6.13 vs the newer transformers in .venv. They fail on HEAD before any Phase-1 change (this commit only adds scripts/data). Not being fixed now.
+
+## Update — user corrections (after Phase 1 report)
+- Item 5 done (failing tests noted above).
+- Item 3 DONE: blind full-res (4 crops/sheet) transcription of all 240 gold crops (paths only; gold text not opened) → dataset/gold_selfcheck_claude.jsonl. Never used for training/tuning.
+  - Result vs human gold: **CER 0.2626** (acc 73.7%) on 168 scorable rows → ABOVE the 0.10 threshold; STOP before Phase 4 and tell user.
+  - Per doc CER: مقدمات 0.158, CamScanner 0.310, ریاضی 0.396, اصول حسابداری 0.461. Report: dataset/reports/claude_labeler_vs_gold.json
+  - Error sources: (a) 35 of 168 gold rows I left empty (662/4467 gold chars): 16 are ≤4 chars (ص ۵, فصل ۴, ۰, شرح) — tiny/blurry crops gold annotator labeled; incl. ≥1 clear mistake (one readable line skipped). (b) on 133 rows both labeled: CER 0.134 — conventions (I add space before ':' and '=', arrows '←', Persian digits/commas), 2 gold rows keyboard-garbled (unfixable), digits ۲۹ vs ۲۶ misreads, partial-line crops.
+- Items 1, 2, 4: NOT yet done (dev relabel of 268 illegible at native res; dev ≥300 scorable from width>150 + bootstrap CI; LoRA failure diagnosis) — pending user decision.
+- Phase 2 dev sweep (132 lines, CER): base 0.4928 | dyn_tokens15 0.5007 | rep1.05 0.4673 | rep1.10 0.4789 | rep1.15 0.4896 | dyn15+rep1.05 0.4752 | dyn15+rep1.10 0.4868. Differences < noise; none proven.

@@ -18,7 +18,7 @@ from pathlib import Path
 from PIL import Image, ImageDraw, ImageFont
 
 ROOT = Path(__file__).resolve().parent.parent
-MARGIN, MAX_W, MAX_H, MIN_H = 70, 1100, 220, 40
+MARGIN, MAX_W, MAX_H, MIN_H = 70, 1100, 220, 40  # overridable via --max-h/--min-h
 
 
 def load(path: Path) -> list[dict]:
@@ -28,11 +28,18 @@ def load(path: Path) -> list[dict]:
         return [json.loads(x) for x in f if x.strip()]
 
 
+FULLRES = False
+
+
 def fit(img: Image.Image) -> Image.Image:
     w, h = img.size
     s = min(MAX_W / w, MAX_H / h)
     if h * s < MIN_H:  # very flat crops: enlarge so the strokes are visible
         s = min(MIN_H / h, MAX_W / w)
+    if FULLRES:  # never shrink below native size unless wider than the sheet
+        s = max(s, min(1.0, MAX_W / w))
+        if h * s < MIN_H:
+            s = min(MIN_H / h, MAX_W / w)
     return img.resize((max(1, int(w * s)), max(1, int(h * s))), Image.LANCZOS)
 
 
@@ -61,7 +68,12 @@ def main() -> int:
     p.add_argument("--outdir", type=Path, required=True)
     p.add_argument("--per", type=int, default=10)
     p.add_argument("--limit-sheets", type=int, default=0)
+    p.add_argument("--fullres", action="store_true",
+                   help="native resolution, 2x for flat crops (use with --per 4)")
     a = p.parse_args()
+    global FULLRES, MAX_H, MIN_H
+    if a.fullres:
+        FULLRES, MAX_H, MIN_H = True, 600, 96
 
     done = {r["image_path"] for r in load(a.done)} if a.done else set()
     todo = [r for r in load(a.todo) if r["image_path"] not in done]
