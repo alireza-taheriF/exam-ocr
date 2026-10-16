@@ -15,6 +15,7 @@ from __future__ import annotations
 
 import logging
 import os
+from pathlib import Path
 from typing import Any
 
 import cv2
@@ -138,15 +139,53 @@ def _split_merged(ink: np.ndarray, box: list[int], line_h: float) -> list[list[i
     return out or [box]
 
 
-def _opencv_line_boxes(image: np.ndarray) -> list[list[int]]:
+def _merge_same_line(boxes: list[list[int]], line_h: float) -> list[list[int]]:
+    """Merge pieces of one written line that the horizontal join left apart.
+
+    Two boxes belong to one line when they share most of their height and the
+    horizontal gap between them is a few line heights at most (a word, a dash or
+    a bracket tip separated from the rest). Without this a line becomes two or
+    three overlapping crops, each only part of the text.
+    """
+    boxes = [list(b) for b in boxes]
+    max_gap = 2.5 * line_h
+
+    def same_line(a: list[int], b: list[int]) -> bool:
+        shared = min(a[3], b[3]) - max(a[1], b[1])
+        if shared < 0.5 * min(a[3] - a[1], b[3] - b[1]):
+            return False
+        gap = max(a[0], b[0]) - min(a[2], b[2])  # < 0 when they overlap horizontally
+        return gap <= max_gap
+
+    merged = True
+    while merged:
+        merged = False
+        for i in range(len(boxes)):
+            for j in range(i + 1, len(boxes)):
+                if same_line(boxes[i], boxes[j]):
+                    a, b = boxes[i], boxes.pop(j)
+                    boxes[i] = [min(a[0], b[0]), min(a[1], b[1]), max(a[2], b[2]), max(a[3], b[3])]
+                    merged = True
+                    break
+            if merged:
+                break
+    return boxes
+
+
+def _ink_mask(image: np.ndarray) -> np.ndarray:
+    """Binary ink (text and drawings) inside the sheet, with ruling removed."""
     gray = cv2.cvtColor(image, cv2.COLOR_RGB2GRAY) if image.ndim == 3 else image
-    height, width = gray.shape[:2]
     blur = cv2.GaussianBlur(gray, (3, 3), 0)
     binary = cv2.adaptiveThreshold(
         blur, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY_INV, 31, 15
     )
     binary = cv2.bitwise_and(binary, _paper_mask(gray))
-    ink = _remove_rules(binary)
+    return _remove_rules(binary)
+
+
+def _opencv_line_boxes(image: np.ndarray) -> list[list[int]]:
+    height, width = image.shape[:2]
+    ink = _ink_mask(image)
 
     # Drop paper-texture speckle: components far smaller than a pen dot.
     n, labels, stats, _ = cv2.connectedComponentsWithStats(ink, connectivity=8)
@@ -194,6 +233,7 @@ def _opencv_line_boxes(image: np.ndarray) -> list[list[int]]:
         line_h = min(line_h, glyph_line_h)
         boxes = [part for b in boxes for part in _split_merged(ink, b, line_h)]
         boxes = _absorb_fragments(boxes, line_h)
+        boxes = _merge_same_line(boxes, line_h)
     return boxes
 
 
@@ -300,6 +340,70 @@ def _segment_surya(image: np.ndarray) -> list[Item]:
     return items
 
 
+# ── Surya via subprocess ────────────────────────────────────────────────────
+SURYA_PYTHON = Path(os.environ.get("SURYA_PYTHON", Path(__file__).resolve().parent.parent / ".venv-surya" / "bin" / "python"))
+SURYA_SCRIPT = Path(__file__).resolve().parent.parent / "scripts" / "surya_lines.py"
+
+
+def _surya_cli_boxes(image: np.ndarray) -> list[list[int]]:
+    """Surya text-line boxes from the isolated environment (Surya 0.6 needs
+    transformers 4.45; the Qwen engine needs 5). The script prints the JSON on
+    its last stdout line, after the library's own log lines."""
+    import json
+    import subprocess
+    import tempfile
+
+    import cv2
+
+    with tempfile.TemporaryDirectory() as tmp:
+        path = Path(tmp) / "page.png"
+        cv2.imwrite(str(path), cv2.cvtColor(image, cv2.COLOR_RGB2BGR))
+        proc = subprocess.run([str(SURYA_PYTHON), str(SURYA_SCRIPT), str(path)],
+                              capture_output=True, text=True, timeout=300)
+    if proc.returncode != 0:
+        raise RuntimeError(f"surya_lines failed: {proc.stderr[-300:]}")
+    return json.loads([l for l in proc.stdout.splitlines() if l.strip()][-1])
+
+
+def _has_ink(ink: np.ndarray, box: list[int], min_fraction: float = 0.004) -> bool:
+    x1, y1, x2, y2 = box
+    region = ink[max(0, y1):y2, max(0, x1):x2]
+    return region.size > 0 and float((region > 0).mean()) >= min_fraction
+
+
+def _covered(box: list[int], others: list[list[int]], fraction: float = 0.3) -> bool:
+    area = (box[2] - box[0]) * (box[3] - box[1])
+    for o in others:
+        ix = max(0, min(box[2], o[2]) - max(box[0], o[0]))
+        iy = max(0, min(box[3], o[3]) - max(box[1], o[1]))
+        if area and ix * iy / area >= fraction:
+            return True
+    return False
+
+
+def _segment_surya_cli(image: np.ndarray) -> list[Item]:
+    """Surya line boxes, completed by OpenCV for lines Surya missed.
+
+    Surya finds whole lines on photographed notebooks where the OpenCV
+    heuristics fragment them, but it also skips some lines and returns empty
+    strips along the ruling. So: drop Surya boxes without ink, then add OpenCV
+    boxes that Surya does not cover.
+    """
+    height, width = image.shape[:2]
+    ink = _ink_mask(image)
+    surya = [b for b in _surya_cli_boxes(image)
+             if b[2] - b[0] > 6 and b[3] - b[1] > 6 and _has_ink(ink, b)]
+    if surya:
+        surya = _merge_same_line(surya, float(np.median([b[3] - b[1] for b in surya])))
+    # Only whole lines Surya did not touch: no overlap with its boxes at all, and
+    # wide enough to be a line (small leftovers next to a Surya line are fragments).
+    line_h = float(np.median([b[3] - b[1] for b in surya])) if surya else 0.0
+    extra = [b for b in _opencv_line_boxes(image)
+             if not _covered(b, surya, fraction=0.02) and (b[2] - b[0]) >= 3 * line_h]
+    return [{"kind": "text", "block_type": "text", "bbox": _pad_line(b, width, height)}
+            for b in order_lines_rtl(surya + extra)]
+
+
 def segmenter_name() -> str:
     choice = os.environ.get("SEGMENTER", "auto").lower()
     if choice != "auto":
@@ -321,4 +425,11 @@ def segment_page(image_rgb: np.ndarray) -> list[Item]:
                 return items
         except Exception as exc:  # model load / inference failure
             logger.warning("Surya segmentation failed (%s); falling back to OpenCV", exc)
+    if name == "surya_cli":
+        try:
+            items = _segment_surya_cli(image_rgb)
+            if items:
+                return items
+        except Exception as exc:
+            logger.warning("Surya subprocess segmentation failed (%s); falling back to OpenCV", exc)
     return _segment_opencv(image_rgb)

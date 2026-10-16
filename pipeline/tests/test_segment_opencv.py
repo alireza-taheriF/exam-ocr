@@ -32,3 +32,19 @@ def test_fragment_is_absorbed_into_line_below():
     line = [100, 200, 600, 260]
     stroke = [300, 170, 330, 205]  # ascender cut off above the line
     assert _absorb_fragments([line, stroke], line_h=60) == [[100, 170, 600, 260]]
+
+
+def test_pieces_of_one_line_are_merged():
+    from pipeline.segment import _merge_same_line
+
+    left, right = [100, 200, 400, 260], [520, 205, 900, 262]  # same row, small gap
+    assert _merge_same_line([left, right], line_h=60) == [[100, 200, 900, 262]]
+
+
+def test_adjacent_lines_and_far_columns_are_not_merged():
+    from pipeline.segment import _merge_same_line
+
+    above, below = [100, 100, 800, 160], [100, 190, 800, 250]
+    far = [1500, 100, 1900, 160]  # same row but a different column
+    out = _merge_same_line([above, below, far], line_h=60)
+    assert sorted(out) == sorted([above, below, far])
