@@ -1,0 +1,3 @@
+{"image_path": "dataset/lines_v3/3ef140b80d42.jpg", "source_document": "Summary_of_Yule", "text": "man fish [Continue?]", "illegible": false, "labeler": "claude-code-r2-agentD", "confidence": "low"}
+{"image_path": "dataset/lines_v3/2ec997ef399a.jpg", "source_document": "تست_های_ا_مار_کاربردی1_فصل_1تا4هادی_رنجبران", "text": "(n-3)!", "illegible": false, "labeler": "claude-code-r2-agentD", "confidence": "high"}
+{"image_path": "dataset/lines_v3/d7bac11c0419.jpg", "source_document": "اصول_تنظیم_و_کنترل_بودجه_دولت", "text": "خالص = بدهی جاری - دارایی جاری = سرمایه در گردش یعنی چه؟", "illegible": false, "labeler": "claude-code-r2-agentD", "confidence": "low"}

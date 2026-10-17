@@ -1,0 +1,3 @@
+{"image_path": "dataset/lines_v3/085679853a04.jpg", "source_document": "جزوه_دست_نویس_حسابداری_بخش_عمومی", "text": "خرید ماشین آلات از محل منابع عمومی", "illegible": false, "labeler": "claude-code-r2-agentC", "confidence": "high"}
+{"image_path": "dataset/lines_v3/4d21eca47d6a.jpg", "source_document": "اصول_تنظیم_و_کنترل_بودجه_دولت", "text": "", "illegible": true, "labeler": "claude-code-r2-agentC"}
+{"image_path": "dataset/lines_v3/9d6e11a0f8e9.jpg", "source_document": "اصول_تنظیم_و_کنترل_بودجه_دولت", "text": "", "illegible": true, "labeler": "claude-code-r2-agentC"}
