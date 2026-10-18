@@ -38,3 +38,6 @@ freellmapi/
 
 # Debug
 debug_*.png
+
+.venv-*/
+dataset/external/
