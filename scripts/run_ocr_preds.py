@@ -43,6 +43,8 @@ def main() -> int:
     p.add_argument("--dynamic-tokens", type=float, default=0,
                    help="if >0: max_new_tokens = clamp(width/this, 8, 128)")
     p.add_argument("--repetition-penalty", type=float, default=1.0)
+    p.add_argument("--max-side", type=int, default=1280,
+                   help="downscale crops whose long side exceeds this (memory guard; 0=off)")
     p.add_argument("--limit", type=int, default=0)
     p.add_argument("--all", action="store_true", help="include rows with empty text")
     p.add_argument("--device", default="mps")
@@ -78,13 +80,25 @@ def main() -> int:
             max_new = a.max_new_tokens
             if a.dynamic_tokens > 0:
                 max_new = int(min(128, max(8, image.width / a.dynamic_tokens)))
-            messages = [{"role": "user", "content": [
-                {"type": "image", "image": image},
-                {"type": "text", "text": a.prompt}]}]
+            resized = False
+            if a.max_side and max(image.size) > a.max_side:
+                k = a.max_side / max(image.size)
+                image = image.resize((max(1, int(image.width * k)), max(1, int(image.height * k))))
+                resized = True
             t0 = time.perf_counter()
-            inputs = processor.apply_chat_template(
-                messages, add_generation_prompt=True, tokenize=True,
-                return_dict=True, return_tensors="pt").to(model.device)
+            for attempt in range(3):
+                messages = [{"role": "user", "content": [
+                    {"type": "image", "image": image},
+                    {"type": "text", "text": a.prompt}]}]
+                try:
+                    inputs = processor.apply_chat_template(
+                        messages, add_generation_prompt=True, tokenize=True,
+                        return_dict=True, return_tensors="pt").to(model.device)
+                    break
+                except ValueError:  # very large crop exceeds the processor's token budget
+                    f = 0.7
+                    image = image.resize((int(image.width * f), int(image.height * f)))
+                    resized = True
             with torch.inference_mode():
                 out = model.generate(
                     **inputs, max_new_tokens=max_new, do_sample=False,
@@ -94,7 +108,7 @@ def main() -> int:
             sink.write(json.dumps({
                 "image_path": row["image_path"], "text": text,
                 "seconds": round(time.perf_counter() - t0, 2),
-                "max_new_tokens": max_new}, ensure_ascii=False) + "\n")
+                "max_new_tokens": max_new, "resized": resized}, ensure_ascii=False) + "\n")
             sink.flush()
             if a.device == "mps":
                 torch.mps.empty_cache()
