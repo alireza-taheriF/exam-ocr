@@ -7,6 +7,8 @@ from __future__ import annotations
 
 import os
 import re
+import time
+from pathlib import Path
 from html import unescape
 from typing import Protocol
 
@@ -132,14 +134,122 @@ class OllamaVision:
                               "images": [base64.b64encode(buf.getvalue()).decode()]}]}
         if self._model.startswith("qwen3"):
             body["think"] = False
-        r = requests.post(f"{self._base}/api/chat", json=body, timeout=600)
+        for attempt in range(4):  # Ollama answers 500 when a runner restarts; give it a moment
+            r = requests.post(f"{self._base}/api/chat", json=body, timeout=600)
+            if r.status_code < 500:
+                break
+            time.sleep(10 * (attempt + 1))
         r.raise_for_status()
         return {"text": r.json()["message"]["content"].strip(), "candidates": None}
 
 
+
+def _env_key(name: str) -> str | None:
+    """Optional API key from the environment or .env (never printed)."""
+    from dotenv import load_dotenv
+    load_dotenv(Path(__file__).resolve().parents[1] / ".env")
+    return os.environ.get(name, "").strip() or None
+
+
+class HostedOCR:
+    """Hosted engines for PUBLIC images only (the DastKhat bake-off). Missing key -> SystemExit(skip)."""
+
+    def __init__(self, name: str, key_env: str) -> None:
+        self.name, self._key = name, _env_key(key_env)
+        if not self._key:
+            raise SystemExit(f"SKIP {name}: {key_env} is not set")
+
+    @staticmethod
+    def _png(line: Image.Image) -> bytes:
+        from io import BytesIO
+        buf = BytesIO()
+        line.convert("RGB").save(buf, format="PNG")
+        return buf.getvalue()
+
+
+class GeminiRec(HostedOCR):
+    """Gemini via Google AI Studio (free tier: rate limited, so 429 is retried with a pause)."""
+
+    def __init__(self) -> None:
+        super().__init__("gemini", "GEMINI_API_KEY")
+        self._model = _env_key("GEMINI_BAKEOFF_MODEL") or "gemini-2.5-flash"  # .env GEMINI_MODEL is a retired model
+
+    def recognize(self, line: Image.Image) -> dict:
+        import base64
+        import time
+
+        import requests
+        body = {"contents": [{"parts": [{"text": OllamaVision.PROMPT},
+                                        {"inline_data": {"mime_type": "image/png", "data": base64.b64encode(self._png(line)).decode()}}]}],
+                "generationConfig": {"temperature": 0}}
+        url = f"https://generativelanguage.googleapis.com/v1beta/models/{self._model}:generateContent"
+        for wait in (6, 30, 60, 90, 120):  # first wait paces calls under the free-tier per-minute limit
+            time.sleep(wait)
+            r = requests.post(url, json=body, headers={"x-goog-api-key": self._key}, timeout=120)
+            if r.status_code not in (429, 500, 503):
+                break
+        r.raise_for_status()
+        parts = (r.json().get("candidates") or [{}])[0].get("content", {}).get("parts", [])
+        return {"text": "".join(p.get("text", "") for p in parts).strip(), "candidates": None}
+
+
+class OcrSpaceRec(HostedOCR):
+    """OCR.space Engine 3 (handwriting). Engine 3 auto-detects the language, so no `language` is sent.
+    UNTESTED here: no OCR_SPACE_API_KEY on this machine."""
+
+    def __init__(self) -> None:
+        super().__init__("ocrspace", "OCR_SPACE_API_KEY")
+
+    def recognize(self, line: Image.Image) -> dict:
+        import requests
+        r = requests.post("https://api.ocr.space/parse/image", headers={"apikey": self._key}, timeout=120,
+                          data={"OCREngine": "3", "scale": "true"}, files={"file": ("line.png", self._png(line), "image/png")})
+        r.raise_for_status()
+        j = r.json()
+        if j.get("IsErroredOnProcessing"):
+            raise RuntimeError(f"OCR.space error: {str(j.get('ErrorMessage'))[:200]}")
+        return {"text": " ".join(p.get("ParsedText", "") for p in j.get("ParsedResults", [])).strip(), "candidates": None}
+
+
+class TesseractRec:
+    """Control: Tesseract `fas` (printed-text OCR). traineddata lives in bakeoff/tessdata."""
+    name = "tesseract-fas"
+
+    def recognize(self, line: Image.Image) -> dict:
+        import subprocess
+        import tempfile
+        root = Path(__file__).resolve().parents[1]
+        with tempfile.NamedTemporaryFile(suffix=".png") as f:
+            line.convert("RGB").save(f.name)
+            out = subprocess.run(["tesseract", f.name, "stdout", "-l", "fas", "--tessdata-dir", str(root / "bakeoff" / "tessdata"),
+                                  "--psm", "7"], capture_output=True, text=True, check=True).stdout
+        return {"text": " ".join(out.split()), "candidates": None}
+
+
+class RapidOCRRec:
+    """Control: RapidOCR with the Arabic-script PP-OCRv5 recognizer (covers Persian letters). Needs .venv-rapid."""
+    name = "rapidocr-ar"
+
+    def __init__(self) -> None:
+        from rapidocr import LangRec, ModelType, OCRVersion, RapidOCR
+        self._ocr = RapidOCR(params={"Rec.lang_type": LangRec.ARABIC, "Rec.ocr_version": OCRVersion.PPOCRV5,
+                                     "Rec.model_type": ModelType.MOBILE})
+
+    def recognize(self, line: Image.Image) -> dict:
+        import numpy as np
+        res = self._ocr(np.array(line.convert("RGB")))
+        if res.txts is None:
+            return {"text": "", "candidates": None}
+        parts = sorted(zip(res.boxes, res.txts), key=lambda p: -float(np.mean(np.array(p[0])[:, 0])))  # right to left
+        return {"text": " ".join(t for _, t in parts).strip(), "candidates": None}
+
 QWEN_FA = "mohajesmaeili/Qwen3-VL-2B-Persian-Arabic-Ocr-v1.0"
 
 ENGINES = {
+    "tesseract-fas": TesseractRec,
+    "rapidocr-ar": RapidOCRRec,
+    "gemini": GeminiRec,
+    "ocrspace": OcrSpaceRec,
     "paddleocr-vl": lambda: HFVisionLM("paddleocr-vl", "PaddlePaddle/PaddleOCR-VL", 128, "OCR:"),
     # the prompt is surya's training-time contract (surya/inference/prompts.py): do not reword it
     "surya2": lambda: HFVisionLM("surya2", "datalab-to/surya-ocr-2", 256, "OCR this block image to HTML.", html=True),
