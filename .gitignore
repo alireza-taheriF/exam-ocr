@@ -38,3 +38,4 @@ freellmapi/
 
 # Debug
 debug_*.png
+.venv-kraken/

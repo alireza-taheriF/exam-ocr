@@ -20,7 +20,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
 from pipeline.normalizer import normalize_text  # noqa: E402
-from training.eval.metrics import corpus_cer, corpus_wer  # noqa: E402
+from training.eval.metrics import corpus_cer, corpus_wer, levenshtein  # noqa: E402
 
 DEFAULT_TRUTH = ROOT / "dataset" / "gold.jsonl"
 
@@ -64,6 +64,11 @@ def word_errors(refs: list[str], hyps: list[str]) -> Counter:
     return errs
 
 
+def wer_line(ref: str, hyp: str) -> float:
+    """Word-error count of one line (edit distance on words)."""
+    return levenshtein(normalize_text(ref).split(), normalize_text(hyp).split())
+
+
 def score(truth: list[dict], preds: dict[str, str]) -> dict:
     refs = [normalize_text(r["text"]) for r in truth]
     hyps = [normalize_text(preds.get(r["image_path"], "")) for r in truth]
@@ -85,6 +90,7 @@ def main() -> int:
     p.add_argument("--truth", type=Path, default=DEFAULT_TRUTH)
     p.add_argument("--subset-pages", type=int, default=0, help="score only N fixed pages (0 = all)")
     p.add_argument("--report", type=Path, default=None)
+    p.add_argument("--baseline", type=Path, default=None, help="count lines improved/worsened vs this predictions file")
     args = p.parse_args()
 
     truth = load_truth(args.truth)
@@ -98,6 +104,11 @@ def main() -> int:
     print("  top word errors (ref → hyp ×n):")
     for e in rep["top_word_errors"]:
         print(f"    {e['ref'][:40]} → {e['hyp'][:40]} ×{e['count']}")
+    if args.baseline:
+        base = {r["image_path"]: r.get("text") or "" for r in load_jsonl(args.baseline)}
+        d = [wer_line(r["text"], base.get(r["image_path"], "")) - wer_line(r["text"], preds.get(r["image_path"], ""))
+             for r in truth]
+        print(f"  vs {args.baseline.name}: improved {sum(x > 0 for x in d)}, worsened {sum(x < 0 for x in d)} lines (by word errors)")
     if args.report:
         args.report.write_text(json.dumps(rep, ensure_ascii=False, indent=2), encoding="utf-8")
     return 0
