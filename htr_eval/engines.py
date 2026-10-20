@@ -50,15 +50,18 @@ class HFVisionLM:
     PROMPT = "متن فارسی داخل این تصویر را عیناً رونویسی کن."
 
     def __init__(self, name: str, model_id: str, max_new_tokens: int = 96, prompt: str | None = None,
-                 html: bool = False) -> None:
+                 html: bool = False, adapter: str | None = None, dtype=None) -> None:
         import torch
         from transformers import AutoModelForImageTextToText, AutoProcessor
         self.name, self._max, self._html = name, max_new_tokens, html
         self.PROMPT = prompt or self.PROMPT
         self._dev = _device()
-        dtype = torch.float32 if self._dev == "cpu" else torch.float16
+        dtype = dtype or (torch.float32 if self._dev == "cpu" else torch.float16)
         self._proc = AutoProcessor.from_pretrained(model_id)
         self._model = AutoModelForImageTextToText.from_pretrained(model_id, torch_dtype=dtype).to(self._dev).eval()
+        if adapter:  # LoRA adapter from htr_eval/lora_train.py
+            from peft import PeftModel
+            self._model = PeftModel.from_pretrained(self._model, adapter).eval()
 
     def recognize(self, line: Image.Image) -> dict:
         import torch
@@ -134,13 +137,16 @@ class OllamaVision:
         return {"text": r.json()["message"]["content"].strip(), "candidates": None}
 
 
+QWEN_FA = "mohajesmaeili/Qwen3-VL-2B-Persian-Arabic-Ocr-v1.0"
+
 ENGINES = {
     "paddleocr-vl": lambda: HFVisionLM("paddleocr-vl", "PaddlePaddle/PaddleOCR-VL", 128, "OCR:"),
     # the prompt is surya's training-time contract (surya/inference/prompts.py): do not reword it
     "surya2": lambda: HFVisionLM("surya2", "datalab-to/surya-ocr-2", 256, "OCR this block image to HTML.", html=True),
     "kraken-ppocrv6": KrakenRec,
     "surya": SuryaRec,
-    "qwen3vl-fa": lambda: HFVisionLM("qwen3vl-fa", "mohajesmaeili/Qwen3-VL-2B-Persian-Arabic-Ocr-v1.0"),
+    "qwen3vl-lora": lambda: HFVisionLM("qwen3vl-lora", QWEN_FA, adapter=os.environ.get("LORA_ADAPTER", "htr_eval/lora/best")),
+    "qwen3vl-fa": lambda: HFVisionLM("qwen3vl-fa", QWEN_FA),
 }
 
 

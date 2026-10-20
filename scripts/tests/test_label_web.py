@@ -14,7 +14,7 @@ def call(port, path, body=None):
 def test_save_resume_undo(tmp_path, monkeypatch):
     monkeypatch.setattr(label_web, "LABELS", tmp_path / "labels.jsonl")
     queue = [{"image_path": f"a{i}.jpg", "source_document": "d"} for i in range(3)]
-    srv = ThreadingHTTPServer(("127.0.0.1", 0), label_web.make_handler(queue, {"a0.jpg": "پیش‌نویس"}))
+    srv = ThreadingHTTPServer(("127.0.0.1", 0), label_web.make_handler(queue, lambda: {"a0.jpg": "پیش‌نویس"}))
     threading.Thread(target=srv.serve_forever, daemon=True).start()
     port = srv.server_address[1]
     assert call(port, "/api/next")["draft"] == "پیش‌نویس"

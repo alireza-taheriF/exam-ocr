@@ -61,7 +61,7 @@ def state() -> dict[str, dict]:
     return out
 
 
-def make_handler(queue: list[dict], drafts: dict[str, str]):
+def make_handler(queue: list[dict], drafts):  # drafts: callable returning {image_path: text}
     class H(BaseHTTPRequestHandler):
         def log_message(self, *a):  # quiet
             pass
@@ -92,7 +92,7 @@ def make_handler(queue: list[dict], drafts: dict[str, str]):
                     if q["image_path"] not in st:
                         return self._json({"index": i, "done": len(st), "total": len(queue), "median": med,
                                            "source_document": q["source_document"][:40],
-                                           "draft": drafts.get(q["image_path"], "")})
+                                           "draft": drafts().get(q["image_path"], "")})
                 return self._json({"finished": True, "total": len(queue)})
             self._send(404, b"", "text/plain")
 
@@ -126,8 +126,12 @@ def main() -> None:
     ap.add_argument("--port", type=int, default=8765)
     args = ap.parse_args()
     queue = read_jsonl(QUEUE)
-    drafts = {r["image_path"]: r.get("text", "") for r in read_jsonl(ROOT / args.drafts if not args.drafts.is_absolute() else args.drafts)}
-    print(f"{len(queue)} lines, {len(state())} already labeled, {len(drafts)} drafts -> http://127.0.0.1:{args.port}")
+    path = ROOT / args.drafts
+
+    def drafts() -> dict[str, str]:  # re-read each time: the draft run may still be producing lines
+        return {r["image_path"]: r.get("text", "") for r in read_jsonl(path)}
+
+    print(f"{len(queue)} lines, {len(state())} already labeled, {len(drafts())} drafts -> http://127.0.0.1:{args.port}")
     ThreadingHTTPServer(("127.0.0.1", args.port), make_handler(queue, drafts)).serve_forever()
 
 

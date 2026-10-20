@@ -40,3 +40,4 @@ freellmapi/
 debug_*.png
 .venv-kraken/
 htr_eval/models/
+htr_eval/lora/

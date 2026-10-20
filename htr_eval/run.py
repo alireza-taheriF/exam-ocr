@@ -26,13 +26,15 @@ def main() -> int:
     p.add_argument("--engine", required=True)
     p.add_argument("--truth", type=Path, default=DEFAULT_TRUTH)
     p.add_argument("--subset-pages", type=int, default=0)
+    p.add_argument("--lines", type=Path, default=None, help="unlabeled JSONL (image_path, source_image) instead of truth")
     args = p.parse_args()
 
-    rows = load_truth(args.truth)
+    rows = ([{**r, "page": r["source_image"]} for r in load_jsonl(args.lines)] if args.lines
+            else load_truth(args.truth))
     if args.subset_pages:
         rows = subset_pages(rows, args.subset_pages)
     CACHE.mkdir(parents=True, exist_ok=True)
-    out = CACHE / (args.engine.replace(":", "_").replace("@", "+").replace(",", "+") + ".jsonl")
+    out = CACHE / ((args.lines.stem + "." if args.lines else "") + args.engine.replace(":", "_").replace("@", "+").replace(",", "+") + ".jsonl")
     done = {r["image_path"] for r in load_jsonl(out)} if out.exists() else set()
     todo = [r for r in rows if r["image_path"] not in done]
     missing = [r["image_path"] for r in todo if not (ROOT / r["image_path"]).exists()]
