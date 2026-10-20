@@ -6,6 +6,8 @@ All engines run locally. Add a new one by writing a class with ``name`` and
 from __future__ import annotations
 
 import os
+import re
+from html import unescape
 from typing import Protocol
 
 from PIL import Image
@@ -47,10 +49,12 @@ class HFVisionLM:
     """Any Hugging Face image-text-to-text OCR model (Qwen-VL fine-tunes etc.), greedy decoding."""
     PROMPT = "متن فارسی داخل این تصویر را عیناً رونویسی کن."
 
-    def __init__(self, name: str, model_id: str, max_new_tokens: int = 96) -> None:
+    def __init__(self, name: str, model_id: str, max_new_tokens: int = 96, prompt: str | None = None,
+                 html: bool = False) -> None:
         import torch
         from transformers import AutoModelForImageTextToText, AutoProcessor
-        self.name, self._max = name, max_new_tokens
+        self.name, self._max, self._html = name, max_new_tokens, html
+        self.PROMPT = prompt or self.PROMPT
         self._dev = _device()
         dtype = torch.float32 if self._dev == "cpu" else torch.float16
         self._proc = AutoProcessor.from_pretrained(model_id)
@@ -65,10 +69,37 @@ class HFVisionLM:
             out = self._model.generate(**inputs, max_new_tokens=self._max, do_sample=False,
                                        repetition_penalty=1.05)
         text = self._proc.batch_decode(out[:, inputs["input_ids"].shape[1]:], skip_special_tokens=True)[0]
+        if self._html:  # surya-ocr-2 answers in HTML
+            text = " ".join(unescape(re.sub(r"<[^>]+>", " ", text)).split())
         return {"text": text.strip(), "candidates": None}
 
 
+class KrakenRec:
+    """Kraken PP-OCRv6 (CTC line recognizer, CPU). Needs `.venv-kraken` (kraken>=7.1, python<3.14)."""
+    name = "kraken-ppocrv6"
+    MODEL = "htr_eval/models/kraken-ppocrv6-medium/medium.safetensors"
+
+    def __init__(self) -> None:
+        from pathlib import Path
+        from kraken.configs import RecognitionInferenceConfig
+        from kraken.tasks import RecognitionTaskModel
+        self._cfg = RecognitionInferenceConfig(num_line_workers=0)
+        self._model = RecognitionTaskModel.load_model(Path(__file__).resolve().parents[1] / self.MODEL)
+
+    def recognize(self, line: Image.Image) -> dict:
+        from kraken.containers import BBoxLine, Segmentation
+        w, h = line.size
+        seg = Segmentation(type="bbox", imagename=None, text_direction="horizontal-rl", script_detection=False,
+                           lines=[BBoxLine(id="l0", bbox=(0, 0, w, h), text_direction="horizontal-rl")])
+        rec = next(iter(self._model.predict(line, seg, self._cfg)), None)
+        return {"text": rec.prediction.strip() if rec else "", "candidates": None}
+
+
 ENGINES = {
+    "paddleocr-vl": lambda: HFVisionLM("paddleocr-vl", "PaddlePaddle/PaddleOCR-VL", 128, "OCR:"),
+    # the prompt is surya's training-time contract (surya/inference/prompts.py): do not reword it
+    "surya2": lambda: HFVisionLM("surya2", "datalab-to/surya-ocr-2", 256, "OCR this block image to HTML.", html=True),
+    "kraken-ppocrv6": KrakenRec,
     "surya": SuryaRec,
     "qwen3vl-fa": lambda: HFVisionLM("qwen3vl-fa", "mohajesmaeili/Qwen3-VL-2B-Persian-Arabic-Ocr-v1.0"),
 }

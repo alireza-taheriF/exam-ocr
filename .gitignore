@@ -39,3 +39,4 @@ freellmapi/
 # Debug
 debug_*.png
 .venv-kraken/
+htr_eval/models/
