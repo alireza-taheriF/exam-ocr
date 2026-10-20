@@ -95,6 +95,45 @@ class KrakenRec:
         return {"text": rec.prediction.strip() if rec else "", "candidates": None}
 
 
+class OllamaVision:
+    """Any vision model served by local Ollama. Name: ``ollama-vision:<model>[@pad,up,gray]``."""
+    PROMPT = ("متن دست‌نویس فارسی داخل این تصویر را دقیقاً همان‌طور که نوشته شده رونویسی کن؛ املا و ارقام نویسنده را حفظ کن. "
+              "فقط خود متن را بنویس. اگر خوانا نیست رشتهٔ خالی برگردان.")
+
+    def __init__(self, name: str, model: str, prep: tuple[str, ...] = ()) -> None:
+        from urllib.parse import urlparse
+        self.name, self._model, self._prep = name, model, prep
+        self._base = os.environ.get("CORRECTOR_BASE_URL", "http://localhost:11434").rstrip("/")
+        if urlparse(self._base).hostname not in {"localhost", "127.0.0.1"}:
+            raise SystemExit(f"refusing non-local Ollama host {self._base!r}: nothing may leave this machine")
+
+    def _preprocess(self, im: Image.Image) -> Image.Image:
+        from PIL import ImageOps
+        if "gray" in self._prep:
+            im = ImageOps.autocontrast(im.convert("L"), cutoff=1).convert("RGB")
+        if "up" in self._prep and im.height < 96:
+            im = im.resize((round(im.width * 96 / im.height), 96), Image.Resampling.LANCZOS)
+        if "pad" in self._prep:
+            im = ImageOps.expand(im, 8, fill="white")
+        return im
+
+    def recognize(self, line: Image.Image) -> dict:
+        import base64
+        from io import BytesIO
+
+        import requests
+        buf = BytesIO()
+        self._preprocess(line).save(buf, format="PNG")
+        body = {"model": self._model, "stream": False, "options": {"temperature": 0, "num_predict": 160},
+                "messages": [{"role": "user", "content": self.PROMPT,
+                              "images": [base64.b64encode(buf.getvalue()).decode()]}]}
+        if self._model.startswith("qwen3"):
+            body["think"] = False
+        r = requests.post(f"{self._base}/api/chat", json=body, timeout=600)
+        r.raise_for_status()
+        return {"text": r.json()["message"]["content"].strip(), "candidates": None}
+
+
 ENGINES = {
     "paddleocr-vl": lambda: HFVisionLM("paddleocr-vl", "PaddlePaddle/PaddleOCR-VL", 128, "OCR:"),
     # the prompt is surya's training-time contract (surya/inference/prompts.py): do not reword it
@@ -106,6 +145,9 @@ ENGINES = {
 
 
 def load_engine(name: str) -> Engine:
+    if name.startswith("ollama-vision:"):
+        model, _, prep = name[len("ollama-vision:"):].partition("@")
+        return OllamaVision(name, model, tuple(prep.split(",")) if prep else ())
     if name not in ENGINES:
         raise SystemExit(f"unknown engine {name!r}; choose from {sorted(ENGINES)}")
     os.environ.setdefault("TOKENIZERS_PARALLELISM", "false")

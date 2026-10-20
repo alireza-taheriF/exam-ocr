@@ -11,6 +11,7 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+import re
 import sys
 from collections import Counter
 from difflib import SequenceMatcher
@@ -69,7 +70,7 @@ def wer_line(ref: str, hyp: str) -> float:
     return levenshtein(normalize_text(ref).split(), normalize_text(hyp).split())
 
 
-def score(truth: list[dict], preds: dict[str, str]) -> dict:
+def score(truth: list[dict], preds: dict[str, str], seconds: dict[str, float] | None = None) -> dict:
     refs = [normalize_text(r["text"]) for r in truth]
     hyps = [normalize_text(preds.get(r["image_path"], "")) for r in truth]
     wer = corpus_wer(refs, hyps)
@@ -80,6 +81,9 @@ def score(truth: list[dict], preds: dict[str, str]) -> dict:
         "cer": round(corpus_cer(refs, hyps), 4),
         "wer": round(wer, 4),
         "word_accuracy_pct": round(100 * (1 - wer), 2),
+        "empty_pct": round(100 * sum(not h.strip() for h in hyps) / len(hyps), 1),
+        "repeat_pct": round(100 * sum(bool(re.search(r"(.)\1{7}", h)) for h in hyps) / len(hyps), 1),
+        "sec_per_line": round(sum(seconds[r["image_path"]] for r in truth if r["image_path"] in seconds) / max(1, sum(r["image_path"] in seconds for r in truth)), 2) if seconds else None,
         "top_word_errors": [{"ref": a, "hyp": b, "count": c} for (a, b), c in word_errors(refs, hyps).most_common(20)],
     }
 
@@ -97,10 +101,12 @@ def main() -> int:
     if args.subset_pages:
         truth = subset_pages(truth, args.subset_pages)
     preds = {r["image_path"]: r.get("text") or "" for r in load_jsonl(args.pred)}
-    rep = score(truth, preds)
+    pred_rows = load_jsonl(args.pred)
+    rep = score(truth, preds, {r["image_path"]: r["seconds"] for r in pred_rows if "seconds" in r})
 
     print(f"{args.pred.name}: pages={rep['pages']} lines={rep['lines']} missing={rep['missing_predictions']}")
     print(f"  CER {rep['cer']:.4f}   WER {rep['wer']:.4f}   word accuracy {rep['word_accuracy_pct']:.2f}%")
+    print(f"  empty {rep['empty_pct']}%  repeat {rep['repeat_pct']}%  s/line {rep['sec_per_line']}")
     print("  top word errors (ref → hyp ×n):")
     for e in rep["top_word_errors"]:
         print(f"    {e['ref'][:40]} → {e['hyp'][:40]} ×{e['count']}")

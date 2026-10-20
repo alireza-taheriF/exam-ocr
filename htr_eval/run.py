@@ -32,7 +32,7 @@ def main() -> int:
     if args.subset_pages:
         rows = subset_pages(rows, args.subset_pages)
     CACHE.mkdir(parents=True, exist_ok=True)
-    out = CACHE / f"{args.engine}.jsonl"
+    out = CACHE / (args.engine.replace(":", "_").replace("@", "+").replace(",", "+") + ".jsonl")
     done = {r["image_path"] for r in load_jsonl(out)} if out.exists() else set()
     todo = [r for r in rows if r["image_path"] not in done]
     missing = [r["image_path"] for r in todo if not (ROOT / r["image_path"]).exists()]
