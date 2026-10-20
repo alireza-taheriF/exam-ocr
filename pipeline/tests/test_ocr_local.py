@@ -17,3 +17,8 @@ def test_remote_client_refused_without_opt_in(monkeypatch):
         except ValueError:
             pass
         client.assert_not_called()
+
+
+def test_loop_filter_drops_digit_loops_but_keeps_dot_leaders():
+    assert ocr._is_loop("۱۶۲۴۳۵۲۶۳" * 3)
+    assert not ocr._is_loop("....۱۲۰۰ = ۱۴۰.... ÷ اس")

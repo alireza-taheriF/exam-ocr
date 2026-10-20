@@ -5,8 +5,10 @@
 ۱) دقت (CER) فقط روی برچسب‌های موجود (lines.jsonl — ۵ خط دست‌نویس)
 ۲) نرخ موفقیت عملیاتی روی نمونه تصادفی raw_images (بدون ground truth)
 
+Needs OCR_ALLOW_REMOTE=1 (it calls the remote VLM; images leave this machine).
+
 Usage:
-    python scripts/eval_without_labels.py
+    OCR_ALLOW_REMOTE=1 python scripts/eval_without_labels.py
     python scripts/eval_without_labels.py --raw-sample 25 --delay 4
 """
 
