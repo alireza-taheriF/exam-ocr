@@ -74,25 +74,24 @@ class PipelineIntegrationTest(unittest.TestCase):
         self.assertEqual(blocks[0]["type"], "text")
         self.assertEqual(blocks[0]["bbox"], [0, 0, 600, 800])
 
-    @patch("pipeline.ocr.extract_text_with_vlm")
-    def test_invalid_api_key_falls_back_to_crop(self, mock_vlm):
+    @patch("pipeline.ocr.recognize_line")
+    def test_ocr_failure_falls_back_to_crop(self, mock_ocr):
         from pipeline.export import export_to_word
         from pipeline.layout import detect_blocks
         from pipeline.ocr import run_ocr
 
-        mock_vlm.side_effect = AssertionError("VLM should not be called with invalid key")
+        mock_ocr.side_effect = RuntimeError("local OCR worker died")
 
         bgr = cv2.imread(str(self.image_path))
         rgb = cv2.cvtColor(bgr, cv2.COLOR_BGR2RGB)
         blocks = detect_blocks(rgb)
 
-        with patch.dict("os.environ", {"VLM_API_KEY": "your_api_key_here"}, clear=False):
-            blocks = run_ocr(rgb, blocks)
+        blocks = run_ocr(rgb, blocks)
 
         self.assertGreater(
             sum(1 for b in blocks if b.get("crop_image") is not None),
             0,
-            "invalid API key should fall back to crop images",
+            "a failing local OCR should fall back to crop images",
         )
 
         with tempfile.TemporaryDirectory() as tmp:
@@ -100,13 +99,13 @@ class PipelineIntegrationTest(unittest.TestCase):
             export_to_word(blocks, str(out))
             self.assertTrue(out.exists())
 
-    @patch("pipeline.ocr.extract_text_with_vlm")
-    def test_full_pipeline_with_mock_vlm(self, mock_vlm):
+    @patch("pipeline.ocr.recognize_line")
+    def test_full_pipeline_with_mock_ocr(self, mock_ocr):
         from pipeline.export import export_to_word
         from pipeline.layout import detect_blocks
         from pipeline.ocr import run_ocr
 
-        mock_vlm.return_value = "متن نمونه آزمون"
+        mock_ocr.return_value = "متن نمونه آزمون"
 
         bgr = cv2.imread(str(self.image_path))
         rgb = cv2.cvtColor(bgr, cv2.COLOR_BGR2RGB)

@@ -1,16 +1,24 @@
 """
-Text extraction for exam blocks using a Vision-Language Model (VLM) API.
+Text extraction for exam blocks.
 
-Layout detection still uses Surya; text/list blocks are sent to an
-OpenAI-compatible vision API (e.g. DeepSeek).
+Layout detection uses Surya. Each text/list block is split into lines (Surya line
+detection) and every line is read by a LOCAL engine (htr_eval/engines.py, run by
+htr_eval/ocr_worker.py in its own interpreter). Nothing leaves this machine.
+
+The old remote path (OpenAI-compatible vision API) only runs when OCR_ALLOW_REMOTE=1;
+then block crops are uploaded to VLM_API_BASE.
 """
 
 from __future__ import annotations
 
 import base64
+import json
 import logging
 import os
 import re
+import subprocess
+import sys
+import threading
 import time
 from io import BytesIO
 from pathlib import Path
@@ -55,6 +63,13 @@ _USER_PROMPT = (
     "متن فارسی داخل این تصویر (چاپی یا دست‌نویس) را خط‌به‌خط و دقیق استخراج کن."
 )
 
+# A short unit repeated back-to-back for 24+ chars is a decoding loop, never handwriting.
+_LOOP_RE = re.compile(r"(.{1,12}?)\1{2,}")
+
+_WORKER: subprocess.Popen | None = None
+_WORKER_LOCK = threading.Lock()
+_LINE_PAD = 8
+
 _VLM_CLIENT: object | None = None
 _VLM_CONFIG_ERROR: str | None = None
 
@@ -63,8 +78,14 @@ def _get_api_key() -> str:
     return resolve_openai_api_key(dict(os.environ))
 
 
+def _remote_enabled() -> bool:
+    return os.environ.get("OCR_ALLOW_REMOTE", "").strip() == "1"
+
+
 def _validate_vlm_config() -> str | None:
-    """Return an error message when the VLM API is not configured."""
+    """Return an error message when the remote VLM API is off or not configured."""
+    if not _remote_enabled():
+        return "Remote VLM is off: set OCR_ALLOW_REMOTE=1 to opt in (images then leave this machine)."
     api_key = _get_api_key()
     if not api_key or api_key.lower() in _PLACEHOLDER_API_KEYS:
         return (
@@ -214,8 +235,56 @@ def extract_text_with_vlm(base64_image: str) -> str:
     return _message_content_to_text(message.content)
 
 
+def _worker() -> subprocess.Popen:
+    """Start (once) the local OCR worker; OCR_PYTHON must have torch + transformers>=5."""
+    global _WORKER
+    if _WORKER is None or _WORKER.poll() is not None:
+        venv_python = _PROJECT_ROOT / ".venv" / "bin" / "python"
+        python = os.environ.get("OCR_PYTHON") or (str(venv_python) if venv_python.exists() else sys.executable)
+        _WORKER = subprocess.Popen(
+            [python, "-m", "htr_eval.ocr_worker"], cwd=_PROJECT_ROOT, stdin=subprocess.PIPE,
+            stdout=subprocess.PIPE, text=True, encoding="utf-8",
+        )
+        if '"ready"' not in (_WORKER.stdout.readline() or ""):
+            raise RuntimeError(f"local OCR worker failed to start with {python} (see its log above)")
+    return _WORKER
+
+
+def recognize_line(line: Image.Image) -> str:
+    """Read one text-line image with the local engine (OCR_ENGINE, default qwen3vl-fa)."""
+    with _WORKER_LOCK:
+        w = _worker()
+        w.stdin.write(json.dumps({"png": _pil_to_base64(line)}) + "\n")
+        w.stdin.flush()
+        reply = w.stdout.readline()
+    if not reply:
+        raise RuntimeError("local OCR worker died")
+    return json.loads(reply)["text"]
+
+
+def _is_loop(text: str) -> bool:
+    return any(m.end() - m.start() >= 24 for m in _LOOP_RE.finditer(text))
+
+
+def _split_lines(region: Image.Image) -> list[Image.Image]:
+    """Surya line detection inside a block, top to bottom (the whole block if none found)."""
+    from surya.detection import batch_text_detection
+
+    from pipeline.layout import det_model, det_processor
+
+    boxes = sorted((b.bbox for b in batch_text_detection([region], det_model, det_processor)[0].bboxes),
+                   key=lambda b: b[1] + b[3])
+    w, h = region.size
+    crops = [region.crop((max(0, int(x1) - _LINE_PAD), max(0, int(y1) - _LINE_PAD),
+                          min(w, int(x2) + _LINE_PAD), min(h, int(y2) + _LINE_PAD))) for x1, y1, x2, y2 in boxes]
+    return crops or [region]
+
+
 def get_ocr_status() -> dict[str, str | bool]:
     """Return OCR engine configuration for health checks (no secrets)."""
+    if not _remote_enabled():
+        return {"engine": "local", "configured": True, "model": os.environ.get("OCR_ENGINE", "qwen3vl-fa"),
+                "api_base": "local", "message": "ready"}
     config_error = _validate_vlm_config()
     return {
         "engine": "vlm",
@@ -241,10 +310,12 @@ def run_ocr(original_image: np.ndarray, blocks: list[dict]) -> list[dict]:
     """
     For each block:
     - table/figure: crop directly (no VLM call)
-    - text/list: crop region → base64 → VLM API; fallback to crop on failure
+    - text/list: split into lines → local engine per line (or the remote VLM per block
+      when OCR_ALLOW_REMOTE=1); fallback to crop on failure
     """
     pil_image = _to_pil_rgb(original_image)
-    config_error = _validate_vlm_config()
+    remote = _remote_enabled()
+    config_error = _validate_vlm_config() if remote else None
     if config_error:
         logger.warning("%s Text blocks will be exported as crops.", config_error)
 
@@ -268,13 +339,15 @@ def run_ocr(original_image: np.ndarray, blocks: list[dict]) -> list[dict]:
             continue
 
         try:
-            if ocr_calls > 0 and _OCR_REQUEST_DELAY_SEC > 0:
-                time.sleep(_OCR_REQUEST_DELAY_SEC)
             region = _crop_region(pil_image, block["bbox"])
-            region = _prepare_ocr_region(region)
-            base64_image = _pil_to_base64(region)
-            text = extract_text_with_vlm(base64_image)
-            ocr_calls += 1
+            if remote:
+                if ocr_calls > 0 and _OCR_REQUEST_DELAY_SEC > 0:
+                    time.sleep(_OCR_REQUEST_DELAY_SEC)
+                text = extract_text_with_vlm(_pil_to_base64(_prepare_ocr_region(region)))
+                ocr_calls += 1
+            else:
+                lines = map(recognize_line, _split_lines(region))
+                text = "\n".join(t for t in lines if t.strip() and not _is_loop(t))
 
             if _is_illegible_text(text):
                 logger.warning("VLM returned empty or short text for block %s", block["bbox"])

@@ -204,7 +204,7 @@ def _run_pipeline_for_paths(image_paths: list[Path], job_id: str) -> list[dict[s
     if _ocr_failed_completely(all_blocks):
         message = (
             "Pipeline produced no usable output. Check the uploaded image quality, "
-            "layout detection, and VLM_API_KEY in .env."
+            "layout detection, and the local OCR worker (OCR_PYTHON)."
         )
         _log_error(f"Job {job_id}: {message}")
         raise HTTPException(status_code=500, detail=message)

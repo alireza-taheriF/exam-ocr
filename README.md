@@ -40,6 +40,23 @@ pip install -r requirements.txt
 
 **Requirements:** PyTorch and Surya OCR models (downloaded automatically on first OCR run into `.cache/huggingface/`).
 
+### Local OCR engine / موتور OCR محلی
+
+Text is read **on this machine only**: Surya finds the layout and the lines, and every line is read by
+`mohajesmaeili/Qwen3-VL-2B-Persian-Arabic-Ocr-v1.0` (best of the engines measured in `htr_eval/REPORT.md`).
+It needs `transformers>=5`, which conflicts with the app's `transformers<4.46`, so it runs in a second venv
+that the app starts as a worker process:
+
+```bash
+python3.12 -m venv .venv-ocr
+.venv-ocr/bin/pip install torch "transformers>=5" accelerate pillow
+.venv-ocr/bin/python -c "from huggingface_hub import snapshot_download as d; d('mohajesmaeili/Qwen3-VL-2B-Persian-Arabic-Ocr-v1.0')"
+export OCR_PYTHON=$PWD/.venv-ocr/bin/python   # default: ./.venv/bin/python
+```
+
+Remote vision APIs are **off**: set `OCR_ALLOW_REMOTE=1` to opt in (block crops are then uploaded to `VLM_API_BASE`).
+LLM post-correction (Ollama) did not improve WER in our tests, so it is not part of the pipeline.
+
 ---
 
 ## Run the server / اجرای سرور
